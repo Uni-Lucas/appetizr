@@ -1,1 +1,2 @@
-hello bbs
+--------- INSTALL --------
+bundle install
