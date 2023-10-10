@@ -1,0 +1,4 @@
+  [1m[36mPlato Load (46.9ms)[0m  [1m[34mSELECT "platos".* FROM "platos" /* loading for pp */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCategorias Load (56.9ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias" /* loading for pp */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCategorias Load (52.4ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias" /* loading for pp */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mCategorias Load (35.3ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias" /* loading for pp */ LIMIT $1[0m  [["LIMIT", 11]]

@@ -1,0 +1,2 @@
+class Plato < AppetizrDbModel
+end 
