@@ -1,0 +1,8 @@
+<h1>Categorias#index</h1>
+<ul>
+    <% @categorias.each do |categoria| %>
+          <li>
+            <%= link_to categoria.nombre, categoria %>
+          </li>
+    <% end %>
+</ul>

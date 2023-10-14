@@ -1,2 +1,2 @@
-class Categorias < AppetizrDbModel
+class Categoria < AppetizrDbModel
 end 

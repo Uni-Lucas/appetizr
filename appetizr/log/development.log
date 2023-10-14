@@ -2,3 +2,509 @@
   [1m[36mCategorias Load (56.9ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias" /* loading for pp */ LIMIT $1[0m  [["LIMIT", 11]]
   [1m[36mCategorias Load (52.4ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias" /* loading for pp */ LIMIT $1[0m  [["LIMIT", 11]]
   [1m[36mCategorias Load (35.3ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias" /* loading for pp */ LIMIT $1[0m  [["LIMIT", 11]]
+  [1m[36mTRANSACTION (2184.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mCategorias Create (3103.1ms)[0m  [1m[32mINSERT INTO "categorias" ("nombre") VALUES ($1)[0m  [["nombre", "japo"]]
+  [1m[36mTRANSACTION (3312.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mCategorias Load (1920.4ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias" /* loading for pp */ LIMIT $1[0m  [["LIMIT", 11]]
+Started GET "/" for 127.0.0.1 at 2023-10-10 13:04:36 +0200
+  
+ActiveRecord::NoDatabaseError (We could not find your database: storage/development.sqlite3. Available database configurations can be found in config/database.yml file.
+
+To resolve this error:
+
+- Did you create the database for this app, or delete it? You may need to create your database.
+- Has the database name changed? Check your database.yml config has the correct database name.
+
+To create your database, run:
+
+        bin/rails db:create
+):
+  
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:74:in `rescue in new_client'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:68:in `new_client'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:981:in `connect'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:993:in `reconnect'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:685:in `block in reconnect!'
+activesupport (7.1.0) lib/active_support/concurrency/null_lock.rb:9:in `synchronize'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:684:in `reconnect!'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:788:in `verify!'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:795:in `connect!'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:997:in `block in with_raw_connection'
+activesupport (7.1.0) lib/active_support/concurrency/null_lock.rb:9:in `synchronize'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:996:in `with_raw_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:1104:in `valid_raw_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:619:in `get_database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/schema_cache.rb:374:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/schema_cache.rb:70:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/schema_cache.rb:200:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:871:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:647:in `check_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:675:in `new_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:720:in `checkout_new_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:699:in `try_to_checkout_new_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:657:in `acquire_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `connection'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:501:in `block in with_temporary_connection'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:518:in `with_temporary_pool'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:500:in `with_temporary_connection'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:494:in `block in with_temporary_connection_for_each'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:493:in `each'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:493:in `with_temporary_connection_for_each'
+activerecord (7.1.0) lib/active_record/migration.rb:771:in `pending_migrations'
+activerecord (7.1.0) lib/active_record/migration.rb:750:in `check_pending_migrations'
+activerecord (7.1.0) lib/active_record/migration.rb:642:in `block (2 levels) in call'
+activesupport (7.1.0) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.0) lib/active_record/migration.rb:647:in `block in call'
+activerecord (7.1.0) lib/active_record/migration.rb:639:in `synchronize'
+activerecord (7.1.0) lib/active_record/migration.rb:639:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.0) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.0) lib/active_support/broadcast_logger.rb:212:in `method_missing'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.0) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2023-10-10 13:08:07 +0200
+Started GET "/" for 127.0.0.1 at 2023-10-10 13:08:09 +0200
+  [1m[35m (110.7ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (536.8ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (43.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 1 pending migration:
+
+db/migrate/20231009165708_create_appetizr_db_models.rb
+
+
+):
+  
+activerecord (7.1.0) lib/active_record/migration.rb:753:in `check_pending_migrations'
+activerecord (7.1.0) lib/active_record/migration.rb:642:in `block (2 levels) in call'
+activesupport (7.1.0) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.0) lib/active_record/migration.rb:647:in `block in call'
+activerecord (7.1.0) lib/active_record/migration.rb:639:in `synchronize'
+activerecord (7.1.0) lib/active_record/migration.rb:639:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.0) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.0) lib/active_support/broadcast_logger.rb:212:in `method_missing'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.0) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+  [1m[36mActiveRecord::SchemaMigration Load (31.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 1 pending migration:
+
+db/migrate/20231009165708_create_appetizr_db_models.rb
+
+
+):
+  
+activerecord (7.1.0) lib/active_record/migration.rb:753:in `check_pending_migrations'
+activerecord (7.1.0) lib/active_record/migration.rb:642:in `block (2 levels) in call'
+activesupport (7.1.0) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.0) lib/active_record/migration.rb:647:in `block in call'
+activerecord (7.1.0) lib/active_record/migration.rb:639:in `synchronize'
+activerecord (7.1.0) lib/active_record/migration.rb:639:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.0) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.0) lib/active_support/broadcast_logger.rb:212:in `method_missing'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.0) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+  [1m[35m (33.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8182714443610318080)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (33.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (34.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::InternalMetadata Create (48.2ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ('environment', 'development', '2023-10-10 11:09:02.550663', '2023-10-10 11:09:02.550668') RETURNING "key"[0m
+Migrating to CreateAppetizrDbModels (20231009165708)
+  [1m[36mTRANSACTION (35.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (47.0ms)[0m  [1m[35mCREATE TABLE "appetizr_db_models" ("id" bigserial primary key, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (286.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231009165708') RETURNING "version"[0m
+  [1m[36mTRANSACTION (34.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (33.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(8182714443610318080)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (32.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-10-10 13:09:19 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (57.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 2.2ms | Allocations: 375)
+Completed 200 OK in 95ms (Views: 7.9ms | ActiveRecord: 0.0ms | Allocations: 4916)
+
+
+Started GET "/categorias" for 127.0.0.1 at 2023-10-10 13:10:02 +0200
+Processing by CategoriasController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categorias/index.html.erb within layouts/application
+  [1m[36mCategorias Load (64.0ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias"[0m
+  ↳ app/views/categorias/index.html.erb:3
+  Rendered categorias/index.html.erb within layouts/application (Duration: 2458.7ms | Allocations: 6240)
+  Rendered layout layouts/application.html.erb (Duration: 5504.5ms | Allocations: 101598)
+Completed 200 OK in 5736ms (Views: 5045.9ms | ActiveRecord: 478.8ms | Allocations: 108621)
+
+
+Started GET "/categorias" for 127.0.0.1 at 2023-10-10 13:15:56 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (36.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriasController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categorias/index.html.erb within layouts/application
+  [1m[36mCategorias Load (69.6ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias"[0m
+  ↳ app/views/categorias/index.html.erb:3
+  Rendered categorias/index.html.erb within layouts/application (Duration: 1013.5ms | Allocations: 6311)
+  Rendered layout layouts/application.html.erb (Duration: 1180.0ms | Allocations: 42669)
+Completed 200 OK in 1211ms (Views: 640.3ms | ActiveRecord: 543.2ms | Allocations: 52826)
+
+
+Started GET "/categorias" for 127.0.0.1 at 2023-10-10 13:16:32 +0200
+Processing by CategoriasController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categorias/index.html.erb within layouts/application
+  [1m[36mCategorias Load (304.3ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias"[0m
+  ↳ app/views/categorias/index.html.erb:3
+  Rendered categorias/index.html.erb within layouts/application (Duration: 306.9ms | Allocations: 406)
+  Rendered layout layouts/application.html.erb (Duration: 316.0ms | Allocations: 2561)
+Completed 200 OK in 322ms (Views: 16.9ms | ActiveRecord: 304.3ms | Allocations: 2826)
+
+
+Started GET "/categorias/chino" for 127.0.0.1 at 2023-10-10 13:23:58 +0200
+  
+SyntaxError (/home/cinderella/Desktop/sisinf/appetizr/appetizr/app/controllers/categorias_controller.rb:7: syntax error, unexpected end-of-input):
+  
+app/controllers/categorias_controller.rb:7: syntax error, unexpected end-of-input
+Started GET "/categorias/chino" for 127.0.0.1 at 2023-10-10 13:24:19 +0200
+  
+SyntaxError (/home/cinderella/Desktop/sisinf/appetizr/appetizr/app/controllers/categorias_controller.rb:7: syntax error, unexpected end-of-input):
+  
+app/controllers/categorias_controller.rb:7: syntax error, unexpected end-of-input
+Started GET "/categorias/chino" for 127.0.0.1 at 2023-10-10 13:24:42 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (86.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/cinderella/Desktop/sisinf/appetizr/appetizr/app/controllers/categorias_controller.rb:7: syntax error, unexpected end-of-input):
+  
+app/controllers/categorias_controller.rb:7: syntax error, unexpected end-of-input
+Started GET "/categorias/1" for 127.0.0.1 at 2023-10-10 13:25:50 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (67.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/cinderella/Desktop/sisinf/appetizr/appetizr/app/controllers/categorias_controller.rb:7: syntax error, unexpected end-of-input):
+  
+app/controllers/categorias_controller.rb:7: syntax error, unexpected end-of-input
+Started GET "/categorias" for 127.0.0.1 at 2023-10-10 13:26:46 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (34.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/cinderella/Desktop/sisinf/appetizr/appetizr/app/controllers/categorias_controller.rb:7: syntax error, unexpected end-of-input):
+  
+app/controllers/categorias_controller.rb:7: syntax error, unexpected end-of-input
+Started GET "/" for 127.0.0.1 at 2023-10-10 13:27:55 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (43.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 0.9ms | Allocations: 375)
+Completed 200 OK in 41ms (Views: 6.2ms | ActiveRecord: 0.0ms | Allocations: 4268)
+
+
+Started GET "/categorias" for 127.0.0.1 at 2023-10-10 13:28:03 +0200
+  
+SyntaxError (/home/cinderella/Desktop/sisinf/appetizr/appetizr/app/controllers/categorias_controller.rb:7: syntax error, unexpected end-of-input):
+  
+app/controllers/categorias_controller.rb:7: syntax error, unexpected end-of-input
+Started GET "/categorias" for 127.0.0.1 at 2023-10-10 13:28:44 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (68.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriasController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categorias/index.html.erb within layouts/application
+  [1m[36mCategorias Load (61.6ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias"[0m
+  ↳ app/views/categorias/index.html.erb:3
+  Rendered categorias/index.html.erb within layouts/application (Duration: 952.0ms | Allocations: 6317)
+  Rendered layout layouts/application.html.erb (Duration: 1631.1ms | Allocations: 40630)
+Completed 200 OK in 1689ms (Views: 1122.0ms | ActiveRecord: 529.4ms | Allocations: 50787)
+
+
+Started GET "/categorias/1" for 127.0.0.1 at 2023-10-10 13:28:57 +0200
+Processing by CategoriasController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mCategorias Load (39.1ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias" WHERE "categorias"."nombre" = $1 LIMIT $2[0m  [["nombre", "1"], ["LIMIT", 1]]
+  ↳ app/controllers/categorias_controller.rb:6:in `show'
+Completed 404 Not Found in 365ms (ActiveRecord: 205.3ms | Allocations: 2680)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Categorias with 'nombre'=1):
+  
+app/controllers/categorias_controller.rb:6:in `show'
+Started GET "/categorias/chino" for 127.0.0.1 at 2023-10-10 13:29:28 +0200
+Processing by CategoriasController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategorias Load (85.2ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias" WHERE "categorias"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categorias_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categorias/show.html.erb within layouts/application
+  Rendered categorias/show.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1186)
+  Rendered layout layouts/application.html.erb (Duration: 6.1ms | Allocations: 1279)
+Completed 500 Internal Server Error in 102ms (ActiveRecord: 85.2ms | Allocations: 3995)
+
+
+  
+ActionView::Template::Error (undefined method `each' for #<Categorias nombre: "chino">):
+    1: <h1>Categorias encontradas</h1>
+    2: <ul>
+    3:     <% @categorias.each do |categoria| %>
+    4:           <li>
+    5:             <%= categoria.nombre %>
+    6:           </li>
+  
+app/views/categorias/show.html.erb:3
+Started GET "/categorias/chino" for 127.0.0.1 at 2023-10-10 13:30:19 +0200
+Processing by CategoriasController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategorias Load (119.6ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias" WHERE "categorias"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categorias_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categorias/show.html.erb within layouts/application
+  Rendered categorias/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 1026)
+  Rendered layout layouts/application.html.erb (Duration: 2.1ms | Allocations: 1119)
+Completed 500 Internal Server Error in 134ms (ActiveRecord: 119.6ms | Allocations: 3829)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `categoria' for #<ActionView::Base:0x00000000011d78>):
+    1: <h1>Categorias encontradas</h1>
+    2: <%= categoria.nombre %>
+  
+app/views/categorias/show.html.erb:2
+Started GET "/categorias/chino" for 127.0.0.1 at 2023-10-10 13:30:34 +0200
+Processing by CategoriasController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategorias Load (126.7ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias" WHERE "categorias"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categorias_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categorias/show.html.erb within layouts/application
+  Rendered categorias/show.html.erb within layouts/application (Duration: 0.8ms | Allocations: 117)
+  Rendered layout layouts/application.html.erb (Duration: 29.6ms | Allocations: 13776)
+Completed 200 OK in 169ms (Views: 34.2ms | ActiveRecord: 126.7ms | Allocations: 16507)
+
+
+Started GET "/categorias/jjapo" for 127.0.0.1 at 2023-10-10 13:30:43 +0200
+Processing by CategoriasController#show as HTML
+  Parameters: {"nombre"=>"jjapo"}
+  [1m[36mCategorias Load (137.0ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias" WHERE "categorias"."nombre" = $1 LIMIT $2[0m  [["nombre", "jjapo"], ["LIMIT", 1]]
+  ↳ app/controllers/categorias_controller.rb:6:in `show'
+Completed 404 Not Found in 140ms (ActiveRecord: 136.9ms | Allocations: 841)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Categorias with 'nombre'=jjapo):
+  
+app/controllers/categorias_controller.rb:6:in `show'
+Started GET "/categorias/japo" for 127.0.0.1 at 2023-10-10 13:30:46 +0200
+Processing by CategoriasController#show as HTML
+  Parameters: {"nombre"=>"japo"}
+  [1m[36mCategorias Load (329.7ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias" WHERE "categorias"."nombre" = $1 LIMIT $2[0m  [["nombre", "japo"], ["LIMIT", 1]]
+  ↳ app/controllers/categorias_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categorias/show.html.erb within layouts/application
+  Rendered categorias/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | Allocations: 2189)
+Completed 200 OK in 339ms (Views: 6.6ms | ActiveRecord: 329.7ms | Allocations: 2813)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-10 19:04:25 +0200
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.1ms | Allocations: 271)
+Completed 200 OK in 4ms (Views: 2.5ms | ActiveRecord: 0.0ms | Allocations: 1053)
+
+
+Started GET "/categorias/" for 127.0.0.1 at 2023-10-10 19:04:30 +0200
+Processing by CategoriasController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categorias/index.html.erb within layouts/application
+  [1m[36mCategorias Load (1338.8ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias"[0m
+  ↳ app/views/categorias/index.html.erb:3
+  Rendered categorias/index.html.erb within layouts/application (Duration: 1345.2ms | Allocations: 4284)
+  Rendered layout layouts/application.html.erb (Duration: 1380.8ms | Allocations: 17957)
+Completed 200 OK in 1394ms (Views: -492.2ms | ActiveRecord: 1875.8ms | Allocations: 19617)
+
+
+Started GET "/categorias/chino" for 127.0.0.1 at 2023-10-10 19:04:57 +0200
+Processing by CategoriasController#show as HTML
+  Parameters: {"id"=>"chino"}
+Completed 404 Not Found in 1ms (ActiveRecord: 0.0ms | Allocations: 539)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Categorias without an ID):
+  
+app/controllers/categorias_controller.rb:6:in `show'
+Started GET "/categorias/chino" for 127.0.0.1 at 2023-10-10 19:05:17 +0200
+Processing by CategoriasController#show as HTML
+  Parameters: {"id"=>"chino"}
+  [1m[36mCategorias Load (51.2ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias" WHERE "categorias"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categorias_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categorias/show.html.erb within layouts/application
+  Rendered categorias/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 119)
+  Rendered layout layouts/application.html.erb (Duration: 36.1ms | Allocations: 13772)
+Completed 200 OK in 257ms (Views: 39.0ms | ActiveRecord: 162.7ms | Allocations: 16529)
+
+
+Started GET "/categorias/" for 127.0.0.1 at 2023-10-10 19:05:20 +0200
+Processing by CategoriasController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categorias/index.html.erb within layouts/application
+  [1m[36mCategorias Load (138.3ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias"[0m
+  ↳ app/views/categorias/index.html.erb:3
+  Rendered categorias/index.html.erb within layouts/application (Duration: 141.8ms | Allocations: 670)
+  Rendered layout layouts/application.html.erb (Duration: 145.5ms | Allocations: 2831)
+Completed 200 OK in 151ms (Views: 10.5ms | ActiveRecord: 138.3ms | Allocations: 3158)
+
+
+Started GET "/categorias/japo" for 127.0.0.1 at 2023-10-10 19:05:21 +0200
+Processing by CategoriasController#show as HTML
+  Parameters: {"id"=>"japo"}
+  [1m[36mCategorias Load (57.2ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias" WHERE "categorias"."nombre" = $1 LIMIT $2[0m  [["nombre", "japo"], ["LIMIT", 1]]
+  ↳ app/controllers/categorias_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categorias/show.html.erb within layouts/application
+  Rendered categorias/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | Allocations: 2167)
+Completed 200 OK in 68ms (Views: 8.1ms | ActiveRecord: 57.2ms | Allocations: 2789)
+
+
+Started GET "/categorias" for 127.0.0.1 at 2023-10-10 19:05:26 +0200
+Processing by CategoriasController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categorias/index.html.erb within layouts/application
+  [1m[36mCategorias Load (252.7ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias"[0m
+  ↳ app/views/categorias/index.html.erb:3
+  Rendered categorias/index.html.erb within layouts/application (Duration: 255.7ms | Allocations: 456)
+  Rendered layout layouts/application.html.erb (Duration: 265.4ms | Allocations: 2623)
+Completed 200 OK in 268ms (Views: 14.2ms | ActiveRecord: 252.6ms | Allocations: 2879)
+
+
+Started GET "/categorias/chino" for 127.0.0.1 at 2023-10-10 19:05:27 +0200
+Processing by CategoriasController#show as HTML
+  Parameters: {"id"=>"chino"}
+  [1m[36mCategorias Load (44.6ms)[0m  [1m[34mSELECT "categorias".* FROM "categorias" WHERE "categorias"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categorias_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categorias/show.html.erb within layouts/application
+  Rendered categorias/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 2134)
+Completed 200 OK in 69ms (Views: 22.5ms | ActiveRecord: 44.6ms | Allocations: 2756)
+
+
+Started GET "/up" for 127.0.0.1 at 2023-10-10 19:06:10 +0200
+Processing by Rails::HealthController#show as HTML
+  Rendering html template
+  Rendered html template (Duration: 0.1ms | Allocations: 8)
+Completed 200 OK in 51ms (Views: 50.8ms | ActiveRecord: 0.0ms | Allocations: 607)
+
+
