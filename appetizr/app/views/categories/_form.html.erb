@@ -1,0 +1,13 @@
+<%= form_with model: @category do |form| %>
+    <div>
+      <%= form.label :nombre %><br>
+      <%= form.text_field :nombre %>
+      <%= @category.errors.full_messages_for(:nombre).each do |msg| %>
+        <div><%= msg %></div>
+      <% end %>
+    </div>
+
+    <div>
+    <%= form.submit %>
+    </div>
+<% end %>

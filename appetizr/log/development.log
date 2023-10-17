@@ -688,3 +688,498 @@ FOREIGN KEY ("who")
   [1m[36mTRANSACTION (46.6ms)[0m  [1m[35mCOMMIT[0m
   [1m[35m (43.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(8182714443610318080)[0m
   [1m[36mActiveRecord::SchemaMigration Load (45.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2023-10-17 18:54:41 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (60.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /usr/local/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /usr/local/lib/ruby/gems/3.2.0/gems/railties-7.1.0/lib/rails/templates/rails/welcome/index.html.erb (Duration: 1.7ms | Allocations: 375)
+Completed 200 OK in 65ms (Views: 6.8ms | ActiveRecord: 0.0ms | Allocations: 4269)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-10-17 18:54:59 +0200
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (2727.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 2730.7ms | Allocations: 766)
+  Rendered layout layouts/application.html.erb (Duration: 3411.0ms | Allocations: 34351)
+Completed 200 OK in 3679ms (Views: 697.4ms | ActiveRecord: 2727.8ms | Allocations: 42951)
+
+
+Started GET "/new_category" for 127.0.0.1 at 2023-10-17 18:56:18 +0200
+  
+ActionController::RoutingError (No route matches [GET] "/new_category"):
+  
+Started GET "/categories/new_category" for 127.0.0.1 at 2023-10-17 18:56:28 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"id"=>"new_category"}
+Completed 500 Internal Server Error in 28203ms (ActiveRecord: 28200.7ms | Allocations: 786)
+
+
+  
+ActiveRecord::UnknownPrimaryKey (Unknown primary key for table categories in model Category.):
+  
+app/controllers/categories_controller.rb:7:in `show'
+Started GET "/categories/new" for 127.0.0.1 at 2023-10-17 18:58:35 +0200
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 29.5ms | Allocations: 1925)
+  Rendered layout layouts/application.html.erb (Duration: 32.6ms | Allocations: 3881)
+Completed 200 OK in 408ms (Views: 33.2ms | ActiveRecord: 305.0ms | Allocations: 18263)
+
+
+Started POST "/categories" for 127.0.0.1 at 2023-10-17 18:58:47 +0200
+Processing by CategoriesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"nombre"=>"chino"}, "commit"=>"Create Category"}
+  [1m[36mTRANSACTION (4308.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:17:in `create'
+  [1m[36mCategory Create (4368.6ms)[0m  [1m[32mINSERT INTO "categories" ("nombre", "created_at", "updated_at") VALUES ($1, $2, $3)[0m  [["nombre", "chino"], ["created_at", "2023-10-17 16:58:47.181384"], ["updated_at", "2023-10-17 16:58:47.181384"]]
+  ↳ app/controllers/categories_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (12264.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:17:in `create'
+Redirected to 
+Completed 500 Internal Server Error in 16663ms (ActiveRecord: 20941.7ms | Allocations: 3874)
+
+
+  
+ActionController::UrlGenerationError (No route matches {:action=>"show", :controller=>"categories", :id=>nil}, missing required keys: [:id]):
+  
+app/controllers/categories_controller.rb:18:in `create'
+Started GET "/categories" for 127.0.0.1 at 2023-10-17 19:00:07 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (50.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (50.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 281.9ms | Allocations: 6969)
+  Rendered layout layouts/application.html.erb (Duration: 282.2ms | Allocations: 7096)
+Completed 500 Internal Server Error in 330ms (ActiveRecord: 234.1ms | Allocations: 18449)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"categories", :id=>nil}, missing required keys: [:id]):
+    3: <ul>
+    4:   <% @categories.each do |category| %>
+    5:     <li>
+    6:       <%= link_to category.nombre, category %>
+    7:     </li>
+    8:   <% end %>
+    9: </ul>
+  
+app/views/categories/index.html.erb:6
+app/views/categories/index.html.erb:4
+Started GET "/categories" for 127.0.0.1 at 2023-10-17 19:00:34 +0200
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (246.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 251.1ms | Allocations: 1491)
+  Rendered layout layouts/application.html.erb (Duration: 251.6ms | Allocations: 1583)
+Completed 500 Internal Server Error in 253ms (ActiveRecord: 246.8ms | Allocations: 1828)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"categories", :id=>nil}, missing required keys: [:id]):
+    3: <ul>
+    4:   <% @categories.each do |category| %>
+    5:     <li>
+    6:       <%= link_to category.nombre, category %>
+    7:     </li>
+    8:   <% end %>
+    9: </ul>
+  
+app/views/categories/index.html.erb:6
+app/views/categories/index.html.erb:4
+Started GET "/categories" for 127.0.0.1 at 2023-10-17 19:05:10 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (50.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (48.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 251.5ms | Allocations: 6969)
+  Rendered layout layouts/application.html.erb (Duration: 251.8ms | Allocations: 7096)
+Completed 500 Internal Server Error in 301ms (ActiveRecord: 194.7ms | Allocations: 18449)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"categories", :nombre=>nil}, missing required keys: [:nombre]):
+    3: <ul>
+    4:   <% @categories.each do |category| %>
+    5:     <li>
+    6:       <%= link_to category.nombre, category %>
+    7:     </li>
+    8:   <% end %>
+    9: </ul>
+  
+app/views/categories/index.html.erb:6
+app/views/categories/index.html.erb:4
+Started GET "/categories" for 127.0.0.1 at 2023-10-17 19:07:44 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (65.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (46.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 249.6ms | Allocations: 6892)
+  Rendered layout layouts/application.html.erb (Duration: 250.0ms | Allocations: 7019)
+Completed 500 Internal Server Error in 309ms (ActiveRecord: 184.7ms | Allocations: 18372)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"show", :controller=>"categories", :nombre=>nil}, missing required keys: [:nombre]):
+    3: <ul>
+    4:   <% @categories.each do |category| %>
+    5:     <li>
+    6:       <%= link_to category.nombre, category_path(category) %>
+    7:     </li>
+    8:   <% end %>
+    9: </ul>
+  
+app/views/categories/index.html.erb:6
+app/views/categories/index.html.erb:4
+Started GET "/categories" for 127.0.0.1 at 2023-10-17 19:10:55 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (48.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (48.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 250.1ms | Allocations: 6965)
+  Rendered layout layouts/application.html.erb (Duration: 250.5ms | Allocations: 7092)
+Completed 500 Internal Server Error in 313ms (ActiveRecord: 194.6ms | Allocations: 18445)
+
+
+  
+ActionView::Template::Error (undefined method `name' for #<Category nombre: "chino", created_at: "2023-10-17 16:58:47.181384000 +0000", updated_at: "2023-10-17 16:58:47.181384000 +0000">):
+    3: <ul>
+    4:   <% @categories.each do |category| %>
+    5:     <li>
+    6:       <a href="/categories/<%= category.name %>">
+    7:         <%= category.name %>
+    8:       </a>
+    9:     </li>
+  
+app/views/categories/index.html.erb:6
+app/views/categories/index.html.erb:4
+Started GET "/categories" for 127.0.0.1 at 2023-10-17 19:17:06 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (89.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (42.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 235.2ms | Allocations: 5398)
+  Rendered layout layouts/application.html.erb (Duration: 300.9ms | Allocations: 39737)
+Completed 200 OK in 360ms (Views: 131.9ms | ActiveRecord: 190.7ms | Allocations: 51138)
+
+
+Started GET "/categories/chino" for 127.0.0.1 at 2023-10-17 19:17:11 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 558)
+
+
+  
+ActiveRecord::UnknownPrimaryKey (Unknown primary key for table categories in model Category.):
+  
+app/controllers/categories_controller.rb:7:in `show'
+Started GET "/categories/chino" for 127.0.0.1 at 2023-10-17 19:18:35 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (44.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (45.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/show.html.erb within layouts/application (Duration: 3.4ms | Allocations: 235)
+  Rendered layout layouts/application.html.erb (Duration: 68.4ms | Allocations: 34380)
+Completed 200 OK in 447ms (Views: 75.9ms | ActiveRecord: 219.1ms | Allocations: 52303)
+
+
+Started GET "/categories/" for 127.0.0.1 at 2023-10-17 19:18:41 +0200
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (100.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 104.6ms | Allocations: 646)
+  Rendered layout layouts/application.html.erb (Duration: 110.8ms | Allocations: 2766)
+Completed 200 OK in 113ms (Views: 11.0ms | ActiveRecord: 100.6ms | Allocations: 3095)
+
+
+Started GET "/categories/chino" for 127.0.0.1 at 2023-10-17 19:18:42 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (46.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 5.5ms | Allocations: 2120)
+Completed 200 OK in 55ms (Views: 6.9ms | ActiveRecord: 46.0ms | Allocations: 2765)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2023-10-17 19:18:47 +0200
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/new.html.erb within layouts/application (Duration: 9.8ms | Allocations: 1678)
+  Rendered layout layouts/application.html.erb (Duration: 15.9ms | Allocations: 3600)
+Completed 200 OK in 17ms (Views: 16.5ms | ActiveRecord: 0.0ms | Allocations: 3954)
+
+
+Started POST "/categories" for 127.0.0.1 at 2023-10-17 19:18:53 +0200
+Processing by CategoriesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"nombre"=>"japo"}, "commit"=>"Create Category"}
+  [1m[36mTRANSACTION (127.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:17:in `create'
+  [1m[36mCategory Create (223.2ms)[0m  [1m[32mINSERT INTO "categories" ("nombre", "created_at", "updated_at") VALUES ($1, $2, $3)[0m  [["nombre", "japo"], ["created_at", "2023-10-17 17:18:53.227011"], ["updated_at", "2023-10-17 17:18:53.227011"]]
+  ↳ app/controllers/categories_controller.rb:17:in `create'
+  [1m[36mTRANSACTION (101.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:17:in `create'
+Redirected to http://localhost:3000/categories/japo
+Completed 302 Found in 333ms (ActiveRecord: 452.4ms | Allocations: 3356)
+
+
+Started GET "/categories/japo" for 127.0.0.1 at 2023-10-17 19:18:53 +0200
+Processing by CategoriesController#show as TURBO_STREAM
+  Parameters: {"nombre"=>"japo"}
+  [1m[36mCategory Load (49.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "japo"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 7.0ms | Allocations: 2099)
+Completed 200 OK in 60ms (Views: 8.3ms | ActiveRecord: 49.1ms | Allocations: 2773)
+
+
+Started GET "/categories/" for 127.0.0.1 at 2023-10-17 19:18:57 +0200
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (310.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 313.0ms | Allocations: 414)
+  Rendered layout layouts/application.html.erb (Duration: 320.4ms | Allocations: 2520)
+Completed 200 OK in 322ms (Views: 11.0ms | ActiveRecord: 310.8ms | Allocations: 2784)
+
+
+Started GET "/categories/" for 127.0.0.1 at 2023-10-17 19:20:35 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (85.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (82.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 292.8ms | Allocations: 5583)
+  Rendered layout layouts/application.html.erb (Duration: 356.0ms | Allocations: 40179)
+Completed 200 OK in 417ms (Views: 121.8ms | ActiveRecord: 254.9ms | Allocations: 51586)
+
+
+Started GET "/categories/chino" for 127.0.0.1 at 2023-10-17 19:20:39 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (44.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 119)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 2220)
+Completed 200 OK in 192ms (Views: 9.2ms | ActiveRecord: 134.5ms | Allocations: 4402)
+
+
+Started GET "/categories/" for 127.0.0.1 at 2023-10-17 19:20:41 +0200
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (90.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 93.1ms | Allocations: 470)
+  Rendered layout layouts/application.html.erb (Duration: 101.3ms | Allocations: 2584)
+Completed 200 OK in 104ms (Views: 11.8ms | ActiveRecord: 90.4ms | Allocations: 2866)
+
+
+Started GET "/categories/japo" for 127.0.0.1 at 2023-10-17 19:20:43 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"japo"}
+  [1m[36mCategory Load (154.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "japo"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/show.html.erb within layouts/application (Duration: 0.0ms | Allocations: 8)
+  Rendered layout layouts/application.html.erb (Duration: 4.3ms | Allocations: 2105)
+Completed 200 OK in 161ms (Views: 5.4ms | ActiveRecord: 154.2ms | Allocations: 2750)
+
+
+Started GET "/categories/" for 127.0.0.1 at 2023-10-17 19:23:51 +0200
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (105.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 106.9ms | Allocations: 464)
+  Rendered layout layouts/application.html.erb (Duration: 110.5ms | Allocations: 2470)
+Completed 200 OK in 113ms (Views: 6.2ms | ActiveRecord: 105.1ms | Allocations: 2726)
+
+
+Started GET "/categories/japo" for 127.0.0.1 at 2023-10-17 19:31:17 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (48.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+SyntaxError (/home/cinderella/Desktop/sisinf/appetizr/appetizr/app/controllers/categories_controller.rb:40: syntax error, unexpected end-of-input):
+  
+app/controllers/categories_controller.rb:40: syntax error, unexpected end-of-input
+Started GET "/categories/" for 127.0.0.1 at 2023-10-17 19:31:47 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (91.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (172.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 320.8ms | Allocations: 5577)
+  Rendered layout layouts/application.html.erb (Duration: 382.2ms | Allocations: 40251)
+Completed 200 OK in 431ms (Views: 126.2ms | ActiveRecord: 266.4ms | Allocations: 51658)
+
+
+Started GET "/categories/chino" for 127.0.0.1 at 2023-10-17 19:31:50 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (42.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/show.html.erb within layouts/application (Duration: 2.0ms | Allocations: 177)
+  Rendered layout layouts/application.html.erb (Duration: 10.3ms | Allocations: 2289)
+Completed 200 OK in 187ms (Views: 12.4ms | ActiveRecord: 128.7ms | Allocations: 4472)
+
+
+Started GET "/categories/chino/edit" for 127.0.0.1 at 2023-10-17 19:32:02 +0200
+Processing by CategoriesController#edit as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (80.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/edit.html.erb within layouts/application
+  Rendered categories/_form.html.erb (Duration: 6.9ms | Allocations: 1603)
+  Rendered categories/edit.html.erb within layouts/application (Duration: 8.6ms | Allocations: 1877)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 3795)
+Completed 200 OK in 96ms (Views: 12.7ms | ActiveRecord: 80.5ms | Allocations: 4498)
+
+
+Started PATCH "/categories/chino" for 127.0.0.1 at 2023-10-17 19:32:18 +0200
+Processing by CategoriesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"nombre"=>"fumanchu"}, "commit"=>"Update Category", "nombre"=>"chino"}
+  [1m[36mCategory Load (50.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:29:in `update'
+Completed 500 Internal Server Error in 55ms (ActiveRecord: 50.9ms | Allocations: 1138)
+
+
+  
+NameError (undefined local variable or method `article_params' for #<CategoriesController:0x0000000000b4a0>):
+  
+app/controllers/categories_controller.rb:30:in `update'
+Started GET "/categories/chino" for 127.0.0.1 at 2023-10-17 19:32:44 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (111.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/show.html.erb within layouts/application (Duration: 2.7ms | Allocations: 203)
+  Rendered layout layouts/application.html.erb (Duration: 29.5ms | Allocations: 13799)
+Completed 200 OK in 415ms (Views: 32.1ms | ActiveRecord: 256.9ms | Allocations: 17842)
+
+
+Started GET "/categories/chino/edit" for 127.0.0.1 at 2023-10-17 19:32:46 +0200
+Processing by CategoriesController#edit as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (48.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/edit.html.erb within layouts/application
+  Rendered categories/_form.html.erb (Duration: 5.7ms | Allocations: 926)
+  Rendered categories/edit.html.erb within layouts/application (Duration: 12.1ms | Allocations: 1161)
+  Rendered layout layouts/application.html.erb (Duration: 17.5ms | Allocations: 3079)
+Completed 200 OK in 69ms (Views: 18.3ms | ActiveRecord: 48.5ms | Allocations: 3767)
+
+
+Started PATCH "/categories/chino" for 127.0.0.1 at 2023-10-17 19:32:51 +0200
+Processing by CategoriesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"nombre"=>"fumanchu"}, "commit"=>"Update Category", "nombre"=>"chino"}
+  [1m[36mCategory Load (121.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:29:in `update'
+  [1m[36mTRANSACTION (97.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:30:in `update'
+  [1m[36mCategory Update (151.6ms)[0m  [1m[33mUPDATE "categories" SET "nombre" = $1, "updated_at" = $2 WHERE "categories"."nombre" = $3[0m  [["nombre", "fumanchu"], ["updated_at", "2023-10-17 17:32:51.988340"], ["nombre", "chino"]]
+  ↳ app/controllers/categories_controller.rb:30:in `update'
+  [1m[36mTRANSACTION (77.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:30:in `update'
+Redirected to http://localhost:3000/categories/fumanchu
+Completed 302 Found in 362ms (ActiveRecord: 448.6ms | Allocations: 3824)
+
+
+Started GET "/categories/fumanchu" for 127.0.0.1 at 2023-10-17 19:32:52 +0200
+Processing by CategoriesController#show as TURBO_STREAM
+  Parameters: {"nombre"=>"fumanchu"}
+  [1m[36mCategory Load (57.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "fumanchu"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/show.html.erb within layouts/application (Duration: 0.6ms | Allocations: 42)
+  Rendered layout layouts/application.html.erb (Duration: 7.2ms | Allocations: 2195)
+Completed 200 OK in 68ms (Views: 8.2ms | ActiveRecord: 57.6ms | Allocations: 2871)
+
+
+Started GET "/categories/" for 127.0.0.1 at 2023-10-17 19:32:55 +0200
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (392.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 395.9ms | Allocations: 671)
+  Rendered layout layouts/application.html.erb (Duration: 406.0ms | Allocations: 2790)
+Completed 200 OK in 409ms (Views: 16.1ms | ActiveRecord: 392.2ms | Allocations: 3118)
+
+
+Started GET "/categories/japo" for 127.0.0.1 at 2023-10-17 19:38:40 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"japo"}
+  [1m[36mCategory Load (43.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "japo"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  Rendered categories/show.html.erb within layouts/application (Duration: 1.5ms | Allocations: 278)
+  Rendered layout layouts/application.html.erb (Duration: 33.6ms | Allocations: 13871)
+Completed 200 OK in 238ms (Views: 38.6ms | ActiveRecord: 137.8ms | Allocations: 17903)
+
+
+Started DELETE "/categories/japo" for 127.0.0.1 at 2023-10-17 19:38:47 +0200
+Processing by CategoriesController#destroy as TURBO_STREAM
+  Parameters: {"nombre"=>"japo"}
+  [1m[36mCategory Load (72.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "japo"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:38:in `destroy'
+  [1m[36mTRANSACTION (99.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:39:in `destroy'
+  [1m[36mCategory Destroy (146.0ms)[0m  [1m[31mDELETE FROM "categories" WHERE "categories"."nombre" = $1[0m  [["nombre", "japo"]]
+  ↳ app/controllers/categories_controller.rb:39:in `destroy'
+  [1m[36mTRANSACTION (52.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:39:in `destroy'
+Redirected to http://localhost:3000/
+Completed 303 See Other in 279ms (ActiveRecord: 369.4ms | Allocations: 1956)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-17 19:38:48 +0200
+Processing by CategoriesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (111.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 114.2ms | Allocations: 619)
+  Rendered layout layouts/application.html.erb (Duration: 119.7ms | Allocations: 2736)
+Completed 200 OK in 121ms (Views: 9.2ms | ActiveRecord: 110.9ms | Allocations: 3103)
+
+
