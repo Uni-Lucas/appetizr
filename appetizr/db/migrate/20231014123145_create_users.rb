@@ -6,5 +6,6 @@ class CreateUsers < ActiveRecord::Migration[7.1]
       t.string :rutaImgPerfil
       t.boolean :esAdmin
     end
+    
   end
 end

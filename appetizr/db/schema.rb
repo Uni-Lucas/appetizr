@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_09_165708) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_14_154425) do
   create_schema "postgis_topology"
   create_schema "tiger"
   create_schema "tiger_data"
@@ -58,74 +58,84 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_09_165708) do
   enable_extension "uuid-ossp"
   enable_extension "xml2"
 
-  create_table "appetizr_db_models", force: :cascade do |t|
+  create_table "categories", id: false, force: :cascade do |t|
+    t.string "nombre"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["nombre"], name: "index_categories_on_nombre", unique: true
+  end
+
+  create_table "dishes", force: :cascade do |t|
+    t.bigint "restaurant_id"
+    t.string "nombre"
+    t.string "rutaImgPlato"
+    t.text "descripcion"
+    t.float "precio"
+    t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
+  end
+
+  create_table "posts", force: :cascade do |t|
+    t.string "categoria"
+    t.string "autor"
+    t.text "contenido"
+    t.string "rutaImg"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "categorias", primary_key: "nombre", id: { type: :string, limit: 20 }, force: :cascade do |t|
+  create_table "ranks", id: false, force: :cascade do |t|
+    t.string "who"
+    t.bigint "what"
+    t.integer "valoracion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table "personas", primary_key: "idpersona", id: :serial, force: :cascade do |t|
-    t.string "nombre", limit: 50, null: false
-    t.string "contrasegna", limit: 50, null: false
-    t.binary "imgperfil"
+  create_table "reactions", id: false, force: :cascade do |t|
+    t.string "who"
+    t.string "reactionable_type"
+    t.bigint "reactionable_id"
+    t.string "reaccion"
+    t.index ["reactionable_type", "reactionable_id"], name: "index_reactions_on_reactionable"
   end
 
-  create_table "platos", primary_key: "idplato", id: :serial, force: :cascade do |t|
-    t.string "nombre", limit: 50, null: false
-    t.string "descripcion", limit: 50, null: false
-    t.binary "imgplato"
-    t.integer "restaurante", null: false
+  create_table "responses", force: :cascade do |t|
+    t.string "autor"
+    t.string "respondable_type"
+    t.bigint "respondable_id"
+    t.text "contenido"
+    t.string "rutaImg"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["respondable_type", "respondable_id"], name: "index_responses_on_respondable"
   end
 
-  create_table "posts", primary_key: "idcom", id: :serial, force: :cascade do |t|
-    t.string "contenido", limit: 400, null: false
-    t.binary "imagen"
-    t.timestamptz "fecha", null: false
-    t.string "categoria", limit: 20, null: false
-    t.integer "idautorrest"
-    t.integer "idautorpers"
-    t.check_constraint "idautorrest IS NOT NULL OR idautorpers IS NOT NULL", name: "posts_check"
+  create_table "restaurants", force: :cascade do |t|
+    t.string "categoria"
+    t.string "nombre"
+    t.string "rutaImgPerfil"
+    t.string "rutaImgFondo"
+    t.string "direccion"
+    t.string "telefono"
+    t.string "horario"
   end
 
-  create_table "reacciona", primary_key: "idreaccion", id: :serial, force: :cascade do |t|
-    t.integer "idpost"
-    t.integer "idreview"
-    t.integer "idrespuesta"
-    t.integer "idpers", null: false
-    t.boolean "reaccion", null: false
-    t.check_constraint "idpost IS NOT NULL AND idreview IS NULL AND idrespuesta IS NULL OR idpost IS NULL AND idreview IS NOT NULL AND idrespuesta IS NULL OR idpost IS NULL AND idreview IS NULL AND idrespuesta IS NOT NULL", name: "reacciona_check"
+  create_table "restaurants_users", id: false, force: :cascade do |t|
+    t.bigint "restaurant_id"
+    t.bigint "user_id"
+    t.index ["restaurant_id"], name: "index_restaurants_users_on_restaurant_id"
+    t.index ["user_id"], name: "index_restaurants_users_on_user_id"
   end
 
-  create_table "respuestas", primary_key: "idcom", id: :serial, force: :cascade do |t|
-    t.string "contenido", limit: 400, null: false
-    t.binary "imagen"
-    t.timestamptz "fecha", null: false
-    t.integer "idautorrest"
-    t.integer "idautorpers"
-    t.integer "idpost", null: false
-    t.check_constraint "idautorrest IS NOT NULL OR idautorpers IS NOT NULL", name: "respuestas_check"
-  end
-
-  create_table "restaurantes", primary_key: "idrest", id: :serial, force: :cascade do |t|
-    t.string "nombre", limit: 50, null: false
-    t.string "contrasegna", limit: 50, null: false
-    t.binary "imgperfil"
-    t.string "direccion", limit: 50, null: false
-    t.string "telefono", limit: 20, null: false
-    t.string "horario", limit: 50, null: false
-    t.string "categoria", limit: 20, null: false
-  end
-
-  create_table "reviews", primary_key: "idcom", id: :serial, force: :cascade do |t|
-    t.string "contenido", limit: 400, null: false
-    t.binary "imagen"
-    t.timestamptz "fecha", null: false
-    t.integer "idautorpers", null: false
-    t.integer "idrest"
-    t.integer "idplato"
-    t.check_constraint "idrest IS NOT NULL OR idplato IS NOT NULL", name: "reviews_check"
+  create_table "reviews", force: :cascade do |t|
+    t.string "autor"
+    t.string "reviewable_type"
+    t.bigint "reviewable_id"
+    t.text "contenido"
+    t.string "rutaImg"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable"
   end
 
   create_table "spatial_ref_sys", primary_key: "srid", id: :integer, default: nil, force: :cascade do |t|
@@ -136,28 +146,21 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_09_165708) do
     t.check_constraint "srid > 0 AND srid <= 998999", name: "spatial_ref_sys_srid_check"
   end
 
-  create_table "valora", primary_key: ["idrestaurante", "idpersona"], force: :cascade do |t|
-    t.integer "idrestaurante", null: false
-    t.integer "idpersona", null: false
-    t.integer "valoracion", null: false
-    t.check_constraint "valoracion >= 0 AND valoracion <= 5", name: "valora_valoracion_check"
+  create_table "users", id: false, force: :cascade do |t|
+    t.string "nombre"
+    t.string "contrasegna"
+    t.string "rutaImgPerfil"
+    t.boolean "esAdmin"
+    t.index ["nombre"], name: "index_users_on_nombre", unique: true
   end
 
-  add_foreign_key "platos", "restaurantes", column: "restaurante", primary_key: "idrest", name: "platos_restaurante_fkey"
-  add_foreign_key "posts", "categorias", column: "categoria", primary_key: "nombre", name: "posts_categoria_fkey"
-  add_foreign_key "posts", "personas", column: "idautorpers", primary_key: "idpersona", name: "posts_idautorpers_fkey"
-  add_foreign_key "posts", "restaurantes", column: "idautorrest", primary_key: "idrest", name: "posts_idautorrest_fkey"
-  add_foreign_key "reacciona", "personas", column: "idpers", primary_key: "idpersona", name: "reacciona_idpers_fkey"
-  add_foreign_key "reacciona", "posts", column: "idpost", primary_key: "idcom", name: "reacciona_idpost_fkey"
-  add_foreign_key "reacciona", "respuestas", column: "idrespuesta", primary_key: "idcom", name: "reacciona_idrespuesta_fkey"
-  add_foreign_key "reacciona", "reviews", column: "idreview", primary_key: "idcom", name: "reacciona_idreview_fkey"
-  add_foreign_key "respuestas", "personas", column: "idautorpers", primary_key: "idpersona", name: "respuestas_idautorpers_fkey"
-  add_foreign_key "respuestas", "posts", column: "idpost", primary_key: "idcom", name: "respuestas_idpost_fkey"
-  add_foreign_key "respuestas", "restaurantes", column: "idautorrest", primary_key: "idrest", name: "respuestas_idautorrest_fkey"
-  add_foreign_key "restaurantes", "categorias", column: "categoria", primary_key: "nombre", name: "restaurantes_categoria_fkey"
-  add_foreign_key "reviews", "personas", column: "idautorpers", primary_key: "idpersona", name: "reviews_idautorpers_fkey"
-  add_foreign_key "reviews", "platos", column: "idplato", primary_key: "idplato", name: "reviews_idplato_fkey"
-  add_foreign_key "reviews", "restaurantes", column: "idrest", primary_key: "idrest", name: "reviews_idrest_fkey"
-  add_foreign_key "valora", "personas", column: "idpersona", primary_key: "idpersona", name: "valora_idpersona_fkey"
-  add_foreign_key "valora", "restaurantes", column: "idrestaurante", primary_key: "idrest", name: "valora_idrestaurante_fkey"
+  add_foreign_key "dishes", "restaurants"
+  add_foreign_key "posts", "categories", column: "categoria", primary_key: "nombre"
+  add_foreign_key "posts", "users", column: "autor", primary_key: "nombre"
+  add_foreign_key "ranks", "restaurants", column: "what"
+  add_foreign_key "ranks", "users", column: "who", primary_key: "nombre"
+  add_foreign_key "reactions", "users", column: "who", primary_key: "nombre"
+  add_foreign_key "responses", "users", column: "autor", primary_key: "nombre"
+  add_foreign_key "restaurants", "categories", column: "categoria", primary_key: "nombre"
+  add_foreign_key "reviews", "users", column: "autor", primary_key: "nombre"
 end

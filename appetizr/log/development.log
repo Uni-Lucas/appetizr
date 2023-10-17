@@ -508,3 +508,183 @@ Processing by Rails::HealthController#show as HTML
 Completed 200 OK in 51ms (Views: 50.8ms | ActiveRecord: 0.0ms | Allocations: 607)
 
 
+  [1m[36mActiveRecord::SchemaMigration Load (53.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (120.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (65.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (55.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (78.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (497.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (378.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (55.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (44.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (44.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (48.2ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (44.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (44.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (169.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8182714443610318080)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (47.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (77.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to CreateUsers (20231014123145)
+  [1m[36mTRANSACTION (135.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (70.1ms)[0m  [1m[35mCREATE TABLE "users" ("nombre" character varying, "contrasegna" character varying, "rutaImgPerfil" character varying, "esAdmin" boolean)[0m
+  [1m[36mActiveRecord::SchemaMigration Create (53.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231014123145') RETURNING "version"[0m
+  [1m[36mTRANSACTION (49.7ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateCategories (20231014123400)
+  [1m[36mTRANSACTION (42.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (95.8ms)[0m  [1m[35mCREATE TABLE "categories" ("nombre" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (61.3ms)[0m  [1m[35mCREATE TABLE "restaurants" ("id" bigserial primary key, "categoria" character varying, "nombre" character varying, "rutaImgPerfil" character varying, "rutaImgFondo" character varying, "direccion" character varying, "telefono" character varying, "horario" character varying)[0m
+  [1m[35m (57.5ms)[0m  [1m[35mALTER TABLE "restaurants" ADD CONSTRAINT "fk_rails_933d904194"
+FOREIGN KEY ("categoria")
+  REFERENCES "categories" ("nombre")
+[0m
+  [1m[36mTRANSACTION (47.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (42.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(8182714443610318080)[0m
+  [1m[35m (55.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8182714443610318080)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (93.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (45.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to CreateCategories (20231014123400)
+  [1m[36mTRANSACTION (43.0ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (56.1ms)[0m  [1m[35mCREATE TABLE "categories" ("nombre" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (52.0ms)[0m  [1m[35mCREATE TABLE "restaurants" ("id" bigserial primary key, "categoria_id" bigint, "nombre" character varying, "rutaImgPerfil" character varying, "rutaImgFondo" character varying, "direccion" character varying, "telefono" character varying, "horario" character varying)[0m
+  [1m[35m (47.4ms)[0m  [1m[35mCREATE INDEX "index_restaurants_on_categoria_id" ON "restaurants" ("categoria_id")[0m
+  [1m[35m (65.7ms)[0m  [1m[35mALTER TABLE "restaurants" ADD CONSTRAINT "fk_rails_933d904194"
+FOREIGN KEY ("categoria")
+  REFERENCES "categories" ("nombre")
+[0m
+  [1m[36mTRANSACTION (47.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (44.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(8182714443610318080)[0m
+  [1m[35m (55.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8182714443610318080)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (50.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (49.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to CreateCategories (20231014123400)
+  [1m[36mTRANSACTION (47.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (74.9ms)[0m  [1m[35mCREATE TABLE "categories" ("nombre" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (75.5ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_categories_on_nombre" ON "categories" ("nombre")[0m
+  [1m[35m (60.4ms)[0m  [1m[35mCREATE TABLE "restaurants" ("id" bigserial primary key, "categoria" character varying, "nombre" character varying, "rutaImgPerfil" character varying, "rutaImgFondo" character varying, "direccion" character varying, "telefono" character varying, "horario" character varying)[0m
+  [1m[35m (98.2ms)[0m  [1m[35mALTER TABLE "restaurants" ADD CONSTRAINT "fk_rails_933d904194"
+FOREIGN KEY ("categoria")
+  REFERENCES "categories" ("nombre")
+[0m
+  [1m[35m (99.3ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "categoria" character varying, "autor" character varying, "contenido" text, "rutaImg" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (52.3ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_524e609882"
+FOREIGN KEY ("categoria")
+  REFERENCES "categories" ("nombre")
+[0m
+  [1m[35m (68.4ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_b3f6eb0ecb"
+FOREIGN KEY ("autor")
+  REFERENCES "users" ("nombre")
+[0m
+  [1m[36mTRANSACTION (47.4ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (77.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(8182714443610318080)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (168.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (56.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (52.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (48.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8182714443610318080)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (52.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20231014123145)
+  [1m[36mTRANSACTION (59.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mTRANSACTION (44.1ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (44.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8182714443610318080)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (47.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (53.6ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (80.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (59.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[36mActiveRecord::SchemaMigration Load (50.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (53.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (54.6ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8182714443610318080)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (51.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (67.0ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to CreateCategories (20231014123400)
+  [1m[36mTRANSACTION (55.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (171.5ms)[0m  [1m[35mCREATE TABLE "categories" ("nombre" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (50.9ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_categories_on_nombre" ON "categories" ("nombre")[0m
+  [1m[35m (63.7ms)[0m  [1m[35mCREATE TABLE "restaurants" ("id" bigserial primary key, "categoria" character varying, "nombre" character varying, "rutaImgPerfil" character varying, "rutaImgFondo" character varying, "direccion" character varying, "telefono" character varying, "horario" character varying)[0m
+  [1m[35m (68.6ms)[0m  [1m[35mALTER TABLE "restaurants" ADD CONSTRAINT "fk_rails_933d904194"
+FOREIGN KEY ("categoria")
+  REFERENCES "categories" ("nombre")
+[0m
+  [1m[35m (93.3ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "categoria" character varying, "autor" character varying, "contenido" text, "rutaImg" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (46.9ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_524e609882"
+FOREIGN KEY ("categoria")
+  REFERENCES "categories" ("nombre")
+[0m
+  [1m[35m (75.7ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_b3f6eb0ecb"
+FOREIGN KEY ("autor")
+  REFERENCES "users" ("nombre")
+[0m
+  [1m[36mTRANSACTION (68.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (54.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(8182714443610318080)[0m
+  [1m[35m (52.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8182714443610318080)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (48.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (57.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to CreateCategories (20231014123400)
+  [1m[36mTRANSACTION (53.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (58.6ms)[0m  [1m[35mCREATE TABLE "categories" ("nombre" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (51.8ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_categories_on_nombre" ON "categories" ("nombre")[0m
+  [1m[35m (62.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_users_on_nombre" ON "users" ("nombre")[0m
+  [1m[35m (61.0ms)[0m  [1m[35mCREATE TABLE "restaurants" ("id" bigserial primary key, "categoria" character varying, "nombre" character varying, "rutaImgPerfil" character varying, "rutaImgFondo" character varying, "direccion" character varying, "telefono" character varying, "horario" character varying)[0m
+  [1m[35m (79.9ms)[0m  [1m[35mALTER TABLE "restaurants" ADD CONSTRAINT "fk_rails_933d904194"
+FOREIGN KEY ("categoria")
+  REFERENCES "categories" ("nombre")
+[0m
+  [1m[35m (63.8ms)[0m  [1m[35mCREATE TABLE "posts" ("id" bigserial primary key, "categoria" character varying, "autor" character varying, "contenido" text, "rutaImg" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (65.4ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_524e609882"
+FOREIGN KEY ("categoria")
+  REFERENCES "categories" ("nombre")
+[0m
+  [1m[35m (57.5ms)[0m  [1m[35mALTER TABLE "posts" ADD CONSTRAINT "fk_rails_b3f6eb0ecb"
+FOREIGN KEY ("autor")
+  REFERENCES "users" ("nombre")
+[0m
+  [1m[35m (86.4ms)[0m  [1m[35mCREATE TABLE "dishes" ("id" bigserial primary key, "restaurant_id" bigint, "nombre" character varying, "rutaImgPlato" character varying, "descripcion" text, "precio" float, CONSTRAINT "fk_rails_d0358ace74"
+FOREIGN KEY ("restaurant_id")
+  REFERENCES "restaurants" ("id")
+)[0m
+  [1m[35m (58.6ms)[0m  [1m[35mCREATE INDEX "index_dishes_on_restaurant_id" ON "dishes" ("restaurant_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (58.2ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231014123400') RETURNING "version"[0m
+  [1m[36mTRANSACTION (49.2ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateRanks (20231014123836)
+  [1m[35m (42.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(8182714443610318080)[0m
+  [1m[35m (46.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8182714443610318080)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (45.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (49.7ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to CreateRanks (20231014123836)
+  [1m[36mTRANSACTION (115.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (57.5ms)[0m  [1m[35mCREATE TABLE "ranks" ("who" character varying, "what" bigint, "valoracion" integer, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (103.5ms)[0m  [1m[35mALTER TABLE "ranks" ADD CONSTRAINT "fk_rails_9fce1feeee"
+FOREIGN KEY ("who")
+  REFERENCES "users" ("nombre")
+[0m
+  [1m[35m (79.4ms)[0m  [1m[35mALTER TABLE "ranks" ADD CONSTRAINT "fk_rails_7748a61fa4"
+FOREIGN KEY ("what")
+  REFERENCES "restaurants" ("id")
+[0m
+  [1m[35m (57.4ms)[0m  [1m[35mCREATE TABLE "restaurants_users" ("restaurant_id" bigint, "user_id" bigint)[0m
+  [1m[35m (56.7ms)[0m  [1m[35mCREATE INDEX "index_restaurants_users_on_restaurant_id" ON "restaurants_users" ("restaurant_id")[0m
+  [1m[35m (193.1ms)[0m  [1m[35mCREATE INDEX "index_restaurants_users_on_user_id" ON "restaurants_users" ("user_id")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (67.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231014123836') RETURNING "version"[0m
+  [1m[36mTRANSACTION (44.4ms)[0m  [1m[35mCOMMIT[0m
+Migrating to CreateResponses (20231014154425)
+  [1m[36mTRANSACTION (51.8ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (112.8ms)[0m  [1m[35mCREATE TABLE "reviews" ("id" bigserial primary key, "autor" character varying, "reviewable_type" character varying, "reviewable_id" bigint, "contenido" text, "rutaImg" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (48.7ms)[0m  [1m[35mCREATE INDEX "index_reviews_on_reviewable" ON "reviews" ("reviewable_type", "reviewable_id")[0m
+  [1m[35m (49.5ms)[0m  [1m[35mALTER TABLE "reviews" ADD CONSTRAINT "fk_rails_f590e16c10"
+FOREIGN KEY ("autor")
+  REFERENCES "users" ("nombre")
+[0m
+  [1m[35m (56.9ms)[0m  [1m[35mCREATE TABLE "responses" ("id" bigserial primary key, "autor" character varying, "respondable_type" character varying, "respondable_id" bigint, "contenido" text, "rutaImg" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (57.5ms)[0m  [1m[35mCREATE INDEX "index_responses_on_respondable" ON "responses" ("respondable_type", "respondable_id")[0m
+  [1m[35m (46.6ms)[0m  [1m[35mALTER TABLE "responses" ADD CONSTRAINT "fk_rails_104cd04bd6"
+FOREIGN KEY ("autor")
+  REFERENCES "users" ("nombre")
+[0m
+  [1m[35m (60.2ms)[0m  [1m[35mCREATE TABLE "reactions" ("who" character varying, "reactionable_type" character varying, "reactionable_id" bigint, "reaccion" character varying)[0m
+  [1m[35m (52.8ms)[0m  [1m[35mCREATE INDEX "index_reactions_on_reactionable" ON "reactions" ("reactionable_type", "reactionable_id")[0m
+  [1m[35m (56.0ms)[0m  [1m[35mALTER TABLE "reactions" ADD CONSTRAINT "fk_rails_3f551a92e6"
+FOREIGN KEY ("who")
+  REFERENCES "users" ("nombre")
+[0m
+  [1m[36mActiveRecord::SchemaMigration Create (61.8ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20231014154425') RETURNING "version"[0m
+  [1m[36mTRANSACTION (46.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (43.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(8182714443610318080)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (45.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m

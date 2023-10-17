@@ -5,6 +5,9 @@ class CreateCategories < ActiveRecord::Migration[7.1]
       t.timestamps
     end
 
+    add_index :categories, :nombre, :unique => true
+    add_index :users, :nombre, :unique => true
+
     create_table :restaurants do |t|
       t.string :categoria
       t.string :nombre

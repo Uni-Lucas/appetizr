@@ -3,7 +3,7 @@ class CreateRanks < ActiveRecord::Migration[7.1]
     create_table :ranks, primary_key: [:who, :what], id: false do |t|
       t.string :who
       t.bigint :what
-      t.int :valoracion
+      t.integer :valoracion
       t.timestamps
     end
 
