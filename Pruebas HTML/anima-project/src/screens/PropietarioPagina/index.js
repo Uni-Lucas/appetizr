@@ -1,0 +1,1 @@
+export { PropietarioPagina } from "./PropietarioPagina";

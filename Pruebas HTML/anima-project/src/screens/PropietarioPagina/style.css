@@ -1,0 +1,1740 @@
+.propietario-pagina {
+  background-color: #f7efde;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.propietario-pagina .overlap-wrapper {
+  background-color: #f7efde;
+  height: 6558px;
+  width: 1440px;
+}
+
+.propietario-pagina .overlap {
+  height: 6558px;
+  position: relative;
+}
+
+.propietario-pagina .page-content {
+  height: 6474px;
+  left: 310px;
+  overflow: hidden;
+  position: absolute;
+  top: 84px;
+  width: 1130px;
+}
+
+.propietario-pagina .overlap-group {
+  height: 5938px;
+  left: 0;
+  position: absolute;
+  top: 391px;
+  width: 1130px;
+}
+
+.propietario-pagina .contenido {
+  align-items: flex-start;
+  background-color: #0e0e15;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: 5868px;
+  left: 1px;
+  overflow: hidden;
+  padding: 1px 0px;
+  position: absolute;
+  top: 70px;
+  width: 1129px;
+}
+
+.propietario-pagina .text-wrapper {
+  color: #ffffff;
+  font-family: "Chillax-Regular", Helvetica;
+  font-size: 36px;
+  font-weight: 400;
+  height: 93px;
+  letter-spacing: 10.8px;
+  line-height: normal;
+  margin-right: -1px;
+  margin-top: -1px;
+  position: relative;
+  text-align: center;
+  width: 1130px;
+}
+
+.propietario-pagina .categorias-platos {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 3142px;
+  position: relative;
+  width: 1118px;
+}
+
+.propietario-pagina .starters {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  height: 693px;
+  position: relative;
+  width: 1022px;
+}
+
+.propietario-pagina .header {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  padding: 0px 16px;
+  position: relative;
+  width: 100%;
+}
+
+.propietario-pagina .div {
+  color: var(--textprimary);
+  font-family: "Chillax-Medium", Helvetica;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 28px;
+  margin-top: -1px;
+  position: relative;
+  width: 610px;
+}
+
+.propietario-pagina .grid {
+  align-items: flex-start;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  width: 1022px;
+}
+
+.propietario-pagina .div-2 {
+  align-items: center;
+  display: flex;
+  gap: 24px;
+  height: 163px;
+  padding: 16px 24px 16px 16px;
+  position: relative;
+  width: 1022px;
+}
+
+.propietario-pagina .image {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 133px;
+  margin-bottom: -1px;
+  margin-top: -1px;
+  overflow: hidden;
+  position: relative;
+  width: 169px;
+}
+
+.propietario-pagina .img {
+  height: 133px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 169px;
+}
+
+.propietario-pagina .content {
+  align-items: flex-start;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+  gap: 4px;
+  position: relative;
+}
+
+.propietario-pagina .grid-2 {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 10px;
+  position: relative;
+  width: 100%;
+}
+
+.propietario-pagina .div-wrapper {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-grow: 1;
+  gap: 16px;
+  position: relative;
+}
+
+.propietario-pagina .text-wrapper-2 {
+  color: var(--textdefault);
+  font-family: "Chillax-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 51.2px;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.propietario-pagina .price {
+  align-items: center;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  position: relative;
+}
+
+.propietario-pagina .button {
+  all: unset;
+  align-items: center;
+  background-color: #daac65;
+  border-radius: 25px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 12px;
+  height: 72px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 12px 20px;
+  position: relative;
+  width: 161px;
+}
+
+.propietario-pagina .text-wrapper-3 {
+  color: #0e0e15;
+  font-family: "Roboto", Helvetica;
+  font-size: 16px;
+  font-weight: 900;
+  letter-spacing: 0.32px;
+  line-height: normal;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.propietario-pagina .p {
+  align-self: stretch;
+  color: #ffffff;
+  font-family: "Chillax-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 38.4px;
+  opacity: 0.6;
+  position: relative;
+}
+
+.propietario-pagina .image-2 {
+  background-image: url(https://c.animaapp.com/23p7QKpJ/img/image.svg);
+  background-position: 50% 50%;
+  background-size: cover;
+  border-radius: 10px;
+  height: 133px;
+  margin-bottom: -1px;
+  margin-top: -1px;
+  position: relative;
+  width: 169px;
+}
+
+.propietario-pagina .button-wrapper {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 8px;
+  justify-content: center;
+  padding: 0px 30px;
+  position: relative;
+  width: 100%;
+}
+
+.propietario-pagina .breakfast {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  height: 869px;
+  position: relative;
+  width: 998px;
+}
+
+.propietario-pagina .header-2 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  width: 100%;
+}
+
+.propietario-pagina .text-wrapper-4 {
+  align-self: stretch;
+  color: var(--textprimary);
+  font-family: "Chillax-Medium", Helvetica;
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 28px;
+  margin-top: -1px;
+  position: relative;
+}
+
+.propietario-pagina .grid-3 {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 16px;
+  margin-right: -35px;
+  position: relative;
+}
+
+.propietario-pagina .row {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  gap: 24px;
+  height: 142px;
+  padding: 16px 24px 16px 16px;
+  position: relative;
+  width: 100%;
+}
+
+.propietario-pagina .image-3 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 133px;
+  margin-bottom: -11.5px;
+  margin-top: -11.5px;
+  overflow: hidden;
+  position: relative;
+  width: 168px;
+}
+
+.propietario-pagina .img-2 {
+  height: 133px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 168px;
+}
+
+.propietario-pagina .content-2 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: -2px;
+  margin-top: -2px;
+  position: relative;
+  width: 784px;
+}
+
+.propietario-pagina .grid-4 {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  position: relative;
+  width: 784px;
+}
+
+.propietario-pagina .text-wrapper-5 {
+  color: var(--textdefault);
+  font-family: "Chillax-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 51.2px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.propietario-pagina .text-wrapper-6 {
+  color: #ffffff;
+  font-family: "Chillax-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 38.4px;
+  opacity: 0.6;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.propietario-pagina .row-2 {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 24px;
+  padding: 16px 24px 16px 16px;
+  position: relative;
+  width: 100%;
+}
+
+.propietario-pagina .image-4 {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 134px;
+  overflow: hidden;
+  position: relative;
+  width: 168px;
+}
+
+.propietario-pagina .img-3 {
+  height: 134px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 168px;
+}
+
+.propietario-pagina .content-3 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  width: 786px;
+}
+
+.propietario-pagina .grid-5 {
+  align-items: center;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: space-between;
+  position: relative;
+  width: 100%;
+}
+
+.propietario-pagina .text-wrapper-7 {
+  color: var(--textdefault);
+  font-family: "Chillax-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 28.8px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.propietario-pagina .row-3 {
+  align-items: center;
+  align-self: stretch;
+  border-radius: 16px;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 24px;
+  padding: 16px 24px 16px 16px;
+  position: relative;
+  width: 100%;
+}
+
+.propietario-pagina .overlap-group-2 {
+  height: 134px;
+  position: relative;
+}
+
+.propietario-pagina .ting-tian {
+  height: 74px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 111px;
+}
+
+.propietario-pagina .content-4 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  width: 783px;
+}
+
+.propietario-pagina .row-4 {
+  align-items: center;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 24px;
+  padding: 16px 24px 16px 16px;
+  position: relative;
+  width: 1033px;
+}
+
+.propietario-pagina .content-5 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  position: relative;
+  width: 784px;
+}
+
+.propietario-pagina .dinner {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  height: 868px;
+  position: relative;
+  width: 998px;
+}
+
+.propietario-pagina .chad-montano-wrapper {
+  background-color: #ffffff;
+  border-radius: 10px;
+  height: 133px;
+  overflow: hidden;
+  position: relative;
+}
+
+.propietario-pagina .chad-montano {
+  height: 132px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 168px;
+}
+
+.propietario-pagina .text-wrapper-8 {
+  color: #ffffff;
+  font-family: "Chillax-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 21.6px;
+  opacity: 0.6;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.propietario-pagina .price-2 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  height: 72px;
+  justify-content: center;
+  padding: 0px 30px;
+  position: relative;
+  width: 994px;
+}
+
+.propietario-pagina .drinks {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  height: 661px;
+  position: relative;
+  width: 998px;
+}
+
+.propietario-pagina .grid-6 {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 16px;
+  margin-right: -20px;
+  position: relative;
+}
+
+.propietario-pagina .price-3 {
+  align-items: center;
+  display: flex;
+  gap: 8px;
+  height: 72px;
+  justify-content: center;
+  margin-bottom: -9px;
+  padding: 0px 30px;
+  position: relative;
+  width: 994px;
+}
+
+.propietario-pagina .text-wrapper-9 {
+  color: #ffffff;
+  font-family: "Chillax-Regular", Helvetica;
+  font-size: 36px;
+  font-weight: 400;
+  height: 93px;
+  letter-spacing: 10.8px;
+  line-height: normal;
+  margin-right: -1px;
+  position: relative;
+  text-align: center;
+  width: 1130px;
+}
+
+.propietario-pagina .reviews {
+  align-items: flex-start;
+  display: flex;
+  gap: 35px;
+  height: 764px;
+  padding: 13px 35px 40px;
+  position: relative;
+  width: 1096px;
+}
+
+.propietario-pagina .posts-wrapper {
+  align-items: flex-start;
+  border: 1px solid;
+  border-color: #f7efde;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: 710px;
+  margin-right: -35px;
+  overflow: hidden;
+  padding: 0px 10px;
+  position: relative;
+  width: 1061px;
+}
+
+.propietario-pagina .posts {
+  border-radius: 25px;
+  height: 718px;
+  margin-right: -25px;
+  overflow-y: scroll;
+  position: relative;
+  width: 1066px;
+}
+
+.propietario-pagina .post {
+  align-items: flex-start;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: var(--border);
+  border-radius: 25px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  left: 12px;
+  overflow: hidden;
+  padding: 25px 30px;
+  position: absolute;
+  top: 198px;
+  width: 1020px;
+}
+
+.propietario-pagina .head {
+  height: 40px;
+  margin-right: -12px;
+  position: relative;
+  width: 972px;
+}
+
+.propietario-pagina .group {
+  height: 32px;
+  left: 55px;
+  position: absolute;
+  top: 4px;
+  width: 115px;
+}
+
+.propietario-pagina .time {
+  color: var(--subtitle-text-color);
+  font-family: "Roboto", Helvetica;
+  font-size: 10px;
+  font-weight: 400;
+  height: 12px;
+  left: 0;
+  letter-spacing: 0.5px;
+  line-height: normal;
+  position: absolute;
+  top: 20px;
+  white-space: nowrap;
+}
+
+.propietario-pagina .nikcname {
+  color: #000000;
+  font-family: "Roboto", Helvetica;
+  font-size: 13px;
+  font-weight: 400;
+  height: 15px;
+  left: 0;
+  letter-spacing: 0.65px;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
+
+.propietario-pagina .ava {
+  height: 40px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 40px;
+}
+
+.propietario-pagina .feather-more {
+  height: 24px;
+  left: 948px;
+  position: absolute;
+  top: 8px;
+  width: 24px;
+}
+
+.propietario-pagina .textblock {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+  width: 100%;
+}
+
+.propietario-pagina .text-wrapper-10 {
+  color: #000000;
+  font-family: "Roboto", Helvetica;
+  font-size: 14px;
+  font-weight: 300;
+  letter-spacing: 0.7px;
+  line-height: 25px;
+  margin-top: -1px;
+  position: relative;
+  width: 665px;
+}
+
+.propietario-pagina .interactions {
+  height: 30px;
+  position: relative;
+  width: 292px;
+}
+
+.propietario-pagina .replies {
+  height: 28px;
+  left: 256px;
+  position: absolute;
+  top: 2px;
+  width: 38px;
+}
+
+.propietario-pagina .text-wrapper-11 {
+  color: #0e0e15;
+  font-family: "Roboto", Helvetica;
+  font-size: 13px;
+  font-weight: 400;
+  height: 15px;
+  left: 28px;
+  letter-spacing: 0.39px;
+  line-height: normal;
+  position: absolute;
+  top: 7px;
+  white-space: nowrap;
+}
+
+.propietario-pagina .img-4 {
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 28px;
+}
+
+.propietario-pagina .dislikes {
+  height: 28px;
+  left: 146px;
+  position: absolute;
+  top: 2px;
+  width: 44px;
+}
+
+.propietario-pagina .text-wrapper-12 {
+  color: #0e0e15;
+  font-family: "Nunito Sans", Helvetica;
+  font-size: 13px;
+  font-weight: 400;
+  height: 18px;
+  left: 34px;
+  letter-spacing: 0.39px;
+  line-height: normal;
+  position: absolute;
+  top: 5px;
+}
+
+.propietario-pagina .likes {
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 55px;
+}
+
+.propietario-pagina .text-wrapper-13 {
+  color: #0e0e15;
+  font-family: "Nunito Sans", Helvetica;
+  font-size: 13px;
+  font-weight: 400;
+  height: 18px;
+  left: 37px;
+  letter-spacing: 0.39px;
+  line-height: normal;
+  opacity: 0.25;
+  position: absolute;
+  top: 7px;
+}
+
+.propietario-pagina .post-2 {
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: var(--border);
+  border-radius: 25px;
+  box-shadow: var(--shadow);
+  height: 163px;
+  left: 12px;
+  overflow: hidden;
+  position: absolute;
+  top: 8px;
+  width: 1020px;
+}
+
+.propietario-pagina .head-2 {
+  height: 40px;
+  left: 30px;
+  position: absolute;
+  top: 25px;
+  width: 972px;
+}
+
+.propietario-pagina .group-2 {
+  height: 32px;
+  left: 55px;
+  position: absolute;
+  top: 4px;
+  width: 59px;
+}
+
+.propietario-pagina .feather-more-2 {
+  height: 24px;
+  left: 948px;
+  position: absolute;
+  top: 0;
+  width: 24px;
+}
+
+.propietario-pagina .textblock-2 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  left: 30px;
+  position: absolute;
+  top: 80px;
+  width: 960px;
+}
+
+.propietario-pagina .interactions-2 {
+  height: 30px;
+  left: 30px;
+  position: absolute;
+  top: 120px;
+  width: 300px;
+}
+
+.propietario-pagina .replies-2 {
+  height: 28px;
+  left: 256px;
+  position: absolute;
+  top: 2px;
+  width: 46px;
+}
+
+.propietario-pagina .dislikes-2 {
+  background-image: url(https://c.animaapp.com/23p7QKpJ/img/like-7@2x.png);
+  background-size: 100% 100%;
+  height: 28px;
+  left: 146px;
+  position: absolute;
+  top: 2px;
+  width: 28px;
+}
+
+.propietario-pagina .likes-2 {
+  height: 28px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 64px;
+}
+
+.propietario-pagina .text-wrapper-14 {
+  color: #0e0e15;
+  font-family: "Nunito Sans", Helvetica;
+  font-size: 13px;
+  font-weight: 400;
+  height: 18px;
+  left: 37px;
+  letter-spacing: 0.39px;
+  line-height: normal;
+  position: absolute;
+  top: 7px;
+}
+
+.propietario-pagina .add-comment {
+  height: 47px;
+  left: 22px;
+  position: absolute;
+  top: 640px;
+  width: 1015px;
+}
+
+.propietario-pagina .overlap-group-3 {
+  background-color: #ffffff;
+  border-radius: 25px;
+  height: 47px;
+  position: relative;
+  width: 1013px;
+}
+
+.propietario-pagina .text-wrapper-15 {
+  color: #808080;
+  font-family: "DM Sans", Helvetica;
+  font-size: 22px;
+  font-weight: 400;
+  height: 26px;
+  left: 76px;
+  letter-spacing: 0;
+  line-height: normal;
+  position: absolute;
+  top: 10px;
+  white-space: nowrap;
+  width: 891px;
+}
+
+.propietario-pagina .suma-icon {
+  height: 26px;
+  left: 17px;
+  position: absolute;
+  top: 10px;
+  width: 26px;
+}
+
+.propietario-pagina .info-del-restaurante {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  height: 585px;
+  padding: 13px 35px 40px;
+  position: relative;
+  width: 1096px;
+}
+
+.propietario-pagina .grid-vertical {
+  align-items: center;
+  background-color: #ffffff;
+  border: 1px solid;
+  border-color: #f7efde;
+  border-radius: 25px;
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  gap: 5px;
+  margin-right: -35px;
+  overflow: hidden;
+  padding: 30px;
+  position: relative;
+  width: 1061px;
+}
+
+.propietario-pagina .info {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 5px;
+  justify-content: center;
+  padding: 30px;
+  position: relative;
+}
+
+.propietario-pagina .col-izqd {
+  height: 239px;
+  position: relative;
+  width: 400px;
+}
+
+.propietario-pagina .text-wrapper-16 {
+  color: #000000;
+  font-family: "Chillax-Medium", Helvetica;
+  font-size: 40px;
+  font-weight: 500;
+  height: 56px;
+  left: 0;
+  letter-spacing: 0.8px;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 226px;
+}
+
+.propietario-pagina .text-wrapper-17 {
+  color: var(--subtitle-text-color);
+  font-family: "Chillax-Light", Helvetica;
+  font-size: 20px;
+  font-weight: 300;
+  height: 56px;
+  left: 0;
+  letter-spacing: 0.4px;
+  line-height: normal;
+  position: absolute;
+  top: 61px;
+  width: 392px;
+}
+
+.propietario-pagina .text-wrapper-18 {
+  color: #000000;
+  font-family: "Chillax-Medium", Helvetica;
+  font-size: 40px;
+  font-weight: 500;
+  height: 56px;
+  left: 0;
+  letter-spacing: 0.8px;
+  line-height: normal;
+  position: absolute;
+  top: 122px;
+  width: 226px;
+}
+
+.propietario-pagina .text-wrapper-19 {
+  color: var(--subtitle-text-color);
+  font-family: "Chillax-Light", Helvetica;
+  font-size: 20px;
+  font-weight: 300;
+  height: 56px;
+  left: 0;
+  letter-spacing: 0.4px;
+  line-height: normal;
+  position: absolute;
+  top: 183px;
+  width: 392px;
+}
+
+.propietario-pagina .col-dcha {
+  height: 239px;
+  margin-right: -4px;
+  position: relative;
+  width: 396px;
+}
+
+.propietario-pagina .lunes-martes {
+  color: var(--subtitle-text-color);
+  font-family: "Chillax-Light", Helvetica;
+  font-size: 20px;
+  font-weight: 300;
+  height: 178px;
+  left: 0;
+  letter-spacing: 0.4px;
+  line-height: normal;
+  position: absolute;
+  top: 61px;
+  width: 392px;
+}
+
+.propietario-pagina .info-2 {
+  background-color: #daac65;
+  border-radius: 25px;
+  height: 69px;
+  position: relative;
+  width: 134px;
+}
+
+.propietario-pagina .text-wrapper-20 {
+  color: #0e0e15;
+  font-family: "Roboto", Helvetica;
+  font-size: 16px;
+  font-weight: 500;
+  height: 40px;
+  left: 0;
+  letter-spacing: 0.32px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 14px;
+  width: 134px;
+}
+
+.propietario-pagina .posts-del {
+  align-items: flex-start;
+  display: flex;
+  gap: 35px;
+  height: 707px;
+  padding: 13px 35px 40px;
+  position: relative;
+  width: 1096px;
+}
+
+.propietario-pagina .content-6 {
+  align-items: flex-start;
+  border: 1px solid;
+  border-color: #f7efde;
+  border-radius: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: 688px;
+  margin-bottom: -34px;
+  margin-right: -35px;
+  overflow: hidden;
+  padding: 0px 10px;
+  position: relative;
+  width: 1061px;
+}
+
+.propietario-pagina .group-3 {
+  height: 32px;
+  left: 55px;
+  position: absolute;
+  top: 4px;
+  width: 57px;
+}
+
+.propietario-pagina .text-wrapper-21 {
+  color: #000000;
+  font-family: "Roboto", Helvetica;
+  font-size: 16px;
+  font-weight: 300;
+  letter-spacing: 0.8px;
+  line-height: 25px;
+  margin-top: -1px;
+  position: relative;
+  width: 665px;
+}
+
+.propietario-pagina .ash-edmonds {
+  height: 201px;
+  left: -22px;
+  object-fit: cover;
+  position: absolute;
+  top: -67px;
+  width: 190px;
+}
+
+.propietario-pagina .overlap-group-wrapper {
+  height: 47px;
+  left: 16px;
+  position: absolute;
+  top: 612px;
+  width: 1015px;
+}
+
+.propietario-pagina .buttons-contenido {
+  height: 71px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1129px;
+}
+
+.propietario-pagina .overlap-2 {
+  height: 71px;
+  position: relative;
+  width: 1131px;
+}
+
+.propietario-pagina .button-feed {
+  height: 71px;
+  left: 846px;
+  position: absolute;
+  top: 0;
+  width: 285px;
+}
+
+.propietario-pagina .overlap-group-4 {
+  background-color: #0e0e15;
+  border: 1px solid;
+  border-color: #e5dbc8;
+  height: 71px;
+  position: relative;
+  width: 283px;
+}
+
+.propietario-pagina .text-wrapper-22 {
+  color: #ffffff;
+  font-family: "Chillax-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  height: 70px;
+  left: -1px;
+  letter-spacing: 1.2px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: -1px;
+  width: 278px;
+}
+
+.propietario-pagina .button-info {
+  height: 71px;
+  left: 282px;
+  position: absolute;
+  top: 0;
+  width: 284px;
+}
+
+.propietario-pagina .overlap-3 {
+  background-color: #0e0e15;
+  border: 1px solid;
+  border-color: #e5dbc8;
+  height: 71px;
+  position: relative;
+  width: 282px;
+}
+
+.propietario-pagina .text-wrapper-23 {
+  color: #ffffff;
+  font-family: "Chillax-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  height: 70px;
+  left: -1px;
+  letter-spacing: 1.2px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: -1px;
+  width: 281px;
+}
+
+.propietario-pagina .button-reviews {
+  height: 71px;
+  left: 564px;
+  position: absolute;
+  top: 0;
+  width: 284px;
+}
+
+.propietario-pagina .text-wrapper-24 {
+  color: #ffffff;
+  font-family: "Chillax-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  height: 70px;
+  left: -1px;
+  letter-spacing: 1.2px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: -1px;
+  width: 282px;
+}
+
+.propietario-pagina .button-men {
+  height: 71px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 284px;
+}
+
+.propietario-pagina .overlap-4 {
+  height: 72px;
+  left: -1px;
+  position: relative;
+  top: -1px;
+}
+
+.propietario-pagina .rectangle {
+  background-color: #0e0e15;
+  border: 1px solid;
+  border-color: #e5dbc8;
+  height: 71px;
+  left: 1px;
+  position: absolute;
+  top: 1px;
+  width: 282px;
+}
+
+.propietario-pagina .text-wrapper-25 {
+  -webkit-text-stroke: 1px #000000;
+  color: #ffffff;
+  font-family: "Chillax-Regular", Helvetica;
+  font-size: 24px;
+  font-weight: 400;
+  height: 70px;
+  left: 0;
+  letter-spacing: 1.2px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 282px;
+}
+
+.propietario-pagina .header-restaurante {
+  height: 432px;
+  left: 0;
+  position: absolute;
+  top: -60px;
+  width: 1132px;
+}
+
+.propietario-pagina .button-pedir {
+  height: 63px;
+  left: 845px;
+  position: absolute;
+  top: 362px;
+  width: 252px;
+}
+
+.propietario-pagina .overlap-group-5 {
+  background-color: #daac65;
+  border-radius: 25px;
+  height: 63px;
+  position: relative;
+  width: 250px;
+}
+
+.propietario-pagina .text-wrapper-26 {
+  color: #0e0e15;
+  font-family: "Nunito Sans", Helvetica;
+  font-size: 20px;
+  font-weight: 400;
+  height: 48px;
+  left: 65px;
+  letter-spacing: 1px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 8px;
+  width: 176px;
+}
+
+.propietario-pagina .iconizer-bar-chart {
+  height: 42px;
+  left: 23px;
+  object-fit: cover;
+  position: absolute;
+  top: 11px;
+  width: 42px;
+}
+
+.propietario-pagina .overlap-5 {
+  height: 103px;
+  left: 17px;
+  position: absolute;
+  top: 329px;
+  width: 801px;
+}
+
+.propietario-pagina .valoracin {
+  height: 38px;
+  left: 18px;
+  position: absolute;
+  top: 65px;
+  width: 248px;
+}
+
+.propietario-pagina .text-wrapper-27 {
+  color: #000000;
+  font-family: "Nunito Sans", Helvetica;
+  font-size: 26px;
+  font-weight: 400;
+  height: 38px;
+  left: 200px;
+  letter-spacing: 1.3px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 46px;
+}
+
+.propietario-pagina .star {
+  height: 34px;
+  left: 1px;
+  position: absolute;
+  top: 0;
+  width: 36px;
+}
+
+.propietario-pagina .star-2 {
+  height: 34px;
+  left: 39px;
+  position: absolute;
+  top: 0;
+  width: 36px;
+}
+
+.propietario-pagina .star-3 {
+  height: 34px;
+  left: 77px;
+  position: absolute;
+  top: 0;
+  width: 36px;
+}
+
+.propietario-pagina .star-4 {
+  height: 34px;
+  left: 115px;
+  position: absolute;
+  top: 0;
+  width: 36px;
+}
+
+.propietario-pagina .star-5 {
+  height: 34px;
+  left: 153px;
+  position: absolute;
+  top: 0;
+  width: 36px;
+}
+
+.propietario-pagina .flame-gourmet {
+  color: transparent;
+  font-family: "Nunito Sans", Helvetica;
+  font-size: 40px;
+  font-weight: 400;
+  height: 77px;
+  left: 0;
+  line-height: normal;
+  position: absolute;
+  top: 0;
+  width: 801px;
+}
+
+.propietario-pagina .span {
+  color: #0e0e15;
+  letter-spacing: 3.2px;
+}
+
+.propietario-pagina .text-wrapper-28 {
+  color: #0e0e15;
+  letter-spacing: 2px;
+}
+
+.propietario-pagina .text-wrapper-29 {
+  color: #b79b70;
+  letter-spacing: 2px;
+}
+
+.propietario-pagina .image-5 {
+  height: 269px;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 60px;
+  width: 1130px;
+}
+
+.propietario-pagina .header-sidebar {
+  height: 911px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1440px;
+}
+
+.propietario-pagina .sidebar {
+  background-color: #0e0e15;
+  height: 827px;
+  left: 0;
+  position: absolute;
+  top: 84px;
+  width: 310px;
+}
+
+.propietario-pagina .paginas-de-la-web {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  left: 0;
+  padding: 0px 50px;
+  position: absolute;
+  top: 35px;
+  width: 310px;
+}
+
+.propietario-pagina .menu-item-selected {
+  background-color: #0e0e15;
+  height: 71px;
+  margin-left: -50px;
+  margin-right: -50px;
+  position: relative;
+  width: 310px;
+}
+
+.propietario-pagina .text-wrapper-30 {
+  color: #b79b70;
+  font-family: "Chillax-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  height: 45px;
+  left: 80px;
+  letter-spacing: 1.6px;
+  line-height: normal;
+  position: absolute;
+  top: 12px;
+  width: 230px;
+}
+
+.propietario-pagina .overlap-group-6 {
+  height: 35px;
+  left: 9px;
+  position: absolute;
+  top: 20px;
+  width: 52px;
+}
+
+.propietario-pagina .icon-message {
+  height: 31px;
+  left: 15px;
+  position: absolute;
+  top: 0;
+  width: 37px;
+}
+
+.propietario-pagina .circle {
+  border: 4px solid;
+  border-color: #ff00c6;
+  border-radius: 9px;
+  height: 18px;
+  left: 0;
+  position: absolute;
+  top: 17px;
+  width: 18px;
+}
+
+.propietario-pagina .menu-item-selected-2 {
+  background-color: #0e0e15;
+  height: 72px;
+  margin-left: -50px;
+  margin-right: -50px;
+  position: relative;
+  width: 310px;
+}
+
+.propietario-pagina .icon-compass {
+  height: 34px;
+  left: 23px;
+  position: absolute;
+  top: 19px;
+  width: 37px;
+}
+
+.propietario-pagina .text-wrapper-31 {
+  color: #b79b70;
+  font-family: "Chillax-Regular", Helvetica;
+  font-size: 32px;
+  font-weight: 400;
+  height: 45px;
+  left: 80px;
+  letter-spacing: 1.6px;
+  line-height: normal;
+  position: absolute;
+  top: 12px;
+}
+
+.propietario-pagina .map {
+  height: 38px;
+  left: 26px;
+  position: absolute;
+  top: 20px;
+  width: 35px;
+}
+
+.propietario-pagina .user {
+  height: 57px;
+  left: 35px;
+  position: absolute;
+  top: 733px;
+  width: 241px;
+}
+
+.propietario-pagina .overlap-6 {
+  background-color: #0e0e15;
+  border: 1px solid;
+  border-color: #e5dbc7d6;
+  border-radius: 25px;
+  height: 57px;
+  position: relative;
+  width: 239px;
+}
+
+.propietario-pagina .text-wrapper-32 {
+  color: #e5dbc7d6;
+  font-family: "Chillax-Regular", Helvetica;
+  font-size: 22px;
+  font-weight: 400;
+  height: 41px;
+  left: 46px;
+  letter-spacing: 1.1px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 7px;
+  width: 171px;
+}
+
+.propietario-pagina .icon-user {
+  height: 30px;
+  left: 19px;
+  position: absolute;
+  top: 12px;
+  width: 28px;
+}
+
+.propietario-pagina .location {
+  height: 57px;
+  left: 35px;
+  position: absolute;
+  top: 657px;
+  width: 241px;
+}
+
+.propietario-pagina .overlap-7 {
+  background-color: #e5dbc8;
+  border-radius: 25px;
+  height: 57px;
+  position: relative;
+  width: 239px;
+}
+
+.propietario-pagina .text-wrapper-33 {
+  color: #000000;
+  font-family: "Chillax-Regular", Helvetica;
+  font-size: 22px;
+  font-weight: 400;
+  height: 41px;
+  left: 55px;
+  letter-spacing: 1.1px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 8px;
+  width: 172px;
+}
+
+.propietario-pagina .map-2 {
+  height: 39px;
+  left: 14px;
+  position: absolute;
+  top: 10px;
+  width: 40px;
+}
+
+.propietario-pagina .location-2 {
+  height: 57px;
+  left: 35px;
+  position: absolute;
+  top: 573px;
+  width: 241px;
+}
+
+.propietario-pagina .overlap-8 {
+  background-color: #ffffff;
+  border-radius: 25px;
+  height: 57px;
+  position: relative;
+  width: 239px;
+}
+
+.propietario-pagina .text-wrapper-34 {
+  color: #000000;
+  font-family: "Chillax-Regular", Helvetica;
+  font-size: 22px;
+  font-weight: 400;
+  height: 41px;
+  left: 47px;
+  letter-spacing: 1.1px;
+  line-height: normal;
+  position: absolute;
+  text-align: center;
+  top: 8px;
+  width: 188px;
+}
+
+.propietario-pagina .icon-shop {
+  height: 26px;
+  left: 19px;
+  position: absolute;
+  top: 15px;
+  width: 30px;
+}
+
+.propietario-pagina .navbar {
+  background-color: #0e0e15;
+  height: 84px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 1440px;
+}
+
+.propietario-pagina .appetizr-logo {
+  height: 41px;
+  left: 47px;
+  object-fit: cover;
+  position: absolute;
+  top: 21px;
+  width: 347px;
+}
+
+.propietario-pagina .search-bar {
+  height: 44px;
+  left: 1008px;
+  position: absolute;
+  top: 20px;
+  width: 386px;
+}
+
+.propietario-pagina .overlap-group-7 {
+  background-image: url(https://c.animaapp.com/23p7QKpJ/img/rectangle-9.svg);
+  background-size: 100% 100%;
+  height: 44px;
+  position: relative;
+  width: 384px;
+}
+
+.propietario-pagina .text-wrapper-35 {
+  color: #0e0e15;
+  font-family: "Nunito Sans", Helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  height: 23px;
+  left: 61px;
+  letter-spacing: 0.8px;
+  line-height: normal;
+  position: absolute;
+  top: 11px;
+  width: 316px;
+}
+
+.propietario-pagina .icon-search {
+  height: 26px;
+  left: 13px;
+  position: absolute;
+  top: 9px;
+  width: 26px;
+}
