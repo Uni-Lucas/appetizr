@@ -1,0 +1,5 @@
+NIP	APELLIDOS		NOMBRE
+--------------------------------------------------
+816787	Villagrasa Labrador	Alain
+844665	Cauhé Viñao		Lucas
+848884	Herce Cruz		Daniel
