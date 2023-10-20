@@ -1,3 +1,4 @@
 .env
 .gitignore
 export_vars.sh
+**/desktop.ini
