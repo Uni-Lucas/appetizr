@@ -1,0 +1,45 @@
+pensar en el admin
+poner dependent: :destroy donde proceda
+
+/login -> categories#index
+       -> restaurants#edit
+       // -> restaurants#index
+
+/restaurants/:id (restaurants#show) -> dishes#reviews (de un plato, como un index de las reviews de ese plato)
+                 -> responses#show (de una review o un post) 
+                 <- Reviews (busca las reviews del restaurante)
+                 <- Restaurants (obtiene info) 
+                 <- Posts (obtiene posts del restaurante) 
+                 <- Ranks (valora una review o un post)
+
+/restaurants/dishes/:id/reviews (dishes#reviews) -> responses#show (muestra las respuestas a un comentario)
+             <- Ranks (valora una review)
+             <- Reviews (para las reviews) 
+
+/reviews/:id/responses (responses#show) ->
+             <- Ranks (valora una respuesta)
+             <- Responses (para las respuestas)
+             <- Reviews (para la review original) 
+
+/explore (restaurants#index) -> restaurants#show
+         <- Restaurants
+         <- Categories
+
+/categories (categories#index) -> categories#show 
+         <- Categories 
+
+/categories/:id (categories#show) -> posts#create
+         <- Categories (título)
+         <- Comentario 
+
+
+Componentes
+- Coment
+(ejemplo)
+render @restaurant.posts -> _post.html.erb -> render(CommentComponent.new(user:
+post.autor, ...)) 
+
+ver ViewComponent
+
+O copiar diseño en _post.html.erb, _review.html.erb y _response.html.erb
+
