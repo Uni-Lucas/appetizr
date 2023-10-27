@@ -1,36 +1,86 @@
 pensar en el admin
 poner dependent: :destroy donde proceda
 
-/login -> categories#index
-       -> restaurants#edit
-       // -> restaurants#index
 
-/restaurants/:id (restaurants#show) -> dishes#reviews (de un plato, como un index de las reviews de ese plato)
-                 -> responses#show (de una review o un post) 
-                 <- Reviews (busca las reviews del restaurante)
-                 <- Restaurants (obtiene info) 
-                 <- Posts (obtiene posts del restaurante) 
-                 <- Ranks (valora una review o un post)
+/login -> 
+       Rutas derivadas:
+              -> users#new
+                     ->restaurants#new
+              -> /explore
 
-/restaurants/dishes/:id/reviews (dishes#reviews) -> responses#show (muestra las respuestas a un comentario)
-             <- Ranks (valora una review)
+
+// Pagina "cerca de mi"
+/nearme (nearme#index)
+       Controller:
+              //cargar mapa de google maps
+
+
+// Página principal "Explorar"
+/explore (restaurants#index)
+       Rutas derivadas:
+              -> restaurants#show
+       Controller:
+              // Restaurantes de cada categoría
+              <- Categories (Todas las categorías)
+              <- Restaurants (Todos los restaurantes de una categoría) 
+
+
+// Vista de un restaurante
+/restaurants/:id (restaurants#show) 
+       Rutas derivadas:
+              -> dishes#show (de un plato, como un index de las reviews de ese plato)
+              -> responses#show (de una review o un post) 
+       Controller:
+              <- Restaurants (obtiene info) 
+              <- Reviews (busca las reviews del restaurante)
+              <- Posts (obtiene posts del restaurante) 
+              <- Reactions (Reacciones a una review o un post)
+
+// Vista de un plato
+/restaurants/dishes/:id (dishes#show)
+       Rutas derivadas:
+              -> reviews#show (de un plato, como un index de las reviews de ese plato)
+              -> responses#show (de una review o un post) 
+       Controller:
+             <- Dishes (obtiene info) 
+             <- Reviews (busca las reviews del plato)
+             <- Reactions (Reacciones a una review)
+
+// Vista de reviews de un plato
+/restaurants/dishes/:id/reviews (reviews#show) 
+       Rutas derivadas:
+              -> responses#show (muestra las respuestas a un comentario)
+       Controller:
+             <- Reactions (Reacciones a una review)
              <- Reviews (para las reviews) 
 
-/reviews/:id/responses (responses#show) ->
-             <- Ranks (valora una respuesta)
+// Vista de respuestas a una review
+/reviews/:id/responses (responses#show) 
+       Rutas derivadas:
+              -> responses#new (para crear una respuesta)
+       
+       Controller:
+             <- Reactions (Reacciones a una respuesta)
              <- Responses (para las respuestas)
              <- Reviews (para la review original) 
 
-/explore (restaurants#index) -> restaurants#show
-         <- Restaurants
-         <- Categories
 
-/categories (categories#index) -> categories#show 
-         <- Categories 
 
-/categories/:id (categories#show) -> posts#create
-         <- Categories (título)
-         <- Comentario 
+// Página "Categorías"
+/categories (categories#index)
+       Rutas derivadas:
+              -> categories#show 
+       Controller:
+              <- Categories 
+
+/categories/:id (categories#show)
+       Rutas derivadas:
+              -> posts#create
+              -> reactions#new
+              -> post#show
+       Controller:
+              <- Categories (título)
+              <- Comentario 
 
 
 Componentes
