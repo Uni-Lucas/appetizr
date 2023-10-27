@@ -12,7 +12,7 @@ default: &default
   username: <%= ENV['POSTGRESQL_ADDON_USER'] %>
   password: <%= ENV['POSTGRESQL_ADDON_PASSWORD'] %>
   host: <%= ENV['POSTGRESQL_ADDON_HOST'] %>
-  port: 5432
+  port: <%= ENV['POSTGRESQL_ADDON_PORT'] %>
   timeout: 5000
 
 development:
