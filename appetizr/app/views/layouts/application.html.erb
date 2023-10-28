@@ -7,10 +7,21 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "styles" %>
     <%= javascript_importmap_tags %>
+
+    <style>
+      @import url('https://fonts.cdnfonts.com/css/chillax');
+    </style>
   </head>
 
   <body>
-    <%= yield %>
+    <div class="wraper">
+      <%= render 'layouts/header' %>
+      <%= render 'layouts/sidenav' %>
+      <div class="main">
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>
