@@ -1,0 +1,13 @@
+<header class="header">
+    <div>
+        <%= link_to root_path do %>
+            <%= image_tag "Appetizr-logo", class: "logo" %>
+        <% end %>
+    </div>
+    <div class="search_bar">
+        <%= form_tag "/restaurants", method: "GET" do %>
+        <div><%= text_field_tag :search, params[:search], placeholder: "¿Cuál es tu restaurante favorito?" %></div>
+        <div><%= submit_tag "Buscar"%></div>
+        <% end %>
+    </div>
+</header>

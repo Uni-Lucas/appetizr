@@ -1,2 +1,0 @@
-class Categorias < AppetizrDbModel
-end 
