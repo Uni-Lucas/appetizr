@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_14_154425) do
-  create_schema "postgis_topology"
+ActiveRecord::Schema[7.1].define(version: 2023_10_28_160353) do
   create_schema "tiger"
   create_schema "tiger_data"
   create_schema "topology"
@@ -45,18 +44,26 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_14_154425) do
   enable_extension "pgcrypto"
   enable_extension "pgrowlocks"
   enable_extension "pgstattuple"
+  enable_extension "plls"
   enable_extension "plpgsql"
+  enable_extension "plv8"
   enable_extension "postgis"
+  enable_extension "postgis_raster"
   enable_extension "postgis_tiger_geocoder"
+  enable_extension "postgis_topology"
   enable_extension "refint"
   enable_extension "seg"
   enable_extension "sslinfo"
   enable_extension "tablefunc"
   enable_extension "tcn"
-  enable_extension "timetravel"
   enable_extension "unaccent"
   enable_extension "uuid-ossp"
   enable_extension "xml2"
+
+  create_table "appetizr_db_models", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "categories", id: false, force: :cascade do |t|
     t.string "nombre"
@@ -78,7 +85,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_14_154425) do
     t.string "categoria"
     t.string "autor"
     t.text "contenido"
-    t.string "rutaImg"
+    t.string "ruta_img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -148,9 +155,9 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_14_154425) do
 
   create_table "users", id: false, force: :cascade do |t|
     t.string "nombre"
-    t.string "contrasegna"
     t.string "rutaImgPerfil"
     t.boolean "esAdmin"
+    t.string "password_digest"
     t.index ["nombre"], name: "index_users_on_nombre", unique: true
   end
 

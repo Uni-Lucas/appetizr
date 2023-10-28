@@ -1,0 +1,20 @@
+<h1> New Category </h1>
+
+<%= form_with url: login_path do |form| %>
+  <div>
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre %>
+  </div>
+  <div>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+  <div>
+    <%= form.submit "Log In" %>
+  </div>
+<% end %>
+
+
+<div>
+  <%= link_to "Registrarse", register_path %> 
+</div>
