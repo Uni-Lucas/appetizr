@@ -11,16 +11,6 @@ class RestaurantsController < ApplicationController
         @restaurant = Restaurant.new
     end
 
-    # def create
-    #     @restaurant = Restaurant.new(restaurant_params)
-
-    #     if @restaurant.save
-    #         redirect_to @restaurant
-    #     else
-    #         render :new, status: :unprocessable_entity
-    #     end
-    # end
-
     def edit
         @restaurant = Restaurant.find(params[:id])
     end
@@ -47,7 +37,7 @@ class RestaurantsController < ApplicationController
             if @restaurant
                 redirect_to @restaurant
             else 
-                flash.now[:notice] = "No se encontró ningún restaurante con ese nombre"
+                # flash.now[:notice] = "No se encontró ningún restaurante con ese nombre"
                 render :index
             end
         else
@@ -61,4 +51,3 @@ class RestaurantsController < ApplicationController
         params.require(:restaurant).permit(:categoria, :nombre, :rutaImgFondo, :direccion, :telefono, :horario)
     end
 end
-

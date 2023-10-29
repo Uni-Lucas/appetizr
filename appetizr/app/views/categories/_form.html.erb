@@ -1,15 +1,15 @@
 <%= form_with model: @category do |form| %>
-    <div>
-      <%= form.label :nombre %><br>
-      <%= form.text_field :nombre %>
+  <div>
+    <%= form.label :nombre, "Nombre de la categoría" %>
+    <%= form.text_field :nombre %>
+  </div>
+  <div>
+    <%= form.label :photo, "Imagen identificativa" %>
+    <%= form.file_field :photo %>
+  </div>
+  <% @category.errors.full_messages.each do |msg| %>
+    <div><%= msg %></div>
+  <% end %>
 
-      <% @category.errors.full_messages_for(:nombre).each do |msg| %>
-        <div><%= msg %></div>
-      <% end %>
-
-    </div>
-
-    <div>
-    <%= form.submit %>
-    </div>
+  <%= form.submit %>
 <% end %>
