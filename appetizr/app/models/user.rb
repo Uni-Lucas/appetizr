@@ -1,10 +1,10 @@
 class User < ApplicationRecord
-  has_secure_password
-  has_many :posts
+  self.primary_key = "nombre"
+  has_many :posts, class_name: 'Post', foreign_key: 'autor'
   has_many :responses
-  has_many :reviews
-  has_many :ranks
+  has_many :reviews, class_name: 'Review', foreign_key: 'autor'
+  has_many :ranks, class_name: 'Rank', foreign_key: 'who'
   has_many :reactions
   has_and_belongs_to_many :restaurants
-  # ...
+  has_secure_password
 end

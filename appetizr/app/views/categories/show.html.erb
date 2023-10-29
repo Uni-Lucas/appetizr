@@ -4,9 +4,11 @@
 
 
 <ul>
-  <li> <%= link_to "Edit", edit_category_path(@category) %> </li>
-  <li> <%= link_to "Destroy", category_path(@category), data: {
-    turbo_method: :delete,
-    turbo_confirm: "Estás seguro de eliminar "+@category.nombre+"?"
-  } %> </li>
+  <% @category.posts.each do |post| %>
+    <li> <%= post.autor %> : <%= post.contenido %> </li>
+  <% end %>
 </ul>
+
+<div>
+  <%= link_to "Crear Post", new_post_path(category: @category.nombre) %>
+</div>

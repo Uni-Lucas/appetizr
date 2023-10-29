@@ -1,0 +1,15 @@
+<h1> New Post </h1>
+
+<%= form_with model: @post do |form| %>
+  <div>
+    <%= form.label :content %>
+    <%= form.text_field :content %>
+  </div>
+  <div>
+    <%= form.label :image %>
+    <%= form.password_field :image %>
+  </div>
+  <div>
+    <%= form.submit "Crear" %>
+  </div>
+<% end %>
