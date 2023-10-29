@@ -1,4 +1,4 @@
 class Rank < ApplicationRecord
-  belongs_to :user
-  belongs_to :restaurant
+  belongs_to :user, class_name: 'User', optional: true
+  belongs_to :restaurant, class_name: 'Restaurant', optional: true
 end

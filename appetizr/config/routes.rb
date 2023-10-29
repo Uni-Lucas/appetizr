@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :categories, param: :nombre
   resources :restaurants
   resources :posts, only: [:new, :create]
+  resources :dishes, only: [:new, :create, :edit, :update]
   
   get '/register', to: 'registrations#new'
   post '/register', to: 'registrations#create'

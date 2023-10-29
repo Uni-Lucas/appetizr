@@ -1,0 +1,1641 @@
+Started GET "/" for 127.0.0.1 at 2023-10-28 22:30:11 +0200
+  [1m[36mActiveRecord::SchemaMigration Load (48.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (138.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 259.9ms | Allocations: 5838)
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 852)
+  Rendered layouts/_sidenav.html.erb (Duration: 4.2ms | Allocations: 2543)
+  Rendered layout layouts/application.html.erb (Duration: 980.5ms | Allocations: 115277)
+Completed 200 OK in 1164ms (Views: 764.5ms | ActiveRecord: 238.6ms | Allocations: 144749)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-10-28 22:30:35 +0200
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (1182.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 1185.8ms | Allocations: 911)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 510)
+  Rendered layouts/_sidenav.html.erb (Duration: 2.9ms | Allocations: 2072)
+  Rendered layout layouts/application.html.erb (Duration: 1195.2ms | Allocations: 6347)
+Completed 200 OK in 1196ms (Views: 13.1ms | ActiveRecord: 1182.7ms | Allocations: 6608)
+
+
+Started GET "/categories/burger" for 127.0.0.1 at 2023-10-28 22:30:41 +0200
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"burger"}
+  [1m[36mCategory Load (46.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "burger"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (50.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "burger"]]
+  ↳ app/views/categories/show.html.erb:5
+  Rendered categories/show.html.erb within layouts/application (Duration: 372.9ms | Allocations: 16983)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.2ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 382.7ms | Allocations: 22376)
+Completed 200 OK in 1336ms (Views: 184.3ms | ActiveRecord: 1055.1ms | Allocations: 37031)
+
+
+Started GET "/posts/new?category=burger" for 127.0.0.1 at 2023-10-28 22:30:45 +0200
+Processing by PostsController#new as HTML
+  Parameters: {"category"=>"burger"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 45.4ms | Allocations: 2139)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.6ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 53.7ms | Allocations: 7337)
+Completed 200 OK in 55ms (Views: 54.3ms | ActiveRecord: 0.0ms | Allocations: 8064)
+
+
+Started POST "/posts" for 127.0.0.1 at 2023-10-28 22:31:15 +0200
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"content"=>"royal con queso", "image"=>"nope"}, "commit"=>"Crear"}
+  [1m[36mTRANSACTION (195.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:11:in `create'
+  [1m[36mPost Create (298.5ms)[0m  [1m[32mINSERT INTO "posts" ("categoria", "autor", "contenido", "ruta_img", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["categoria", "burger"], ["autor", "pipi"], ["contenido", "royal con queso"], ["ruta_img", "nope"], ["created_at", "2023-10-28 20:31:15.011398"], ["updated_at", "2023-10-28 20:31:15.011400"]]
+  ↳ app/controllers/posts_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (205.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:11:in `create'
+Redirected to http://localhost:3000/categories/burger
+Completed 302 Found in 511ms (ActiveRecord: 699.7ms | Allocations: 3351)
+
+
+Started GET "/categories/burger" for 127.0.0.1 at 2023-10-28 22:31:15 +0200
+Processing by CategoriesController#show as TURBO_STREAM
+  Parameters: {"nombre"=>"burger"}
+  [1m[36mCategory Load (54.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "burger"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (78.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "burger"]]
+  ↳ app/views/categories/show.html.erb:5
+  Rendered categories/show.html.erb within layouts/application (Duration: 82.0ms | Allocations: 632)
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 510)
+  Rendered layouts/_sidenav.html.erb (Duration: 5.2ms | Allocations: 2073)
+  Rendered layout layouts/application.html.erb (Duration: 98.3ms | Allocations: 6129)
+Completed 200 OK in 157ms (Views: 21.4ms | ActiveRecord: 132.3ms | Allocations: 6802)
+
+
+Started GET "/restaurants?search=burger&commit=Buscar" for 127.0.0.1 at 2023-10-28 22:31:34 +0200
+Processing by RestaurantsController#index as HTML
+  Parameters: {"search"=>"burger", "commit"=>"Buscar"}
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 0.3ms | Allocations: 81)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 530)
+  Rendered layouts/_sidenav.html.erb (Duration: 2.6ms | Allocations: 2068)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 5569)
+Completed 200 OK in 57ms (Views: 8.4ms | ActiveRecord: 0.0ms | Allocations: 9826)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-10-29 08:59:46 +0100
+Processing by LoginsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering logins/new.html.erb within layouts/application
+  Rendered logins/new.html.erb within layouts/application (Duration: 4.9ms | Allocations: 2519)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 4.2ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 7722)
+Completed 200 OK in 21ms (Views: 19.6ms | ActiveRecord: 0.0ms | Allocations: 8168)
+
+
+Started GET "/register" for 127.0.0.1 at 2023-10-29 08:59:53 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered registrations/new.html.erb within layouts/application (Duration: 3.0ms | Allocations: 1111)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.6ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 6314)
+Completed 200 OK in 1760ms (Views: 13.2ms | ActiveRecord: 701.9ms | Allocations: 17975)
+
+
+Started POST "/register" for 127.0.0.1 at 2023-10-29 09:00:20 +0100
+Processing by RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"nombre"=>"Atreides", "password"=>"[FILTERED]"}, "commit"=>"Registrarse"}
+  [1m[36mTRANSACTION (68.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (121.0ms)[0m  [1m[32mINSERT INTO "users" ("nombre", "rutaImgPerfil", "esAdmin", "password_digest") VALUES ($1, $2, $3, $4)[0m  [["nombre", "Atreides"], ["rutaImgPerfil", "default"], ["esAdmin", false], ["password_digest", "[FILTERED]"]]
+  ↳ app/controllers/registrations_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (48.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/registrations_controller.rb:9:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 494ms (ActiveRecord: 237.6ms | Allocations: 2341)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-29 09:00:21 +0100
+Processing by CategoriesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (93.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 95.5ms | Allocations: 556)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.1ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 105.3ms | Allocations: 5952)
+Completed 200 OK in 107ms (Views: 12.5ms | ActiveRecord: 93.5ms | Allocations: 6208)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-10-29 09:00:27 +0100
+Processing by LoginsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering logins/new.html.erb within layouts/application
+  Rendered logins/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 2279)
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 2.6ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 22.2ms | Allocations: 7478)
+Completed 200 OK in 24ms (Views: 23.1ms | ActiveRecord: 0.0ms | Allocations: 7717)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-10-29 09:00:42 +0100
+Processing by LoginsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nombre"=>"Atreides", "password"=>"[FILTERED]", "commit"=>"Log In"}
+  [1m[36mUser Load (161.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/controllers/logins_controller.rb:6:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 1568ms (ActiveRecord: 990.4ms | Allocations: 1094)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-29 09:00:43 +0100
+Processing by CategoriesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (1649.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 1651.9ms | Allocations: 510)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 510)
+  Rendered layouts/_sidenav.html.erb (Duration: 6.4ms | Allocations: 2072)
+  Rendered layout layouts/application.html.erb (Duration: 1665.8ms | Allocations: 5947)
+Completed 200 OK in 1667ms (Views: 17.1ms | ActiveRecord: 1649.2ms | Allocations: 6204)
+
+
+Started GET "/categories/burger" for 127.0.0.1 at 2023-10-29 09:00:51 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"burger"}
+  [1m[36mCategory Load (58.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "burger"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (46.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "burger"]]
+  ↳ app/views/categories/show.html.erb:5
+  Rendered categories/show.html.erb within layouts/application (Duration: 96.9ms | Allocations: 698)
+  Rendered layouts/_header.html.erb (Duration: 3.0ms | Allocations: 510)
+  Rendered layouts/_sidenav.html.erb (Duration: 11.5ms | Allocations: 2068)
+  Rendered layout layouts/application.html.erb (Duration: 121.0ms | Allocations: 6135)
+Completed 200 OK in 232ms (Views: 76.4ms | ActiveRecord: 104.9ms | Allocations: 6766)
+
+
+Started GET "/posts/new?category=burger" for 127.0.0.1 at 2023-10-29 09:00:55 +0100
+Processing by PostsController#new as HTML
+  Parameters: {"category"=>"burger"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 473)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.8ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 11.5ms | Allocations: 5668)
+Completed 200 OK in 13ms (Views: 11.9ms | ActiveRecord: 0.0ms | Allocations: 6136)
+
+
+Started POST "/posts" for 127.0.0.1 at 2023-10-29 09:01:11 +0100
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"content"=>"pasame los espárragos", "image"=>"none"}, "commit"=>"Crear"}
+  [1m[36mTRANSACTION (73.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:11:in `create'
+  [1m[36mPost Create (126.7ms)[0m  [1m[32mINSERT INTO "posts" ("categoria", "autor", "contenido", "ruta_img", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["categoria", "burger"], ["autor", "Atreides"], ["contenido", "pasame los espárragos"], ["ruta_img", "none"], ["created_at", "2023-10-29 08:01:11.712263"], ["updated_at", "2023-10-29 08:01:11.712263"]]
+  ↳ app/controllers/posts_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (49.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:11:in `create'
+Redirected to http://localhost:3000/categories/burger
+Completed 302 Found in 183ms (ActiveRecord: 250.2ms | Allocations: 1930)
+
+
+Started GET "/categories/burger" for 127.0.0.1 at 2023-10-29 09:01:11 +0100
+Processing by CategoriesController#show as TURBO_STREAM
+  Parameters: {"nombre"=>"burger"}
+  [1m[36mCategory Load (68.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "burger"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (57.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "burger"]]
+  ↳ app/views/categories/show.html.erb:5
+  Rendered categories/show.html.erb within layouts/application (Duration: 60.0ms | Allocations: 653)
+  Rendered layouts/_header.html.erb (Duration: 2.0ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 6.8ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 77.4ms | Allocations: 6060)
+Completed 200 OK in 149ms (Views: 21.3ms | ActiveRecord: 126.0ms | Allocations: 6685)
+
+
+Started GET "/categories/" for 127.0.0.1 at 2023-10-29 10:14:53 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (148.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (46.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 167.5ms | Allocations: 5632)
+  Rendered layouts/_header.html.erb (Duration: 2.4ms | Allocations: 867)
+  Rendered layouts/_sidenav.html.erb (Duration: 9.7ms | Allocations: 2633)
+  Rendered layout layouts/application.html.erb (Duration: 374.4ms | Allocations: 46660)
+Completed 200 OK in 484ms (Views: 230.1ms | ActiveRecord: 149.0ms | Allocations: 60492)
+
+
+Started GET "/categories/burger" for 127.0.0.1 at 2023-10-29 10:15:01 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"burger"}
+  [1m[36mCategory Load (51.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "burger"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (47.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "burger"]]
+  ↳ app/views/categories/show.html.erb:5
+  Rendered categories/show.html.erb within layouts/application (Duration: 411.1ms | Allocations: 13224)
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 8.2ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 428.6ms | Allocations: 18636)
+Completed 200 OK in 860ms (Views: 160.2ms | ActiveRecord: 500.8ms | Allocations: 20820)
+
+
+Started GET "/posts/new?category=burger" for 127.0.0.1 at 2023-10-29 10:15:07 +0100
+Processing by PostsController#new as HTML
+  Parameters: {"category"=>"burger"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 12.9ms | Allocations: 1621)
+  Rendered layouts/_header.html.erb (Duration: 10.9ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 2.5ms | Allocations: 2089)
+  Rendered layout layouts/application.html.erb (Duration: 29.7ms | Allocations: 6856)
+Completed 200 OK in 32ms (Views: 30.4ms | ActiveRecord: 0.0ms | Allocations: 7566)
+
+
+Started GET "/restaurants/1" for 127.0.0.1 at 2023-10-29 11:03:33 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (50.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (46.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 0.7ms | Allocations: 169)
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 970)
+  Rendered layouts/_sidenav.html.erb (Duration: 6.3ms | Allocations: 2633)
+  Rendered layout layouts/application.html.erb (Duration: 264.5ms | Allocations: 41334)
+Completed 200 OK in 874ms (Views: 326.4ms | ActiveRecord: 312.6ms | Allocations: 71924)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 11:04:20 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (167.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (56.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 569.8ms | Allocations: 16718)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 5.5ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 582.0ms | Allocations: 21914)
+Completed 200 OK in 754ms (Views: 117.6ms | ActiveRecord: 632.4ms | Allocations: 22650)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 11:04:35 +0100
+Processing by RestaurantsController#edit as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (281.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (85.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 87.4ms | Allocations: 649)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 513)
+  Rendered layouts/_sidenav.html.erb (Duration: 6.8ms | Allocations: 2087)
+  Rendered layout layouts/application.html.erb (Duration: 98.7ms | Allocations: 5923)
+Completed 200 OK in 382ms (Views: 13.5ms | ActiveRecord: 367.1ms | Allocations: 6671)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2023-10-29 11:04:40 +0100
+Processing by DishesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/new.html.erb within layouts/application
+  Rendered dishes/new.html.erb within layouts/application (Duration: 51.4ms | Allocations: 2284)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 2.5ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 57.8ms | Allocations: 7482)
+Completed 200 OK in 78ms (Views: 58.6ms | ActiveRecord: 0.0ms | Allocations: 13871)
+
+
+Started POST "/dishes" for 127.0.0.1 at 2023-10-29 11:05:03 +0100
+Processing by DishesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "dish"=>{"nombre"=>"", "image"=>"", "descripcion"=>"", "precio"=>""}, "commit"=>"Crear Plato"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 993)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'image' for Dish.):
+  
+app/controllers/dishes_controller.rb:8:in `create'
+Started GET "/dishes/new" for 127.0.0.1 at 2023-10-29 11:05:27 +0100
+Processing by DishesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/new.html.erb within layouts/application
+  Rendered dishes/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 998)
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 513)
+  Rendered layouts/_sidenav.html.erb (Duration: 4.6ms | Allocations: 2087)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | Allocations: 6278)
+Completed 200 OK in 20ms (Views: 19.2ms | ActiveRecord: 0.0ms | Allocations: 6546)
+
+
+Started GET "/restaurants/" for 127.0.0.1 at 2023-10-29 11:06:06 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (44.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 170)
+  Rendered layouts/_header.html.erb (Duration: 1.7ms | Allocations: 971)
+  Rendered layouts/_sidenav.html.erb (Duration: 5.3ms | Allocations: 2633)
+  Rendered layout layouts/application.html.erb (Duration: 79.3ms | Allocations: 40821)
+Completed 200 OK in 119ms (Views: 83.7ms | ActiveRecord: 0.0ms | Allocations: 57212)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 11:06:11 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (43.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (42.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 212.6ms | Allocations: 5294)
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 2.8ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 224.5ms | Allocations: 10490)
+Completed 200 OK in 848ms (Views: 79.7ms | ActiveRecord: 664.9ms | Allocations: 25006)
+
+
+Started GET "/dishes/new" for 127.0.0.1 at 2023-10-29 11:06:14 +0100
+Processing by DishesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/new.html.erb within layouts/application
+  Rendered dishes/new.html.erb within layouts/application (Duration: 9.3ms | Allocations: 2309)
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 513)
+  Rendered layouts/_sidenav.html.erb (Duration: 6.0ms | Allocations: 2087)
+  Rendered layout layouts/application.html.erb (Duration: 25.2ms | Allocations: 7592)
+Completed 200 OK in 79ms (Views: 26.3ms | ActiveRecord: 0.0ms | Allocations: 13965)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 11:09:13 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (48.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (48.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 163.1ms | Allocations: 3865)
+  Rendered layouts/_header.html.erb (Duration: 1.5ms | Allocations: 772)
+  Rendered layouts/_sidenav.html.erb (Duration: 5.2ms | Allocations: 2502)
+  Rendered layout layouts/application.html.erb (Duration: 193.8ms | Allocations: 21550)
+Completed 200 OK in 714ms (Views: 49.0ms | ActiveRecord: 637.1ms | Allocations: 30378)
+
+
+Started GET "/dishes/new?restaurant=1" for 127.0.0.1 at 2023-10-29 11:09:16 +0100
+Processing by DishesController#new as HTML
+  Parameters: {"restaurant"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/new.html.erb within layouts/application
+  Rendered dishes/new.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1508)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 4.2ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 16.6ms | Allocations: 6706)
+Completed 200 OK in 24ms (Views: 18.7ms | ActiveRecord: 0.0ms | Allocations: 9484)
+
+
+Started POST "/dishes" for 127.0.0.1 at 2023-10-29 11:09:40 +0100
+Processing by DishesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "dish"=>{"nombre"=>"asdf", "image"=>"asdf", "descripcion"=>"asdf", "precio"=>"asdf"}, "commit"=>"Crear Plato"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 999)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'image' for Dish.):
+  
+app/controllers/dishes_controller.rb:9:in `create'
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 11:11:08 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (57.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (57.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 246.0ms | Allocations: 3788)
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 779)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.7ms | Allocations: 2537)
+  Rendered layout layouts/application.html.erb (Duration: 269.1ms | Allocations: 21556)
+Completed 200 OK in 788ms (Views: 40.3ms | ActiveRecord: 716.5ms | Allocations: 30384)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 11:11:09 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (42.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (50.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 55.3ms | Allocations: 800)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 513)
+  Rendered layouts/_sidenav.html.erb (Duration: 8.0ms | Allocations: 2087)
+  Rendered layout layouts/application.html.erb (Duration: 73.0ms | Allocations: 6081)
+Completed 200 OK in 119ms (Views: 23.1ms | ActiveRecord: 92.9ms | Allocations: 6726)
+
+
+Started GET "/dishes/new?restaurant=1" for 127.0.0.1 at 2023-10-29 11:11:11 +0100
+Processing by DishesController#new as HTML
+  Parameters: {"restaurant"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/new.html.erb within layouts/application
+  Rendered dishes/new.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1506)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 513)
+  Rendered layouts/_sidenav.html.erb (Duration: 4.9ms | Allocations: 2062)
+  Rendered layout layouts/application.html.erb (Duration: 14.7ms | Allocations: 6737)
+Completed 200 OK in 20ms (Views: 15.5ms | ActiveRecord: 0.0ms | Allocations: 9543)
+
+
+Started POST "/dishes" for 127.0.0.1 at 2023-10-29 11:11:13 +0100
+Processing by DishesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "dish"=>{"nombre"=>"", "image"=>"", "descripcion"=>"", "precio"=>""}, "commit"=>"Crear Plato"}
+[31mUnpermitted parameter: :image. Context: { controller: DishesController, action: create, request: #<ActionDispatch::Request:0x00007f603f7d3178>, params: {"authenticity_token"=>"[FILTERED]", "dish"=>{"nombre"=>"", "image"=>"", "descripcion"=>"", "precio"=>""}, "commit"=>"Crear Plato", "controller"=>"dishes", "action"=>"create"} }[0m
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 1068)
+
+
+  
+NoMethodError (undefined method `rutaImgFondo=' for #<Dish id: nil, restaurant_id: nil, nombre: "", rutaImgPlato: nil, descripcion: "", precio: nil>):
+  
+app/controllers/dishes_controller.rb:10:in `create'
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 11:11:51 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (90.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (43.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 161.4ms | Allocations: 3817)
+  Rendered layouts/_header.html.erb (Duration: 1.5ms | Allocations: 779)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.7ms | Allocations: 2537)
+  Rendered layout layouts/application.html.erb (Duration: 189.2ms | Allocations: 21585)
+Completed 200 OK in 1599ms (Views: 53.4ms | ActiveRecord: 1518.4ms | Allocations: 30404)
+
+
+Started GET "/dishes/new?restaurant=1" for 127.0.0.1 at 2023-10-29 11:11:54 +0100
+Processing by DishesController#new as HTML
+  Parameters: {"restaurant"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/new.html.erb within layouts/application
+  Rendered dishes/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1513)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.5ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 12.8ms | Allocations: 6711)
+Completed 200 OK in 18ms (Views: 13.6ms | ActiveRecord: 0.0ms | Allocations: 9488)
+
+
+Started POST "/dishes" for 127.0.0.1 at 2023-10-29 11:11:56 +0100
+Processing by DishesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "dish"=>{"nombre"=>"", "image"=>"", "descripcion"=>"", "precio"=>""}, "commit"=>"Crear Plato"}
+Completed 500 Internal Server Error in 2ms (ActiveRecord: 0.0ms | Allocations: 879)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'image' for Dish.):
+  
+app/controllers/dishes_controller.rb:9:in `create'
+Started GET "/dishes/new?restaurant=1" for 127.0.0.1 at 2023-10-29 11:12:59 +0100
+Processing by DishesController#new as HTML
+  Parameters: {"restaurant"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/new.html.erb within layouts/application
+  Rendered dishes/new.html.erb within layouts/application (Duration: 25.0ms | Allocations: 1534)
+  Rendered layouts/_header.html.erb (Duration: 2.3ms | Allocations: 770)
+  Rendered layouts/_sidenav.html.erb (Duration: 11.2ms | Allocations: 2537)
+  Rendered layout layouts/application.html.erb (Duration: 91.5ms | Allocations: 19280)
+Completed 200 OK in 531ms (Views: 96.7ms | ActiveRecord: 273.3ms | Allocations: 24359)
+
+
+Started POST "/dishes" for 127.0.0.1 at 2023-10-29 11:13:01 +0100
+Processing by DishesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "dish"=>{"nombre"=>"", "rutaImgFondo"=>"", "descripcion"=>"", "precio"=>""}, "commit"=>"Crear Plato"}
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 894)
+
+
+  
+ActiveModel::UnknownAttributeError (unknown attribute 'rutaImgFondo' for Dish.):
+  
+app/controllers/dishes_controller.rb:9:in `create'
+Started GET "/dishes/new?restaurant=1" for 127.0.0.1 at 2023-10-29 11:13:42 +0100
+Processing by DishesController#new as HTML
+  Parameters: {"restaurant"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/new.html.erb within layouts/application
+  Rendered dishes/new.html.erb within layouts/application (Duration: 3.6ms | Allocations: 1447)
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 770)
+  Rendered layouts/_sidenav.html.erb (Duration: 4.7ms | Allocations: 2537)
+  Rendered layout layouts/application.html.erb (Duration: 28.3ms | Allocations: 19190)
+Completed 200 OK in 418ms (Views: 32.1ms | ActiveRecord: 201.3ms | Allocations: 24275)
+
+
+Started POST "/dishes" for 127.0.0.1 at 2023-10-29 11:13:55 +0100
+Processing by DishesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "dish"=>{"nombre"=>"", "rutaImgPlato"=>"", "descripcion"=>"", "precio"=>""}, "commit"=>"Crear Plato"}
+No template found for DishesController#create, rendering head :no_content
+Completed 204 No Content in 3ms (ActiveRecord: 0.0ms | Allocations: 767)
+
+
+Started POST "/dishes" for 127.0.0.1 at 2023-10-29 11:13:56 +0100
+Processing by DishesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "dish"=>{"nombre"=>"", "rutaImgPlato"=>"", "descripcion"=>"", "precio"=>""}, "commit"=>"Crear Plato"}
+No template found for DishesController#create, rendering head :no_content
+Completed 204 No Content in 3ms (ActiveRecord: 0.0ms | Allocations: 458)
+
+
+Started POST "/dishes" for 127.0.0.1 at 2023-10-29 11:13:57 +0100
+Processing by DishesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "dish"=>{"nombre"=>"", "rutaImgPlato"=>"", "descripcion"=>"", "precio"=>""}, "commit"=>"Crear Plato"}
+No template found for DishesController#create, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms | Allocations: 455)
+
+
+Started GET "/dishes/new?restaurant=1" for 127.0.0.1 at 2023-10-29 11:16:09 +0100
+Processing by DishesController#new as HTML
+  Parameters: {"restaurant"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/new.html.erb within layouts/application
+  Rendered dishes/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1246)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 770)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.0ms | Allocations: 2537)
+  Rendered layout layouts/application.html.erb (Duration: 19.4ms | Allocations: 18990)
+Completed 200 OK in 964ms (Views: 21.1ms | ActiveRecord: 808.4ms | Allocations: 24191)
+
+
+Started POST "/dishes" for 127.0.0.1 at 2023-10-29 11:16:12 +0100
+Processing by DishesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "dish"=>{"nombre"=>"", "rutaImgPlato"=>"", "descripcion"=>"", "precio"=>""}, "commit"=>"Crear Plato"}
+No template found for DishesController#create, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms | Allocations: 746)
+
+
+Started GET "/dishes/new?restaurant=1" for 127.0.0.1 at 2023-10-29 11:17:08 +0100
+Processing by DishesController#new as HTML
+  Parameters: {"restaurant"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/new.html.erb within layouts/application
+  Rendered dishes/new.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1244)
+  Rendered layouts/_header.html.erb (Duration: 2.0ms | Allocations: 770)
+  Rendered layouts/_sidenav.html.erb (Duration: 15.9ms | Allocations: 2537)
+  Rendered layout layouts/application.html.erb (Duration: 39.0ms | Allocations: 18990)
+Completed 200 OK in 806ms (Views: 40.5ms | ActiveRecord: 658.6ms | Allocations: 24171)
+
+
+Started POST "/dishes" for 127.0.0.1 at 2023-10-29 11:17:21 +0100
+Processing by DishesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "dish"=>{"nombre"=>"hambre", "rutaImgPlato"=>"asdf", "descripcion"=>"asdf", "precio"=>"asdf"}, "commit"=>"Crear Plato"}
+  [1m[36mTRANSACTION (110.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/dishes_controller.rb:10:in `create'
+  [1m[36mRestaurant Load (52.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/dishes_controller.rb:10:in `create'
+  [1m[36mDish Create (120.7ms)[0m  [1m[32mINSERT INTO "dishes" ("restaurant_id", "nombre", "rutaImgPlato", "descripcion", "precio") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["restaurant_id", 1], ["nombre", "hambre"], ["rutaImgPlato", "asdf"], ["descripcion", "asdf"], ["precio", 0.0]]
+  ↳ app/controllers/dishes_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (58.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/dishes_controller.rb:10:in `create'
+Redirected to http://localhost:3000/restaurants/1
+Completed 302 Found in 771ms (ActiveRecord: 696.0ms | Allocations: 12463)
+
+
+Started GET "/restaurants/1" for 127.0.0.1 at 2023-10-29 11:17:22 +0100
+Processing by RestaurantsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (89.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 81)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 528)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.6ms | Allocations: 2065)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | Allocations: 5593)
+Completed 200 OK in 105ms (Views: 11.7ms | ActiveRecord: 89.8ms | Allocations: 7083)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 11:18:19 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (465.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (201.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 213.2ms | Allocations: 3358)
+  Rendered layout layouts/application.html.erb (Duration: 213.7ms | Allocations: 3450)
+Completed 500 Internal Server Error in 683ms (ActiveRecord: 667.0ms | Allocations: 4142)
+
+
+  
+ActionView::Template::Error (undefined method `dish_path' for #<ActionView::Base:0x0000000002d8c0>):
+     9:     <li> 
+    10:       <div>
+    11:         <%= dish.nombre %>
+    12:         <%= link_to "Modificar", dish %>
+    13:       </div> 
+    14:     </li>
+    15:   <% end %>
+  
+app/views/restaurants/edit.html.erb:12
+app/views/restaurants/edit.html.erb:8
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 11:19:21 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (42.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (55.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 194.7ms | Allocations: 6653)
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 775)
+  Rendered layouts/_sidenav.html.erb (Duration: 5.0ms | Allocations: 2537)
+  Rendered layout layouts/application.html.erb (Duration: 216.6ms | Allocations: 24419)
+Completed 200 OK in 756ms (Views: 47.6ms | ActiveRecord: 684.8ms | Allocations: 33236)
+
+
+Started GET "/dishes/1/edit" for 127.0.0.1 at 2023-10-29 11:19:26 +0100
+Processing by DishesController#edit as HTML
+  Parameters: {"id"=>"1"}
+Completed 406 Not Acceptable in 1ms (ActiveRecord: 0.0ms | Allocations: 793)
+
+
+  
+ActionController::MissingExactTemplate (DishesController#edit is missing a template for request formats: text/html):
+  
+actionpack (7.1.0) lib/action_controller/metal/implicit_render.rb:47:in `default_render'
+actionpack (7.1.0) lib/action_controller/metal/basic_implicit_render.rb:7:in `send_action'
+actionpack (7.1.0) lib/abstract_controller/base.rb:224:in `process_action'
+actionpack (7.1.0) lib/action_controller/metal/rendering.rb:165:in `process_action'
+actionpack (7.1.0) lib/abstract_controller/callbacks.rb:259:in `block in process_action'
+activesupport (7.1.0) lib/active_support/callbacks.rb:121:in `block in run_callbacks'
+actiontext (7.1.0) lib/action_text/rendering.rb:23:in `with_renderer'
+actiontext (7.1.0) lib/action_text/engine.rb:69:in `block (4 levels) in <class:Engine>'
+activesupport (7.1.0) lib/active_support/callbacks.rb:130:in `instance_exec'
+activesupport (7.1.0) lib/active_support/callbacks.rb:130:in `block in run_callbacks'
+activesupport (7.1.0) lib/active_support/callbacks.rb:141:in `run_callbacks'
+actionpack (7.1.0) lib/abstract_controller/callbacks.rb:258:in `process_action'
+actionpack (7.1.0) lib/action_controller/metal/rescue.rb:25:in `process_action'
+actionpack (7.1.0) lib/action_controller/metal/instrumentation.rb:74:in `block in process_action'
+activesupport (7.1.0) lib/active_support/notifications.rb:206:in `block in instrument'
+activesupport (7.1.0) lib/active_support/notifications/instrumenter.rb:58:in `instrument'
+activesupport (7.1.0) lib/active_support/notifications.rb:206:in `instrument'
+actionpack (7.1.0) lib/action_controller/metal/instrumentation.rb:73:in `process_action'
+actionpack (7.1.0) lib/action_controller/metal/params_wrapper.rb:261:in `process_action'
+activerecord (7.1.0) lib/active_record/railties/controller_runtime.rb:32:in `process_action'
+actionpack (7.1.0) lib/abstract_controller/base.rb:160:in `process'
+actionview (7.1.0) lib/action_view/rendering.rb:40:in `process'
+actionpack (7.1.0) lib/action_controller/metal.rb:227:in `dispatch'
+actionpack (7.1.0) lib/action_controller/metal.rb:309:in `dispatch'
+actionpack (7.1.0) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (7.1.0) lib/action_dispatch/routing/route_set.rb:32:in `serve'
+actionpack (7.1.0) lib/action_dispatch/journey/router.rb:51:in `block in serve'
+actionpack (7.1.0) lib/action_dispatch/journey/router.rb:131:in `block in find_routes'
+actionpack (7.1.0) lib/action_dispatch/journey/router.rb:124:in `each'
+actionpack (7.1.0) lib/action_dispatch/journey/router.rb:124:in `find_routes'
+actionpack (7.1.0) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (7.1.0) lib/action_dispatch/routing/route_set.rb:882:in `call'
+rack (3.0.8) lib/rack/tempfile_reaper.rb:20:in `call'
+rack (3.0.8) lib/rack/etag.rb:29:in `call'
+rack (3.0.8) lib/rack/conditional_get.rb:31:in `call'
+rack (3.0.8) lib/rack/head.rb:15:in `call'
+actionpack (7.1.0) lib/action_dispatch/http/permissions_policy.rb:36:in `call'
+actionpack (7.1.0) lib/action_dispatch/http/content_security_policy.rb:33:in `call'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:272:in `context'
+rack-session (2.0.0) lib/rack/session/abstract/id.rb:266:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/cookies.rb:689:in `call'
+activerecord (7.1.0) lib/active_record/migration.rb:653:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.0) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.0) lib/active_support/broadcast_logger.rb:212:in `method_missing'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.0) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/dishes/1/edit" for 127.0.0.1 at 2023-10-29 11:20:03 +0100
+Processing by DishesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/edit.html.erb within layouts/application
+  Rendered dishes/edit.html.erb within layouts/application (Duration: 6.0ms | Allocations: 5102)
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 776)
+  Rendered layouts/_sidenav.html.erb (Duration: 6.4ms | Allocations: 2537)
+  Rendered layout layouts/application.html.erb (Duration: 31.9ms | Allocations: 22856)
+Completed 200 OK in 35ms (Views: 34.3ms | ActiveRecord: 0.0ms | Allocations: 23841)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 11:20:13 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (205.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (45.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 160.5ms | Allocations: 6616)
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 5.0ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 178.6ms | Allocations: 11825)
+Completed 200 OK in 643ms (Views: 42.0ms | ActiveRecord: 573.4ms | Allocations: 20165)
+
+
+Started GET "/dishes/1/edit" for 127.0.0.1 at 2023-10-29 11:20:15 +0100
+Processing by DishesController#edit as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/edit.html.erb within layouts/application
+  Rendered dishes/edit.html.erb within layouts/application (Duration: 3.7ms | Allocations: 4100)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.2ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 14.5ms | Allocations: 9299)
+Completed 200 OK in 16ms (Views: 15.1ms | ActiveRecord: 0.0ms | Allocations: 9545)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 11:25:43 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (227.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (49.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 54.2ms | Allocations: 850)
+  Rendered layouts/_header.html.erb (Duration: 2.1ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 12.9ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 79.2ms | Allocations: 6046)
+Completed 200 OK in 311ms (Views: 30.3ms | ActiveRecord: 277.6ms | Allocations: 6690)
+
+
+Started GET "/dishes/new?restaurant=1" for 127.0.0.1 at 2023-10-29 11:25:45 +0100
+Processing by DishesController#new as HTML
+  Parameters: {"restaurant"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/new.html.erb within layouts/application
+  Rendered dishes/new.html.erb within layouts/application (Duration: 5.6ms | Allocations: 1165)
+  Rendered layouts/_header.html.erb (Duration: 2.4ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 21.3ms | Allocations: 2082)
+  Rendered layout layouts/application.html.erb (Duration: 45.5ms | Allocations: 6390)
+Completed 200 OK in 49ms (Views: 47.2ms | ActiveRecord: 0.0ms | Allocations: 6933)
+
+
+Started POST "/dishes" for 127.0.0.1 at 2023-10-29 11:25:58 +0100
+Processing by DishesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "dish"=>{"nombre"=>"plato2", "rutaImgPlato"=>"fdsa", "descripcion"=>"bueno", "precio"=>"10"}, "commit"=>"Crear Plato"}
+  [1m[36mTRANSACTION (69.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/dishes_controller.rb:10:in `create'
+  [1m[36mRestaurant Load (96.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/dishes_controller.rb:10:in `create'
+  [1m[36mDish Create (43.8ms)[0m  [1m[32mINSERT INTO "dishes" ("restaurant_id", "nombre", "rutaImgPlato", "descripcion", "precio") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["restaurant_id", 1], ["nombre", "plato2"], ["rutaImgPlato", "fdsa"], ["descripcion", "bueno"], ["precio", 10.0]]
+  ↳ app/controllers/dishes_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (42.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/dishes_controller.rb:10:in `create'
+Redirected to http://localhost:3000/restaurants/1
+Completed 302 Found in 263ms (ActiveRecord: 253.1ms | Allocations: 3734)
+
+
+Started GET "/restaurants/1" for 127.0.0.1 at 2023-10-29 11:25:58 +0100
+Processing by RestaurantsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (56.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 0.9ms | Allocations: 82)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 522)
+  Rendered layouts/_sidenav.html.erb (Duration: 2.7ms | Allocations: 2084)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 5603)
+Completed 200 OK in 73ms (Views: 12.9ms | ActiveRecord: 56.8ms | Allocations: 6353)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 11:26:25 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (67.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (92.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 215.3ms | Allocations: 6765)
+  Rendered layouts/_header.html.erb (Duration: 1.7ms | Allocations: 775)
+  Rendered layouts/_sidenav.html.erb (Duration: 4.2ms | Allocations: 2537)
+  Rendered layout layouts/application.html.erb (Duration: 241.5ms | Allocations: 24541)
+Completed 200 OK in 967ms (Views: 56.6ms | ActiveRecord: 775.2ms | Allocations: 33369)
+
+
+Started GET "/dishes/new?restaurant=1" for 127.0.0.1 at 2023-10-29 11:26:29 +0100
+Processing by DishesController#new as HTML
+  Parameters: {"restaurant"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/new.html.erb within layouts/application
+  Rendered dishes/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 1201)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.4ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | Allocations: 6419)
+Completed 200 OK in 19ms (Views: 18.0ms | ActiveRecord: 0.0ms | Allocations: 7107)
+
+
+Started POST "/dishes" for 127.0.0.1 at 2023-10-29 11:26:38 +0100
+Processing by DishesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "dish"=>{"nombre"=>"plato3", "rutaImgPlato"=>"asdf", "descripcion"=>"asfd", "precio"=>"13"}, "commit"=>"Crear Plato"}
+  [1m[36mTRANSACTION (284.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/dishes_controller.rb:10:in `create'
+  [1m[36mRestaurant Load (312.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/dishes_controller.rb:10:in `create'
+  [1m[36mDish Create (44.5ms)[0m  [1m[32mINSERT INTO "dishes" ("restaurant_id", "nombre", "rutaImgPlato", "descripcion", "precio") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["restaurant_id", 1], ["nombre", "plato3"], ["rutaImgPlato", "asdf"], ["descripcion", "asfd"], ["precio", 13.0]]
+  ↳ app/controllers/dishes_controller.rb:10:in `create'
+  [1m[36mTRANSACTION (47.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/dishes_controller.rb:10:in `create'
+Redirected to http://localhost:3000/restaurants/1/edit
+Completed 302 Found in 705ms (ActiveRecord: 688.4ms | Allocations: 3736)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 11:26:39 +0100
+Processing by RestaurantsController#edit as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (42.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (43.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 48.8ms | Allocations: 940)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 6.1ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 59.9ms | Allocations: 6179)
+Completed 200 OK in 107ms (Views: 17.2ms | ActiveRecord: 86.7ms | Allocations: 6867)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 11:26:44 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (47.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (45.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 49.8ms | Allocations: 923)
+  Rendered layouts/_header.html.erb (Duration: 2.9ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 19.5ms | Allocations: 2053)
+  Rendered layout layouts/application.html.erb (Duration: 84.1ms | Allocations: 6120)
+Completed 200 OK in 134ms (Views: 40.0ms | ActiveRecord: 92.2ms | Allocations: 6763)
+
+
+Started GET "/dishes/2/edit" for 127.0.0.1 at 2023-10-29 11:32:14 +0100
+Processing by DishesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mDish Load (71.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dishes_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/edit.html.erb within layouts/application
+  Rendered dishes/edit.html.erb within layouts/application (Duration: 3.2ms | Allocations: 1467)
+  Rendered layout layouts/application.html.erb (Duration: 4.5ms | Allocations: 1560)
+Completed 500 Internal Server Error in 1236ms (ActiveRecord: 525.9ms | Allocations: 10587)
+
+
+  
+ActionView::Template::Error (undefined method `dish_path' for #<ActionView::Base:0x00000000040ba0>):
+    3: <% if flash[:fails] %>
+    4:   <div class="notice" ><%= flash[:fails] %></div>
+    5: <% end %>
+    6: <%= form_with model: @dish do |form| %>
+    7:   <div>
+    8:     <%= form.label :nombre %>
+    9:     <%= form.text_field :nombre, value: @dish.nombre %>
+  
+app/views/dishes/edit.html.erb:6
+Started GET "/dishes/2/edit" for 127.0.0.1 at 2023-10-29 11:35:27 +0100
+Processing by DishesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mDish Load (53.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dishes_controller.rb:22:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/edit.html.erb within layouts/application
+  Rendered dishes/edit.html.erb within layouts/application (Duration: 2.8ms | Allocations: 1461)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 1554)
+Completed 500 Internal Server Error in 626ms (ActiveRecord: 600.1ms | Allocations: 7558)
+
+
+  
+ActionView::Template::Error (undefined method `dish_path' for #<ActionView::Base:0x000000000458a8>):
+    3: <% if flash[:fails] %>
+    4:   <div class="notice" ><%= flash[:fails] %></div>
+    5: <% end %>
+    6: <%= form_with model: @dish do |form| %>
+    7:   <div>
+    8:     <%= form.label :nombre %>
+    9:     <%= form.text_field :nombre, value: @dish.nombre %>
+  
+app/views/dishes/edit.html.erb:6
+Started GET "/dishes/2/edit" for 127.0.0.1 at 2023-10-29 11:37:12 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (50.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by DishesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mDish Load (52.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dishes_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/edit.html.erb within layouts/application
+  Rendered dishes/edit.html.erb within layouts/application (Duration: 37.3ms | Allocations: 3706)
+  Rendered layouts/_header.html.erb (Duration: 3.1ms | Allocations: 832)
+  Rendered layouts/_sidenav.html.erb (Duration: 11.3ms | Allocations: 2633)
+  Rendered layout layouts/application.html.erb (Duration: 139.4ms | Allocations: 42617)
+Completed 200 OK in 596ms (Views: 146.7ms | ActiveRecord: 323.2ms | Allocations: 68493)
+
+
+Started PATCH "/dishes/2" for 127.0.0.1 at 2023-10-29 11:37:37 +0100
+Processing by DishesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "dish"=>{"nombre"=>"platoupdated", "rutaImgPlato"=>"fdsa", "descripcion"=>"bueno", "precio"=>"10.0"}, "commit"=>"Guardar", "id"=>"2"}
+  [1m[36mCategory Load (47.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/dishes_controller.rb:25:in `update'
+Completed 404 Not Found in 504ms (ActiveRecord: 160.1ms | Allocations: 2843)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category with 'nombre'=2):
+  
+app/controllers/dishes_controller.rb:25:in `update'
+Started GET "/dishes/2/edit" for 127.0.0.1 at 2023-10-29 11:37:38 +0100
+Processing by DishesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mDish Load (48.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dishes_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/edit.html.erb within layouts/application
+  Rendered dishes/edit.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1018)
+  Rendered layouts/_header.html.erb (Duration: 1.7ms | Allocations: 513)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.9ms | Allocations: 2087)
+  Rendered layout layouts/application.html.erb (Duration: 15.2ms | Allocations: 6298)
+Completed 200 OK in 66ms (Views: 16.1ms | ActiveRecord: 48.2ms | Allocations: 6936)
+
+
+Started PATCH "/dishes/2" for 127.0.0.1 at 2023-10-29 11:38:19 +0100
+Processing by DishesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "dish"=>{"nombre"=>"platoupdated", "rutaImgPlato"=>"fdsa", "descripcion"=>"bueno", "precio"=>"10.0"}, "commit"=>"Guardar", "id"=>"2"}
+  [1m[36mCategory Load (103.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "2"], ["LIMIT", 1]]
+  ↳ app/controllers/dishes_controller.rb:25:in `update'
+Completed 404 Not Found in 361ms (ActiveRecord: 203.0ms | Allocations: 2778)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Category with 'nombre'=2):
+  
+app/controllers/dishes_controller.rb:25:in `update'
+Started GET "/dishes/2/edit" for 127.0.0.1 at 2023-10-29 11:38:19 +0100
+Processing by DishesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mDish Load (60.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dishes_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/edit.html.erb within layouts/application
+  Rendered dishes/edit.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1435)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 770)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.1ms | Allocations: 2537)
+  Rendered layout layouts/application.html.erb (Duration: 23.0ms | Allocations: 19179)
+Completed 200 OK in 311ms (Views: 24.9ms | ActiveRecord: 267.6ms | Allocations: 24947)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 11:38:29 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (56.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (47.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 105.3ms | Allocations: 4695)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 2.4ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 115.5ms | Allocations: 9904)
+Completed 200 OK in 383ms (Views: 68.8ms | ActiveRecord: 225.1ms | Allocations: 23492)
+
+
+Started GET "/dishes/2/edit" for 127.0.0.1 at 2023-10-29 11:38:32 +0100
+Processing by DishesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mDish Load (54.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dishes_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/edit.html.erb within layouts/application
+  Rendered dishes/edit.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1024)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.2ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 10.1ms | Allocations: 6219)
+Completed 200 OK in 67ms (Views: 10.5ms | ActiveRecord: 54.9ms | Allocations: 6853)
+
+
+Started GET "/categories/" for 127.0.0.1 at 2023-10-29 11:39:08 +0100
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (140.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 271.2ms | Allocations: 3861)
+  Rendered layouts/_header.html.erb (Duration: 1.5ms | Allocations: 775)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.0ms | Allocations: 2537)
+  Rendered layout layouts/application.html.erb (Duration: 290.2ms | Allocations: 21842)
+Completed 200 OK in 303ms (Views: 33.4ms | ActiveRecord: 259.0ms | Allocations: 24183)
+
+
+Started GET "/restaurants/" for 127.0.0.1 at 2023-10-29 11:39:14 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 79)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 525)
+  Rendered layouts/_sidenav.html.erb (Duration: 2.2ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | Allocations: 5512)
+Completed 200 OK in 22ms (Views: 14.6ms | ActiveRecord: 0.0ms | Allocations: 9162)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 11:39:18 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (48.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (82.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 200.2ms | Allocations: 6725)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 2.1ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 206.1ms | Allocations: 11921)
+Completed 200 OK in 486ms (Views: 22.4ms | ActiveRecord: 449.5ms | Allocations: 16563)
+
+
+Started GET "/dishes/2/edit" for 127.0.0.1 at 2023-10-29 11:39:20 +0100
+Processing by DishesController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mDish Load (51.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dishes_controller.rb:21:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/edit.html.erb within layouts/application
+  Rendered dishes/edit.html.erb within layouts/application (Duration: 3.8ms | Allocations: 1401)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 2.3ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | Allocations: 6599)
+Completed 200 OK in 68ms (Views: 13.6ms | ActiveRecord: 51.5ms | Allocations: 8032)
+
+
+Started PATCH "/dishes/2" for 127.0.0.1 at 2023-10-29 11:39:25 +0100
+Processing by DishesController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "dish"=>{"nombre"=>"plato2updated", "rutaImgPlato"=>"fdsa", "descripcion"=>"bueno", "precio"=>"10.0"}, "commit"=>"Guardar", "id"=>"2"}
+  [1m[36mDish Load (124.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/dishes_controller.rb:25:in `update'
+  [1m[36mTRANSACTION (99.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/dishes_controller.rb:26:in `update'
+  [1m[36mDish Update (389.6ms)[0m  [1m[33mUPDATE "dishes" SET "nombre" = $1 WHERE "dishes"."id" = $2[0m  [["nombre", "plato2updated"], ["id", 2]]
+  ↳ app/controllers/dishes_controller.rb:26:in `update'
+  [1m[36mTRANSACTION (52.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/dishes_controller.rb:26:in `update'
+Redirected to http://localhost:3000/restaurants/1/edit
+Completed 302 Found in 573ms (ActiveRecord: 665.7ms | Allocations: 3554)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 11:39:26 +0100
+Processing by RestaurantsController#edit as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (52.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (54.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 66.5ms | Allocations: 930)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 513)
+  Rendered layouts/_sidenav.html.erb (Duration: 2.2ms | Allocations: 2087)
+  Rendered layout layouts/application.html.erb (Duration: 73.0ms | Allocations: 6254)
+Completed 200 OK in 128ms (Views: 19.0ms | ActiveRecord: 107.0ms | Allocations: 6945)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 12:28:45 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+Completed 500 Internal Server Error in 16081ms (ActiveRecord: 0.0ms | Allocations: 7617)
+
+
+  
+ActiveRecord::DatabaseConnectionError (There is an issue connecting to your database with your username/password, username: ufmtugbort5e5ro1nkzn.
+
+Please check your database configuration to ensure the username/password are valid.
+):
+  
+app/controllers/restaurants_controller.rb:25:in `edit'
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 12:29:18 +0100
+  
+ActiveRecord::DatabaseConnectionError (There is an issue connecting to your database with your username/password, username: ufmtugbort5e5ro1nkzn.
+
+Please check your database configuration to ensure the username/password are valid.
+):
+  
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:76:in `rescue in new_client'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:68:in `new_client'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:981:in `connect'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:993:in `reconnect'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:685:in `block in reconnect!'
+activesupport (7.1.0) lib/active_support/concurrency/null_lock.rb:9:in `synchronize'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:684:in `reconnect!'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:788:in `verify!'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:795:in `connect!'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:997:in `block in with_raw_connection'
+activesupport (7.1.0) lib/active_support/concurrency/null_lock.rb:9:in `synchronize'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:996:in `with_raw_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:1104:in `valid_raw_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:619:in `get_database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/schema_cache.rb:374:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/schema_cache.rb:70:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/schema_cache.rb:200:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:871:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:647:in `check_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:675:in `new_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:720:in `checkout_new_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:699:in `try_to_checkout_new_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:657:in `acquire_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `connection'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:501:in `block in with_temporary_connection'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:518:in `with_temporary_pool'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:500:in `with_temporary_connection'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:494:in `block in with_temporary_connection_for_each'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:493:in `each'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:493:in `with_temporary_connection_for_each'
+activerecord (7.1.0) lib/active_record/migration.rb:771:in `pending_migrations'
+activerecord (7.1.0) lib/active_record/migration.rb:750:in `check_pending_migrations'
+activerecord (7.1.0) lib/active_record/migration.rb:642:in `block (2 levels) in call'
+activesupport (7.1.0) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.0) lib/active_record/migration.rb:647:in `block in call'
+activerecord (7.1.0) lib/active_record/migration.rb:639:in `synchronize'
+activerecord (7.1.0) lib/active_record/migration.rb:639:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.0) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.0) lib/active_support/broadcast_logger.rb:212:in `method_missing'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.0) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 12:34:12 +0100
+  
+ActiveRecord::DatabaseConnectionError (There is an issue connecting to your database with your username/password, username: ufmtugbort5e5ro1nkzn.
+
+Please check your database configuration to ensure the username/password are valid.
+):
+  
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:76:in `rescue in new_client'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:68:in `new_client'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:981:in `connect'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:993:in `reconnect'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:685:in `block in reconnect!'
+activesupport (7.1.0) lib/active_support/concurrency/null_lock.rb:9:in `synchronize'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:684:in `reconnect!'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:788:in `verify!'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:795:in `connect!'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:997:in `block in with_raw_connection'
+activesupport (7.1.0) lib/active_support/concurrency/null_lock.rb:9:in `synchronize'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:996:in `with_raw_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:1104:in `valid_raw_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:619:in `get_database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/schema_cache.rb:374:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/schema_cache.rb:70:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/schema_cache.rb:200:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:871:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:647:in `check_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:675:in `new_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:720:in `checkout_new_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:699:in `try_to_checkout_new_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:657:in `acquire_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `connection'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:501:in `block in with_temporary_connection'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:518:in `with_temporary_pool'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:500:in `with_temporary_connection'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:494:in `block in with_temporary_connection_for_each'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:493:in `each'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:493:in `with_temporary_connection_for_each'
+activerecord (7.1.0) lib/active_record/migration.rb:771:in `pending_migrations'
+activerecord (7.1.0) lib/active_record/migration.rb:750:in `check_pending_migrations'
+activerecord (7.1.0) lib/active_record/migration.rb:642:in `block (2 levels) in call'
+activesupport (7.1.0) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.0) lib/active_record/migration.rb:647:in `block in call'
+activerecord (7.1.0) lib/active_record/migration.rb:639:in `synchronize'
+activerecord (7.1.0) lib/active_record/migration.rb:639:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.0) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.0) lib/active_support/broadcast_logger.rb:212:in `method_missing'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.0) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 12:36:50 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (42.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (48.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  [1m[36mUser Load (45.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:26:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (85.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  [1m[36mReview Load (61.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/restaurants/edit.html.erb:23
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 605.9ms | Allocations: 20050)
+  Rendered layout layouts/application.html.erb (Duration: 606.3ms | Allocations: 20177)
+Completed 500 Internal Server Error in 1328ms (ActiveRecord: 878.1ms | Allocations: 59865)
+
+
+  
+ActionView::Template::Error (Unknown primary key for table users in model User.):
+    39: <h2> Posts del restaurante </h2>
+    40: 
+    41: <ul>
+    42: <% @r_user.posts.each do |post| %>
+    43:   <li>
+    44:     <div>
+    45:       <%= post.titulo %>
+  
+app/views/restaurants/edit.html.erb:42
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 12:38:48 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (52.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  [1m[36mUser Load (42.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:26:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (43.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  [1m[36mReview Load (43.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/restaurants/edit.html.erb:23
+  [1m[36mPost Load (49.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "Atreides"]]
+  ↳ app/views/restaurants/edit.html.erb:42
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 638.3ms | Allocations: 22058)
+  Rendered layout layouts/application.html.erb (Duration: 638.6ms | Allocations: 22151)
+Completed 500 Internal Server Error in 1041ms (ActiveRecord: 849.9ms | Allocations: 36881)
+
+
+  
+ActionView::Template::Error (undefined method `titulo' for #<Post id: 11, categoria: "burger", autor: "Atreides", contenido: "pasame los espárragos", ruta_img: "none", created_at: "2023-10-29 08:01:11.712263000 +0000", updated_at: "2023-10-29 08:01:11.712263000 +0000">):
+    42: <% @r_user.posts.each do |post| %>
+    43:   <li>
+    44:     <div>
+    45:       <%= post.titulo %>
+    46:       <%= post.contenido %>
+    47:     </div>
+    48:   </li>
+  
+app/views/restaurants/edit.html.erb:45
+app/views/restaurants/edit.html.erb:42
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 12:39:34 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (43.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  [1m[36mUser Load (43.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:26:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (44.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  [1m[36mReview Load (43.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/restaurants/edit.html.erb:23
+  [1m[36mPost Load (47.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "Atreides"]]
+  ↳ app/views/restaurants/edit.html.erb:42
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 522.0ms | Allocations: 16555)
+  Rendered layouts/_header.html.erb (Duration: 1.9ms | Allocations: 851)
+  Rendered layouts/_sidenav.html.erb (Duration: 9.9ms | Allocations: 2632)
+  Rendered layout layouts/application.html.erb (Duration: 626.0ms | Allocations: 55455)
+Completed 200 OK in 1373ms (Views: 175.8ms | ActiveRecord: 1147.2ms | Allocations: 70183)
+
+
+Started GET "/categories/burger" for 127.0.0.1 at 2023-10-29 12:40:08 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"burger"}
+  [1m[36mCategory Load (103.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "burger"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (54.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "burger"]]
+  ↳ app/views/categories/show.html.erb:5
+  Rendered categories/show.html.erb within layouts/application (Duration: 122.5ms | Allocations: 1553)
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 508)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.0ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 136.1ms | Allocations: 6939)
+Completed 200 OK in 517ms (Views: 82.7ms | ActiveRecord: 325.1ms | Allocations: 10170)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 12:40:19 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (78.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  [1m[36mUser Load (100.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:26:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (41.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  [1m[36mReview Load (52.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/restaurants/edit.html.erb:23
+  [1m[36mPost Load (43.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "Atreides"]]
+  ↳ app/views/restaurants/edit.html.erb:42
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 149.9ms | Allocations: 1851)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 506)
+  Rendered layouts/_sidenav.html.erb (Duration: 2.7ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 161.7ms | Allocations: 7047)
+Completed 200 OK in 346ms (Views: 24.1ms | ActiveRecord: 317.2ms | Allocations: 8309)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 12:40:39 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (45.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  [1m[36mUser Load (46.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:26:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (44.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  [1m[36mReview Load (46.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/restaurants/edit.html.erb:23
+  [1m[36mPost Load (42.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "Atreides"]]
+  ↳ app/views/restaurants/edit.html.erb:42
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 493.3ms | Allocations: 16536)
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 775)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.4ms | Allocations: 2537)
+  Rendered layout layouts/application.html.erb (Duration: 511.2ms | Allocations: 34301)
+Completed 200 OK in 1166ms (Views: 82.9ms | ActiveRecord: 1039.5ms | Allocations: 49003)
+
+
+Started GET "/restaurants?search=Goiko&commit=Buscar" for 127.0.0.1 at 2023-10-29 12:40:59 +0100
+Processing by RestaurantsController#index as HTML
+  Parameters: {"search"=>"Goiko", "commit"=>"Buscar"}
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 79)
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 520)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.0ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | Allocations: 5484)
+Completed 200 OK in 13ms (Views: 12.8ms | ActiveRecord: 0.0ms | Allocations: 5813)
+
+
+Started GET "/restaurants?search=1&commit=Buscar" for 127.0.0.1 at 2023-10-29 12:41:03 +0100
+Processing by RestaurantsController#index as HTML
+  Parameters: {"search"=>"1", "commit"=>"Buscar"}
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 5)
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 520)
+  Rendered layouts/_sidenav.html.erb (Duration: 2.7ms | Allocations: 2052)
+  Rendered layout layouts/application.html.erb (Duration: 12.0ms | Allocations: 5405)
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.0ms | Allocations: 5663)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 12:41:40 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (43.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  [1m[36mUser Load (44.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:26:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (42.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  [1m[36mReview Load (43.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/restaurants/edit.html.erb:23
+  [1m[36mPost Load (45.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "Atreides"]]
+  ↳ app/views/restaurants/edit.html.erb:42
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 489.5ms | Allocations: 16533)
+  Rendered layouts/_header.html.erb (Duration: 1.5ms | Allocations: 775)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.0ms | Allocations: 2537)
+  Rendered layout layouts/application.html.erb (Duration: 509.7ms | Allocations: 34298)
+Completed 200 OK in 903ms (Views: 77.2ms | ActiveRecord: 775.4ms | Allocations: 48994)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 12:44:25 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (49.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  [1m[36mUser Load (42.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:26:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (42.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  Rendered restaurants/_comment.html.erb (Duration: 2.1ms | Allocations: 1135)
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 212.6ms | Allocations: 10026)
+  Rendered layout layouts/application.html.erb (Duration: 212.9ms | Allocations: 10119)
+Completed 500 Internal Server Error in 953ms (ActiveRecord: 874.1ms | Allocations: 24780)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <ul>
+    2: <% @comment.each do |comment| %>
+    3:   <li>
+    4:     <div>
+    5:       <%= comment.categoria %> <hr>
+  
+app/views/restaurants/_comment.html.erb:2
+app/views/restaurants/edit.html.erb:22
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 12:44:50 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (43.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  [1m[36mUser Load (44.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:26:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (42.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  Rendered restaurants/_comment.html.erb (Duration: 1.2ms | Allocations: 1133)
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 266.9ms | Allocations: 10018)
+  Rendered layout layouts/application.html.erb (Duration: 267.2ms | Allocations: 10111)
+Completed 500 Internal Server Error in 787ms (ActiveRecord: 701.4ms | Allocations: 24826)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    1: <ul>
+    2: <% @comments.each do |comment| %>
+    3:   <li>
+    4:     <div>
+    5:       <%= comment.categoria %> <hr>
+  
+app/views/restaurants/_comment.html.erb:2
+app/views/restaurants/edit.html.erb:22
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 12:45:28 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (44.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  [1m[36mUser Load (42.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:26:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (48.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  Rendered restaurants/_comment.html.erb (Duration: 0.8ms | Allocations: 204)
+  Rendered restaurants/_comment.html.erb (Duration: 0.1ms | Allocations: 6)
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 344.4ms | Allocations: 11266)
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 773)
+  Rendered layouts/_sidenav.html.erb (Duration: 3.9ms | Allocations: 2537)
+  Rendered layout layouts/application.html.erb (Duration: 367.7ms | Allocations: 29030)
+Completed 200 OK in 1169ms (Views: 59.1ms | ActiveRecord: 1060.8ms | Allocations: 43716)
+
+
+Started GET "/restaurants/1/edit" for 127.0.0.1 at 2023-10-29 12:50:58 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (47.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `edit'
+  [1m[36mUser Load (47.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:26:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mDish Load (48.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/edit.html.erb:8
+  [1m[36mReview Load (49.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/restaurants/_comment.html.erb:2
+  Rendered restaurants/_comment.html.erb (Duration: 214.6ms | Allocations: 2122)
+  [1m[36mPost Load (47.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "Atreides"]]
+  ↳ app/views/restaurants/_comment.html.erb:2
+  Rendered restaurants/_comment.html.erb (Duration: 159.5ms | Allocations: 3745)
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 508.2ms | Allocations: 16711)
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 773)
+  Rendered layouts/_sidenav.html.erb (Duration: 7.6ms | Allocations: 2537)
+  Rendered layout layouts/application.html.erb (Duration: 564.3ms | Allocations: 34476)
+Completed 200 OK in 1942ms (Views: 265.0ms | ActiveRecord: 946.3ms | Allocations: 51855)
+
+

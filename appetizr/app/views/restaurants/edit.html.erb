@@ -1,0 +1,32 @@
+
+<h1> Mi restaurante </h1>
+
+<% if flash[:dishes] %>
+  <div class="notice" ><%= flash[:dishes] %></div>
+<% end %>
+<ul>
+  <% @restaurant.dishes.each do |dish| %>
+    <li> 
+      <div>
+        <%= dish.nombre %>
+        <%= link_to "Modificar", edit_dish_path(dish.id) %>
+      </div> 
+    </li>
+  <% end %>
+</ul>
+
+<%= link_to "Añadir", new_dish_path(restaurant: @restaurant.id) %>
+
+
+<h2> Reviews del restaurante </h2>
+<%= render "comment", locals: {comments: @restaurant.reviews} %>
+
+<h2> Información del restaurante </h2>
+
+<%= @restaurant.direccion %><hr>
+<%= @restaurant.telefono %><hr>
+<%= @restaurant.horario %><hr>
+
+<h2> Posts del restaurante </h2>
+
+<%= render "comment", locals: {comments: @r_user.posts} %>

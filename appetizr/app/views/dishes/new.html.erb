@@ -1,0 +1,26 @@
+<h1> New Dish </h1>
+
+<% if flash[:fails] %>
+  <div class="notice" ><%= flash[:fails] %></div>
+<% end %>
+<%= form_with model: @dish do |form| %>
+  <div>
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre %>
+  </div>
+  <div>
+    <%= form.label :image %>
+    <%= form.text_field :rutaImgPlato %>
+  </div>
+  <div>
+    <%= form.label :descripcion %>
+    <%= form.text_field :descripcion %>
+  </div>
+  <div>
+    <%= form.label :precio %>
+    <%= form.text_field :precio %>
+  </div>
+  <div>
+    <%= form.submit "Crear Plato" %>
+  </div>
+<% end %>

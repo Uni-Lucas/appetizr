@@ -1,0 +1,10 @@
+<ul>
+<% locals[:comments].each do |comment| %>
+  <li>
+    <div>
+      <%= comment.categoria %> <hr>
+      <%= comment.contenido %>
+    </div>
+  </li>
+<% end %>
+</ul>
