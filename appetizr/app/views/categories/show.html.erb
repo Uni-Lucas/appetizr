@@ -1,6 +1,8 @@
 
 <h1>Categoría <%= @category.nombre %></h1>
 
+
+
 <ul>
   <% @category.posts.each do |post| %>
     <li> <%= post.autor %> : <%= post.contenido %> </li>

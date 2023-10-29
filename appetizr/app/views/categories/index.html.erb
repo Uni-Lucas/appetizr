@@ -1,9 +1,14 @@
-<h1>Categories</h1>
+<h1 class="title"><span class="title_key_word">Categorías</span> de conversación</h1>
 
-<ul>
+<ul class="categories_list">
   <% @categories.each do |category| %>
     <li>
-      <%= link_to category.nombre, category %>
+      <%= link_to category_path(category) do %>
+        <div class="category_box">
+          <div class="category_name"><%= category.nombre %></div>
+          <%= image_tag "burger-category", class: "category_image" %>
+        </div>
+      <% end %>
     </li>
   <% end %>
 </ul>

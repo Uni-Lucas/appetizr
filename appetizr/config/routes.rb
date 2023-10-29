@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :categories, param: :nombre
   resources :restaurants
+  get 'search', to: 'restaurants#search', as: 'search_restaurants'
   resources :posts, only: [:new, :create]
   resources :dishes, only: [:new, :create, :edit, :update]
   

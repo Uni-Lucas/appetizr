@@ -30,7 +30,7 @@ class CategoriesController < ApplicationController
     if @category.update(category_params)
       redirect_to @category
     else
-      render :new, status: :unprocessable_entity
+      render :edit, status: :unprocessable_entity
     end
   end
 
@@ -43,6 +43,6 @@ class CategoriesController < ApplicationController
 
   private 
     def category_params
-      params.require(:category).permit(:nombre)
+      params.require(:category).permit(:nombre, :photo)
     end
 end
