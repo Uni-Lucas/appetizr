@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get 'search', to: 'restaurants#search', as: 'search_restaurants'
   resources :posts, only: [:new, :create]
   resources :dishes, only: [:new, :create, :edit, :update]
+  resources :users
+  get '/users/:nombre', to: 'users#show'
   
   get '/register', to: 'registrations#new'
   post '/register', to: 'registrations#create'
