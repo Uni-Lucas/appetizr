@@ -181,6 +181,7 @@ html,body{
 
 .category_image {
     width: 300px;
+    filter: brightness(50%)
 }
 
 .category_name {

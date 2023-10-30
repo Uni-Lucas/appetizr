@@ -5,8 +5,8 @@
     <li>
       <%= link_to category_path(category) do %>
         <div class="category_box">
-          <div class="category_name"><%= category.nombre %></div>
           <%= image_tag "burger-category", class: "category_image" %>
+          <div class="category_name"><%= category.nombre %></div>
         </div>
       <% end %>
     </li>
