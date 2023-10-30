@@ -39,7 +39,7 @@ class RestaurantsController < ApplicationController
                 redirect_to @restaurant
             else 
                 # flash.now[:notice] = "No se encontró ningún restaurante con ese nombre"
-                render :index
+                redirect_to categories_path
             end
         else
             render :index

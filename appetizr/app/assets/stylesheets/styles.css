@@ -81,6 +81,13 @@ html,body{
     width: 24px;
 }
 
+#my_account_cont {
+    border: 2px solid #E5DBC8;
+    border-radius: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
 .main {
     margin-left: 300px;
     min-height: 100%;
@@ -190,3 +197,4 @@ html,body{
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
