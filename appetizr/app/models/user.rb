@@ -1,5 +1,8 @@
 class User < ApplicationRecord
   self.primary_key = "nombre"
+
+  has_one_attached :profile_pic
+
   has_many :posts, class_name: 'Post', foreign_key: 'autor'
   has_many :responses
   has_many :reviews, class_name: 'Review', foreign_key: 'autor'

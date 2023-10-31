@@ -6,6 +6,7 @@
 <ul>
   <% @category.posts.each do |post| %>
     <li> <%= post.autor %> : <%= post.contenido %> </li>
+    <%= image_tag(post.image) if post.image.attached? %>
   <% end %>
 </ul>
 

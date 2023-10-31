@@ -1,6 +1,7 @@
 module LoginsHelper
     def log_in(user)
         session[:username] = user.nombre
+        session[:esAdmin] = user.esAdmin
       end
     
       def current_user
@@ -12,9 +13,13 @@ module LoginsHelper
       def logged_in?
         !current_user.nil?
       end
+
+      def admin?
+        session[:esAdmin]
+      end
     
       def log_out
-        session.delete(:nombre)
+        session.delete(:username)
         @current_user = nil
       end
     
