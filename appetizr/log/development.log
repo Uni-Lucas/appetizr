@@ -9187,3 +9187,875 @@ Processing by CategoriesController#index as HTML
 Completed 200 OK in 95ms (Views: 7.1ms | ActiveRecord: 88.1ms | Allocations: 8021)
 
 
+Started GET "/" for 127.0.0.1 at 2023-10-30 23:35:19 +0100
+  
+ActiveRecord::ConnectionNotEstablished (connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  role "dani" does not exist
+):
+  
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:80:in `rescue in new_client'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:68:in `new_client'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:981:in `connect'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:993:in `reconnect'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:685:in `block in reconnect!'
+activesupport (7.1.0) lib/active_support/concurrency/null_lock.rb:9:in `synchronize'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:684:in `reconnect!'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:788:in `verify!'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:795:in `connect!'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:997:in `block in with_raw_connection'
+activesupport (7.1.0) lib/active_support/concurrency/null_lock.rb:9:in `synchronize'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:996:in `with_raw_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:1104:in `valid_raw_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:619:in `get_database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/schema_cache.rb:374:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/schema_cache.rb:70:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/schema_cache.rb:200:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:871:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:647:in `check_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:675:in `new_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:720:in `checkout_new_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:699:in `try_to_checkout_new_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:657:in `acquire_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `connection'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:501:in `block in with_temporary_connection'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:518:in `with_temporary_pool'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:500:in `with_temporary_connection'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:494:in `block in with_temporary_connection_for_each'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:493:in `each'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:493:in `with_temporary_connection_for_each'
+activerecord (7.1.0) lib/active_record/migration.rb:771:in `pending_migrations'
+activerecord (7.1.0) lib/active_record/migration.rb:750:in `check_pending_migrations'
+activerecord (7.1.0) lib/active_record/migration.rb:642:in `block (2 levels) in call'
+activesupport (7.1.0) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.0) lib/active_record/migration.rb:647:in `block in call'
+activerecord (7.1.0) lib/active_record/migration.rb:639:in `synchronize'
+activerecord (7.1.0) lib/active_record/migration.rb:639:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.0) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.0) lib/active_support/broadcast_logger.rb:212:in `method_missing'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.0) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2023-10-30 23:37:24 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (41.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (40.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 346.6ms | Allocations: 47299)
+  Rendered layouts/_header.html.erb (Duration: 2.8ms | Allocations: 1206)
+  Rendered layouts/_sidenav.html.erb (Duration: 4.4ms | Allocations: 2768)
+  Rendered layout layouts/application.html.erb (Duration: 374.3ms | Allocations: 66024)
+Completed 200 OK in 552ms (Views: 304.7ms | ActiveRecord: 127.2ms | Allocations: 86387)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-10-30 23:37:42 +0100
+Processing by LoginsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering logins/new.html.erb within layouts/application
+  Rendered logins/new.html.erb within layouts/application (Duration: 37.5ms | Allocations: 6299)
+  Rendered layouts/_header.html.erb (Duration: 3.0ms | Allocations: 932)
+  Rendered layouts/_sidenav.html.erb (Duration: 12.7ms | Allocations: 2144)
+  Rendered layout layouts/application.html.erb (Duration: 62.9ms | Allocations: 12083)
+Completed 200 OK in 65ms (Views: 64.1ms | ActiveRecord: 0.0ms | Allocations: 12536)
+
+
+Started GET "/register" for 127.0.0.1 at 2023-10-30 23:37:48 +0100
+Processing by RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering registrations/new.html.erb within layouts/application
+  Rendered registrations/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1157)
+  Rendered layouts/_header.html.erb (Duration: 4.5ms | Allocations: 932)
+  Rendered layouts/_sidenav.html.erb (Duration: 4.4ms | Allocations: 2140)
+  Rendered layout layouts/application.html.erb (Duration: 17.3ms | Allocations: 6923)
+Completed 200 OK in 124ms (Views: 18.4ms | ActiveRecord: 42.9ms | Allocations: 16505)
+
+
+Started POST "/register" for 127.0.0.1 at 2023-10-30 23:37:59 +0100
+Processing by RegistrationsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"nombre"=>"dani", "password"=>"[FILTERED]"}, "commit"=>"Registrarse"}
+  [1m[36mTRANSACTION (39.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/registrations_controller.rb:9:in `create'
+  [1m[36mUser Create (80.4ms)[0m  [1m[32mINSERT INTO "users" ("nombre", "rutaImgPerfil", "esAdmin", "password_digest") VALUES ($1, $2, $3, $4)[0m  [["nombre", "dani"], ["rutaImgPerfil", "default"], ["esAdmin", false], ["password_digest", "[FILTERED]"]]
+  ↳ app/controllers/registrations_controller.rb:9:in `create'
+  [1m[36mTRANSACTION (39.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/registrations_controller.rb:9:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 378ms (ActiveRecord: 159.0ms | Allocations: 3382)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-30 23:37:59 +0100
+Processing by CategoriesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (78.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 81.4ms | Allocations: 1551)
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 907)
+  [1m[36mUser Load (40.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 127.5ms | Allocations: 4801)
+  Rendered layout layouts/application.html.erb (Duration: 214.5ms | Allocations: 10062)
+Completed 200 OK in 215ms (Views: 56.7ms | ActiveRecord: 158.2ms | Allocations: 10365)
+
+
+Started GET "/articles" for 127.0.0.1 at 2023-10-30 23:38:01 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/articles"):
+  
+Started GET "/categories/chino" for 127.0.0.1 at 2023-10-30 23:38:02 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (39.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (42.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "chino"]]
+  ↳ app/views/categories/show.html.erb:7
+  Rendered categories/show.html.erb within layouts/application (Duration: 277.8ms | Allocations: 16337)
+  Rendered layouts/_header.html.erb (Duration: 1.7ms | Allocations: 944)
+  [1m[36mUser Load (40.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 48.7ms | Allocations: 2597)
+  Rendered layout layouts/application.html.erb (Duration: 334.2ms | Allocations: 22793)
+Completed 200 OK in 419ms (Views: 129.9ms | ActiveRecord: 244.2ms | Allocations: 23648)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-10-30 23:38:04 +0100
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (79.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 83.2ms | Allocations: 1557)
+  Rendered layouts/_header.html.erb (Duration: 2.1ms | Allocations: 907)
+  [1m[36mUser Load (39.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 45.8ms | Allocations: 2544)
+  Rendered layout layouts/application.html.erb (Duration: 140.9ms | Allocations: 7769)
+Completed 200 OK in 142ms (Views: 22.5ms | ActiveRecord: 119.2ms | Allocations: 8023)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-10-30 23:38:07 +0100
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (79.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 82.1ms | Allocations: 1559)
+  Rendered layouts/_header.html.erb (Duration: 3.2ms | Allocations: 919)
+  [1m[36mUser Load (41.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 47.9ms | Allocations: 2574)
+  Rendered layout layouts/application.html.erb (Duration: 137.7ms | Allocations: 7843)
+Completed 200 OK in 140ms (Views: 18.0ms | ActiveRecord: 120.9ms | Allocations: 8099)
+
+
+Started GET "/categories/chino" for 127.0.0.1 at 2023-10-30 23:38:09 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (45.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (42.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "chino"]]
+  ↳ app/views/categories/show.html.erb:7
+  Rendered categories/show.html.erb within layouts/application (Duration: 45.6ms | Allocations: 668)
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 932)
+  [1m[36mUser Load (50.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 62.7ms | Allocations: 2545)
+  Rendered layout layouts/application.html.erb (Duration: 123.1ms | Allocations: 7043)
+Completed 200 OK in 176ms (Views: 32.9ms | ActiveRecord: 138.5ms | Allocations: 7683)
+
+
+Started GET "/posts/new?category=chino" for 127.0.0.1 at 2023-10-30 23:38:16 +0100
+Processing by PostsController#new as HTML
+  Parameters: {"category"=>"chino"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 924)
+  Rendered layouts/_header.html.erb (Duration: 2.0ms | Allocations: 932)
+  [1m[36mUser Load (39.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 46.0ms | Allocations: 2552)
+  Rendered layout layouts/application.html.erb (Duration: 57.0ms | Allocations: 7097)
+Completed 200 OK in 60ms (Views: 19.4ms | ActiveRecord: 39.2ms | Allocations: 7781)
+
+
+Started POST "/posts" for 127.0.0.1 at 2023-10-30 23:38:48 +0100
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"content"=>"Just setting up my Appetizr", "image"=>"Esto es la mejor imagen del mundo"}, "commit"=>"Crear"}
+  [1m[36mTRANSACTION (39.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:11:in `create'
+  [1m[36mPost Create (80.5ms)[0m  [1m[32mINSERT INTO "posts" ("categoria", "autor", "contenido", "ruta_img", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["categoria", "chino"], ["autor", "dani"], ["contenido", "Just setting up my Appetizr"], ["ruta_img", "Esto es la mejor imagen del mundo"], ["created_at", "2023-10-30 22:38:48.109070"], ["updated_at", "2023-10-30 22:38:48.109073"]]
+  ↳ app/controllers/posts_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (44.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:11:in `create'
+Redirected to http://localhost:3000/categories/chino
+Completed 302 Found in 135ms (ActiveRecord: 163.6ms | Allocations: 2516)
+
+
+Started GET "/categories/chino" for 127.0.0.1 at 2023-10-30 23:38:48 +0100
+Processing by CategoriesController#show as TURBO_STREAM
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (39.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (40.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "chino"]]
+  ↳ app/views/categories/show.html.erb:7
+  Rendered categories/show.html.erb within layouts/application (Duration: 43.4ms | Allocations: 689)
+  Rendered layouts/_header.html.erb (Duration: 2.0ms | Allocations: 932)
+  [1m[36mUser Load (41.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 47.7ms | Allocations: 2544)
+  Rendered layout layouts/application.html.erb (Duration: 101.7ms | Allocations: 7063)
+Completed 200 OK in 144ms (Views: 19.8ms | ActiveRecord: 122.2ms | Allocations: 7706)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-10-30 23:38:56 +0100
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (81.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 84.7ms | Allocations: 1554)
+  Rendered layouts/_header.html.erb (Duration: 2.8ms | Allocations: 907)
+  [1m[36mUser Load (41.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 50.7ms | Allocations: 2544)
+  Rendered layout layouts/application.html.erb (Duration: 144.0ms | Allocations: 7766)
+Completed 200 OK in 145ms (Views: 21.8ms | ActiveRecord: 123.0ms | Allocations: 8021)
+
+
+Started GET "/categories/burger" for 127.0.0.1 at 2023-10-30 23:38:58 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"burger"}
+  [1m[36mCategory Load (39.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "burger"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (39.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "burger"]]
+  ↳ app/views/categories/show.html.erb:7
+  Rendered categories/show.html.erb within layouts/application (Duration: 44.1ms | Allocations: 672)
+  Rendered layouts/_header.html.erb (Duration: 1.9ms | Allocations: 932)
+  [1m[36mUser Load (40.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 45.7ms | Allocations: 2544)
+  Rendered layout layouts/application.html.erb (Duration: 98.0ms | Allocations: 7049)
+Completed 200 OK in 140ms (Views: 18.2ms | ActiveRecord: 119.9ms | Allocations: 7692)
+
+
+Started GET "/posts/new?category=burger" for 127.0.0.1 at 2023-10-30 23:39:06 +0100
+Processing by PostsController#new as HTML
+  Parameters: {"category"=>"burger"}
+  Rendering layout layouts/application.html.erb
+  Rendering posts/new.html.erb within layouts/application
+  Rendered posts/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 468)
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 932)
+  [1m[36mUser Load (39.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 44.3ms | Allocations: 2545)
+  Rendered layout layouts/application.html.erb (Duration: 55.4ms | Allocations: 6632)
+Completed 200 OK in 57ms (Views: 16.4ms | ActiveRecord: 39.7ms | Allocations: 7131)
+
+
+Started POST "/posts" for 127.0.0.1 at 2023-10-30 23:39:52 +0100
+Processing by PostsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"content"=>"Te puedo dar algo mejor que espárragos ;)", "image"=>""}, "commit"=>"Crear"}
+  [1m[36mTRANSACTION (49.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:11:in `create'
+  [1m[36mPost Create (90.6ms)[0m  [1m[32mINSERT INTO "posts" ("categoria", "autor", "contenido", "ruta_img", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["categoria", "burger"], ["autor", "dani"], ["contenido", "Te puedo dar algo mejor que espárragos ;)"], ["ruta_img", ""], ["created_at", "2023-10-30 22:39:52.235067"], ["updated_at", "2023-10-30 22:39:52.235068"]]
+  ↳ app/controllers/posts_controller.rb:11:in `create'
+  [1m[36mTRANSACTION (40.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:11:in `create'
+Redirected to http://localhost:3000/categories/burger
+Completed 302 Found in 135ms (ActiveRecord: 179.7ms | Allocations: 2015)
+
+
+Started GET "/categories/burger" for 127.0.0.1 at 2023-10-30 23:39:52 +0100
+Processing by CategoriesController#show as TURBO_STREAM
+  Parameters: {"nombre"=>"burger"}
+  [1m[36mCategory Load (39.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "burger"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (40.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "burger"]]
+  ↳ app/views/categories/show.html.erb:7
+  Rendered categories/show.html.erb within layouts/application (Duration: 44.0ms | Allocations: 693)
+  Rendered layouts/_header.html.erb (Duration: 1.5ms | Allocations: 944)
+  [1m[36mUser Load (45.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 52.0ms | Allocations: 2574)
+  Rendered layout layouts/application.html.erb (Duration: 103.7ms | Allocations: 7165)
+Completed 200 OK in 146ms (Views: 17.8ms | ActiveRecord: 126.2ms | Allocations: 7810)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-10-30 23:39:56 +0100
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (85.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 90.4ms | Allocations: 1559)
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 907)
+  [1m[36mUser Load (42.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 48.6ms | Allocations: 2544)
+  Rendered layout layouts/application.html.erb (Duration: 149.9ms | Allocations: 7781)
+Completed 200 OK in 154ms (Views: 24.5ms | ActiveRecord: 127.8ms | Allocations: 8035)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-10-31 01:04:54 +0100
+  
+ActiveRecord::ConnectionNotEstablished (connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  role "dani" does not exist
+):
+  
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:80:in `rescue in new_client'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:68:in `new_client'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:981:in `connect'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:993:in `reconnect'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:685:in `block in reconnect!'
+activesupport (7.1.0) lib/active_support/concurrency/null_lock.rb:9:in `synchronize'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:684:in `reconnect!'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:788:in `verify!'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:795:in `connect!'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:997:in `block in with_raw_connection'
+activesupport (7.1.0) lib/active_support/concurrency/null_lock.rb:9:in `synchronize'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:996:in `with_raw_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:1104:in `valid_raw_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:619:in `get_database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/schema_cache.rb:374:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/schema_cache.rb:70:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/schema_cache.rb:200:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:871:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:647:in `check_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:675:in `new_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:720:in `checkout_new_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:699:in `try_to_checkout_new_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:657:in `acquire_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `connection'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:501:in `block in with_temporary_connection'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:518:in `with_temporary_pool'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:500:in `with_temporary_connection'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:494:in `block in with_temporary_connection_for_each'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:493:in `each'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:493:in `with_temporary_connection_for_each'
+activerecord (7.1.0) lib/active_record/migration.rb:771:in `pending_migrations'
+activerecord (7.1.0) lib/active_record/migration.rb:750:in `check_pending_migrations'
+activerecord (7.1.0) lib/active_record/migration.rb:642:in `block (2 levels) in call'
+activesupport (7.1.0) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.0) lib/active_record/migration.rb:647:in `block in call'
+activerecord (7.1.0) lib/active_record/migration.rb:639:in `synchronize'
+activerecord (7.1.0) lib/active_record/migration.rb:639:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.0) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.0) lib/active_support/broadcast_logger.rb:212:in `method_missing'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.0) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/categories" for 127.0.0.1 at 2023-10-31 01:05:17 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (45.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (44.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 294.5ms | Allocations: 49314)
+  Rendered layouts/_header.html.erb (Duration: 5.4ms | Allocations: 1376)
+  [1m[36mUser Load (43.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 246.8ms | Allocations: 13926)
+  Rendered layout layouts/application.html.erb (Duration: 580.7ms | Allocations: 81877)
+Completed 200 OK in 700ms (Views: 339.8ms | ActiveRecord: 291.0ms | Allocations: 99375)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-10-31 01:05:22 +0100
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (89.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 92.8ms | Allocations: 1776)
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 1073)
+  [1m[36mUser Load (44.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 51.5ms | Allocations: 2961)
+  Rendered layout layouts/application.html.erb (Duration: 151.4ms | Allocations: 8854)
+Completed 200 OK in 153ms (Views: 19.2ms | ActiveRecord: 133.1ms | Allocations: 9120)
+
+
+Started GET "/nearme" for 127.0.0.1 at 2023-10-31 01:05:30 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1439)
+  Rendered layout layouts/application.html.erb (Duration: 3.1ms | Allocations: 1534)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.0ms | Allocations: 1988)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `latitude' for #<ActionView::Base:0x0000000000cff8>):
+    24:             zoom: 15
+    25:             });
+    26: 
+    27:             var restaurants = <%= search_nearby_restaurants(latitude, longitude).to_json.html_safe %>;
+    28: 
+    29:             restaurants.forEach(function(restaurant) {
+    30:             var marker = new google.maps.Marker({
+  
+app/views/nearme/index.html.erb:27
+Started GET "/nearme" for 127.0.0.1 at 2023-10-31 01:06:21 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 139)
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 1402)
+  [1m[36mUser Load (46.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 218.6ms | Allocations: 9276)
+  Rendered layout layouts/application.html.erb (Duration: 239.7ms | Allocations: 26837)
+Completed 200 OK in 243ms (Views: 103.5ms | ActiveRecord: 138.2ms | Allocations: 27749)
+
+
+Started GET "/nearme" for 127.0.0.1 at 2023-10-31 01:06:33 +0100
+Processing by NearmeController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 7)
+  Rendered layouts/_header.html.erb (Duration: 6.8ms | Allocations: 1471)
+  Rendered layouts/_sidenav.html.erb (Duration: 14.3ms | Allocations: 2886)
+  Rendered layout layouts/application.html.erb (Duration: 58.0ms | Allocations: 8547)
+Completed 200 OK in 61ms (Views: 60.1ms | ActiveRecord: 0.0ms | Allocations: 8933)
+
+
+Started GET "/nearme" for 127.0.0.1 at 2023-10-31 01:11:41 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (43.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 14.3ms | Allocations: 1562)
+  Rendered layout layouts/application.html.erb (Duration: 15.1ms | Allocations: 1689)
+Completed 500 Internal Server Error in 90ms (ActiveRecord: 0.0ms | Allocations: 5715)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `latitude' for #<ActionView::Base:0x0000000000c828>):
+    24:             zoom: 15
+    25:             });
+    26: 
+    27:             var restaurants = <%= search_nearby_restaurants(latitude, longitude).to_json.html_safe %>;
+    28: 
+    29:             restaurants.forEach(function(restaurant) {
+    30:             var marker = new google.maps.Marker({
+  
+app/views/nearme/index.html.erb:27
+Started GET "/nearme" for 127.0.0.1 at 2023-10-31 01:18:42 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (45.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 11.2ms | Allocations: 254)
+  Rendered layouts/_header.html.erb (Duration: 3.3ms | Allocations: 1562)
+  [1m[36mUser Load (43.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 345.6ms | Allocations: 21739)
+  Rendered layout layouts/application.html.erb (Duration: 600.4ms | Allocations: 65363)
+Completed 200 OK in 663ms (Views: 438.1ms | ActiveRecord: 180.9ms | Allocations: 69433)
+
+
+Started GET "/nearme" for 127.0.0.1 at 2023-10-31 01:19:55 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 0.8ms | Allocations: 149)
+  Rendered layouts/_header.html.erb (Duration: 3.0ms | Allocations: 1404)
+  [1m[36mUser Load (44.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 227.1ms | Allocations: 9294)
+  Rendered layout layouts/application.html.erb (Duration: 264.5ms | Allocations: 26884)
+Completed 200 OK in 274ms (Views: 137.9ms | ActiveRecord: 131.7ms | Allocations: 27802)
+
+
+Started GET "/nearme" for 127.0.0.1 at 2023-10-31 01:21:15 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 0.6ms | Allocations: 145)
+  Rendered layouts/_header.html.erb (Duration: 10.1ms | Allocations: 1406)
+  [1m[36mUser Load (45.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 237.9ms | Allocations: 9214)
+  Rendered layout layouts/application.html.erb (Duration: 295.5ms | Allocations: 26605)
+Completed 200 OK in 300ms (Views: 150.9ms | ActiveRecord: 147.0ms | Allocations: 27516)
+
+
+Started GET "/nearme" for 127.0.0.1 at 2023-10-31 01:21:36 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 144)
+  Rendered layouts/_header.html.erb (Duration: 5.2ms | Allocations: 1404)
+  [1m[36mUser Load (43.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 229.6ms | Allocations: 9103)
+  Rendered layout layouts/application.html.erb (Duration: 264.5ms | Allocations: 26572)
+Completed 200 OK in 275ms (Views: 137.2ms | ActiveRecord: 132.8ms | Allocations: 27489)
+
+
+Started GET "/nearme" for 127.0.0.1 at 2023-10-31 01:23:06 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 1457)
+  Rendered layout layouts/application.html.erb (Duration: 2.9ms | Allocations: 1550)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.0ms | Allocations: 2460)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `latitude' for #<ActionView::Base:0x000000000221c8>):
+    24:             zoom: 15
+    25:             });
+    26: 
+    27:             var restaurants = <%= search_nearby_restaurants(latitude, longitude).to_json.html_safe %>;
+    28: 
+    29:             restaurants.forEach(function(restaurant) {
+    30:             var marker = new google.maps.Marker({
+  
+app/views/nearme/index.html.erb:27
+Started GET "/nearme" for 127.0.0.1 at 2023-10-31 01:23:28 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1097)
+  Rendered layout layouts/application.html.erb (Duration: 3.3ms | Allocations: 1190)
+Completed 500 Internal Server Error in 9ms (ActiveRecord: 0.0ms | Allocations: 2081)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `latitude' for #<ActionView::Base:0x00000000027a10>):
+    25:             zoom: 15
+    26:             });
+    27: 
+    28:             var restaurants = <%= search_nearby_restaurants(latitude, longitude).to_json.html_safe %>;
+    29: 
+    30:             restaurants.forEach(function(restaurant) {
+    31:             var marker = new google.maps.Marker({
+  
+app/views/nearme/index.html.erb:28
+Started GET "/nearme" for 127.0.0.1 at 2023-10-31 01:23:55 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 144)
+  Rendered layouts/_header.html.erb (Duration: 8.6ms | Allocations: 1404)
+  [1m[36mUser Load (46.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 261.1ms | Allocations: 9288)
+  Rendered layout layouts/application.html.erb (Duration: 316.1ms | Allocations: 26869)
+Completed 200 OK in 322ms (Views: 182.8ms | ActiveRecord: 137.5ms | Allocations: 27781)
+
+
+Started GET "/nearme" for 127.0.0.1 at 2023-10-31 01:25:05 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 1.1ms | Allocations: 1098)
+  Rendered layout layouts/application.html.erb (Duration: 1.4ms | Allocations: 1191)
+Completed 500 Internal Server Error in 4ms (ActiveRecord: 0.0ms | Allocations: 2082)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `latitude' for #<ActionView::Base:0x00000000032758>):
+    29:             zoom: 15
+    30:             });
+    31: 
+    32:             var restaurants = <%= search_nearby_restaurants(latitude, longitude).to_json.html_safe %>;
+    33: 
+    34:             restaurants.forEach(function(restaurant) {
+    35:             var marker = new google.maps.Marker({
+  
+app/views/nearme/index.html.erb:32
+Started GET "/nearme" for 127.0.0.1 at 2023-10-31 01:27:16 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 198)
+  Rendered layouts/_header.html.erb (Duration: 7.9ms | Allocations: 1404)
+  [1m[36mUser Load (47.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 255.8ms | Allocations: 9276)
+  Rendered layout layouts/application.html.erb (Duration: 300.3ms | Allocations: 26893)
+Completed 200 OK in 305ms (Views: 162.5ms | ActiveRecord: 140.9ms | Allocations: 27807)
+
+
+Started GET "/nearme" for 127.0.0.1 at 2023-10-31 01:28:42 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 1.0ms | Allocations: 213)
+  Rendered layouts/_header.html.erb (Duration: 4.9ms | Allocations: 1404)
+  [1m[36mUser Load (46.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 244.0ms | Allocations: 9286)
+  Rendered layout layouts/application.html.erb (Duration: 275.0ms | Allocations: 26936)
+Completed 200 OK in 278ms (Views: 113.0ms | ActiveRecord: 164.1ms | Allocations: 27850)
+
+
+Started GET "/nearme" for 127.0.0.1 at 2023-10-31 01:30:32 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 8)
+  Rendered layouts/_header.html.erb (Duration: 5.5ms | Allocations: 1111)
+  [1m[36mUser Load (44.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 104.9ms | Allocations: 2961)
+  Rendered layout layouts/application.html.erb (Duration: 131.3ms | Allocations: 7264)
+Completed 200 OK in 136ms (Views: 91.1ms | ActiveRecord: 44.4ms | Allocations: 7512)
+
+
+Started GET "/nearme" for 127.0.0.1 at 2023-10-31 01:31:02 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 3.7ms | Allocations: 212)
+  Rendered layouts/_header.html.erb (Duration: 7.1ms | Allocations: 1396)
+  [1m[36mUser Load (45.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:8:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 247.9ms | Allocations: 9273)
+  Rendered layout layouts/application.html.erb (Duration: 307.3ms | Allocations: 26872)
+Completed 200 OK in 312ms (Views: 169.8ms | ActiveRecord: 140.3ms | Allocations: 27786)
+
+
+Started GET "/" for 127.0.0.1 at 2023-10-31 11:07:53 +0100
+  
+ActiveRecord::ConnectionNotEstablished (connection to server on socket "/var/run/postgresql/.s.PGSQL.5432" failed: FATAL:  role "dani" does not exist
+):
+  
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:80:in `rescue in new_client'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:68:in `new_client'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:981:in `connect'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:993:in `reconnect'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:685:in `block in reconnect!'
+activesupport (7.1.0) lib/active_support/concurrency/null_lock.rb:9:in `synchronize'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:684:in `reconnect!'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:788:in `verify!'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:795:in `connect!'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:997:in `block in with_raw_connection'
+activesupport (7.1.0) lib/active_support/concurrency/null_lock.rb:9:in `synchronize'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:996:in `with_raw_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:1104:in `valid_raw_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:619:in `get_database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/schema_cache.rb:374:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/schema_cache.rb:70:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/schema_cache.rb:200:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract_adapter.rb:871:in `database_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/postgresql_adapter.rb:647:in `check_version'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:675:in `new_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:720:in `checkout_new_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:699:in `try_to_checkout_new_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:657:in `acquire_connection'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+activerecord (7.1.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `connection'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:501:in `block in with_temporary_connection'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:518:in `with_temporary_pool'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:500:in `with_temporary_connection'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:494:in `block in with_temporary_connection_for_each'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:493:in `each'
+activerecord (7.1.0) lib/active_record/tasks/database_tasks.rb:493:in `with_temporary_connection_for_each'
+activerecord (7.1.0) lib/active_record/migration.rb:771:in `pending_migrations'
+activerecord (7.1.0) lib/active_record/migration.rb:750:in `check_pending_migrations'
+activerecord (7.1.0) lib/active_record/migration.rb:642:in `block (2 levels) in call'
+activesupport (7.1.0) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.0) lib/active_record/migration.rb:647:in `block in call'
+activerecord (7.1.0) lib/active_record/migration.rb:639:in `synchronize'
+activerecord (7.1.0) lib/active_record/migration.rb:639:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.0) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.0) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.0) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.0) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.0) lib/active_support/broadcast_logger.rb:212:in `method_missing'
+railties (7.1.0) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.0) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.0) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.0) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.0) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2023-10-31 11:08:13 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (44.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (41.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 344.9ms | Allocations: 31238)
+  Rendered layouts/_header.html.erb (Duration: 10.8ms | Allocations: 1408)
+  Rendered layouts/_sidenav.html.erb (Duration: 22.2ms | Allocations: 3273)
+  Rendered layout layouts/application.html.erb (Duration: 429.9ms | Allocations: 52090)
+Completed 200 OK in 643ms (Views: 352.4ms | ActiveRecord: 132.7ms | Allocations: 69513)
+
+
+Started GET "/nearme" for 127.0.0.1 at 2023-10-31 11:08:22 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 4.4ms | Allocations: 1552)
+  Rendered layouts/_header.html.erb (Duration: 10.8ms | Allocations: 1117)
+  Rendered layouts/_sidenav.html.erb (Duration: 11.0ms | Allocations: 2555)
+  Rendered layout layouts/application.html.erb (Duration: 57.9ms | Allocations: 9448)
+Completed 200 OK in 62ms (Views: 59.9ms | ActiveRecord: 0.0ms | Allocations: 9931)
+
+
+Started GET "/" for ::1 at 2023-10-31 14:39:59 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (45.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (45.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:4
+  Rendered categories/index.html.erb within layouts/application (Duration: 329.8ms | Allocations: 42522)
+  Rendered layouts/_header.html.erb (Duration: 4.3ms | Allocations: 1372)
+  Rendered layouts/_sidenav.html.erb (Duration: 4.1ms | Allocations: 3183)
+  Rendered layout layouts/application.html.erb (Duration: 361.0ms | Allocations: 63130)
+Completed 200 OK in 510ms (Views: 219.9ms | ActiveRecord: 192.4ms | Allocations: 80556)
+
+
+Started GET "/nearme" for ::1 at 2023-10-31 14:40:07 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 0.9ms | Allocations: 105)
+  Rendered layouts/_header.html.erb (Duration: 8.1ms | Allocations: 1117)
+  Rendered layouts/_sidenav.html.erb (Duration: 12.2ms | Allocations: 2555)
+  Rendered layout layouts/application.html.erb (Duration: 52.9ms | Allocations: 7995)
+Completed 200 OK in 56ms (Views: 54.5ms | ActiveRecord: 0.0ms | Allocations: 8459)
+
+
+Started GET "/javascript/nearme/nearme.js" for ::1 at 2023-10-31 14:40:07 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/javascript/nearme/nearme.js"):
+  
+Started GET "/nearme" for ::1 at 2023-10-31 14:41:41 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 2.0ms | Allocations: 106)
+  Rendered layouts/_header.html.erb (Duration: 7.3ms | Allocations: 1402)
+  Rendered layouts/_sidenav.html.erb (Duration: 15.4ms | Allocations: 3160)
+  Rendered layout layouts/application.html.erb (Duration: 78.0ms | Allocations: 20672)
+Completed 200 OK in 83ms (Views: 82.2ms | ActiveRecord: 0.0ms | Allocations: 21593)
+
+
+Started GET "/javascript/nearme/nearme.js" for ::1 at 2023-10-31 14:41:42 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/javascript/nearme/nearme.js"):
+  
+Started GET "/nearme" for ::1 at 2023-10-31 14:43:57 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 168)
+  Rendered layouts/_header.html.erb (Duration: 13.4ms | Allocations: 1402)
+  Rendered layouts/_sidenav.html.erb (Duration: 25.1ms | Allocations: 3160)
+  Rendered layout layouts/application.html.erb (Duration: 110.4ms | Allocations: 20747)
+Completed 200 OK in 127ms (Views: 117.3ms | ActiveRecord: 0.0ms | Allocations: 21665)
+
+
