@@ -1,13 +1,8 @@
-
-<h1>Categoría <%= @category.nombre %></h1>
-
+<h1 class="title"><span class="title_key_word"><%= @category.nombre %></span> en Zaragoza</h1>
 
 
-<ul>
-  <% @category.posts.each do |post| %>
-    <li> <%= post.autor %> : <%= post.contenido %> </li>
-  <% end %>
-</ul>
+<%= render "layouts/comment", comments: @category.posts %>
+
 
 <div>
   <%= link_to "Crear Post", new_post_path(category: @category.nombre) %>
