@@ -2,6 +2,13 @@
 /* GENERAL*/
 /* -------------------------------------- */
 
+:root {
+    --letra: 'Chillax', sans-serif;
+    --light-gold: #E5DBC8;
+    --strong-gold: #B79B70;
+    --white: #EAEAEA;
+    --black: #0E0E15;
+}
 
 html,body{
     height: 100%;
@@ -18,17 +25,18 @@ html,body{
 
 .wraper{
     height: 100%;
-    overflow: hidden;
-    background-color: #E5DBC8;
+    /* overflow: hidden; */
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 75px 1fr;
+    background-color: var(--light-gold);
 }
 
 .sidenav {
     display: flex;
     flex-direction: column;
-    position: fixed;
-    background-color: #0E0E15;
+    background-color: var(--black);
     bottom: 0;
-    top: 75px;
 }
 
 .sidenav > a:nth-last-child(2) {
@@ -47,15 +55,14 @@ html,body{
     margin-right: 15px;
 }
 
-
 .sidenav_element_icon {
     width: 30px;
 }
 
 .sidenav_element_text { 
-    color: #B79B70; 
+    color: var(--strong-gold);
     font-size: 32px; 
-    font-family: 'Chillax', sans-serif;
+    font-family: var(--letra);
     font-weight: 400; 
     letter-spacing: 1.60px; 
     word-wrap: break-word;
@@ -64,16 +71,16 @@ html,body{
 }
 
 #location {
-    background-color: #E5DBC8;
+    background-color: var(--light-gold);
     border-radius: 30px;
 }
 
 #location_text {
-    color: #0E0E15;
+    color: var(--black);
 }
 
 #my_account {
-    color: #E5DBC8;
+    color: var(--light-gold);
 }
 
 #my_account_icon {
@@ -82,22 +89,16 @@ html,body{
 }
 
 #my_account_cont {
-    border: 2px solid #E5DBC8;
+    border: 2px solid var(--light-gold);
     border-radius: 30px;
     margin-top: 15px;
     margin-bottom: 15px;
 }
-
-.main {
-    margin-left: 300px;
-    min-height: 100%;
-    /* background-color: #E5DBC8; */
-}
     
 .header {
-    top: 0;
+    grid-column: span 2;
     height: 75px;
-    background: #0E0E15;
+    background: var(--black);
     display: flex;
     align-items: center;
     flex-direction: row;
@@ -116,7 +117,7 @@ html,body{
     align-items: center;
     width: 364px;
     height: 44px;
-    background: #E5DBC8;
+    background: var(--light-gold);
     position: relative;
     border-radius: 15px;
     padding-left: 12px;
@@ -124,13 +125,13 @@ html,body{
 }
 
 .search_bar_field {
-    font-family: Chillax;
+    font-family: var(--letra);
     font-size: 16px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: 0.8px;
-    background: rgba(229, 219, 200, 0.84);
+    background: var(--light-gold);
     border: none;
     outline: none;
     width: 316px;
@@ -142,18 +143,24 @@ html,body{
 /* -------------------------------------- */
 
 .title {
-    font-family: 'Chillax', sans-serif;
+    font-family: var(--letra);
     font-size: 48px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
     letter-spacing: 2.4px;
-    margin-top: 40px;
-    margin-left: 40px;
 }
 
 .title_key_word {
-    color: #B79B70;
+    color: var(--strong-gold);
+}
+
+.title_container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
 }
 
 /* -------------------------------------- */
@@ -175,7 +182,7 @@ html,body{
     position: relative;
     text-align: center;
     color: white;
-    font-family: 'Chillax', sans-serif;
+    font-family: var(--letra);
     font-size: 24px;
     font-weight: 800;
     letter-spacing: 2.4px; 
@@ -198,3 +205,163 @@ html,body{
     transform: translate(-50%, -50%);
 }
 
+/* -------------------------------------- */
+/* MY ACCOUNT */
+/* -------------------------------------- */
+
+.logout_button {
+    background-color: var(--strong-gold);
+    text-decoration: none;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    color: var(--black);
+    font-family: var(--letra);
+    letter-spacing: 2.4px;
+    font-size: 24px;
+}
+
+.my_account_form_container {
+    background-color: var(--white);
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: 30% 30% 40%;
+    grid-template-rows: 80% 20%;
+    height: 535px;
+    align-items: center;
+    justify-items: center;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.my_account_user_passwd {
+    align-items: center;
+}
+
+.my_account_form_label {
+    font-family: var(--letra);
+    font-size: 20px;
+}
+
+.my_account_form_text_field {
+    font-family: var(--letra);
+    font-size: 20px;
+    background-color: var(--white);
+    border-radius: 15px;
+    border: 2px solid grey;
+    padding-left: 10px;
+    padding-bottom: 4px;
+}
+
+.my_account_form_text_field:focus {
+    outline: none !important;
+    border: 2px solid var(--strong-gold);
+    
+}
+
+.my_account_form_buttons {
+    grid-column: span 3;
+}
+
+
+/* -------------------------------------- */
+/* LOG IN / REGISTER */
+/* -------------------------------------- */
+
+.log_in_container {
+    background-image: url(registro-background.png);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.log_in_title {
+    color: var(--black);
+    font-family: var(--letra);
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    letter-spacing: 1.8px;
+    text-transform: uppercase; 
+}
+
+.log_in_text_field_wrapper {
+    width: 300px;
+    height: 45px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--black);
+    margin: 20px 0;
+}
+
+.log_in_text_field_icon {
+    width: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.log_in_text_field_field {
+    color: var(--black);
+    font-family: var(--letra);
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 20px;
+    background: transparent;
+    border: none;
+    outline: none;
+}
+
+.log_in_button {
+    width: 304px;
+    height: 45px;
+    border-radius: 4px;
+    border: 2px solid var(--black);
+    background: var(--black);
+    color: var(--strong-gold);
+    text-align: center;
+    font-family: var(--letra);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 125% */
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.30);
+}
+
+.log_in_button:hover {
+    filter: brightness(120%);
+    cursor: pointer;
+}
+
+.register_button {
+    width: 304px;
+    height: 45px; 
+    border-radius: 4px;
+    background: var(--strong-gold);
+    color: var(--black);
+    text-align: center;
+    font-family: var(--letra);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; /* 125% */
+    text-transform: uppercase;
+    margin-top: 20px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.30);
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.register_button:hover {
+    filter: brightness(120%);
+}

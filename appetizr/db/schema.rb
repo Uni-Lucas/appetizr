@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_28_160353) do
+ActiveRecord::Schema[7.1].define(version: 2023_10_31_171120) do
   create_schema "tiger"
   create_schema "tiger_data"
   create_schema "topology"
@@ -60,6 +60,16 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_28_160353) do
   enable_extension "uuid-ossp"
   enable_extension "xml2"
 
+  create_table "action_text_rich_texts", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "body"
+    t.string "record_type", null: false
+    t.bigint "record_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["record_type", "record_id", "name"], name: "index_action_text_rich_texts_uniqueness", unique: true
+  end
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -86,11 +96,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_28_160353) do
     t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
-  end
-
-  create_table "appetizr_db_models", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "appetizr_db_models", force: :cascade do |t|
@@ -186,8 +191,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_28_160353) do
     t.check_constraint "srid > 0 AND srid <= 998999", name: "spatial_ref_sys_srid_check"
   end
 
-  create_table "users", id: false, force: :cascade do |t|
-    t.string "nombre"
+  create_table "users", primary_key: "nombre", id: :string, force: :cascade do |t|
     t.string "rutaImgPerfil"
     t.boolean "esAdmin"
     t.string "password_digest"
