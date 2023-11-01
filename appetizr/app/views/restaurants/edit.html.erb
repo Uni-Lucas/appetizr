@@ -1,5 +1,4 @@
-
-<h1> <%= @restaurant.nombre %> </h1>
+<%= render "header", locals: {restaurant: @restaurant, statistics: true} %>
 
 <% if flash[:dishes] %>
   <div class="notice" ><%= flash[:dishes] %></div>
@@ -17,6 +16,11 @@
 
 <%= link_to "Añadir", new_dish_path(restaurant: @restaurant.id) %>
 
+<%= form_with model: @restaurant do |form| %>
+  <%= form.file_field :image %>
+  <%= form.submit %>
+<% end %>
+
 
 <h2> Reviews del restaurante </h2>
 <%= render "layouts/comment", comments: @restaurant.reviews %>
@@ -29,4 +33,4 @@
 
 <h2> Posts del restaurante </h2>
 
-<%= render "comment", locals: {comments: @r_user.posts} %>
+<%= render "layouts/comment", comments: get_rest_manager.posts %>

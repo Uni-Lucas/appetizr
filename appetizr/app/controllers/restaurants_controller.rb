@@ -13,7 +13,6 @@ class RestaurantsController < ApplicationController
 
     def edit
         @restaurant = Restaurant.find(params[:id])
-        @r_user = User.find_by(nombre: session[:username])
     end
 
     def update 
@@ -49,6 +48,6 @@ class RestaurantsController < ApplicationController
     private
     
     def restaurant_params
-        params.require(:restaurant).permit(:categoria, :nombre, :rutaImgFondo, :direccion, :telefono, :horario)
+        params.require(:restaurant).permit(:categoria, :nombre, :rutaImgFondo, :direccion, :telefono, :horario, :image)
     end
 end

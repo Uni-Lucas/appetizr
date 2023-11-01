@@ -1,5 +1,6 @@
 class Restaurant < ApplicationRecord
   
+  has_one_attached :image
   belongs_to :category, class_name: 'Category', optional: true
   has_many :ranks, class_name: 'Rank', foreign_key: 'what'
   has_many :reviews, as: :reviewable

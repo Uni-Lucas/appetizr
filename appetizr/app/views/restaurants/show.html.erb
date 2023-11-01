@@ -1,1 +1,31 @@
-<h1> <%= @restaurant.nombre %> </h1>
+
+<%= render "header", locals: {restaurant: @restaurant, order: true} %>
+
+<% if flash[:dishes] %>
+  <div class="notice" ><%= flash[:dishes] %></div>
+<% end %>
+<ul>
+  <% @restaurant.dishes.each do |dish| %>
+    <li> 
+      <div>
+        <%= dish.nombre %>
+        <%= dish.precio %>
+      </div> 
+    </li>
+  <% end %>
+</ul>
+
+
+
+<h2> Reviews del restaurante </h2>
+<%= render "layouts/comment", comments: @restaurant.reviews %>
+
+<h2> Información del restaurante </h2>
+
+<%= @restaurant.direccion %><hr>
+<%= @restaurant.telefono %><hr>
+<%= @restaurant.horario %><hr>
+
+<h2> Posts del restaurante </h2>
+
+<%= render "layouts/comment", comments: get_rest_manager.posts %>
