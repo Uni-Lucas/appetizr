@@ -95,6 +95,10 @@ html,body{
     margin-bottom: 15px;
 }
 
+.main {
+  overflow: scroll;
+}
+
 .header {
     grid-column: span 2;
     height: 75px;
@@ -358,6 +362,7 @@ html,body{
 }
 
 .my_account_user_passwd {
+    left: 40px;
     align-items: center;
 }
 
@@ -399,8 +404,6 @@ html,body{
 }
 
 .restaurants-img {
-  width: 100%;
-  height: 10%;
   left: 0px;
   top: 0px;
   position: relative;

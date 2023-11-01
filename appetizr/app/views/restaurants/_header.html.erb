@@ -3,9 +3,9 @@
   <!--- <%= image_tag "", class: "restaurant-img" %> --->
   <div class="restaurants-img">
     <% if locals[:restaurant].image.attached? %>
-      <%= image_tag locals[:restaurant].image %>
+      <%= image_tag(locals[:restaurant].image, width: "100%", height: "200px") %>
     <% else %>
-      <%= image_tag "Default-restaurant-img" %>
+      <%= image_tag("Default-restaurant-img", width: "100%", height: "200px") %>
     <% end %>
   </div>
   <div class="restaurants-header-content">

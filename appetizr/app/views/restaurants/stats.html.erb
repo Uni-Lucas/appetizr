@@ -1,0 +1,15 @@
+
+<div class="title">Estadísticas de <span class="title_key_word"><%= @restaurant.nombre %></span></div>
+
+<h2>Comentarios sobre tí</h2>
+
+<%= render "layouts/comment", comments: @restaurant.reviews %>
+
+<div>
+  Visitas a tu página web
+  <span> 1000</span>
+</div>
+<div>
+  Comentarios en tu página 
+  <span> <%= get_total_reviews(@restaurant) %></span>
+</div>

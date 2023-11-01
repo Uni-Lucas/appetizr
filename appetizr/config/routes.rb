@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :categories, param: :nombre
   resources :restaurants
   get 'search', to: 'restaurants#search', as: 'search_restaurants'
+  get '/restaurants/:id/stats', to: 'restaurants#stats'
+  get '/restaurants/:id/edit_info', to: 'restaurants#edit_info'
   resources :posts, only: [:new, :create]
   resources :dishes, only: [:new, :create, :edit, :update]
   resources :users

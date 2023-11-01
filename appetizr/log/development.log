@@ -21650,3 +21650,1830 @@ Processing by CategoriesController#index as HTML
 Completed 200 OK in 64ms (Views: 7.4ms | ActiveRecord: 56.4ms | Allocations: 8620)
 
 
+Started GET "/logout" for 127.0.0.1 at 2023-11-01 11:48:05 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (68.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LoginsController#destroy as HTML
+Redirected to http://localhost:3000/
+Completed 302 Found in 33ms (ActiveRecord: 0.0ms | Allocations: 3411)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-01 11:48:07 +0100
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (98.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 1250.0ms | Allocations: 127964)
+  Rendered layouts/_header.html.erb (Duration: 2.0ms | Allocations: 1251)
+  Rendered layouts/_sidenav.html.erb (Duration: 5.1ms | Allocations: 2878)
+  Rendered layout layouts/application.html.erb (Duration: 1280.0ms | Allocations: 150590)
+Completed 200 OK in 1690ms (Views: 1085.7ms | ActiveRecord: 197.0ms | Allocations: 160417)
+
+
+Started GET "/categories/chino" for 127.0.0.1 at 2023-11-01 11:48:12 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (47.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (57.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "chino"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 309.2ms | Allocations: 13535)
+  [1m[36mActiveStorage::Attachment Load (53.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 16], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/categories/show.html.erb:10
+  [1m[36mActiveStorage::Attachment Load (50.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 17], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/categories/show.html.erb:10
+  [1m[36mActiveStorage::Attachment Load (59.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 18], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/categories/show.html.erb:10
+  Rendered categories/show.html.erb within layouts/application (Duration: 843.5ms | Allocations: 28209)
+  Rendered layouts/_header.html.erb (Duration: 8.5ms | Allocations: 925)
+  Rendered layouts/_sidenav.html.erb (Duration: 20.0ms | Allocations: 2249)
+  Rendered layout layouts/application.html.erb (Duration: 892.7ms | Allocations: 35103)
+Completed 200 OK in 1437ms (Views: 393.5ms | ActiveRecord: 893.2ms | Allocations: 37292)
+
+
+Started GET "/search?search=Goiko" for 127.0.0.1 at 2023-11-01 11:48:29 +0100
+Processing by RestaurantsController#search as HTML
+  Parameters: {"search"=>"Goiko"}
+  [1m[36mRestaurant Load (112.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."nombre" = $1 LIMIT $2[0m  [["nombre", "Goiko"], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:36:in `search'
+Redirected to http://localhost:3000/restaurants/1
+Completed 302 Found in 546ms (ActiveRecord: 399.2ms | Allocations: 12876)
+
+
+Started GET "/restaurants/1" for 127.0.0.1 at 2023-11-01 11:48:30 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (47.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (55.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:5
+  Rendered restaurants/_header.html.erb (Duration: 109.3ms | Allocations: 9755)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 111.3ms | Allocations: 10224)
+  Rendered layout layouts/application.html.erb (Duration: 111.7ms | Allocations: 10316)
+Completed 500 Internal Server Error in 219ms (ActiveRecord: 102.2ms | Allocations: 11740)
+
+
+  
+ActionView::Template::Error (Can't resolve image into URL: undefined method `attachment_url' for #<ActionView::Base:0x0000000000b478>):
+    3:   <!--- <%= image_tag "", class: "restaurant-img" %> --->
+    4:   <div class="restaurants-img">
+    5:     <% if locals[:restaurant].image.attached? %>
+    6:       <%= image_tag locals[:restaurant].image %>
+    7:     <% else %>
+    8:       <%= image_tag "Default-restaurant-img" %>
+    9:     <% end %>
+  
+app/views/restaurants/_header.html.erb:6
+app/views/restaurants/show.html.erb:2
+Started GET "/categories/chino" for 127.0.0.1 at 2023-11-01 11:51:24 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (50.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (61.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "chino"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 133.6ms | Allocations: 7782)
+  [1m[36mActiveStorage::Attachment Load (61.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 16], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/categories/show.html.erb:10
+  [1m[36mActiveStorage::Attachment Load (54.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 17], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/categories/show.html.erb:10
+  [1m[36mActiveStorage::Attachment Load (46.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 18], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/categories/show.html.erb:10
+  Rendered categories/show.html.erb within layouts/application (Duration: 499.0ms | Allocations: 19069)
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 1193)
+  Rendered layouts/_sidenav.html.erb (Duration: 5.0ms | Allocations: 2852)
+  Rendered layout layouts/application.html.erb (Duration: 538.3ms | Allocations: 41433)
+Completed 200 OK in 984ms (Views: 111.5ms | ActiveRecord: 616.0ms | Allocations: 45523)
+
+
+Started GET "/search?search=Goiko" for 127.0.0.1 at 2023-11-01 11:51:30 +0100
+Processing by RestaurantsController#search as HTML
+  Parameters: {"search"=>"Goiko"}
+  [1m[36mRestaurant Load (99.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."nombre" = $1 LIMIT $2[0m  [["nombre", "Goiko"], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:36:in `search'
+Redirected to http://localhost:3000/restaurants/1
+Completed 302 Found in 292ms (ActiveRecord: 270.3ms | Allocations: 8084)
+
+
+Started GET "/restaurants/1" for 127.0.0.1 at 2023-11-01 11:51:30 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (46.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (49.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:5
+  [1m[36mActiveStorage::Blob Load (50.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:6
+  Rendered restaurants/_header.html.erb (Duration: 346.6ms | Allocations: 17563)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 349.6ms | Allocations: 18013)
+  Rendered layout layouts/application.html.erb (Duration: 350.4ms | Allocations: 18105)
+Completed 500 Internal Server Error in 404ms (ActiveRecord: 277.9ms | Allocations: 19484)
+
+
+  
+ActionView::Template::Error (undefined method `processed' for #<ActiveStorage::Attached::One:0x00007f018b0452c0 @name="image", @record=#<Restaurant id: 1, categoria: "burger", nombre: "Goiko", rutaImgPerfil: "", rutaImgFondo: "", direccion: "Calle 1234", telefono: "000111222", horario: "todos los dias">>):
+    3:   <!--- <%= image_tag "", class: "restaurant-img" %> --->
+    4:   <div class="restaurants-img">
+    5:     <% if locals[:restaurant].image.attached? %>
+    6:       <%= image_tag locals[:restaurant].image.processed.url %>
+    7:     <% else %>
+    8:       <%= image_tag "Default-restaurant-img" %>
+    9:     <% end %>
+  
+app/views/restaurants/_header.html.erb:6
+app/views/restaurants/show.html.erb:2
+Started GET "/restaurants/2/" for 127.0.0.1 at 2023-11-01 11:57:09 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (47.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (66.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:5
+  Rendered restaurants/_header.html.erb (Duration: 128.6ms | Allocations: 2269)
+  [1m[36mDish Load (45.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  ↳ app/views/restaurants/show.html.erb:8
+  [1m[36mReview Load (147.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 2], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 269.0ms | Allocations: 1910)
+  [1m[36mUser Load (69.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 1025.7ms | Allocations: 29057)
+  Rendered layout layouts/application.html.erb (Duration: 1026.2ms | Allocations: 29149)
+Completed 500 Internal Server Error in 2116ms (ActiveRecord: 1263.0ms | Allocations: 33041)
+
+
+  
+ActionView::Template::Error (undefined method `posts' for nil:NilClass):
+    28: 
+    29: <h2> Posts del restaurante </h2>
+    30: 
+    31: <%= render "layouts/comment", comments: get_rest_manager.posts %>
+  
+app/views/restaurants/show.html.erb:31
+Started GET "/login" for 127.0.0.1 at 2023-11-01 11:57:19 +0100
+Processing by LoginsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering logins/new.html.erb within layouts/application
+  Rendered logins/new.html.erb within layouts/application (Duration: 35.1ms | Allocations: 3050)
+  Rendered layouts/_header.html.erb (Duration: 2.3ms | Allocations: 934)
+  Rendered layouts/_sidenav.html.erb (Duration: 4.9ms | Allocations: 2270)
+  Rendered layout layouts/application.html.erb (Duration: 49.6ms | Allocations: 9807)
+Completed 200 OK in 108ms (Views: 50.8ms | ActiveRecord: 0.0ms | Allocations: 13364)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-11-01 11:57:30 +0100
+Processing by LoginsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nombre"=>"Atreides", "password"=>"[FILTERED]", "commit"=>"INICIAR SESIÓN"}
+  [1m[36mUser Load (101.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/controllers/logins_controller.rb:7:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 552ms (ActiveRecord: 101.7ms | Allocations: 1029)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-01 11:57:48 +0100
+Processing by CategoriesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (205.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 216.1ms | Allocations: 1865)
+  Rendered layouts/_header.html.erb (Duration: 4.7ms | Allocations: 951)
+  [1m[36mUser Load (41.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 52.2ms | Allocations: 2650)
+  Rendered layout layouts/application.html.erb (Duration: 305.1ms | Allocations: 9254)
+Completed 200 OK in 308ms (Views: 59.2ms | ActiveRecord: 247.3ms | Allocations: 9625)
+
+
+Started GET "/restaurants/2/" for 127.0.0.1 at 2023-11-01 11:58:45 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (238.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (48.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:5
+  Rendered restaurants/_header.html.erb (Duration: 56.0ms | Allocations: 2220)
+  [1m[36mDish Load (60.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  ↳ app/views/restaurants/show.html.erb:8
+  [1m[36mReview Load (53.8ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 2], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 56.4ms | Allocations: 549)
+  [1m[36mUser Load (48.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (48.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "Atreides"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 108.2ms | Allocations: 2228)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 338.7ms | Allocations: 6956)
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 940)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 4.2ms | Allocations: 2551)
+  Rendered layout layouts/application.html.erb (Duration: 353.6ms | Allocations: 13963)
+Completed 200 OK in 596ms (Views: 95.1ms | ActiveRecord: 497.5ms | Allocations: 14630)
+
+
+Started GET "/restaurants/1/" for 127.0.0.1 at 2023-11-01 11:58:50 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (112.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (47.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:5
+  [1m[36mActiveStorage::Blob Load (42.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:6
+  Rendered restaurants/_header.html.erb (Duration: 154.9ms | Allocations: 2517)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 155.4ms | Allocations: 2582)
+  Rendered layout layouts/application.html.erb (Duration: 162.3ms | Allocations: 2674)
+Completed 500 Internal Server Error in 278ms (ActiveRecord: 202.3ms | Allocations: 3297)
+
+
+  
+ActionView::Template::Error (undefined method `processed' for #<ActiveStorage::Attached::One:0x00007f018aeb5360 @name="image", @record=#<Restaurant id: 1, categoria: "burger", nombre: "Goiko", rutaImgPerfil: "", rutaImgFondo: "", direccion: "Calle 1234", telefono: "000111222", horario: "todos los dias">>):
+    3:   <!--- <%= image_tag "", class: "restaurant-img" %> --->
+    4:   <div class="restaurants-img">
+    5:     <% if locals[:restaurant].image.attached? %>
+    6:       <%= image_tag locals[:restaurant].image.processed.url %>
+    7:     <% else %>
+    8:       <%= image_tag "Default-restaurant-img" %>
+    9:     <% end %>
+  
+app/views/restaurants/_header.html.erb:6
+app/views/restaurants/show.html.erb:2
+Started GET "/restaurants/1/" for 127.0.0.1 at 2023-11-01 12:05:35 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (46.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (47.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:5
+  Rendered restaurants/_header.html.erb (Duration: 120.8ms | Allocations: 7435)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 150.1ms | Allocations: 7890)
+  Rendered layout layouts/application.html.erb (Duration: 150.3ms | Allocations: 7983)
+Completed 500 Internal Server Error in 1291ms (ActiveRecord: 595.0ms | Allocations: 20393)
+
+
+  
+ActionView::Template::Error (Can't resolve image into URL: undefined method `attachment_url' for #<ActionView::Base:0x00000000012520>):
+    3:   <!--- <%= image_tag "", class: "restaurant-img" %> --->
+    4:   <div class="restaurants-img">
+    5:     <% if locals[:restaurant].image.attached? %>
+    6:       <%= image_tag locals[:restaurant].image %>
+    7:     <% else %>
+    8:       <%= image_tag "Default-restaurant-img" %>
+    9:     <% end %>
+  
+app/views/restaurants/_header.html.erb:6
+app/views/restaurants/show.html.erb:2
+Started GET "/restaurants/1/" for 127.0.0.1 at 2023-11-01 12:05:49 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (137.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (51.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:5
+  Rendered restaurants/_header.html.erb (Duration: 57.0ms | Allocations: 2332)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 57.4ms | Allocations: 2397)
+  Rendered layout layouts/application.html.erb (Duration: 57.7ms | Allocations: 2489)
+Completed 500 Internal Server Error in 203ms (ActiveRecord: 189.5ms | Allocations: 3116)
+
+
+  
+ActionView::Template::Error (Can't resolve image into URL: undefined method `attachment_url' for #<ActionView::Base:0x00000000012840>):
+    3:   <!--- <%= image_tag "", class: "restaurant-img" %> --->
+    4:   <div class="restaurants-img">
+    5:     <% if locals[:restaurant].image.attached? %>
+    6:       <%= image_tag locals[:restaurant].image %>
+    7:     <% else %>
+    8:       <%= image_tag "Default-restaurant-img" %>
+    9:     <% end %>
+  
+app/views/restaurants/_header.html.erb:6
+app/views/restaurants/show.html.erb:2
+Started GET "/restaurants/1/" for 127.0.0.1 at 2023-11-01 12:10:14 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (147.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (99.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:5
+  Rendered restaurants/_header.html.erb (Duration: 104.3ms | Allocations: 2334)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 104.7ms | Allocations: 2399)
+  Rendered layout layouts/application.html.erb (Duration: 105.0ms | Allocations: 2491)
+Completed 500 Internal Server Error in 257ms (ActiveRecord: 247.5ms | Allocations: 3117)
+
+
+  
+ActionView::Template::Error (Can't resolve image into URL: undefined method `attachment_url' for #<ActionView::Base:0x00000000012b10>):
+    3:   <!--- <%= image_tag "", class: "restaurant-img" %> --->
+    4:   <div class="restaurants-img">
+    5:     <% if locals[:restaurant].image.attached? %>
+    6:       <%= image_tag locals[:restaurant].image %>
+    7:     <% else %>
+    8:       <%= image_tag "Default-restaurant-img" %>
+    9:     <% end %>
+  
+app/views/restaurants/_header.html.erb:6
+app/views/restaurants/show.html.erb:2
+Started GET "/restaurants/1/" for 127.0.0.1 at 2023-11-01 12:10:25 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (59.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (55.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (58.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:5
+  [1m[36mActiveStorage::Blob Load (42.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:6
+  Rendered restaurants/_header.html.erb (Duration: 1164.4ms | Allocations: 149659)
+  [1m[36mDish Load (42.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/show.html.erb:8
+  [1m[36mReview Load (81.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 184.6ms | Allocations: 2180)
+  [1m[36mUser Load (42.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (44.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "Atreides"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 161.8ms | Allocations: 8862)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 2037.8ms | Allocations: 189848)
+  Rendered layouts/_header.html.erb (Duration: 1.9ms | Allocations: 1259)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 6.4ms | Allocations: 3192)
+  Rendered layout layouts/application.html.erb (Duration: 2063.4ms | Allocations: 212586)
+Completed 200 OK in 2842ms (Views: 1232.0ms | ActiveRecord: 1358.8ms | Allocations: 257680)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--85721ac0b55ff594385f2f7beb31b13150146eba/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:10:29 +0100
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--85721ac0b55ff594385f2f7beb31b13150146eba", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+  [1m[36mActiveStorage::Blob Load (125.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[36m  Disk Storage (19.4ms) [0m[34mGenerated URL for file at key: qsjcra12df8edpmvc2u44oglph6a (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMToxNTozMC4wMDVaIiwicHVyIjoiYmxvYl9rZXkifX0=--f9949077f9b94b341ad8bc622dd45038439b8e78/Screenshot%20from%202023-10-10%2020-10-37.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMToxNTozMC4wMDVaIiwicHVyIjoiYmxvYl9rZXkifX0=--f9949077f9b94b341ad8bc622dd45038439b8e78/Screenshot%20from%202023-10-10%2020-10-37.png
+Completed 302 Found in 158ms (ActiveRecord: 125.8ms | Allocations: 2607)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMToxNTozMC4wMDVaIiwicHVyIjoiYmxvYl9rZXkifX0=--f9949077f9b94b341ad8bc622dd45038439b8e78/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:10:30 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 270)
+
+
+Started GET "/rusers/Atreides" for 127.0.0.1 at 2023-11-01 12:19:18 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/rusers/Atreides"):
+  
+Started GET "/users/Atreides" for 127.0.0.1 at 2023-11-01 12:19:25 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"Atreides"}
+  [1m[36mUser Load (54.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (41.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", nil], ["record_type", "User"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:26
+  Rendered users/show.html.erb within layouts/application (Duration: 114.1ms | Allocations: 5095)
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 1220)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 6.2ms | Allocations: 3166)
+  Rendered layout layouts/application.html.erb (Duration: 148.4ms | Allocations: 27844)
+Completed 200 OK in 1273ms (Views: 110.2ms | ActiveRecord: 545.1ms | Allocations: 38880)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:26:52 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (924.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 1009.6ms | Allocations: 9483)
+  Rendered layout layouts/application.html.erb (Duration: 1010.0ms | Allocations: 9576)
+Completed 500 Internal Server Error in 1012ms (ActiveRecord: 1399.4ms | Allocations: 10307)
+
+
+  
+ActionView::Template::Error (undefined method `profile_pic' for nil:NilClass):
+    23:         </div>
+    24:         <div>
+    25:             <%= form.label :profile_pic, "Foto de perfil" %>
+    26:             <%= image_tag @user.profile_pic if @user.profile_pic.attached? %>
+    27:             <%= form.file_field :profile_pic %>
+    28:         </div>
+    29:         <div>Placeholder for stats</div>
+  
+app/views/restaurants/edit_info.html.erb:26
+app/views/restaurants/edit_info.html.erb:10
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:29:30 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (46.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (61.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (50.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:26
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 395.7ms | Allocations: 7587)
+  Rendered layout layouts/application.html.erb (Duration: 396.2ms | Allocations: 7680)
+Completed 500 Internal Server Error in 1149ms (ActiveRecord: 935.6ms | Allocations: 21446)
+
+
+  
+ActionView::Template::Error (undefined method `errors' for nil:NilClass):
+    28:         </div>
+    29:         <div>Placeholder for stats</div>
+    30: 
+    31:         <% @user.errors.full_messages.each do |msg| %>
+    32:             <div><%= msg %></div>
+    33:         <% end %>
+    34:     
+  
+app/views/restaurants/edit_info.html.erb:31
+app/views/restaurants/edit_info.html.erb:10
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:29:39 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (47.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (51.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (49.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:26
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 289.0ms | Allocations: 7068)
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 1220)
+  [1m[36mUser Load (47.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 174.6ms | Allocations: 9358)
+  Rendered layout layouts/application.html.erb (Duration: 485.8ms | Allocations: 36003)
+Completed 200 OK in 1156ms (Views: 129.4ms | ActiveRecord: 984.6ms | Allocations: 49688)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:32:32 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (46.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 10.9ms | Allocations: 2731)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 2824)
+Completed 500 Internal Server Error in 602ms (ActiveRecord: 550.2ms | Allocations: 16438)
+
+
+  
+ActionView::Template::Error (wrong number of arguments (given 3, expected 5..7)):
+    18:             <div>
+    19:                 <%= form.label :category, "Categoría", class: "my_account_form_label" %>
+    20:             <br>
+    21:             <%= collection_select(Category.all, :nombre, :nombre) %> 
+    22:             </div>
+    23:         </div>
+    24:         <div>
+  
+app/views/restaurants/edit_info.html.erb:21
+app/views/restaurants/edit_info.html.erb:10
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:32:49 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (49.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (48.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (49.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:26
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 300.3ms | Allocations: 7604)
+  Rendered layouts/_header.html.erb (Duration: 1.7ms | Allocations: 1220)
+  [1m[36mUser Load (50.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 148.1ms | Allocations: 9321)
+  Rendered layout layouts/application.html.erb (Duration: 470.2ms | Allocations: 36503)
+Completed 200 OK in 973ms (Views: 80.4ms | ActiveRecord: 848.4ms | Allocations: 50196)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:33:10 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (207.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (57.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (47.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:26
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 309.7ms | Allocations: 7110)
+  Rendered layouts/_header.html.erb (Duration: 1.7ms | Allocations: 1220)
+  [1m[36mUser Load (47.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 126.4ms | Allocations: 9318)
+  Rendered layout layouts/application.html.erb (Duration: 455.5ms | Allocations: 36007)
+Completed 200 OK in 974ms (Views: 75.6ms | ActiveRecord: 856.9ms | Allocations: 49658)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:45:45 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (53.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (50.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (241.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (55.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  [1m[36mActiveStorage::Blob Load (43.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 716.3ms | Allocations: 19843)
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 1215)
+  [1m[36mUser Load (44.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 181.8ms | Allocations: 9204)
+  Rendered layout layouts/application.html.erb (Duration: 933.0ms | Allocations: 48717)
+Completed 200 OK in 2427ms (Views: 349.5ms | ActiveRecord: 1118.4ms | Allocations: 61912)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--85721ac0b55ff594385f2f7beb31b13150146eba/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:45:48 +0100
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--85721ac0b55ff594385f2f7beb31b13150146eba", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+  [1m[36mActiveStorage::Blob Load (51.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[36m  Disk Storage (1.2ms) [0m[34mGenerated URL for file at key: qsjcra12df8edpmvc2u44oglph6a (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1MDo0OC4yNzFaIiwicHVyIjoiYmxvYl9rZXkifX0=--ff2a7c8df56dcf19f0c2140e23dfc96207d1aab2/Screenshot%20from%202023-10-10%2020-10-37.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1MDo0OC4yNzFaIiwicHVyIjoiYmxvYl9rZXkifX0=--ff2a7c8df56dcf19f0c2140e23dfc96207d1aab2/Screenshot%20from%202023-10-10%2020-10-37.png
+Completed 302 Found in 59ms (ActiveRecord: 51.2ms | Allocations: 2093)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1MDo0OC4yNzFaIiwicHVyIjoiYmxvYl9rZXkifX0=--ff2a7c8df56dcf19f0c2140e23dfc96207d1aab2/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:45:48 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 220)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:46:39 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (86.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (74.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (167.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (55.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  [1m[36mActiveStorage::Blob Load (130.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 818.5ms | Allocations: 16828)
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 1215)
+  [1m[36mUser Load (47.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 293.0ms | Allocations: 9321)
+  Rendered layout layouts/application.html.erb (Duration: 1128.1ms | Allocations: 45723)
+Completed 200 OK in 1555ms (Views: 79.1ms | ActiveRecord: 1444.1ms | Allocations: 59361)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1MDo0OC4yNzFaIiwicHVyIjoiYmxvYl9rZXkifX0=--ff2a7c8df56dcf19f0c2140e23dfc96207d1aab2/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:46:41 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 302)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:47:37 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (55.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (49.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (45.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (106.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  [1m[36mActiveStorage::Blob Load (49.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 704.6ms | Allocations: 16813)
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 1216)
+  [1m[36mUser Load (44.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 116.5ms | Allocations: 9320)
+  Rendered layout layouts/application.html.erb (Duration: 840.3ms | Allocations: 45708)
+Completed 200 OK in 1258ms (Views: 95.0ms | ActiveRecord: 1123.1ms | Allocations: 59347)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1MDo0OC4yNzFaIiwicHVyIjoiYmxvYl9rZXkifX0=--ff2a7c8df56dcf19f0c2140e23dfc96207d1aab2/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:47:38 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 302)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:47:49 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (67.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (43.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (43.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (42.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  [1m[36mActiveStorage::Blob Load (45.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 447.7ms | Allocations: 16828)
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 1216)
+  [1m[36mUser Load (45.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 119.4ms | Allocations: 9320)
+  Rendered layout layouts/application.html.erb (Duration: 582.6ms | Allocations: 45723)
+Completed 200 OK in 1062ms (Views: 83.0ms | ActiveRecord: 944.9ms | Allocations: 59408)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1MDo0OC4yNzFaIiwicHVyIjoiYmxvYl9rZXkifX0=--ff2a7c8df56dcf19f0c2140e23dfc96207d1aab2/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:47:50 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 302)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:47:57 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (56.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (47.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (44.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (58.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  [1m[36mActiveStorage::Blob Load (45.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 505.0ms | Allocations: 16824)
+  Rendered layouts/_header.html.erb (Duration: 1.7ms | Allocations: 1216)
+  [1m[36mUser Load (46.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 112.2ms | Allocations: 9320)
+  Rendered layout layouts/application.html.erb (Duration: 634.1ms | Allocations: 45720)
+Completed 200 OK in 1107ms (Views: 88.3ms | ActiveRecord: 972.1ms | Allocations: 59415)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1MDo0OC4yNzFaIiwicHVyIjoiYmxvYl9rZXkifX0=--ff2a7c8df56dcf19f0c2140e23dfc96207d1aab2/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:47:59 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 2ms (ActiveRecord: 0.0ms | Allocations: 302)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:48:12 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (56.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (42.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (47.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (50.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  [1m[36mActiveStorage::Blob Load (42.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 464.0ms | Allocations: 16839)
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 1216)
+  [1m[36mUser Load (60.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 130.0ms | Allocations: 9323)
+  Rendered layout layouts/application.html.erb (Duration: 610.2ms | Allocations: 45737)
+Completed 200 OK in 1005ms (Views: 89.3ms | ActiveRecord: 864.0ms | Allocations: 59374)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1MDo0OC4yNzFaIiwicHVyIjoiYmxvYl9rZXkifX0=--ff2a7c8df56dcf19f0c2140e23dfc96207d1aab2/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:48:13 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 302)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:48:40 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (44.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (41.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (42.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (45.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  [1m[36mActiveStorage::Blob Load (47.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 502.1ms | Allocations: 16851)
+  Rendered layouts/_header.html.erb (Duration: 1.9ms | Allocations: 1216)
+  [1m[36mUser Load (53.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 143.8ms | Allocations: 9321)
+  Rendered layout layouts/application.html.erb (Duration: 662.2ms | Allocations: 45747)
+Completed 200 OK in 966ms (Views: 80.6ms | ActiveRecord: 852.0ms | Allocations: 59433)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1MDo0OC4yNzFaIiwicHVyIjoiYmxvYl9rZXkifX0=--ff2a7c8df56dcf19f0c2140e23dfc96207d1aab2/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:48:41 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 6ms (ActiveRecord: 0.0ms | Allocations: 309)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:49:39 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (816.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (55.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (56.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (54.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  [1m[36mActiveStorage::Blob Load (67.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 249.3ms | Allocations: 3458)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 967)
+  [1m[36mUser Load (42.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 47.7ms | Allocations: 2683)
+  Rendered layout layouts/application.html.erb (Duration: 316.7ms | Allocations: 16882)
+Completed 200 OK in 1144ms (Views: 41.0ms | ActiveRecord: 1092.3ms | Allocations: 17526)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1MDo0OC4yNzFaIiwicHVyIjoiYmxvYl9rZXkifX0=--ff2a7c8df56dcf19f0c2140e23dfc96207d1aab2/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:49:40 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 145)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:49:48 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (44.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (44.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (45.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (42.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  [1m[36mActiveStorage::Blob Load (46.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 193.2ms | Allocations: 3448)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 955)
+  [1m[36mUser Load (45.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 50.3ms | Allocations: 2653)
+  Rendered layout layouts/application.html.erb (Duration: 264.9ms | Allocations: 16723)
+Completed 200 OK in 312ms (Views: 41.7ms | ActiveRecord: 268.4ms | Allocations: 17361)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1MDo0OC4yNzFaIiwicHVyIjoiYmxvYl9rZXkifX0=--ff2a7c8df56dcf19f0c2140e23dfc96207d1aab2/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:49:48 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 142)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:49:55 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (45.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (50.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (58.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (54.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  [1m[36mActiveStorage::Blob Load (50.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 228.2ms | Allocations: 3458)
+  Rendered layouts/_header.html.erb (Duration: 1.5ms | Allocations: 967)
+  [1m[36mUser Load (42.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 48.9ms | Allocations: 2683)
+  Rendered layout layouts/application.html.erb (Duration: 301.4ms | Allocations: 16575)
+Completed 200 OK in 350ms (Views: 46.2ms | ActiveRecord: 301.6ms | Allocations: 17214)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1MDo0OC4yNzFaIiwicHVyIjoiYmxvYl9rZXkifX0=--ff2a7c8df56dcf19f0c2140e23dfc96207d1aab2/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:49:56 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 143)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:50:26 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (308.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (102.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (55.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (82.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  [1m[36mActiveStorage::Blob Load (66.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 322.5ms | Allocations: 3445)
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 967)
+  [1m[36mUser Load (170.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 175.8ms | Allocations: 2677)
+  Rendered layout layouts/application.html.erb (Duration: 579.3ms | Allocations: 16562)
+Completed 200 OK in 891ms (Views: 103.4ms | ActiveRecord: 785.0ms | Allocations: 17201)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1MDo0OC4yNzFaIiwicHVyIjoiYmxvYl9rZXkifX0=--ff2a7c8df56dcf19f0c2140e23dfc96207d1aab2/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:50:27 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 143)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:50:41 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (468.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (380.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (104.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (91.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  [1m[36mActiveStorage::Blob Load (43.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 637.0ms | Allocations: 3445)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 956)
+  [1m[36mUser Load (61.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 66.5ms | Allocations: 2653)
+  Rendered layout layouts/application.html.erb (Duration: 720.8ms | Allocations: 16480)
+Completed 200 OK in 1193ms (Views: 40.7ms | ActiveRecord: 1149.8ms | Allocations: 17123)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1MDo0OC4yNzFaIiwicHVyIjoiYmxvYl9rZXkifX0=--ff2a7c8df56dcf19f0c2140e23dfc96207d1aab2/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:50:43 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 143)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:51:27 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (45.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (43.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (216.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (44.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  [1m[36mActiveStorage::Blob Load (50.3ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 676.9ms | Allocations: 16826)
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 1218)
+  [1m[36mUser Load (50.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 115.8ms | Allocations: 9363)
+  Rendered layout layouts/application.html.erb (Duration: 819.9ms | Allocations: 45786)
+Completed 200 OK in 1153ms (Views: 93.4ms | ActiveRecord: 1021.6ms | Allocations: 59418)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--85721ac0b55ff594385f2f7beb31b13150146eba/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:51:28 +0100
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--85721ac0b55ff594385f2f7beb31b13150146eba", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+  [1m[36mActiveStorage::Blob Load (56.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: qsjcra12df8edpmvc2u44oglph6a (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1NjoyOC40NzhaIiwicHVyIjoiYmxvYl9rZXkifX0=--1d5f4631e08513b3b2bd5678fe83644995a0f8d6/Screenshot%20from%202023-10-10%2020-10-37.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1NjoyOC40NzhaIiwicHVyIjoiYmxvYl9rZXkifX0=--1d5f4631e08513b3b2bd5678fe83644995a0f8d6/Screenshot%20from%202023-10-10%2020-10-37.png
+Completed 302 Found in 62ms (ActiveRecord: 56.2ms | Allocations: 2113)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1NjoyOC40NzhaIiwicHVyIjoiYmxvYl9rZXkifX0=--1d5f4631e08513b3b2bd5678fe83644995a0f8d6/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:51:28 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 218)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:51:46 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (140.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (97.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (101.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (55.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  [1m[36mActiveStorage::Blob Load (60.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 329.7ms | Allocations: 3453)
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 955)
+  [1m[36mUser Load (64.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 70.5ms | Allocations: 2653)
+  Rendered layout layouts/application.html.erb (Duration: 420.1ms | Allocations: 16566)
+Completed 200 OK in 564ms (Views: 42.0ms | ActiveRecord: 519.7ms | Allocations: 17206)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1NjoyOC40NzhaIiwicHVyIjoiYmxvYl9rZXkifX0=--1d5f4631e08513b3b2bd5678fe83644995a0f8d6/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:51:46 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 142)
+
+
+Started GET "/restaurants/1/" for 127.0.0.1 at 2023-11-01 12:53:34 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (212.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  Rendered restaurants/_header.html.erb (Duration: 1.2ms | Allocations: 1464)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 2.2ms | Allocations: 1949)
+  Rendered layout layouts/application.html.erb (Duration: 2.4ms | Allocations: 2056)
+Completed 500 Internal Server Error in 915ms (ActiveRecord: 875.4ms | Allocations: 15740)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+<div class="restaurants-header">
+  <!--- <%= image_tag "", class: "restaurant-img" %> --->
+  <div class="restaurants-img">
+    <% if locals[:restaurant].image.attached? %>
+      <%= image_tag(locals[:restaurant].image, width: "100%", height: "100%" %>
+    <% else %>
+      <%= image_tag "Default-restaurant-img" %>
+    <% end %>
+  </div>
+  <div class="restaurants-header-content">
+    <div class="resturants-header-text">
+      <div style="font-size: 30px">
+        <%= locals[:restaurant].nombre %> - <span class="title_key_word"><%= locals[:restaurant].categoria %></span>
+      </div>
+      <div>
+        <%= image_tag "Star", style: "width: 25px; height: 25px" %>
+      </div>
+    </div>
+    <div class="restaurants-header-info-button">
+      <% if locals[:statistics] %>
+        <div class="restaurants-stats-button">
+          <%= image_tag "Barchart", style: "height: 30px; width: 30px; margin-top: 8px; margin-left: 20px"%>
+          <span style="margin-top: 15px; margin-left: 30px">Estadísticas</span>
+        </div> 
+      <% else %>
+        <div class="restaurants-einaeats-button">
+          <%= image_tag "Bolsa-einaeats", style: "height: 30px; width: 30px; margin-top: 8px; margin-left: 10px"%>
+          <span style="margin-top: 15px; margin-left: 10px">Pedir en EinaEats</span>
+        </div> 
+      <% end %>
+    </div>
+  </div>
+
+  <div class="restaurants-header-botones"> 
+    <div class="restaurants-header-page-button">Menú</div> 
+    <div class="restaurants-header-page-button">Reseñas</div> 
+    <div class="restaurants-header-page-button">Información</div> 
+    <div class="restaurants-header-page-button">Posts del restaurante</div> 
+  </div>
+</div>
+
+):
+1:    
+2:    <div class="restaurants-header">
+3:      <!--- <%= image_tag "", class: "restaurant-img" %> --->
+4:      <div class="restaurants-img">
+5:        <% if locals[:restaurant].image.attached? %>
+6:          <%= image_tag(locals[:restaurant].image, width: "100%", height: "100%" %>
+7:        <% else %>
+8:          <%= image_tag "Default-restaurant-img" %>
+9:        <% end %>
+10:      </div>
+11:      <div class="restaurants-header-content">
+12:        <div class="resturants-header-text">
+13:          <div style="font-size: 30px">
+14:            <%= locals[:restaurant].nombre %> - <span class="title_key_word"><%= locals[:restaurant].categoria %></span>
+15:          </div>
+16:          <div>
+17:            <%= image_tag "Star", style: "width: 25px; height: 25px" %>
+18:          </div>
+19:        </div>
+20:        <div class="restaurants-header-info-button">
+21:          <% if locals[:statistics] %>
+22:            <div class="restaurants-stats-button">
+23:              <%= image_tag "Barchart", style: "height: 30px; width: 30px; margin-top: 8px; margin-left: 20px"%>
+24:              <span style="margin-top: 15px; margin-left: 30px">Estadísticas</span>
+25:            </div> 
+26:          <% else %>
+27:            <div class="restaurants-einaeats-button">
+28:              <%= image_tag "Bolsa-einaeats", style: "height: 30px; width: 30px; margin-top: 8px; margin-left: 10px"%>
+29:              <span style="margin-top: 15px; margin-left: 10px">Pedir en EinaEats</span>
+30:            </div> 
+31:          <% end %>
+32:        </div>
+33:      </div>
+34:    
+35:      <div class="restaurants-header-botones"> 
+36:        <div class="restaurants-header-page-button">Menú</div> 
+37:        <div class="restaurants-header-page-button">Reseñas</div> 
+38:        <div class="restaurants-header-page-button">Información</div> 
+39:        <div class="restaurants-header-page-button">Posts del restaurante</div> 
+40:      </div>
+41:    </div>
+  
+app/views/restaurants/_header.html.erb:7: syntax error, unexpected `else', expecting ')'
+app/views/restaurants/_header.html.erb:9: syntax error, unexpected `end', expecting ')'
+app/views/restaurants/_header.html.erb:44: syntax error, unexpected `end', expecting ')'
+app/views/restaurants/show.html.erb:2
+Started GET "/restaurants/1/" for 127.0.0.1 at 2023-11-01 12:53:49 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (55.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (46.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:5
+  [1m[36mActiveStorage::Blob Load (54.6ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:6
+  Rendered restaurants/_header.html.erb (Duration: 333.7ms | Allocations: 13649)
+  [1m[36mDish Load (42.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/show.html.erb:8
+  [1m[36mReview Load (53.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 157.8ms | Allocations: 2153)
+  [1m[36mUser Load (66.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (44.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "Atreides"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 159.6ms | Allocations: 5296)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 1100.2ms | Allocations: 39597)
+  Rendered layouts/_header.html.erb (Duration: 2.3ms | Allocations: 1207)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 5.0ms | Allocations: 3166)
+  Rendered layout layouts/application.html.erb (Duration: 1123.7ms | Allocations: 62196)
+Completed 200 OK in 1745ms (Views: 271.1ms | ActiveRecord: 1437.0ms | Allocations: 75881)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1NjoyOC40NzhaIiwicHVyIjoiYmxvYl9rZXkifX0=--1d5f4631e08513b3b2bd5678fe83644995a0f8d6/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:53:51 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 2ms (ActiveRecord: 0.0ms | Allocations: 302)
+
+
+Started GET "/restaurants/1/" for 127.0.0.1 at 2023-11-01 12:54:02 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (66.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (69.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:5
+  [1m[36mActiveStorage::Blob Load (42.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:6
+  Rendered restaurants/_header.html.erb (Duration: 349.4ms | Allocations: 13627)
+  [1m[36mDish Load (42.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/show.html.erb:8
+  [1m[36mReview Load (42.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 98.6ms | Allocations: 2151)
+  [1m[36mUser Load (43.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (43.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "Atreides"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 115.9ms | Allocations: 5294)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 967.5ms | Allocations: 39546)
+  Rendered layouts/_header.html.erb (Duration: 1.7ms | Allocations: 1207)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 5.7ms | Allocations: 3166)
+  Rendered layout layouts/application.html.erb (Duration: 989.9ms | Allocations: 62093)
+Completed 200 OK in 1457ms (Views: 140.8ms | ActiveRecord: 1286.8ms | Allocations: 75677)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1NjoyOC40NzhaIiwicHVyIjoiYmxvYl9rZXkifX0=--1d5f4631e08513b3b2bd5678fe83644995a0f8d6/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:54:04 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 302)
+
+
+Started GET "/restaurants/1/" for 127.0.0.1 at 2023-11-01 12:54:18 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (56.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (46.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:5
+  [1m[36mActiveStorage::Blob Load (47.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:6
+  Rendered restaurants/_header.html.erb (Duration: 319.5ms | Allocations: 13688)
+  [1m[36mDish Load (42.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/show.html.erb:8
+  [1m[36mReview Load (159.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 300.7ms | Allocations: 2151)
+  [1m[36mUser Load (55.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (47.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "Atreides"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 103.2ms | Allocations: 5294)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 1508.3ms | Allocations: 39594)
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 1207)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 4.5ms | Allocations: 3166)
+  Rendered layout layouts/application.html.erb (Duration: 1531.9ms | Allocations: 62139)
+Completed 200 OK in 2077ms (Views: 126.7ms | ActiveRecord: 1907.7ms | Allocations: 75663)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1NjoyOC40NzhaIiwicHVyIjoiYmxvYl9rZXkifX0=--1d5f4631e08513b3b2bd5678fe83644995a0f8d6/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:54:20 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 2ms (ActiveRecord: 0.0ms | Allocations: 302)
+
+
+Started GET "/restaurants/1/" for 127.0.0.1 at 2023-11-01 12:54:28 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (42.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (46.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:5
+  [1m[36mActiveStorage::Blob Load (65.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:6
+  Rendered restaurants/_header.html.erb (Duration: 511.9ms | Allocations: 13631)
+  [1m[36mDish Load (53.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/show.html.erb:8
+  [1m[36mReview Load (43.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 93.9ms | Allocations: 2150)
+  [1m[36mUser Load (48.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (68.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "Atreides"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 184.1ms | Allocations: 5293)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 1184.1ms | Allocations: 39508)
+  Rendered layouts/_header.html.erb (Duration: 15.6ms | Allocations: 1207)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 49.6ms | Allocations: 3167)
+  Rendered layout layouts/application.html.erb (Duration: 1285.4ms | Allocations: 62053)
+Completed 200 OK in 1841ms (Views: 202.3ms | ActiveRecord: 1600.8ms | Allocations: 75724)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1NjoyOC40NzhaIiwicHVyIjoiYmxvYl9rZXkifX0=--1d5f4631e08513b3b2bd5678fe83644995a0f8d6/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:54:30 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 302)
+
+
+Started GET "/restaurants/2/" for 127.0.0.1 at 2023-11-01 12:55:11 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (52.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (45.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:5
+  Rendered restaurants/_header.html.erb (Duration: 55.5ms | Allocations: 2230)
+  [1m[36mDish Load (66.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  ↳ app/views/restaurants/show.html.erb:8
+  [1m[36mReview Load (46.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 2], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 48.2ms | Allocations: 546)
+  [1m[36mUser Load (216.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (52.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "Atreides"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 57.1ms | Allocations: 2057)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 448.8ms | Allocations: 6227)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 946)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 3.6ms | Allocations: 2552)
+  Rendered layout layouts/application.html.erb (Duration: 475.0ms | Allocations: 19017)
+Completed 200 OK in 530ms (Views: 49.7ms | ActiveRecord: 478.6ms | Allocations: 19657)
+
+
+Started GET "/restaurants/1/" for 127.0.0.1 at 2023-11-01 12:55:24 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (146.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (47.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:5
+  [1m[36mActiveStorage::Blob Load (93.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:6
+  Rendered restaurants/_header.html.erb (Duration: 148.1ms | Allocations: 2549)
+  [1m[36mDish Load (45.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/show.html.erb:8
+  [1m[36mReview Load (46.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 48.6ms | Allocations: 545)
+  [1m[36mUser Load (43.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (55.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "Atreides"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 61.9ms | Allocations: 2051)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 353.2ms | Allocations: 6602)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 929)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 3.4ms | Allocations: 2550)
+  Rendered layout layouts/application.html.erb (Duration: 365.6ms | Allocations: 13605)
+Completed 200 OK in 515ms (Views: 34.8ms | ActiveRecord: 478.0ms | Allocations: 14246)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1NjoyOC40NzhaIiwicHVyIjoiYmxvYl9rZXkifX0=--1d5f4631e08513b3b2bd5678fe83644995a0f8d6/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:55:24 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 142)
+
+
+Started GET "/restaurants/1/" for 127.0.0.1 at 2023-11-01 12:55:40 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (50.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (50.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:5
+  [1m[36mActiveStorage::Blob Load (51.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:6
+  Rendered restaurants/_header.html.erb (Duration: 339.1ms | Allocations: 13647)
+  [1m[36mDish Load (43.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/show.html.erb:8
+  [1m[36mReview Load (47.0ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 138.1ms | Allocations: 2152)
+  [1m[36mUser Load (53.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (48.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "Atreides"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 123.8ms | Allocations: 5294)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 1032.7ms | Allocations: 39535)
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 1207)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 4.2ms | Allocations: 3166)
+  Rendered layout layouts/application.html.erb (Duration: 1054.4ms | Allocations: 62081)
+Completed 200 OK in 1943ms (Views: 133.7ms | ActiveRecord: 1775.7ms | Allocations: 75716)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1NjoyOC40NzhaIiwicHVyIjoiYmxvYl9rZXkifX0=--1d5f4631e08513b3b2bd5678fe83644995a0f8d6/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:55:42 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 295)
+
+
+Started GET "/restaurants/1/" for 127.0.0.1 at 2023-11-01 12:55:50 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (46.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (47.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:5
+  [1m[36mActiveStorage::Blob Load (43.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:6
+  Rendered restaurants/_header.html.erb (Duration: 357.5ms | Allocations: 13632)
+  [1m[36mDish Load (49.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/show.html.erb:8
+  [1m[36mReview Load (50.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 105.6ms | Allocations: 2150)
+  [1m[36mUser Load (44.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (45.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "Atreides"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 114.3ms | Allocations: 5293)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 970.4ms | Allocations: 39534)
+  Rendered layouts/_header.html.erb (Duration: 1.9ms | Allocations: 1207)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 4.6ms | Allocations: 3166)
+  Rendered layout layouts/application.html.erb (Duration: 992.9ms | Allocations: 62078)
+Completed 200 OK in 1262ms (Views: 132.6ms | ActiveRecord: 1085.9ms | Allocations: 75723)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1NjoyOC40NzhaIiwicHVyIjoiYmxvYl9rZXkifX0=--1d5f4631e08513b3b2bd5678fe83644995a0f8d6/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:55:51 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 2ms (ActiveRecord: 0.0ms | Allocations: 295)
+
+
+Started GET "/restaurants/1/" for 127.0.0.1 at 2023-11-01 12:56:14 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (71.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  Rendered restaurants/_header.html.erb (Duration: 0.8ms | Allocations: 1422)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1895)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 1996)
+Completed 500 Internal Server Error in 312ms (ActiveRecord: 263.9ms | Allocations: 15600)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check 
+<div class="restaurants-header">
+  <!--- <%= image_tag "", class: "restaurant-img" %> --->
+  <div class="restaurants-img">
+    <% if locals[:restaurant].image.attached? %>
+      <%= image_tag(locals[:restaurant].image, width: "100%", max-height: "200px") %>
+    <% else %>
+      <%= image_tag "Default-restaurant-img" %>
+    <% end %>
+  </div>
+  <div class="restaurants-header-content">
+    <div class="resturants-header-text">
+      <div style="font-size: 30px">
+        <%= locals[:restaurant].nombre %> - <span class="title_key_word"><%= locals[:restaurant].categoria %></span>
+      </div>
+      <div>
+        <%= image_tag "Star", style: "width: 25px; height: 25px" %>
+      </div>
+    </div>
+    <div class="restaurants-header-info-button">
+      <% if locals[:statistics] %>
+        <div class="restaurants-stats-button">
+          <%= image_tag "Barchart", style: "height: 30px; width: 30px; margin-top: 8px; margin-left: 20px"%>
+          <span style="margin-top: 15px; margin-left: 30px">Estadísticas</span>
+        </div> 
+      <% else %>
+        <div class="restaurants-einaeats-button">
+          <%= image_tag "Bolsa-einaeats", style: "height: 30px; width: 30px; margin-top: 8px; margin-left: 10px"%>
+          <span style="margin-top: 15px; margin-left: 10px">Pedir en EinaEats</span>
+        </div> 
+      <% end %>
+    </div>
+  </div>
+
+  <div class="restaurants-header-botones"> 
+    <div class="restaurants-header-page-button">Menú</div> 
+    <div class="restaurants-header-page-button">Reseñas</div> 
+    <div class="restaurants-header-page-button">Información</div> 
+    <div class="restaurants-header-page-button">Posts del restaurante</div> 
+  </div>
+</div>
+
+):
+1:    
+2:    <div class="restaurants-header">
+3:      <!--- <%= image_tag "", class: "restaurant-img" %> --->
+4:      <div class="restaurants-img">
+5:        <% if locals[:restaurant].image.attached? %>
+6:          <%= image_tag(locals[:restaurant].image, width: "100%", max-height: "200px") %>
+7:        <% else %>
+8:          <%= image_tag "Default-restaurant-img" %>
+9:        <% end %>
+10:      </div>
+11:      <div class="restaurants-header-content">
+12:        <div class="resturants-header-text">
+13:          <div style="font-size: 30px">
+14:            <%= locals[:restaurant].nombre %> - <span class="title_key_word"><%= locals[:restaurant].categoria %></span>
+15:          </div>
+16:          <div>
+17:            <%= image_tag "Star", style: "width: 25px; height: 25px" %>
+18:          </div>
+19:        </div>
+20:        <div class="restaurants-header-info-button">
+21:          <% if locals[:statistics] %>
+22:            <div class="restaurants-stats-button">
+23:              <%= image_tag "Barchart", style: "height: 30px; width: 30px; margin-top: 8px; margin-left: 20px"%>
+24:              <span style="margin-top: 15px; margin-left: 30px">Estadísticas</span>
+25:            </div> 
+26:          <% else %>
+27:            <div class="restaurants-einaeats-button">
+28:              <%= image_tag "Bolsa-einaeats", style: "height: 30px; width: 30px; margin-top: 8px; margin-left: 10px"%>
+29:              <span style="margin-top: 15px; margin-left: 10px">Pedir en EinaEats</span>
+30:            </div> 
+31:          <% end %>
+32:        </div>
+33:      </div>
+34:    
+35:      <div class="restaurants-header-botones"> 
+36:        <div class="restaurants-header-page-button">Menú</div> 
+37:        <div class="restaurants-header-page-button">Reseñas</div> 
+38:        <div class="restaurants-header-page-button">Información</div> 
+39:        <div class="restaurants-header-page-button">Posts del restaurante</div> 
+40:      </div>
+41:    </div>
+  
+app/views/restaurants/_header.html.erb:6: syntax error, unexpected ':', expecting =>
+app/views/restaurants/show.html.erb:2
+Started GET "/restaurants/1/" for 127.0.0.1 at 2023-11-01 12:56:22 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (47.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (51.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:5
+  [1m[36mActiveStorage::Blob Load (56.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:6
+  Rendered restaurants/_header.html.erb (Duration: 331.4ms | Allocations: 13629)
+  [1m[36mDish Load (48.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/show.html.erb:8
+  [1m[36mReview Load (42.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 96.5ms | Allocations: 2150)
+  [1m[36mUser Load (44.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (49.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "Atreides"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 105.8ms | Allocations: 5293)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 911.7ms | Allocations: 39495)
+  Rendered layouts/_header.html.erb (Duration: 3.0ms | Allocations: 1211)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 5.0ms | Allocations: 3166)
+  Rendered layout layouts/application.html.erb (Duration: 944.9ms | Allocations: 62080)
+Completed 200 OK in 1474ms (Views: 135.4ms | ActiveRecord: 1294.5ms | Allocations: 75766)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMTo1NjoyOC40NzhaIiwicHVyIjoiYmxvYl9rZXkifX0=--1d5f4631e08513b3b2bd5678fe83644995a0f8d6/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:56:24 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 1ms (ActiveRecord: 0.0ms | Allocations: 302)
+
+
+Started GET "/restaurants/1/" for 127.0.0.1 at 2023-11-01 12:56:49 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (47.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (46.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:5
+  [1m[36mActiveStorage::Blob Load (45.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:6
+  Rendered restaurants/_header.html.erb (Duration: 324.3ms | Allocations: 13624)
+  [1m[36mDish Load (42.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/show.html.erb:8
+  [1m[36mReview Load (46.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 98.2ms | Allocations: 2153)
+  [1m[36mUser Load (74.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (46.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "Atreides"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 103.1ms | Allocations: 5281)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 946.0ms | Allocations: 39462)
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 1211)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 7.4ms | Allocations: 3166)
+  Rendered layout layouts/application.html.erb (Duration: 989.0ms | Allocations: 62004)
+Completed 200 OK in 1468ms (Views: 147.4ms | ActiveRecord: 1284.2ms | Allocations: 75635)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--85721ac0b55ff594385f2f7beb31b13150146eba/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:56:51 +0100
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--85721ac0b55ff594385f2f7beb31b13150146eba", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+  [1m[36mActiveStorage::Blob Load (58.7ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: qsjcra12df8edpmvc2u44oglph6a (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMjowMTo1MS4wODFaIiwicHVyIjoiYmxvYl9rZXkifX0=--2abb2836b8d615ed6bae379de43e82f8c2883fc3/Screenshot%20from%202023-10-10%2020-10-37.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMjowMTo1MS4wODFaIiwicHVyIjoiYmxvYl9rZXkifX0=--2abb2836b8d615ed6bae379de43e82f8c2883fc3/Screenshot%20from%202023-10-10%2020-10-37.png
+Completed 302 Found in 64ms (ActiveRecord: 58.7ms | Allocations: 2115)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMjowMTo1MS4wODFaIiwicHVyIjoiYmxvYl9rZXkifX0=--2abb2836b8d615ed6bae379de43e82f8c2883fc3/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:56:51 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 220)
+
+
+Started GET "/restaurants/2/" for 127.0.0.1 at 2023-11-01 12:56:53 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (63.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (56.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:5
+  Rendered restaurants/_header.html.erb (Duration: 62.4ms | Allocations: 2237)
+  [1m[36mDish Load (46.2ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  ↳ app/views/restaurants/show.html.erb:8
+  [1m[36mReview Load (42.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 2], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 44.1ms | Allocations: 546)
+  [1m[36mUser Load (42.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (93.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "Atreides"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 99.7ms | Allocations: 2057)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 299.9ms | Allocations: 6219)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 942)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 3.3ms | Allocations: 2551)
+  Rendered layout layouts/application.html.erb (Duration: 310.7ms | Allocations: 13211)
+Completed 200 OK in 377ms (Views: 30.9ms | ActiveRecord: 343.9ms | Allocations: 13851)
+
+
+Started GET "/restaurants/2/edit_info" for 127.0.0.1 at 2023-11-01 12:57:15 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (278.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (136.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (44.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (49.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 294.0ms | Allocations: 5509)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 955)
+  [1m[36mUser Load (49.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 53.7ms | Allocations: 2655)
+  Rendered layout layouts/application.html.erb (Duration: 357.6ms | Allocations: 12788)
+Completed 200 OK in 641ms (Views: 36.2ms | ActiveRecord: 600.7ms | Allocations: 13503)
+
+
+Started GET "/restaurants/2/edit_info" for 127.0.0.1 at 2023-11-01 12:58:29 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (47.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (48.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (50.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (43.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 306.9ms | Allocations: 7990)
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 1220)
+  [1m[36mUser Load (66.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 131.8ms | Allocations: 9318)
+  Rendered layout layouts/application.html.erb (Duration: 459.3ms | Allocations: 36913)
+Completed 200 OK in 977ms (Views: 67.2ms | ActiveRecord: 874.9ms | Allocations: 50541)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 12:58:49 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (101.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (100.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (45.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (45.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  [1m[36mActiveStorage::Blob Load (49.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 415.7ms | Allocations: 11661)
+  Rendered layouts/_header.html.erb (Duration: 8.5ms | Allocations: 956)
+  [1m[36mUser Load (58.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 62.9ms | Allocations: 2684)
+  Rendered layout layouts/application.html.erb (Duration: 491.3ms | Allocations: 18972)
+Completed 200 OK in 597ms (Views: 47.9ms | ActiveRecord: 546.4ms | Allocations: 19613)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMjowMTo1MS4wODFaIiwicHVyIjoiYmxvYl9rZXkifX0=--2abb2836b8d615ed6bae379de43e82f8c2883fc3/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 12:58:50 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 3ms (ActiveRecord: 0.0ms | Allocations: 295)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 13:03:45 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (61.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 4.2ms | Allocations: 2814)
+  Rendered layout layouts/application.html.erb (Duration: 4.4ms | Allocations: 2907)
+Completed 500 Internal Server Error in 2138ms (ActiveRecord: 2097.7ms | Allocations: 16527)
+
+
+  
+ActionView::Template::Error (undefined method `delete' for :categoria:Symbol):
+    18:             <div>
+    19:                 <%= form.label :category, "Categoría", class: "my_account_form_label" %>
+    20:             <br>
+    21:             <%= collection_select(:nombre, :categoria, Category.all, :nombre, :nombre, :categoria) %> 
+    22:             </div>
+    23:             <div>
+    24:             <%= form.label :profile_pic, "Foto de perfil" %>
+  
+app/views/restaurants/edit_info.html.erb:21
+app/views/restaurants/edit_info.html.erb:10
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 13:04:44 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (43.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (45.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (67.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (42.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  [1m[36mActiveStorage::Blob Load (46.1ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 503.3ms | Allocations: 16824)
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 1216)
+  [1m[36mUser Load (46.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 135.9ms | Allocations: 9320)
+  Rendered layout layouts/application.html.erb (Duration: 654.9ms | Allocations: 45694)
+Completed 200 OK in 1044ms (Views: 80.2ms | ActiveRecord: 931.4ms | Allocations: 59316)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--85721ac0b55ff594385f2f7beb31b13150146eba/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 13:04:46 +0100
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--85721ac0b55ff594385f2f7beb31b13150146eba", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+  [1m[36mActiveStorage::Blob Load (47.8ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[36m  Disk Storage (0.5ms) [0m[34mGenerated URL for file at key: qsjcra12df8edpmvc2u44oglph6a (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMjowOTo0Ni4yNTBaIiwicHVyIjoiYmxvYl9rZXkifX0=--6368597c05bdd91c1b8dea1b756d1cf280ec4231/Screenshot%20from%202023-10-10%2020-10-37.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMjowOTo0Ni4yNTBaIiwicHVyIjoiYmxvYl9rZXkifX0=--6368597c05bdd91c1b8dea1b756d1cf280ec4231/Screenshot%20from%202023-10-10%2020-10-37.png
+Completed 302 Found in 52ms (ActiveRecord: 47.8ms | Allocations: 2093)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMjowOTo0Ni4yNTBaIiwicHVyIjoiYmxvYl9rZXkifX0=--6368597c05bdd91c1b8dea1b756d1cf280ec4231/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 13:04:46 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 218)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 13:05:20 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (47.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (50.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (43.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (46.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  [1m[36mActiveStorage::Blob Load (44.5ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 479.8ms | Allocations: 16811)
+  Rendered layouts/_header.html.erb (Duration: 2.1ms | Allocations: 1216)
+  [1m[36mUser Load (43.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 110.0ms | Allocations: 9320)
+  Rendered layout layouts/application.html.erb (Duration: 607.4ms | Allocations: 45680)
+Completed 200 OK in 1227ms (Views: 86.5ms | ActiveRecord: 1106.5ms | Allocations: 59211)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMjowOTo0Ni4yNTBaIiwicHVyIjoiYmxvYl9rZXkifX0=--6368597c05bdd91c1b8dea1b756d1cf280ec4231/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 13:05:21 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 2ms (ActiveRecord: 0.0ms | Allocations: 302)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 13:06:06 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (44.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (46.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (53.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (50.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  [1m[36mActiveStorage::Blob Load (326.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 752.6ms | Allocations: 16804)
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 1218)
+  [1m[36mUser Load (44.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 138.8ms | Allocations: 9346)
+  Rendered layout layouts/application.html.erb (Duration: 919.8ms | Allocations: 45652)
+Completed 200 OK in 1383ms (Views: 92.6ms | ActiveRecord: 1254.3ms | Allocations: 59121)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMjowOTo0Ni4yNTBaIiwicHVyIjoiYmxvYl9rZXkifX0=--6368597c05bdd91c1b8dea1b756d1cf280ec4231/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 13:06:08 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 304 Not Modified in 2ms (ActiveRecord: 0.0ms | Allocations: 302)
+
+
+Started GET "/restaurants/1/edit_info" for 127.0.0.1 at 2023-11-01 13:19:28 +0100
+Processing by RestaurantsController#edit_info as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (48.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:53:in `edit_info'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit_info.html.erb within layouts/application
+  [1m[36mCategory Load (43.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/edit_info.html.erb:21
+  [1m[36mActiveStorage::Attachment Load (43.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "profile_pic"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (196.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  [1m[36mActiveStorage::Blob Load (77.4ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/views/restaurants/edit_info.html.erb:31
+  Rendered restaurants/edit_info.html.erb within layouts/application (Duration: 532.0ms | Allocations: 19838)
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 1204)
+  [1m[36mUser Load (44.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 111.1ms | Allocations: 9148)
+  Rendered layout layouts/application.html.erb (Duration: 661.0ms | Allocations: 48430)
+Completed 200 OK in 1797ms (Views: 259.1ms | ActiveRecord: 929.4ms | Allocations: 61529)
+
+
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--85721ac0b55ff594385f2f7beb31b13150146eba/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 13:19:30 +0100
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsiZGF0YSI6MiwicHVyIjoiYmxvYl9pZCJ9fQ==--85721ac0b55ff594385f2f7beb31b13150146eba", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+  [1m[36mActiveStorage::Blob Load (46.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+[36m  Disk Storage (0.6ms) [0m[34mGenerated URL for file at key: qsjcra12df8edpmvc2u44oglph6a (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMjoyNDozMC4wODlaIiwicHVyIjoiYmxvYl9rZXkifX0=--86ea7cfbf6bc04d070132d841b95547182aba875/Screenshot%20from%202023-10-10%2020-10-37.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMjoyNDozMC4wODlaIiwicHVyIjoiYmxvYl9rZXkifX0=--86ea7cfbf6bc04d070132d841b95547182aba875/Screenshot%20from%202023-10-10%2020-10-37.png
+Completed 302 Found in 52ms (ActiveRecord: 46.2ms | Allocations: 2153)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsiZGF0YSI6eyJrZXkiOiJxc2pjcmExMmRmOGVkcG12YzJ1NDRvZ2xwaDZhIiwiZGlzcG9zaXRpb24iOiJpbmxpbmU7IGZpbGVuYW1lPVwiU2NyZWVuc2hvdCBmcm9tIDIwMjMtMTAtMTAgMjAtMTAtMzcucG5nXCI7IGZpbGVuYW1lKj1VVEYtOCcnU2NyZWVuc2hvdCUyMGZyb20lMjAyMDIzLTEwLTEwJTIwMjAtMTAtMzcucG5nIiwiY29udGVudF90eXBlIjoiaW1hZ2UvcG5nIiwic2VydmljZV9uYW1lIjoibG9jYWwifSwiZXhwIjoiMjAyMy0xMS0wMVQxMjoyNDozMC4wODlaIiwicHVyIjoiYmxvYl9rZXkifX0=--86ea7cfbf6bc04d070132d841b95547182aba875/Screenshot%20from%202023-10-10%2020-10-37.png" for 127.0.0.1 at 2023-11-01 13:19:30 +0100
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screenshot from 2023-10-10 20-10-37"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 221)
+
+

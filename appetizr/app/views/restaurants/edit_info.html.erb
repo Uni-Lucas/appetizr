@@ -1,0 +1,64 @@
+<div class="title_container">
+    <h1 class="title">Mi <span class="title_key_word">Restaurante</span></h1>
+    <%= link_to logout_path, class: "logout_button", method: :delete do %>
+        <div>Log out</div>
+    <% end %>
+</div>
+
+
+
+<%= form_with model: @restaurant  do |form| %>
+    <div class="my_account_form_container">
+        <div class="my_account_user_passwd", style="grid-row: 1 / 2">
+            <div style="padding-bottom: 10px;">
+                <%= form.label :nombre, "Nombre del restaurante", class: "my_account_form_label" %>
+            <br>
+                <%= form.text_field :nombre, class: "my_account_form_text_field" %>
+            </div>
+            <div>
+                <%= form.label :category, "Categoría", class: "my_account_form_label" %>
+            <br>
+            <%= collection_select(:nombre, :categoria, Category.all, :nombre, :nombre, {:selected => @restaurant.categoria}) %> 
+            </div>
+            <div>
+            <%= form.label :profile_pic, "Foto de perfil" %>
+            <%= image_tag @restaurant.profile_pic if @restaurant.profile_pic.attached? %>
+            <br>
+            <%= form.file_field :profile_pic %>
+            </div>
+            <div>
+            <%= form.label :image, "Imagen de fondo del restaurante" %>
+            <%= image_tag(@restaurant.image, width: "300px") if @restaurant.image.attached? %>
+            <br>
+            <%= form.file_field :image %>
+            </div>
+        </div>
+        <div class="my_account_user_passwd" style="grid-column: 3">
+            <div style="padding-bottom: 10px;">
+                <%= form.label :direccion, "Dirección", class: "my_account_form_label" %>
+            <br>
+                <%= form.text_field :direccion, class: "my_account_form_text_field" %>
+            </div>
+            <div style="padding-bottom: 10px;">
+                <%= form.label :telefono, "Contacto", class: "my_account_form_label" %>
+            <br>
+                <%= form.text_field :telefono, class: "my_account_form_text_field" %>
+            </div>
+            <div style="padding-bottom: 10px;">
+                <%= form.label :horario, "Horario", class: "my_account_form_label" %>
+            <br>
+                <%= form.text_field :horario, class: "my_account_form_text_field" %>
+            </div>
+        </div>
+
+        <% @restaurant.errors.full_messages.each do |msg| %>
+            <div><%= msg %></div>
+        <% end %>
+    
+        <div class="my_account_form_buttons">
+            <%= form.submit "Guardar" %>
+        </div>
+    </div>
+
+    
+<% end %>
