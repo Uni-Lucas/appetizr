@@ -8,6 +8,12 @@ Bundler.require(*Rails.groups)
 
 module Appetizr
   class Application < Rails::Application
+    initializer(:remove_action_mailbox_and_activestorage_routes, after: :add_routing_paths) { |app|
+      app.routes_reloader.paths.delete_if {|path| path =~ /activestorage/}
+      app.routes_reloader.paths.delete_if {|path| path =~ /actionmailbox/ }
+    }
+
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.1
 
@@ -19,6 +25,8 @@ module Appetizr
     config.action_view.field_error_proc = Proc.new { |html_tag, instance| 
       html_tag
     }
+
+    
 
     # Configuration for the application, engines, and railties goes here.
     #

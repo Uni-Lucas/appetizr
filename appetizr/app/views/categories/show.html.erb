@@ -4,6 +4,13 @@
 <%= render "layouts/comment", comments: @category.posts %>
 
 
+<ul>
+  <% @category.posts.each do |post| %>
+    <li> <%= post.autor %> : <%= post.contenido %> </li>
+    <%= image_tag(post.image) if post.image.attached? %>
+  <% end %>
+</ul>
+
 <div>
   <%= link_to "Crear Post", new_post_path(category: @category.nombre) %>
 </div>

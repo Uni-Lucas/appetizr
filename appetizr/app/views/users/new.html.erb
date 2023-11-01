@@ -1,0 +1,20 @@
+<div class="log_in_container">
+  <h1 class="log_in_title">DESCUBRE LA COMUNIDAD DE APPETIZR</h1>
+  <%= form_with(model: @user, url: new_user_path, local: true, html: {style: "row-gap: 20px;"}) do |form| %>
+    <div class="log_in_text_field_wrapper">
+      <%= image_tag "login-username", class: "log_in_text_field_icon" %>
+      <%= form.text_field :nombre, placeholder: "NOMBRE DE USUARIO", class: "log_in_text_field_field" %>
+    </div>
+    <div class="log_in_text_field_wrapper">
+      <%= image_tag "login-password", class: "log_in_text_field_icon" %>
+      <%= form.password_field :password, placeholder: "CONTRASEÑA", class: "log_in_text_field_field" %>
+    </div>
+    <div class="log_in_text_field_wrapper">
+      <%= image_tag "login-password", class: "log_in_text_field_icon" %>
+      <%= form.password_field :password_confirmation, placeholder: "CONFIRMAR CONTRASEÑA", class: "log_in_text_field_field" %>
+    </div>
+    <div>
+      <%= form.submit "CREAR CUENTA", class: "register_button" %>
+    </div>
+  <% end %>
+</div>

@@ -7,7 +7,7 @@
   </li>
 
   <li>
-    <%= link_to categories_path, class: "sidenav_element" do %>
+    <%= link_to restaurants_path, class: "sidenav_element" do %>
       <%= image_tag "Explore-logo", class: "sidenav_element_icon"%>
       <div class="sidenav_element_text">Explorar</div>
     <% end %>
@@ -29,7 +29,7 @@
 
   <% if logged_in? %>
     <li>
-      <%= link_to categories_path, id: "my_account_cont", class: "sidenav_element" do %>
+      <%= link_to user_path(session[:username]), id: "my_account_cont", class: "sidenav_element" do %>
         <%= image_tag "Account-logo", id: "my_account_icon", class: "sidenav_element_icon" %>
         <div id="my_account", class="sidenav_element_text">Mi cuenta</div>
       <% end %>

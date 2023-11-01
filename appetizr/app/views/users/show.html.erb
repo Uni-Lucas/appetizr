@@ -1,1 +1,41 @@
-<h1> <%= @user.nombre %></h1>
+<div class="title_container">
+    <h1 class="title">Mi <span class="title_key_word">Cuenta</span></h1>
+    <%= link_to logout_path, class: "logout_button", method: :delete do %>
+        <div>Log out</div>
+    <% end %>
+</div>
+
+
+
+<%= form_with model: @user  do |form| %>
+    <div class="my_account_form_container">
+        <div class="my_account_user_passwd">
+            <div style="padding-bottom: 10px;">
+                <%= form.label :nombre, "Nombre de usuario", class: "my_account_form_label" %>
+            <br>
+                <%= form.text_field :nombre, class: "my_account_form_text_field" %>
+            </div>
+            <div>
+                <%= form.label :password, "Contraseña", class: "my_account_form_label" %>
+            <br>
+                <%= form.password_field :password, class: "my_account_form_text_field" %>
+            </div>
+        </div>
+        <div>
+            <%= form.label :profile_pic, "Foto de perfil" %>
+            <%= image_tag @user.profile_pic if @user.profile_pic.attached? %>
+            <%= form.file_field :profile_pic %>
+        </div>
+        <div>Placeholder for stats</div>
+
+        <% @user.errors.full_messages.each do |msg| %>
+            <div><%= msg %></div>
+        <% end %>
+    
+        <div class="my_account_form_buttons">
+            <%= form.submit "Guardar" %>
+        </div>
+    </div>
+
+    
+<% end %>

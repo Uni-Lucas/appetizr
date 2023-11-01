@@ -1,11 +1,12 @@
 class LoginsController < ApplicationController
   def new
+    @user = User.new
   end
 
   def create
-    user = User.find_by(nombre: params[:nombre]) 
-    if user.present? && user.authenticate(params[:password])
-      helpers.log_in(user)
+    @user = User.find_by(nombre: params[:nombre]) 
+    if @user.present? && @user.authenticate(params[:password])
+      helpers.log_in(@user)
       redirect_to root_path, notice: "Logged in"
     else
       flash.now[:alert] = "Nombre o contraseña invalidos"
@@ -14,7 +15,7 @@ class LoginsController < ApplicationController
   end
 
   def destroy
-    log_out
+    helpers.log_out
     redirect_to root_path
   end
 
