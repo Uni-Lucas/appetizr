@@ -1,31 +1,45 @@
-
+<div>
 <%= render "header", locals: {restaurant: @restaurant, order: true} %>
 
 <% if flash[:dishes] %>
   <div class="notice" ><%= flash[:dishes] %></div>
 <% end %>
-<ul>
-  <% @restaurant.dishes.each do |dish| %>
-    <li> 
-      <div>
-        <%= dish.nombre %>
-        <%= dish.precio %>
-      </div> 
-    </li>
-  <% end %>
-</ul>
+  <div id="restaurant_menu" class="restaurant_section_title">Menú</div>
+  <div class="restaurant_section_content">
+    <ul>
+      <% @restaurant.dishes.each do |dish| %>
+        <li> 
+          <div>
+            <%= dish.nombre %>
+            <%= dish.precio %>
+          </div> 
+        </li>
+      <% end %>
+    </ul>
+  </div>
 
+<div id="restaurant_reviews" class="restaurant_section_title"> Reseñas del restaurante </div>
+<div class="restaurant_section_content">
+  <%= render "layouts/comment", comments: @restaurant.reviews %>
+</div>
 
+<div id="restaurant_posts" class="restaurant_section_title"> Posts del restaurante </div>
+<div class="restaurant_section_content">
+  <%= render "layouts/comment", comments: get_rest_manager.posts %>
+</div>
 
-<h2> Reviews del restaurante </h2>
-<%= render "layouts/comment", comments: @restaurant.reviews %>
-
-<h2> Información del restaurante </h2>
-
-<%= @restaurant.direccion %><hr>
-<%= @restaurant.telefono %><hr>
-<%= @restaurant.horario %><hr>
-
-<h2> Posts del restaurante </h2>
-
-<%= render "layouts/comment", comments: get_rest_manager.posts %>
+<div id="restaurant_info" class="restaurant_section_title"> Información del restaurante </div>
+<div class="restaurant_section_content restaurant_section_content_info">
+  <div class="restaurant_info_item">
+    <div class="restaurant_info_subtitle"> Direccion </div>
+    <%= @restaurant.direccion %>
+  </div>
+  <div class="restaurant_info_item">
+    <div class="restaurant_info_subtitle"> Telefono </div>
+    <%= @restaurant.telefono %>
+  </div>
+  <div class="restaurant_info_item">
+    <div class="restaurant_info_subtitle"> Horario </div>
+    <%= @restaurant.horario %>
+  </div>
+</div>

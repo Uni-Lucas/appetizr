@@ -1,41 +1,48 @@
 
-<div class="restaurants-header">
-  <!--- <%= image_tag "", class: "restaurant-img" %> --->
-  <div class="restaurants-img">
+<div class="restaurants_header">
+  <div class="restaurants_img">
     <% if locals[:restaurant].image.attached? %>
       <%= image_tag locals[:restaurant].image %>
     <% else %>
       <%= image_tag "Default-restaurant-img" %>
     <% end %>
   </div>
-  <div class="restaurants-header-content">
-    <div class="resturants-header-text">
-      <div style="font-size: 30px">
+  <div class="restaurants_header_content">
+    <div>
+      <div class="title">
         <%= locals[:restaurant].nombre %> - <span class="title_key_word"><%= locals[:restaurant].categoria %></span>
       </div>
       <div>
         <%= image_tag "Star", style: "width: 25px; height: 25px" %>
       </div>
     </div>
-    <div class="restaurants-header-info-button">
+    <div>
       <% if locals[:statistics] %>
-        <div class="restaurants-stats-button">
-          <%= image_tag "Barchart", style: "height: 30px; width: 30px; margin-top: 8px; margin-left: 20px"%>
-          <span style="margin-top: 15px; margin-left: 30px">Estadísticas</span>
+        <div class="restaurants_stats_button">
+          <%= image_tag "Barchart" %>
+          <span class="restaurant_stats_text">Estadísticas</span>
         </div> 
       <% else %>
-        <div class="restaurants-einaeats-button">
-          <%= image_tag "Bolsa-einaeats", style: "height: 30px; width: 30px; margin-top: 8px; margin-left: 10px"%>
-          <span style="margin-top: 15px; margin-left: 10px">Pedir en EinaEats</span>
+        <div class="restaurants_einaeats_button">
+          <%= image_tag "Bolsa-einaeats" %>
+          <span class="restaurant_einaeats_button_text">Pedir en EinaEats</span>
         </div> 
       <% end %>
     </div>
   </div>
 
-  <div class="restaurants-header-botones"> 
-    <div class="restaurants-header-page-button">Menú</div> 
-    <div class="restaurants-header-page-button">Reseñas</div> 
-    <div class="restaurants-header-page-button">Información</div> 
-    <div class="restaurants-header-page-button">Posts del restaurante</div> 
+  <div class="restaurants_header_botones">
+    <a href="#restaurant_menu" class="restaurants_header_page_button">
+      <div>Menú</div>
+    </a>
+    <a href="#restaurant_reviews" class="restaurants_header_page_button">
+      <div>Reseñas</div>
+    </a>
+    <a href="#restaurant_posts" class="restaurants_header_page_button">
+      <div>Posts del restaurante</div> 
+    </a>
+    <a href="#restaurant_info" class="restaurants_header_page_button">
+      <div>Información</div>
+    </a>
   </div>
 </div>
