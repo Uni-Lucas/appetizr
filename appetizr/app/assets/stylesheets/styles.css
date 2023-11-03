@@ -441,8 +441,8 @@ html,body{
 }
 
 .restaurants_einaeats_button {
-  width: 300px;
-  height: 60px;
+  width: 200px;
+  height: 80px;
   flex-direction: row;
   display: flex;
   align-items: center;
@@ -458,8 +458,8 @@ html,body{
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  letter-spacing: 3.8px;
-  margin-left: 10px;
+  letter-spacing: 3px;
+  margin-left: 14px;
 }
 
 .restaurants_stats_button {
@@ -624,4 +624,192 @@ html,body{
 
 .register_button:hover {
     filter: brightness(120%);
+}
+
+
+/* -------------------------------------- */
+/* EXPLORE */
+/* -------------------------------------- */
+
+
+.explore_container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 400px 1fr;
+  background-color: var(--black);
+}
+
+.explore_top_section_title {
+  color: var(--white);
+  text-align: center;
+  font-family: var(--letra);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 51.2px */ 
+}
+
+.explore_best_valued {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  align-items: center;
+}
+
+.explore_top_section_best_valued_list {
+  display: flex;
+  height: 300px;
+  padding: 0px 10px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--white);
+  border-radius: 30px;
+}
+
+.explore_top_section_best_valued_list_item {
+  
+} 
+
+.explore_promoted_restaurant {
+  display: flex;
+  flex-direction: column;
+  row-gap: 30px;
+  align-items: center;
+}
+
+
+.explore_promoted_restaurant_box {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--white);
+  border-radius: 30px;
+  height: 300px;
+  overflow: hidden;
+}
+
+.explore_promoted_restaurant_image {
+  width: 100%;
+  height: 200px;
+  position: relative;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.explore_promoted_restaurant_info {
+  display: flex;
+  align-items: center;
+  margin: 20px 20px;
+  justify-content: space-between;
+}
+
+.explore_promoted_restaurant_name {
+  color: var(--black);
+  font-family: var(--letra);
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.3px; 
+}
+
+.explore_restaurants_filters {
+  background-color: var(--white);
+  width: 240px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+  padding: 0px 30px;
+  padding-top: 20px;
+  position: sticky;
+  align-self: start;
+}
+
+.explore_restaurants_filters_title {
+  color: var(--black);
+  text-align: center;
+  font-family: var(--letra);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 160%;
+
+}
+
+.explore_restaurants_filters_item {
+  border-radius: 30px;
+  background-color: var(--light-gold);
+  align-self: stretch;
+  display: flex;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  color: var(--black);
+  font-family: var(--letra);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  height: 30px;
+}
+
+
+.explore_lower_section {
+  background-color: var(--light-gold);
+  grid-column: span 2;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 1fr;
+}
+
+.explore_restaurants_section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  align-content: flex-start;
+  margin-left: 40px;
+  margin-top: 40px;
+  gap: 20px;
+}
+
+.explore_restaurants_box {
+  width: 250px;
+  height: 200px;
+  background-color: var(--white);
+  border-radius: 30px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+
+}
+
+.explore_restaurants_box_image {
+  width: 100%;
+  height: 100px;
+  position: relative;
+  object-fit: cover;
+  overflow: hidden;
+}
+
+.explore_restaurant_box_name {
+  color: var(--black);
+  font-family: var(--letra);
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 1.6px;
+  margin-top: 2px;
+}
+
+.explore_restaurant_box_category {
+  color: var(--strong-gold);
+  font-family: var(--letra);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.75px; 
 }
