@@ -1,4 +1,9 @@
 class DishesController < ApplicationController
+
+  def show
+    @dish = Dish.find(params[:id])
+  end
+
   def new
     @dish = Dish.new
     session[:dish_restaurant] = params[:restaurant]

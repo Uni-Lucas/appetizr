@@ -1,29 +1,33 @@
-<ul style="margin-left: 40px; text-align: left">
+<ul style="margin-left: 40px; text-align: left; gap: 20px">
   <% comments.each do |comment| %>
-    <li class="comment-style">
-        <div class="comment-head">
-                <img style="width: 40px; height: 40px" src="https://via.placeholder.com/40x40" />
-                <%= image_tag "Feather_more-vertical", class: "three-dots" %>
-                <div style="left: 10%; position: absolute">
-                            <div class="comment-tstamp">25 min ago</div>
-                            <div class="comment-author"><%= comment.autor %></div>
-                </div>
+    <li class="comment_style">
+      <div class="comment_head">
+        <img style="width: 40px; height: 40px" src="https://via.placeholder.com/40x40" />
+        <%= image_tag "Feather_more-vertical", class: "three_dots" %>
+        <div style="left: 10%; position: absolute">
+          <div class="comment_tstamp"><%= time_ago_in_words(comment.updated_at) %> ago </div>
+          <div class="comment_author"><%= comment.autor %></div>
         </div>
-        <div class="comment-continent">
-          <div class="comment-content"><%= comment.contenido %></div>
+      </div>
+      <div class="comment_continent">
+        <div class="comment_content"><%= comment.contenido %></div>
+      </div>
+      <%= image_tag comment.image if comment.image.attached? %>
+      <div class="comment_actions_row">
+        <div class="comment_action_item">
+          <%= image_tag "Like", style: "transform: rotate(-180deg)" %>
+          <span><%= get_number_of_likes(comment) %></span>
         </div>
-        <div>IMAGEN</div>
-        <div style="width: 300px; height: 30px; position: relative">
-          <div style="width: 44px; height: 28px; left: 256px; top: 2px; position: absolute">
-                      <div class="comment-reviews-no">15</div>
-                      <%= image_tag "Message-square", class: "comment-reviews-logo-continent" %>
+        <div class="comment_action_item">
+          <%= image_tag "Like" %>
+          <span><%= get_number_of_dislikes(comment) %></span> 
+        </div>
+        <% if is_not_response(comment) %>
+          <div class="comment_action_item">
+            <%= link_to image_tag("Message-square"), get_response_path(comment) %>
+            <span><%= get_number_of_responses(comment) %></span>
           </div>
-          <%= image_tag "Like", class: "comment-dislike" %>
-          <div style="width: 62px; height: 28px; left: 0px; top: 0px; position: absolute">
-              <div class="comment-reviews-no">125</div>
-              <%= image_tag "Like", class: "comment-like" %>
-          </div>
-        </div>
+        <% end %>
       </div>
     </li>
   <% end %>

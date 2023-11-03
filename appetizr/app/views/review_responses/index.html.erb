@@ -1,0 +1,10 @@
+
+<div style="margin-left: 50px; margin-top: 50px">
+  <span class="title" style="font-size: 24px">Respuestas al comentario de <span class="title_key_word"><%= @review.autor %></span></span>
+
+  <%= render "layouts/comment", comments: [@review] %> 
+</div>
+
+<div style="margin-left: 100px; margin-top: 30px">
+  <%= render "layouts/comment", comments: @review.responses %>
+</div>

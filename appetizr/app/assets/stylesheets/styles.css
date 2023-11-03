@@ -8,6 +8,7 @@
     --strong-gold: #B79B70;
     --white: #EAEAEA;
     --black: #0E0E15;
+    --light-black: #171722
 }
 
 html,body{
@@ -25,11 +26,14 @@ html,body{
 
 .wraper{
     height: 100%;
-    /* overflow: hidden; */
     display: grid;
     grid-template-columns: 300px 1fr;
     grid-template-rows: 75px 1fr;
     background-color: var(--light-gold);
+}
+
+.main {
+    overflow: auto;
 }
 
 .sidenav {
@@ -212,7 +216,7 @@ html,body{
 /* -------------------------------------- */
 /* COMMENTS */
 /* -------------------------------------- */
-.comment-style {
+.comment_style {
   display: inline-flex;
   padding: 25px 18px 13px 30px;
   flex-direction: column;
@@ -225,7 +229,7 @@ html,body{
   box-shadow: 2px 1px 5px 0px rgba(0, 0, 0, 0.15);
 }
 
-.comment-head {
+.comment_head {
   width: 100%;
   height: 100%;
   position: relative;
@@ -235,7 +239,7 @@ html,body{
   display: inline-flex;
 }
 
-.comment-tstamp {
+.comment_tstamp {
   text-align: left;
   top: 20px;
   width: 100px;
@@ -248,7 +252,7 @@ html,body{
   word-wrap: break-word;
 }
 
-.comment-author {
+.comment_author {
   left: 0px;
   top: 0px;
   position: absolute;
@@ -260,7 +264,7 @@ html,body{
   word-wrap: break-word;
 }
 
-.comment-continent {
+.comment_continent {
   align-self: stretch;
   height: 25px;
   flex-direction: column;
@@ -270,7 +274,7 @@ html,body{
   display: inline-flex;
 }
 
-.comment-content {
+.comment_content {
   text-align: left;
   width: 665px;
   color: black;
@@ -282,10 +286,19 @@ html,body{
   word-wrap: break-word;
 }
 
-.comment-reviews-no {
-  left: 28px;
-  top: 7px;
-  position: absolute;
+.comment_actions_row {
+  width: 300px;
+  height: 30px;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.comment_action_item {
+  position: relative;
   color: #0E0E15;
   font-size: 13px;
   font-family: Roboto;
@@ -294,42 +307,13 @@ html,body{
   word-wrap: break-word;
 }
 
-.comment-reviews-logo-continent {
-  width: 28px;
-  height: 28px;
-  left: 0px;
-  top: 0px;
-  position: absolute;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  display: inline-flex;
-}
-
-.three-dots {
+.three_dots {
   width: 24px;
   height: 24px;
   left: 90%;
   position: absolute;
 }
 
-.comment-like {
-  width: 28px;
-  height: 28px;
-  left: 30px;
-  top: 30px;
-  position: absolute;
-  transform: rotate(-180deg);
-  transform-origin: 0 0;
-}
-
-.comment-dislike {
-  width: 28px;
-  height: 28px;
-  left: 125px;
-  top: 5px;
-  position: absolute;
-}
 /* -------------------------------------- */
 /* MY ACCOUNT */
 /* -------------------------------------- */
@@ -396,98 +380,152 @@ html,body{
 /* RESTAURANTS */
 /* -------------------------------------- */
 
-.restaurants-header {
+.restaurants_header {
   width: 100%;
   height: 100%;
   position: relative;
   flex-direction: column;
+  display: flex;
 }
 
-.restaurants-img {
-  left: 0px;
-  top: 0px;
+.restaurants_img {
+  flex-shrink: 0;
+  height: 300px;
   position: relative;
+  overflow: hidden;
+  object-fit: cover;
 }
 
-.restaurants-header-content {
-  width: 100%;
-  left: 0px;
-  position: relative;
+.restaurants_header_content {
+  margin-left: 20px;
+  margin-right: 20px;
+  display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.restaurants-header-text {
-  position: relative;
-  width: 75%;
-  left: 5%;
-  flex-direction: column;
-  font-family: Nunito Sans;
-  font-size: 60px;
-  font-weight: 400;
-  letter-spacing: 3.20px;
-  word-wrap: break-word;
-}
-
-.restaurants-header-info-button {
+.restaurants_header_info_button {
   width: 25%;
   height: 100%;
   position: relative;
-  left: 500px;
 }
 
-.restaurants-header-botones {
+.restaurants_header_botones {
   position: relative;
-  left: 0px;
   width: 100%;
   height: 100%;
   flex-direction: row;
   justify-content: flex-start;
   align-items: flex-start;
   display: inline-flex;
-  font-family: Chillax;
+  font-family: var(--letra);
+  font-size: 20px;
   font-weight: 400;
   letter-spacing: 1.20px;
   word-wrap: break-word;
   text-align: center;
-  color: white;
 }
 
-.restaurants-header-page-button {
+.restaurants_header_page_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: relative;
   width: 100%;
-  height: 40px;
-  background: black;
+  height: 60px;
+  background: var(--black);
   border: 1px #E5DBC8 solid;
+  text-decoration: none;
+  color: var(--white);
 }
 
-.restaurants-einaeats-button {
-  height: 50px;
-  width: 230px;
+.restaurants_einaeats_button {
+  width: 300px;
+  height: 60px;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  display: inline-flex;
-  text-align: center;
-  color: #B79B70;
-  background: black;
-  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  background: var(--black);
+  border-radius: 30px;
 }
 
-.restaurants-stats-button {
-  height: 50px;
+.restaurant_einaeats_button_text {
+  color: var(--strong-gold);
+  font-family: var(--letra);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 3.8px;
+  margin-left: 10px;
+}
+
+.restaurants_stats_button {
   width: 230px;
   flex-direction: row;
-  justify-content: flex-start;
-  align-items: flex-start;
-  display: inline-flex;
-  text-align: center;
-  color: #0E0E15;
-  background: #DAAC66;
-  border-radius: 25px; 
+  display: flex;
+  color: var(--black);
+  background: var(--strong-gold);
+  border-radius: 30px; 
 }
+
+.restaurant_section_title {
+  display: flex;
+  background-color: var(--black);
+  height: 90px;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--white);
+  text-align: center;
+  font-family: Chillax;
+  font-size: 36px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 10.8px; 
+}
+
+.restaurant_section_subtitle {
+  color: var(--strong-gold);
+  font-family: var(--letra);
+  font-size: 26px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 70%; /* 28px */
+}
+
+.restaurant_section_content {
+  background-color: var(--light-black);
+  height: 400px;
+}
+
+.restaurant_section_content_info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  height: 160px !important;
+  column-gap: 60px;
+}
+
+
+.restaurant_info_item {
+  display: flex;
+  flex-direction: column;
+  color: var(--white);
+  font-family: var(--letra);
+  font-size: 20px;
+
+}
+
+.restaurant_info_subtitle {
+  color: var(--strong-gold);
+}
+
+
+
 /* -------------------------------------- */
 /* LOG IN / REGISTER */
 /* -------------------------------------- */

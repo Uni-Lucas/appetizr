@@ -6,9 +6,8 @@
 </div>
 
 
-
-<%= form_with model: @restaurant  do |form| %>
-    <div class="my_account_form_container">
+<%= form_with model: @restaurant, style: "background-color: var(--white)" do |form| %>
+  <div class="my_account_form_container">
         <div class="my_account_user_passwd", style="grid-row: 1 / 2">
             <div style="padding-bottom: 10px;">
                 <%= form.label :nombre, "Nombre del restaurante", class: "my_account_form_label" %>
@@ -58,7 +57,5 @@
         <div class="my_account_form_buttons">
             <%= form.submit "Guardar" %>
         </div>
-    </div>
-
-    
+  </div>
 <% end %>
