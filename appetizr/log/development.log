@@ -25368,3 +25368,2280 @@ Processing by CategoriesController#index as HTML
 Completed 200 OK in 113ms (Views: 8.8ms | ActiveRecord: 101.6ms | Allocations: 12030)
 
 
+Started GET "/" for 127.0.0.1 at 2023-11-03 12:50:50 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (26.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (24.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 646.9ms | Allocations: 74538)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 1249)
+  Rendered layouts/_sidenav.html.erb (Duration: 1.9ms | Allocations: 2880)
+  Rendered layout layouts/application.html.erb (Duration: 684.8ms | Allocations: 97115)
+Completed 200 OK in 720ms (Views: 612.2ms | ActiveRecord: 76.5ms | Allocations: 108602)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 12:51:01 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:1
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 146.3ms | Allocations: 11043)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 982)
+  Rendered layouts/_sidenav.html.erb (Duration: 1.5ms | Allocations: 2275)
+  Rendered layout layouts/application.html.erb (Duration: 189.1ms | Allocations: 19277)
+Completed 200 OK in 242ms (Views: 59.8ms | ActiveRecord: 129.7ms | Allocations: 29322)
+
+
+Started GET "/restaurants/2" for 127.0.0.1 at 2023-11-03 12:53:15 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (25.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (24.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:4
+  Rendered restaurants/_header.html.erb (Duration: 152.8ms | Allocations: 6276)
+  [1m[36mDish Load (24.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  ↳ app/views/restaurants/show.html.erb:10
+  [1m[36mReview Load (25.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 2], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 77.5ms | Allocations: 2187)
+  [1m[36mUser Load (24.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 526.4ms | Allocations: 22076)
+  Rendered layout layouts/application.html.erb (Duration: 526.6ms | Allocations: 22168)
+Completed 500 Internal Server Error in 694ms (ActiveRecord: 355.1ms | Allocations: 32886)
+
+
+  
+ActionView::Template::Error (undefined method `posts' for nil:NilClass):
+    25: 
+    26: <div id="restaurant_posts" class="restaurant_section_title"> Posts del restaurante </div>
+    27: <div class="restaurant_section_content">
+    28:   <%= render "layouts/comment", comments: get_rest_manager.posts %>
+    29: </div>
+    30: 
+    31: <div id="restaurant_info" class="restaurant_section_title"> Información del restaurante </div>
+  
+app/views/restaurants/show.html.erb:28
+Started GET "/login" for 127.0.0.1 at 2023-11-03 12:53:29 +0100
+Processing by LoginsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering logins/new.html.erb within layouts/application
+  Rendered logins/new.html.erb within layouts/application (Duration: 43.2ms | Allocations: 3036)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 938)
+  Rendered layouts/_sidenav.html.erb (Duration: 1.5ms | Allocations: 2280)
+  Rendered layout layouts/application.html.erb (Duration: 47.7ms | Allocations: 9838)
+Completed 200 OK in 54ms (Views: 48.5ms | ActiveRecord: 0.0ms | Allocations: 13396)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-11-03 12:53:33 +0100
+Processing by LoginsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nombre"=>"juan", "password"=>"[FILTERED]", "commit"=>"INICIAR SESIÓN"}
+  [1m[36mUser Load (25.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/controllers/logins_controller.rb:7:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 215ms (ActiveRecord: 25.0ms | Allocations: 1116)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-03 12:53:33 +0100
+Processing by CategoriesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (49.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 51.4ms | Allocations: 1633)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 951)
+  [1m[36mUser Load (24.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 26.7ms | Allocations: 2669)
+  Rendered layout layouts/application.html.erb (Duration: 81.2ms | Allocations: 9004)
+Completed 200 OK in 82ms (Views: 6.8ms | ActiveRecord: 74.7ms | Allocations: 9311)
+
+
+Started GET "/restaurants/2" for 127.0.0.1 at 2023-11-03 12:53:38 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (25.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (24.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:4
+  Rendered restaurants/_header.html.erb (Duration: 27.0ms | Allocations: 2228)
+  [1m[36mDish Load (25.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  ↳ app/views/restaurants/show.html.erb:10
+  [1m[36mReview Load (25.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 2], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 26.6ms | Allocations: 567)
+  [1m[36mUser Load (24.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (24.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "juan"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 76.5ms | Allocations: 1196)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 224.5ms | Allocations: 8518)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 938)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 2.1ms | Allocations: 2566)
+  Rendered layout layouts/application.html.erb (Duration: 230.1ms | Allocations: 15522)
+Completed 200 OK in 257ms (Views: 53.0ms | ActiveRecord: 202.9ms | Allocations: 16196)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 12:58:00 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:1
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 51.8ms | Allocations: 461)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 964)
+  [1m[36mUser Load (31.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 33.2ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 88.8ms | Allocations: 7973)
+Completed 200 OK in 89ms (Views: 7.0ms | ActiveRecord: 82.1ms | Allocations: 8234)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:06:24 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (572.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:19
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 580.4ms | Allocations: 6866)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1257)
+  [1m[36mUser Load (25.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 91.9ms | Allocations: 12550)
+  Rendered layout layouts/application.html.erb (Duration: 684.3ms | Allocations: 39112)
+Completed 200 OK in 692ms (Views: -140.4ms | ActiveRecord: 825.6ms | Allocations: 44245)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:09:39 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:20
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 108.2ms | Allocations: 4015)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1245)
+  [1m[36mUser Load (25.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 65.3ms | Allocations: 9304)
+  Rendered layout layouts/application.html.erb (Duration: 314.2ms | Allocations: 38868)
+Completed 200 OK in 381ms (Views: 159.6ms | ActiveRecord: 206.8ms | Allocations: 47346)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:11:29 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:24
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 84.4ms | Allocations: 3999)
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 1249)
+  [1m[36mUser Load (25.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 64.5ms | Allocations: 9337)
+  Rendered layout layouts/application.html.erb (Duration: 168.4ms | Allocations: 38702)
+Completed 200 OK in 235ms (Views: 39.9ms | ActiveRecord: 181.2ms | Allocations: 47197)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:11:55 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:11
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 82.8ms | Allocations: 4092)
+  Rendered layouts/_header.html.erb (Duration: 1.9ms | Allocations: 1257)
+  [1m[36mUser Load (25.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 64.9ms | Allocations: 9350)
+  Rendered layout layouts/application.html.erb (Duration: 161.2ms | Allocations: 33176)
+Completed 200 OK in 233ms (Views: 33.7ms | ActiveRecord: 179.9ms | Allocations: 41649)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:13:10 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (49.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:11
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 50.6ms | Allocations: 462)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 964)
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 28.2ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 90.6ms | Allocations: 13766)
+Completed 200 OK in 92ms (Views: 16.5ms | ActiveRecord: 74.6ms | Allocations: 14026)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:14:00 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (22.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:11
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 81.4ms | Allocations: 4092)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1257)
+  [1m[36mUser Load (22.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 62.9ms | Allocations: 9350)
+  Rendered layout layouts/application.html.erb (Duration: 156.3ms | Allocations: 33164)
+Completed 200 OK in 225ms (Views: 33.8ms | ActiveRecord: 175.3ms | Allocations: 41692)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:14:09 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:11
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 51.9ms | Allocations: 462)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 964)
+  [1m[36mUser Load (23.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 25.5ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 83.3ms | Allocations: 7985)
+Completed 200 OK in 84ms (Views: 9.8ms | ActiveRecord: 73.9ms | Allocations: 8245)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:14:21 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:9
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 82.1ms | Allocations: 4050)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 1257)
+  [1m[36mUser Load (23.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 63.1ms | Allocations: 9314)
+  Rendered layout layouts/application.html.erb (Duration: 159.0ms | Allocations: 33085)
+Completed 200 OK in 229ms (Views: 34.4ms | ActiveRecord: 177.1ms | Allocations: 41550)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:17:04 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:9
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 81.9ms | Allocations: 4070)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 1257)
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 66.0ms | Allocations: 9349)
+  Rendered layout layouts/application.html.erb (Duration: 166.9ms | Allocations: 38970)
+Completed 200 OK in 235ms (Views: 39.6ms | ActiveRecord: 180.4ms | Allocations: 47496)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:17:25 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:9
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 80.9ms | Allocations: 4070)
+  Rendered layouts/_header.html.erb (Duration: 7.3ms | Allocations: 1257)
+  [1m[36mUser Load (24.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 81.5ms | Allocations: 9374)
+  Rendered layout layouts/application.html.erb (Duration: 194.9ms | Allocations: 33154)
+Completed 200 OK in 261ms (Views: 68.8ms | ActiveRecord: 178.0ms | Allocations: 41682)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:18:57 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:14
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 82.8ms | Allocations: 4018)
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 1249)
+  [1m[36mUser Load (24.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 61.9ms | Allocations: 9297)
+  Rendered layout layouts/application.html.erb (Duration: 163.2ms | Allocations: 38665)
+Completed 200 OK in 232ms (Views: 35.6ms | ActiveRecord: 180.7ms | Allocations: 47178)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:25:37 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (546.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:12
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 549.9ms | Allocations: 6919)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1257)
+  [1m[36mUser Load (25.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 91.5ms | Allocations: 12548)
+  Rendered layout layouts/application.html.erb (Duration: 659.1ms | Allocations: 45037)
+Completed 200 OK in 668ms (Views: -138.6ms | ActiveRecord: 798.5ms | Allocations: 50140)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:26:23 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:12
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.8ms | Allocations: 462)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 976)
+  [1m[36mUser Load (25.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 28.0ms | Allocations: 2689)
+  Rendered layout layouts/application.html.erb (Duration: 92.9ms | Allocations: 13879)
+Completed 200 OK in 94ms (Views: 17.1ms | ActiveRecord: 76.8ms | Allocations: 14139)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:27:48 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (24.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:14
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 110.1ms | Allocations: 4101)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1257)
+  [1m[36mUser Load (23.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 61.5ms | Allocations: 9421)
+  Rendered layout layouts/application.html.erb (Duration: 188.8ms | Allocations: 39082)
+Completed 200 OK in 254ms (Views: 36.1ms | ActiveRecord: 205.1ms | Allocations: 47609)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:28:40 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:14
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.0ms | Allocations: 462)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 964)
+  [1m[36mUser Load (25.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.8ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 90.7ms | Allocations: 13807)
+Completed 200 OK in 91ms (Views: 14.4ms | ActiveRecord: 76.6ms | Allocations: 14067)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:28:50 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:14
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.6ms | Allocations: 460)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 977)
+  [1m[36mUser Load (25.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 28.4ms | Allocations: 2689)
+  Rendered layout layouts/application.html.erb (Duration: 131.3ms | Allocations: 13849)
+Completed 200 OK in 132ms (Views: 54.4ms | ActiveRecord: 77.2ms | Allocations: 14109)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:29:03 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:13
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 80.7ms | Allocations: 4069)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 1257)
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 63.7ms | Allocations: 9349)
+  Rendered layout layouts/application.html.erb (Duration: 153.6ms | Allocations: 33093)
+Completed 200 OK in 217ms (Views: 26.7ms | ActiveRecord: 178.8ms | Allocations: 41621)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:31:01 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (27.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:15
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 82.0ms | Allocations: 4072)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1260)
+  [1m[36mUser Load (24.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 61.8ms | Allocations: 9381)
+  Rendered layout layouts/application.html.erb (Duration: 163.0ms | Allocations: 38900)
+Completed 200 OK in 226ms (Views: 34.9ms | ActiveRecord: 177.3ms | Allocations: 47426)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:33:32 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:15
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 50.8ms | Allocations: 463)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 972)
+  [1m[36mUser Load (27.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 29.4ms | Allocations: 2675)
+  Rendered layout layouts/application.html.erb (Duration: 90.6ms | Allocations: 13828)
+Completed 200 OK in 91ms (Views: 13.6ms | ActiveRecord: 77.3ms | Allocations: 14088)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:34:00 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:15
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 80.4ms | Allocations: 4011)
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 1245)
+  [1m[36mUser Load (24.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 64.0ms | Allocations: 9341)
+  Rendered layout layouts/application.html.erb (Duration: 154.4ms | Allocations: 32879)
+Completed 200 OK in 219ms (Views: 27.9ms | ActiveRecord: 179.1ms | Allocations: 41369)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:34:43 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:15
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 80.9ms | Allocations: 4019)
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 1257)
+  [1m[36mUser Load (24.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 60.6ms | Allocations: 9289)
+  Rendered layout layouts/application.html.erb (Duration: 157.8ms | Allocations: 38822)
+Completed 200 OK in 222ms (Views: 31.6ms | ActiveRecord: 177.6ms | Allocations: 47292)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:35:03 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (49.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:15
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 50.4ms | Allocations: 462)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 976)
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.4ms | Allocations: 2689)
+  Rendered layout layouts/application.html.erb (Duration: 91.8ms | Allocations: 13880)
+Completed 200 OK in 92ms (Views: 17.4ms | ActiveRecord: 74.7ms | Allocations: 14140)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:35:04 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (49.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:15
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 50.1ms | Allocations: 460)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 972)
+  [1m[36mUser Load (25.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.3ms | Allocations: 2663)
+  Rendered layout layouts/application.html.erb (Duration: 81.7ms | Allocations: 7972)
+Completed 200 OK in 82ms (Views: 7.5ms | ActiveRecord: 74.5ms | Allocations: 8232)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:37:23 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (24.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:16
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 80.8ms | Allocations: 4073)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1245)
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 64.4ms | Allocations: 9382)
+  Rendered layout layouts/application.html.erb (Duration: 154.1ms | Allocations: 32955)
+Completed 200 OK in 218ms (Views: 27.0ms | ActiveRecord: 178.5ms | Allocations: 41483)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:39:03 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 0.5ms | Allocations: 1193)
+  Rendered layout layouts/application.html.erb (Duration: 0.7ms | Allocations: 1286)
+Completed 500 Internal Server Error in 65ms (ActiveRecord: 51.8ms | Allocations: 9716)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `locals' for #<ActionView::Base:0x0000000006a630>):
+     9:     <div class="explore_promoted_restaurant">
+    10:         <div class="explore_top_section_title">Restaurante promocionado</div>
+    11:         <div class="explore_promoted_restaurant_box">
+    12:             <% if locals[:restaurant].image.attached? %>
+    13:                 <%= image_tag locals[:restaurant].image, class: "explore_promoted_restaurant_image" %>
+    14:             <% else %>
+    15:                 <%= image_tag "Default-restaurant-img", class: "explore_promoted_restaurant_image" %>
+  
+app/views/restaurants/index.html.erb:12
+Started GET "/restaurants/2" for 127.0.0.1 at 2023-11-03 13:40:55 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (24.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (24.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:4
+  Rendered restaurants/_header.html.erb (Duration: 106.4ms | Allocations: 5131)
+  [1m[36mDish Load (24.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  ↳ app/views/restaurants/show.html.erb:10
+  [1m[36mReview Load (25.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 2], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 77.9ms | Allocations: 2165)
+  [1m[36mUser Load (24.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (24.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "juan"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 76.3ms | Allocations: 1194)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 487.8ms | Allocations: 24159)
+  Rendered layouts/_header.html.erb (Duration: 1.5ms | Allocations: 1226)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 2.8ms | Allocations: 3169)
+  Rendered layout layouts/application.html.erb (Duration: 504.5ms | Allocations: 46516)
+Completed 200 OK in 679ms (Views: 149.4ms | ActiveRecord: 486.7ms | Allocations: 59387)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:40:58 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (49.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:17
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 50.7ms | Allocations: 656)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 964)
+  [1m[36mUser Load (24.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.6ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 82.6ms | Allocations: 8147)
+Completed 200 OK in 83ms (Views: 8.7ms | ActiveRecord: 74.3ms | Allocations: 8472)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:41:28 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (24.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:17
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 80.8ms | Allocations: 4722)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1240)
+  [1m[36mUser Load (24.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 63.8ms | Allocations: 9360)
+  Rendered layout layouts/application.html.erb (Duration: 155.0ms | Allocations: 33330)
+Completed 200 OK in 222ms (Views: 29.3ms | ActiveRecord: 178.0ms | Allocations: 41858)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:42:12 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:17
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 51.5ms | Allocations: 1056)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 968)
+  [1m[36mUser Load (25.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.3ms | Allocations: 2672)
+  Rendered layout layouts/application.html.erb (Duration: 90.1ms | Allocations: 14246)
+Completed 200 OK in 91ms (Views: 15.1ms | ActiveRecord: 75.5ms | Allocations: 14506)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:42:43 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:17
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.0ms | Allocations: 1052)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 964)
+  [1m[36mUser Load (25.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.1ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 90.7ms | Allocations: 14210)
+Completed 200 OK in 91ms (Views: 15.4ms | ActiveRecord: 75.7ms | Allocations: 14469)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:44:52 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:17
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.5ms | Allocations: 1052)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 964)
+  [1m[36mUser Load (25.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.3ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 90.7ms | Allocations: 14220)
+Completed 200 OK in 91ms (Views: 14.9ms | ActiveRecord: 76.1ms | Allocations: 14479)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:45:16 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:17
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.1ms | Allocations: 1053)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 976)
+  [1m[36mUser Load (25.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.7ms | Allocations: 2689)
+  Rendered layout layouts/application.html.erb (Duration: 92.8ms | Allocations: 14351)
+Completed 200 OK in 93ms (Views: 17.5ms | ActiveRecord: 75.8ms | Allocations: 14611)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:46:34 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:17
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.0ms | Allocations: 1054)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 966)
+  [1m[36mUser Load (25.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.3ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 89.8ms | Allocations: 14271)
+Completed 200 OK in 90ms (Views: 14.5ms | ActiveRecord: 75.7ms | Allocations: 14530)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:49:30 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:17
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.7ms | Allocations: 1052)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 964)
+  [1m[36mUser Load (25.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.1ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 90.7ms | Allocations: 14243)
+Completed 200 OK in 91ms (Views: 15.0ms | ActiveRecord: 76.2ms | Allocations: 14502)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:52:26 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:23
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 81.5ms | Allocations: 6011)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1227)
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 60.5ms | Allocations: 9348)
+  Rendered layout layouts/application.html.erb (Duration: 150.8ms | Allocations: 34760)
+Completed 200 OK in 215ms (Views: 24.5ms | ActiveRecord: 178.2ms | Allocations: 43288)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:53:09 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:23
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.5ms | Allocations: 2246)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 939)
+  [1m[36mUser Load (24.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 26.8ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 89.0ms | Allocations: 15409)
+Completed 200 OK in 90ms (Views: 14.2ms | ActiveRecord: 75.1ms | Allocations: 15669)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:53:21 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (24.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:24
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 82.1ms | Allocations: 6282)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 1227)
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 61.4ms | Allocations: 9349)
+  Rendered layout layouts/application.html.erb (Duration: 152.4ms | Allocations: 34976)
+Completed 200 OK in 227ms (Views: 25.8ms | ActiveRecord: 187.2ms | Allocations: 43504)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:56:28 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (24.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:33
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 81.3ms | Allocations: 6729)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 1226)
+  [1m[36mUser Load (24.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 60.7ms | Allocations: 9348)
+  Rendered layout layouts/application.html.erb (Duration: 152.7ms | Allocations: 35409)
+Completed 200 OK in 217ms (Views: 27.6ms | ActiveRecord: 176.5ms | Allocations: 43937)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:57:11 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (24.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 82.9ms | Allocations: 6707)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 1226)
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 62.2ms | Allocations: 9349)
+  Rendered layout layouts/application.html.erb (Duration: 155.9ms | Allocations: 35417)
+Completed 200 OK in 222ms (Views: 29.8ms | ActiveRecord: 177.8ms | Allocations: 43882)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:58:37 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.3ms | Allocations: 2912)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 939)
+  [1m[36mUser Load (25.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.6ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 90.6ms | Allocations: 16068)
+Completed 200 OK in 92ms (Views: 15.0ms | ActiveRecord: 76.1ms | Allocations: 16328)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 13:59:31 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (49.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.3ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 951)
+  [1m[36mUser Load (25.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.5ms | Allocations: 2689)
+  Rendered layout layouts/application.html.erb (Duration: 93.2ms | Allocations: 16167)
+Completed 200 OK in 94ms (Views: 18.6ms | ActiveRecord: 74.9ms | Allocations: 16427)
+
+
+Started GET "/restaurants/2" for 127.0.0.1 at 2023-11-03 13:59:44 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (25.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (24.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:4
+  Rendered restaurants/_header.html.erb (Duration: 89.4ms | Allocations: 17612)
+  [1m[36mDish Load (24.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  ↳ app/views/restaurants/show.html.erb:10
+  [1m[36mReview Load (25.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 2], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 52.2ms | Allocations: 2162)
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (24.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "juan"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 50.8ms | Allocations: 1191)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 360.7ms | Allocations: 30500)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 950)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 1.8ms | Allocations: 2561)
+  Rendered layout layouts/application.html.erb (Duration: 365.7ms | Allocations: 37529)
+Completed 200 OK in 393ms (Views: 32.0ms | ActiveRecord: 359.4ms | Allocations: 38842)
+
+
+Started GET "/restaurants/2" for 127.0.0.1 at 2023-11-03 14:00:06 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (26.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (25.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:4
+  Rendered restaurants/_header.html.erb (Duration: 27.5ms | Allocations: 2222)
+  [1m[36mDish Load (25.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  ↳ app/views/restaurants/show.html.erb:10
+  [1m[36mReview Load (25.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 2], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 26.1ms | Allocations: 567)
+  [1m[36mUser Load (25.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (24.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "juan"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 25.3ms | Allocations: 530)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 131.7ms | Allocations: 4725)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 938)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 2.0ms | Allocations: 2553)
+  Rendered layout layouts/application.html.erb (Duration: 144.6ms | Allocations: 17596)
+Completed 200 OK in 172ms (Views: 19.8ms | ActiveRecord: 151.3ms | Allocations: 18258)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 14:00:36 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 54.2ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 3.5ms | Allocations: 939)
+  [1m[36mUser Load (25.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 39.9ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 133.3ms | Allocations: 10195)
+Completed 200 OK in 134ms (Views: 57.6ms | ActiveRecord: 76.5ms | Allocations: 10455)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 14:01:12 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (24.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 81.9ms | Allocations: 6727)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1226)
+  [1m[36mUser Load (24.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 60.8ms | Allocations: 9331)
+  Rendered layout layouts/application.html.erb (Duration: 153.5ms | Allocations: 35482)
+Completed 200 OK in 219ms (Views: 28.4ms | ActiveRecord: 177.2ms | Allocations: 43998)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 14:01:42 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.8ms | Allocations: 2912)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 939)
+  [1m[36mUser Load (25.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.7ms | Allocations: 2660)
+  Rendered layout layouts/application.html.erb (Duration: 92.5ms | Allocations: 16097)
+Completed 200 OK in 93ms (Views: 16.2ms | ActiveRecord: 76.7ms | Allocations: 16357)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 14:02:31 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 54.5ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 939)
+  [1m[36mUser Load (25.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.5ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 92.8ms | Allocations: 16075)
+Completed 200 OK in 93ms (Views: 16.4ms | ActiveRecord: 76.7ms | Allocations: 16334)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 14:02:38 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.8ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 939)
+  [1m[36mUser Load (25.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.2ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 89.4ms | Allocations: 16079)
+Completed 200 OK in 90ms (Views: 13.5ms | ActiveRecord: 76.1ms | Allocations: 16338)
+
+
+Started GET "/restaurants/2" for 127.0.0.1 at 2023-11-03 14:07:05 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (26.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (25.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:4
+  Rendered restaurants/_header.html.erb (Duration: 91.1ms | Allocations: 17611)
+  [1m[36mDish Load (24.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  ↳ app/views/restaurants/show.html.erb:10
+  [1m[36mReview Load (25.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 2], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 52.4ms | Allocations: 2162)
+  [1m[36mUser Load (24.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (24.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "juan"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 50.8ms | Allocations: 1191)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 361.8ms | Allocations: 30485)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 950)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 2.0ms | Allocations: 2585)
+  Rendered layout layouts/application.html.erb (Duration: 367.0ms | Allocations: 37566)
+Completed 200 OK in 396ms (Views: 33.3ms | ActiveRecord: 360.4ms | Allocations: 38880)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 14:08:05 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.9ms | Allocations: 2911)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 939)
+  [1m[36mUser Load (25.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.8ms | Allocations: 2660)
+  Rendered layout layouts/application.html.erb (Duration: 91.7ms | Allocations: 16090)
+Completed 200 OK in 92ms (Views: 16.0ms | ActiveRecord: 76.1ms | Allocations: 16350)
+
+
+Started GET "/restaurants/2" for 127.0.0.1 at 2023-11-03 14:08:39 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (25.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (25.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:4
+  Rendered restaurants/_header.html.erb (Duration: 27.4ms | Allocations: 2222)
+  [1m[36mDish Load (25.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  ↳ app/views/restaurants/show.html.erb:10
+  [1m[36mReview Load (25.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 2], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 26.3ms | Allocations: 567)
+  [1m[36mUser Load (25.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (25.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "juan"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 25.5ms | Allocations: 530)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 132.4ms | Allocations: 4713)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 938)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 2.0ms | Allocations: 2553)
+  Rendered layout layouts/application.html.erb (Duration: 137.9ms | Allocations: 11704)
+Completed 200 OK in 164ms (Views: 11.4ms | ActiveRecord: 152.0ms | Allocations: 12363)
+
+
+Started GET "/restaurants/" for 127.0.0.1 at 2023-11-03 14:09:08 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.0ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 939)
+  [1m[36mUser Load (25.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.4ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 89.8ms | Allocations: 16088)
+Completed 200 OK in 90ms (Views: 13.8ms | ActiveRecord: 76.4ms | Allocations: 16347)
+
+
+Started GET "/restaurants/2" for 127.0.0.1 at 2023-11-03 14:09:17 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (25.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (24.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:4
+  Rendered restaurants/_header.html.erb (Duration: 27.4ms | Allocations: 2220)
+  [1m[36mDish Load (25.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  ↳ app/views/restaurants/show.html.erb:10
+  [1m[36mReview Load (26.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 2], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 27.0ms | Allocations: 566)
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (24.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "juan"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 25.5ms | Allocations: 530)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 132.1ms | Allocations: 4707)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 938)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 1.9ms | Allocations: 2553)
+  Rendered layout layouts/application.html.erb (Duration: 137.6ms | Allocations: 11698)
+Completed 200 OK in 165ms (Views: 12.2ms | ActiveRecord: 151.4ms | Allocations: 12358)
+
+
+Started GET "/restaurants/" for 127.0.0.1 at 2023-11-03 14:09:37 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (57.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 60.3ms | Allocations: 2912)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 952)
+  [1m[36mUser Load (25.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 28.0ms | Allocations: 2689)
+  Rendered layout layouts/application.html.erb (Duration: 100.7ms | Allocations: 16150)
+Completed 200 OK in 101ms (Views: 18.3ms | ActiveRecord: 82.9ms | Allocations: 16410)
+
+
+Started GET "/restaurants/" for 127.0.0.1 at 2023-11-03 14:09:56 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.2ms | Allocations: 2916)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 951)
+  [1m[36mUser Load (25.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.7ms | Allocations: 2689)
+  Rendered layout layouts/application.html.erb (Duration: 92.4ms | Allocations: 16135)
+Completed 200 OK in 93ms (Views: 17.1ms | ActiveRecord: 75.8ms | Allocations: 16394)
+
+
+Started GET "/restaurants/" for 127.0.0.1 at 2023-11-03 14:10:52 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.9ms | Allocations: 2916)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 939)
+  [1m[36mUser Load (25.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.4ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 92.1ms | Allocations: 16111)
+Completed 200 OK in 93ms (Views: 16.0ms | ActiveRecord: 76.5ms | Allocations: 16371)
+
+
+Started GET "/restaurants/" for 127.0.0.1 at 2023-11-03 14:11:00 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 54.5ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 939)
+  [1m[36mUser Load (25.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.5ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 93.9ms | Allocations: 16088)
+Completed 200 OK in 95ms (Views: 17.3ms | ActiveRecord: 77.0ms | Allocations: 16347)
+
+
+Started GET "/restaurants/" for 127.0.0.1 at 2023-11-03 14:12:25 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 55.0ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 939)
+  [1m[36mUser Load (25.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.9ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 97.1ms | Allocations: 16094)
+Completed 200 OK in 98ms (Views: 21.3ms | ActiveRecord: 76.3ms | Allocations: 16353)
+
+
+Started GET "/restaurants/" for 127.0.0.1 at 2023-11-03 14:14:17 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 54.0ms | Allocations: 2917)
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 951)
+  [1m[36mUser Load (25.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 28.5ms | Allocations: 2689)
+  Rendered layout layouts/application.html.erb (Duration: 101.5ms | Allocations: 16190)
+Completed 200 OK in 102ms (Views: 26.1ms | ActiveRecord: 75.8ms | Allocations: 16449)
+
+
+Started GET "/restaurants/" for 127.0.0.1 at 2023-11-03 14:14:34 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.8ms | Allocations: 2916)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 951)
+  [1m[36mUser Load (25.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 29.2ms | Allocations: 2689)
+  Rendered layout layouts/application.html.erb (Duration: 97.0ms | Allocations: 16163)
+Completed 200 OK in 98ms (Views: 21.0ms | ActiveRecord: 76.4ms | Allocations: 16422)
+
+
+Started GET "/restaurants/" for 127.0.0.1 at 2023-11-03 14:14:45 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.8ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 1.7ms | Allocations: 939)
+  [1m[36mUser Load (25.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.8ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 95.6ms | Allocations: 16079)
+Completed 200 OK in 96ms (Views: 20.2ms | ActiveRecord: 75.7ms | Allocations: 16338)
+
+
+Started GET "/restaurants/" for 127.0.0.1 at 2023-11-03 14:14:48 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (49.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.9ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 939)
+  [1m[36mUser Load (25.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 28.5ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 87.1ms | Allocations: 10251)
+Completed 200 OK in 88ms (Views: 12.4ms | ActiveRecord: 75.1ms | Allocations: 10510)
+
+
+Started GET "/restaurants/" for 127.0.0.1 at 2023-11-03 14:29:44 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (577.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 588.0ms | Allocations: 9572)
+  Rendered layouts/_header.html.erb (Duration: 1.5ms | Allocations: 1226)
+  [1m[36mUser Load (25.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 93.9ms | Allocations: 12564)
+  Rendered layout layouts/application.html.erb (Duration: 694.2ms | Allocations: 41591)
+Completed 200 OK in 705ms (Views: -132.4ms | ActiveRecord: 828.1ms | Allocations: 46731)
+
+
+Started GET "/restaurants/" for 127.0.0.1 at 2023-11-03 14:29:56 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 113.3ms | Allocations: 6690)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 1214)
+  [1m[36mUser Load (24.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 63.0ms | Allocations: 9262)
+  Rendered layout layouts/application.html.erb (Duration: 188.1ms | Allocations: 35148)
+Completed 200 OK in 257ms (Views: 31.9ms | ActiveRecord: 209.5ms | Allocations: 43586)
+
+
+Started GET "/restaurants/2" for 127.0.0.1 at 2023-11-03 14:30:14 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (25.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (25.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:4
+  Rendered restaurants/_header.html.erb (Duration: 109.1ms | Allocations: 5082)
+  [1m[36mDish Load (25.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  ↳ app/views/restaurants/show.html.erb:10
+  [1m[36mReview Load (25.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 2], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 78.1ms | Allocations: 2164)
+  [1m[36mUser Load (24.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (24.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "juan"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 76.8ms | Allocations: 1193)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 457.9ms | Allocations: 18030)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 938)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 6.2ms | Allocations: 2556)
+  Rendered layout layouts/application.html.erb (Duration: 467.3ms | Allocations: 25024)
+Completed 200 OK in 524ms (Views: 130.3ms | ActiveRecord: 363.0ms | Allocations: 26438)
+
+
+Started GET "/restaurants/2" for 127.0.0.1 at 2023-11-03 14:30:53 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (26.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (24.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:4
+  Rendered restaurants/_header.html.erb (Duration: 27.1ms | Allocations: 2229)
+  [1m[36mDish Load (25.5ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  ↳ app/views/restaurants/show.html.erb:10
+  [1m[36mReview Load (25.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 2], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 26.5ms | Allocations: 567)
+  [1m[36mUser Load (24.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (24.8ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "juan"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 25.4ms | Allocations: 530)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 131.5ms | Allocations: 4729)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 942)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 1.9ms | Allocations: 2562)
+  Rendered layout layouts/application.html.erb (Duration: 145.8ms | Allocations: 17660)
+Completed 200 OK in 174ms (Views: 21.2ms | ActiveRecord: 151.6ms | Allocations: 18321)
+
+
+Started GET "/restaurants/2" for 127.0.0.1 at 2023-11-03 14:31:00 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (25.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (25.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:4
+  Rendered restaurants/_header.html.erb (Duration: 27.6ms | Allocations: 2226)
+  [1m[36mDish Load (25.6ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  ↳ app/views/restaurants/show.html.erb:10
+  [1m[36mReview Load (25.8ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 2], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 26.5ms | Allocations: 566)
+  [1m[36mUser Load (25.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (24.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "juan"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 25.6ms | Allocations: 530)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 132.4ms | Allocations: 4716)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 938)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 2.3ms | Allocations: 2553)
+  Rendered layout layouts/application.html.erb (Duration: 145.7ms | Allocations: 17591)
+Completed 200 OK in 173ms (Views: 19.6ms | ActiveRecord: 152.3ms | Allocations: 18251)
+
+
+Started GET "/restaurants/2" for 127.0.0.1 at 2023-11-03 14:31:32 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (25.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (25.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 2], ["record_type", "Restaurant"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/restaurants/_header.html.erb:4
+  Rendered restaurants/_header.html.erb (Duration: 27.7ms | Allocations: 2220)
+  [1m[36mDish Load (25.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  ↳ app/views/restaurants/show.html.erb:10
+  [1m[36mReview Load (26.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 2], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 26.7ms | Allocations: 566)
+  [1m[36mUser Load (24.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_manager'
+  [1m[36mPost Load (24.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "juan"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 25.2ms | Allocations: 530)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 131.9ms | Allocations: 4698)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 938)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 2.0ms | Allocations: 2553)
+  Rendered layout layouts/application.html.erb (Duration: 144.7ms | Allocations: 17573)
+Completed 200 OK in 172ms (Views: 18.8ms | ActiveRecord: 152.0ms | Allocations: 18232)
+
+
+Started GET "/restaurants/" for 127.0.0.1 at 2023-11-03 14:31:36 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (47.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:34
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 50.8ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 939)
+  [1m[36mUser Load (24.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 26.8ms | Allocations: 2660)
+  Rendered layout layouts/application.html.erb (Duration: 81.2ms | Allocations: 10221)
+Completed 200 OK in 82ms (Views: 10.2ms | ActiveRecord: 71.2ms | Allocations: 10481)
+
+
+Started GET "/restaurants/" for 127.0.0.1 at 2023-11-03 14:32:02 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:35
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 84.7ms | Allocations: 6728)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 1226)
+  [1m[36mUser Load (24.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 61.2ms | Allocations: 9348)
+  Rendered layout layouts/application.html.erb (Duration: 155.9ms | Allocations: 35538)
+Completed 200 OK in 223ms (Views: 27.6ms | ActiveRecord: 180.9ms | Allocations: 44066)
+
+
+Started GET "/restaurants/" for 127.0.0.1 at 2023-11-03 14:32:49 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:35
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 54.7ms | Allocations: 2912)
+  Rendered layouts/_header.html.erb (Duration: 3.2ms | Allocations: 939)
+  [1m[36mUser Load (25.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 28.2ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 97.4ms | Allocations: 16080)
+Completed 200 OK in 98ms (Views: 21.2ms | ActiveRecord: 76.6ms | Allocations: 16340)
+
+
+Started GET "/restaurants/" for 127.0.0.1 at 2023-11-03 14:33:31 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:35
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 54.6ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 939)
+  [1m[36mUser Load (25.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "juan"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 32.0ms | Allocations: 2660)
+  Rendered layout layouts/application.html.erb (Duration: 98.0ms | Allocations: 16093)
+Completed 200 OK in 99ms (Views: 21.0ms | ActiveRecord: 77.4ms | Allocations: 16353)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-03 17:29:08 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (24.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (24.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 5003.1ms | Allocations: 76108)
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 1249)
+  Rendered layouts/_sidenav.html.erb (Duration: 2.2ms | Allocations: 2880)
+  Rendered layout layouts/application.html.erb (Duration: 5819.5ms | Allocations: 98689)
+Completed 200 OK in 6618ms (Views: 5776.5ms | ActiveRecord: 76.5ms | Allocations: 110128)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-11-03 17:29:22 +0100
+Processing by LoginsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering logins/new.html.erb within layouts/application
+  Rendered logins/new.html.erb within layouts/application (Duration: 397.5ms | Allocations: 4086)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 934)
+  Rendered layouts/_sidenav.html.erb (Duration: 1.7ms | Allocations: 2272)
+  Rendered layout layouts/application.html.erb (Duration: 402.3ms | Allocations: 10874)
+Completed 200 OK in 1214ms (Views: 403.0ms | ActiveRecord: 24.8ms | Allocations: 25628)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-11-03 17:29:27 +0100
+Processing by LoginsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nombre"=>"gari", "password"=>"[FILTERED]", "commit"=>"INICIAR SESIÓN"}
+  [1m[36mUser Load (25.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/controllers/logins_controller.rb:7:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 273ms (ActiveRecord: 75.9ms | Allocations: 2593)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-03 17:29:27 +0100
+Processing by CategoriesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (49.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 51.1ms | Allocations: 1629)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 951)
+  [1m[36mUser Load (24.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.2ms | Allocations: 2669)
+  Rendered layout layouts/application.html.erb (Duration: 82.0ms | Allocations: 9006)
+Completed 200 OK in 83ms (Views: 8.2ms | ActiveRecord: 74.1ms | Allocations: 9314)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:29:31 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (47.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:35
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 142.0ms | Allocations: 12780)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 945)
+  [1m[36mUser Load (25.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.5ms | Allocations: 2662)
+  Rendered layout layouts/application.html.erb (Duration: 173.7ms | Allocations: 20119)
+Completed 200 OK in 189ms (Views: 25.4ms | ActiveRecord: 148.8ms | Allocations: 24628)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:33:59 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:36
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 87.6ms | Allocations: 6664)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1226)
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 61.8ms | Allocations: 9446)
+  Rendered layout layouts/application.html.erb (Duration: 159.6ms | Allocations: 35617)
+Completed 200 OK in 224ms (Views: 32.6ms | ActiveRecord: 178.0ms | Allocations: 44048)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:43:33 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (676.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:45
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 681.7ms | Allocations: 9527)
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 1214)
+  [1m[36mUser Load (25.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 90.0ms | Allocations: 12463)
+  Rendered layout layouts/application.html.erb (Duration: 966.2ms | Allocations: 47489)
+Completed 200 OK in 974ms (Views: 40.4ms | ActiveRecord: 926.5ms | Allocations: 52589)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:44:01 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:45
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.5ms | Allocations: 2939)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 951)
+  [1m[36mUser Load (25.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 28.0ms | Allocations: 2690)
+  Rendered layout layouts/application.html.erb (Duration: 92.5ms | Allocations: 16269)
+Completed 200 OK in 93ms (Views: 16.6ms | ActiveRecord: 76.3ms | Allocations: 16538)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:44:35 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (48.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:45
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 50.8ms | Allocations: 2928)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 951)
+  [1m[36mUser Load (25.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.6ms | Allocations: 2689)
+  Rendered layout layouts/application.html.erb (Duration: 107.2ms | Allocations: 16209)
+Completed 200 OK in 108ms (Views: 34.0ms | ActiveRecord: 73.6ms | Allocations: 16469)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:45:39 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:47
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 112.1ms | Allocations: 6758)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1228)
+  [1m[36mUser Load (24.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 61.8ms | Allocations: 9387)
+  Rendered layout layouts/application.html.erb (Duration: 193.9ms | Allocations: 41528)
+Completed 200 OK in 259ms (Views: 39.7ms | ActiveRecord: 205.8ms | Allocations: 50076)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:46:38 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (24.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:47
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 82.9ms | Allocations: 6691)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 1226)
+  [1m[36mUser Load (25.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 60.4ms | Allocations: 9292)
+  Rendered layout layouts/application.html.erb (Duration: 152.5ms | Allocations: 35308)
+Completed 200 OK in 218ms (Views: 25.0ms | ActiveRecord: 179.9ms | Allocations: 43777)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:47:54 +0100
+Processing by RestaurantsController#index as */*
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:47
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 57.8ms | Allocations: 2921)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 951)
+  Rendered layouts/_sidenav.html.erb (Duration: 1.7ms | Allocations: 2284)
+  Rendered layout layouts/application.html.erb (Duration: 72.8ms | Allocations: 15708)
+Completed 200 OK in 74ms (Views: 22.5ms | ActiveRecord: 50.9ms | Allocations: 16052)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:48:10 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:47
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.9ms | Allocations: 2928)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 939)
+  [1m[36mUser Load (24.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 26.0ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 90.5ms | Allocations: 16185)
+Completed 200 OK in 91ms (Views: 15.4ms | ActiveRecord: 75.5ms | Allocations: 16445)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:48:34 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:47
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.6ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 939)
+  [1m[36mUser Load (26.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 28.4ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 91.5ms | Allocations: 16128)
+Completed 200 OK in 92ms (Views: 14.4ms | ActiveRecord: 77.4ms | Allocations: 16387)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:48:56 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:47
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.0ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 939)
+  [1m[36mUser Load (25.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 28.4ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 91.9ms | Allocations: 16146)
+Completed 200 OK in 93ms (Views: 16.0ms | ActiveRecord: 76.3ms | Allocations: 16405)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:49:30 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:47
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.6ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 939)
+  [1m[36mUser Load (25.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.8ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 124.2ms | Allocations: 16158)
+Completed 200 OK in 125ms (Views: 48.6ms | ActiveRecord: 75.8ms | Allocations: 16417)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:49:43 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (49.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:47
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 51.7ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 951)
+  [1m[36mUser Load (27.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 29.7ms | Allocations: 2689)
+  Rendered layout layouts/application.html.erb (Duration: 93.8ms | Allocations: 16246)
+Completed 200 OK in 94ms (Views: 17.0ms | ActiveRecord: 77.1ms | Allocations: 16505)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:51:53 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (24.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:47
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 86.0ms | Allocations: 6771)
+  Rendered layouts/_header.html.erb (Duration: 1.6ms | Allocations: 1228)
+  [1m[36mUser Load (24.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 63.5ms | Allocations: 9384)
+  Rendered layout layouts/application.html.erb (Duration: 203.2ms | Allocations: 41577)
+Completed 200 OK in 270ms (Views: 75.8ms | ActiveRecord: 180.2ms | Allocations: 50106)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:52:50 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (49.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:47
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.7ms | Allocations: 2930)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 939)
+  [1m[36mUser Load (25.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.9ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 90.3ms | Allocations: 16157)
+Completed 200 OK in 91ms (Views: 15.4ms | ActiveRecord: 75.3ms | Allocations: 16418)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:53:32 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (24.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:45
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 81.5ms | Allocations: 6671)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 1228)
+  [1m[36mUser Load (24.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 60.8ms | Allocations: 9348)
+  Rendered layout layouts/application.html.erb (Duration: 161.1ms | Allocations: 41262)
+Completed 200 OK in 225ms (Views: 35.9ms | ActiveRecord: 176.4ms | Allocations: 49752)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:53:55 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:45
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.6ms | Allocations: 2930)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 951)
+  [1m[36mUser Load (25.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.7ms | Allocations: 2676)
+  Rendered layout layouts/application.html.erb (Duration: 90.3ms | Allocations: 16187)
+Completed 200 OK in 91ms (Views: 14.8ms | ActiveRecord: 75.9ms | Allocations: 16448)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:54:13 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (48.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:45
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 50.6ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 939)
+  [1m[36mUser Load (25.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.2ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 81.1ms | Allocations: 10229)
+Completed 200 OK in 82ms (Views: 8.1ms | ActiveRecord: 73.6ms | Allocations: 10489)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:54:22 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (49.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:45
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.5ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 939)
+  [1m[36mUser Load (25.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.2ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 89.5ms | Allocations: 16126)
+Completed 200 OK in 90ms (Views: 15.3ms | ActiveRecord: 74.6ms | Allocations: 16385)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:55:03 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:45
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.8ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 939)
+  [1m[36mUser Load (25.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 28.2ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 91.3ms | Allocations: 16155)
+Completed 200 OK in 92ms (Views: 14.9ms | ActiveRecord: 76.7ms | Allocations: 16414)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:55:10 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:45
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.5ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 2.8ms | Allocations: 947)
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.2ms | Allocations: 2689)
+  Rendered layout layouts/application.html.erb (Duration: 92.5ms | Allocations: 16173)
+Completed 200 OK in 93ms (Views: 16.7ms | ActiveRecord: 76.1ms | Allocations: 16433)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:55:22 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (49.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:45
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.7ms | Allocations: 2916)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 951)
+  [1m[36mUser Load (25.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.6ms | Allocations: 2689)
+  Rendered layout layouts/application.html.erb (Duration: 90.2ms | Allocations: 16192)
+Completed 200 OK in 91ms (Views: 16.1ms | ActiveRecord: 74.4ms | Allocations: 16452)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:55:57 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:45
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 54.3ms | Allocations: 2928)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 939)
+  [1m[36mUser Load (25.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 28.3ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 93.5ms | Allocations: 16156)
+Completed 200 OK in 94ms (Views: 16.4ms | ActiveRecord: 77.4ms | Allocations: 16416)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:56:36 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:45
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.3ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 939)
+  [1m[36mUser Load (25.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.2ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 91.1ms | Allocations: 16128)
+Completed 200 OK in 92ms (Views: 16.1ms | ActiveRecord: 75.4ms | Allocations: 16387)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:58:57 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 84.1ms | Allocations: 6756)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1226)
+  [1m[36mUser Load (24.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 63.8ms | Allocations: 9350)
+  Rendered layout layouts/application.html.erb (Duration: 166.9ms | Allocations: 41540)
+Completed 200 OK in 239ms (Views: 40.5ms | ActiveRecord: 179.0ms | Allocations: 50083)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 17:59:22 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 83.5ms | Allocations: 6713)
+  Rendered layouts/_header.html.erb (Duration: 2.0ms | Allocations: 1226)
+  [1m[36mUser Load (24.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 61.5ms | Allocations: 9353)
+  Rendered layout layouts/application.html.erb (Duration: 156.8ms | Allocations: 35570)
+Completed 200 OK in 229ms (Views: 30.5ms | ActiveRecord: 179.4ms | Allocations: 43997)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:00:34 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.5ms | Allocations: 2930)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 939)
+  [1m[36mUser Load (25.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.9ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 91.4ms | Allocations: 16196)
+Completed 200 OK in 92ms (Views: 16.2ms | ActiveRecord: 75.7ms | Allocations: 16457)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:23:29 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (746.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 752.0ms | Allocations: 9601)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1226)
+  [1m[36mUser Load (25.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 95.4ms | Allocations: 12552)
+  Rendered layout layouts/application.html.erb (Duration: 866.7ms | Allocations: 47585)
+Completed 200 OK in 876ms (Views: -131.3ms | ActiveRecord: 998.9ms | Allocations: 52700)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:24:44 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 54.9ms | Allocations: 2912)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 952)
+  [1m[36mUser Load (25.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.9ms | Allocations: 2689)
+  Rendered layout layouts/application.html.erb (Duration: 96.0ms | Allocations: 16206)
+Completed 200 OK in 97ms (Views: 19.4ms | ActiveRecord: 77.0ms | Allocations: 16467)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:24:58 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 132.8ms | Allocations: 6784)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 1226)
+  [1m[36mUser Load (24.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 62.3ms | Allocations: 9363)
+  Rendered layout layouts/application.html.erb (Duration: 209.1ms | Allocations: 35646)
+Completed 200 OK in 297ms (Views: 55.2ms | ActiveRecord: 206.3ms | Allocations: 44174)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:25:16 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.8ms | Allocations: 2916)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 939)
+  [1m[36mUser Load (25.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.8ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 114.7ms | Allocations: 16218)
+Completed 200 OK in 115ms (Views: 39.5ms | ActiveRecord: 75.5ms | Allocations: 16478)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:26:22 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 54.3ms | Allocations: 2910)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 939)
+  [1m[36mUser Load (25.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.4ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 91.9ms | Allocations: 16142)
+Completed 200 OK in 93ms (Views: 15.2ms | ActiveRecord: 77.0ms | Allocations: 16401)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:34:24 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (584.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 590.2ms | Allocations: 10348)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 1226)
+  [1m[36mUser Load (25.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 90.4ms | Allocations: 12554)
+  Rendered layout layouts/application.html.erb (Duration: 697.2ms | Allocations: 48344)
+Completed 200 OK in 707ms (Views: -136.6ms | ActiveRecord: 834.9ms | Allocations: 53459)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:35:36 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (24.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 110.3ms | Allocations: 7551)
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 1226)
+  [1m[36mUser Load (24.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 60.3ms | Allocations: 9350)
+  Rendered layout layouts/application.html.erb (Duration: 188.8ms | Allocations: 42332)
+Completed 200 OK in 255ms (Views: 35.8ms | ActiveRecord: 207.3ms | Allocations: 50842)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:36:17 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 54.2ms | Allocations: 3659)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 939)
+  [1m[36mUser Load (25.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.9ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 91.9ms | Allocations: 16895)
+Completed 200 OK in 92ms (Views: 15.4ms | ActiveRecord: 76.8ms | Allocations: 17155)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:37:02 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (58.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 61.8ms | Allocations: 3675)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 951)
+  [1m[36mUser Load (25.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 28.4ms | Allocations: 2689)
+  Rendered layout layouts/application.html.erb (Duration: 103.5ms | Allocations: 17022)
+Completed 200 OK in 104ms (Views: 20.1ms | ActiveRecord: 83.8ms | Allocations: 17282)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:42:14 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (609.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 612.1ms | Allocations: 6806)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 939)
+  [1m[36mUser Load (25.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 77.8ms | Allocations: 2707)
+  Rendered layout layouts/application.html.erb (Duration: 729.6ms | Allocations: 20129)
+Completed 200 OK in 730ms (Views: -131.5ms | ActiveRecord: 861.5ms | Allocations: 20389)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:42:59 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 112.2ms | Allocations: 9126)
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 1226)
+  [1m[36mUser Load (24.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 81.2ms | Allocations: 9366)
+  Rendered layout layouts/application.html.erb (Duration: 204.8ms | Allocations: 37991)
+Completed 200 OK in 275ms (Views: 51.2ms | ActiveRecord: 208.6ms | Allocations: 46540)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:43:57 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 82.6ms | Allocations: 7515)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 1218)
+  [1m[36mUser Load (24.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 60.0ms | Allocations: 9325)
+  Rendered layout layouts/application.html.erb (Duration: 152.0ms | Allocations: 36170)
+Completed 200 OK in 217ms (Views: 26.0ms | ActiveRecord: 178.0ms | Allocations: 44697)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:44:11 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (24.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 83.2ms | Allocations: 9064)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 1226)
+  [1m[36mUser Load (25.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 64.6ms | Allocations: 9370)
+  Rendered layout layouts/application.html.erb (Duration: 156.4ms | Allocations: 37919)
+Completed 200 OK in 220ms (Views: 30.3ms | ActiveRecord: 177.2ms | Allocations: 46448)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:45:06 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (49.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 54.4ms | Allocations: 5159)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 943)
+  [1m[36mUser Load (25.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 28.2ms | Allocations: 2667)
+  Rendered layout layouts/application.html.erb (Duration: 92.9ms | Allocations: 18450)
+Completed 200 OK in 94ms (Views: 18.5ms | ActiveRecord: 74.9ms | Allocations: 18710)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:45:25 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 85.1ms | Allocations: 8998)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1214)
+  [1m[36mUser Load (25.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 65.8ms | Allocations: 9326)
+  Rendered layout layouts/application.html.erb (Duration: 161.7ms | Allocations: 37615)
+Completed 200 OK in 229ms (Views: 33.9ms | ActiveRecord: 180.5ms | Allocations: 46143)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:45:35 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (53.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 56.8ms | Allocations: 5162)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 943)
+  [1m[36mUser Load (26.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 28.3ms | Allocations: 2667)
+  Rendered layout layouts/application.html.erb (Duration: 96.2ms | Allocations: 18463)
+Completed 200 OK in 97ms (Views: 17.4ms | ActiveRecord: 79.1ms | Allocations: 18723)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:45:51 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.5ms | Allocations: 5153)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 939)
+  [1m[36mUser Load (25.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.6ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 92.1ms | Allocations: 18455)
+Completed 200 OK in 93ms (Views: 17.1ms | ActiveRecord: 75.4ms | Allocations: 18714)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:46:06 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (51.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 54.2ms | Allocations: 5151)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 939)
+  [1m[36mUser Load (25.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 28.0ms | Allocations: 2660)
+  Rendered layout layouts/application.html.erb (Duration: 92.7ms | Allocations: 18442)
+Completed 200 OK in 93ms (Views: 16.6ms | ActiveRecord: 76.4ms | Allocations: 18701)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:47:11 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 56.0ms | Allocations: 5169)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 951)
+  [1m[36mUser Load (25.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.6ms | Allocations: 2689)
+  Rendered layout layouts/application.html.erb (Duration: 94.2ms | Allocations: 18544)
+Completed 200 OK in 95ms (Views: 18.8ms | ActiveRecord: 75.8ms | Allocations: 18803)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:47:30 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 54.5ms | Allocations: 5163)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 939)
+  [1m[36mUser Load (25.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.5ms | Allocations: 2660)
+  Rendered layout layouts/application.html.erb (Duration: 92.3ms | Allocations: 18427)
+Completed 200 OK in 93ms (Views: 17.0ms | ActiveRecord: 75.7ms | Allocations: 18686)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:47:38 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 55.0ms | Allocations: 5151)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 939)
+  [1m[36mUser Load (25.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.7ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 92.6ms | Allocations: 18399)
+Completed 200 OK in 93ms (Views: 17.0ms | ActiveRecord: 76.0ms | Allocations: 18658)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:48:18 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 55.5ms | Allocations: 5154)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 951)
+  [1m[36mUser Load (24.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.3ms | Allocations: 2689)
+  Rendered layout layouts/application.html.erb (Duration: 93.0ms | Allocations: 18519)
+Completed 200 OK in 94ms (Views: 18.0ms | ActiveRecord: 75.3ms | Allocations: 18778)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:48:48 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.8ms | Allocations: 5165)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 951)
+  [1m[36mUser Load (24.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.1ms | Allocations: 2676)
+  Rendered layout layouts/application.html.erb (Duration: 91.5ms | Allocations: 18505)
+Completed 200 OK in 92ms (Views: 17.0ms | ActiveRecord: 75.0ms | Allocations: 18764)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:49:31 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 91.1ms | Allocations: 18515)
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 1226)
+  [1m[36mUser Load (24.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 65.8ms | Allocations: 9365)
+  Rendered layout layouts/application.html.erb (Duration: 168.8ms | Allocations: 47387)
+Completed 200 OK in 233ms (Views: 42.1ms | ActiveRecord: 178.3ms | Allocations: 55915)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:49:48 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 94.8ms | Allocations: 25581)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1226)
+  [1m[36mUser Load (25.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 62.4ms | Allocations: 9386)
+  Rendered layout layouts/application.html.erb (Duration: 168.8ms | Allocations: 54453)
+Completed 200 OK in 236ms (Views: 41.3ms | ActiveRecord: 179.5ms | Allocations: 62943)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:51:38 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (50.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 59.4ms | Allocations: 20881)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 939)
+  [1m[36mUser Load (25.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.4ms | Allocations: 2659)
+  Rendered layout layouts/application.html.erb (Duration: 96.5ms | Allocations: 34172)
+Completed 200 OK in 97ms (Views: 21.5ms | ActiveRecord: 75.4ms | Allocations: 34432)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 18:52:41 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (49.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 60.1ms | Allocations: 20872)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 951)
+  [1m[36mUser Load (25.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 28.0ms | Allocations: 2689)
+  Rendered layout layouts/application.html.erb (Duration: 97.5ms | Allocations: 34252)
+Completed 200 OK in 98ms (Views: 23.5ms | ActiveRecord: 74.3ms | Allocations: 34511)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 19:13:26 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (758.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 790.6ms | Allocations: 17944)
+  Rendered layout layouts/application.html.erb (Duration: 790.9ms | Allocations: 18036)
+Completed 500 Internal Server Error in 791ms (ActiveRecord: 758.1ms | Allocations: 18305)
+
+
+  
+ActionView::Template::Error (There is an issue connecting to your database with your username/password, username: ufmtugbort5e5ro1nkzn.
+
+Please check your database configuration to ensure the username/password are valid.
+):
+    43:             <div class="explore_restaurants_filters_item">Tapas</div>
+    44:         </div>
+    45:         <div class="explore_restaurants_section">
+    46:             <% @restaurants.each do |restaurant| %>
+    47:                 <div  class="explore_restaurants_box">
+    48:                     <%= image_tag "Default-restaurant-img", class: "explore_restaurants_box_image"%>
+    49:                     <div class="explore_restaurant_box_name"><%= restaurant.nombre %></div>
+  
+app/views/restaurants/index.html.erb:46
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 19:14:03 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (25.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (25.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 251.9ms | Allocations: 106232)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 1333)
+  [1m[36mUser Load (25.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 116.4ms | Allocations: 13128)
+  Rendered layout layouts/application.html.erb (Duration: 380.2ms | Allocations: 140342)
+Completed 200 OK in 440ms (Views: 202.3ms | ActiveRecord: 205.5ms | Allocations: 160258)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-03 19:14:55 +0100
+Processing by RestaurantsController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mRestaurant Load (24.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:46
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 84.7ms | Allocations: 8997)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1218)
+  [1m[36mUser Load (24.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 63.8ms | Allocations: 9269)
+  Rendered layout layouts/application.html.erb (Duration: 159.4ms | Allocations: 37594)
+Completed 200 OK in 227ms (Views: 32.3ms | ActiveRecord: 179.1ms | Allocations: 46109)
+
+
