@@ -1,17 +1,17 @@
-<ul style="margin-left: 40px; text-align: left; gap: 20px">
+<ul>
   <% comments.each do |comment| %>
     <li class="comment_style">
       <div class="comment_head">
-        <img style="width: 40px; height: 40px" src="https://via.placeholder.com/40x40" />
-        <%= image_tag "Feather_more-vertical", class: "three_dots" %>
-        <div style="left: 10%; position: absolute">
-          <div class="comment_tstamp"><%= time_ago_in_words(comment.updated_at) %> ago </div>
-          <div class="comment_author"><%= comment.autor %></div>
+        <div class="comment_head_left_wrapper">
+          <img style="width: 40px; height: 40px" src="https://via.placeholder.com/40x40" />
+          <div class="comment_head_author_and_tstamp">
+            <div class="comment_author"><%= comment.autor %></div>
+            <div class="comment_tstamp"><%= time_ago_in_words(comment.updated_at) %> ago </div>
+          </div>
         </div>
+        <%= image_tag "Feather_more-vertical", class: "three_dots" %>
       </div>
-      <div class="comment_continent">
-        <div class="comment_content"><%= comment.contenido %></div>
-      </div>
+      <div class="comment_content"><%= comment.contenido %></div>
       <%= image_tag comment.image if comment.image.attached? %>
       <div class="comment_actions_row">
         <div class="comment_action_item">
