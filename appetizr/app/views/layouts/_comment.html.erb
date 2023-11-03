@@ -1,4 +1,4 @@
-<ul>
+<ul class="comment_list">
   <% comments.each do |comment| %>
     <li class="comment_style">
       <div class="comment_head">
@@ -13,21 +13,23 @@
       </div>
       <div class="comment_content"><%= comment.contenido %></div>
       <% if comment.ruta_img.present? %>
-        <%= image_tag comment.ruta_img %>
+        <%= image_tag comment.ruta_img, class: "comment_image" %>
       <% end %>
       <div class="comment_actions_row">
         <div class="comment_action_item">
-          <%= image_tag "Like", style: "transform: rotate(-180deg)" %>
+          <%= image_tag "Like", style: "transform: rotate(-180deg)", class: "comment_action_logo" %>
           <span><%= get_number_of_likes(comment) %></span>
         </div>
         <div class="comment_action_item">
-          <%= image_tag "Like" %>
+          <%= image_tag "Like", class: "comment_action_logo" %>
           <span><%= get_number_of_dislikes(comment) %></span> 
         </div>
         <% if is_not_response(comment) %>
           <div class="comment_action_item">
-            <%= link_to image_tag("Message-square"), get_response_path(comment) %>
-            <span><%= get_number_of_responses(comment) %></span>
+            <%= link_to get_response_path(comment), style: "text-decoration: none; color: black;" do %>
+              <%= image_tag "Message-square", class: "comment_action_logo" %>
+              <span><%= get_number_of_responses(comment) %></span>
+            <% end %>
           </div>
         <% end %>
       </div>

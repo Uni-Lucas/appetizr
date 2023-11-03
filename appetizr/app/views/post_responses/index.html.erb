@@ -1,10 +1,12 @@
 
-<div style="margin-left: 50px; margin-top: 50px">
-  <span class="title" style="font-size: 24px">Respuestas al comentario de <span class="title_key_word"><%= @post.autor %></span></span>
-
-  <%= render "layouts/comment", comments: [@post] %> 
+<div class="title_container">
+  <h1 class="title">Respuestas al comentario de <span class="title_key_word"><%= @post.autor %></span></h1>
 </div>
-
-<div style="margin-left: 100px; margin-top: 30px">
+<div class="resposnses_original_comment_wrapper">
+  <div class="responses_original_comment">
+    <%= render "layouts/comment", comments: [@post] %>
+  </div>
+</div>
+<div>
   <%= render "layouts/comment", comments: @post.responses %>
 </div>
