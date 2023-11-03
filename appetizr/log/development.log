@@ -35023,3 +35023,932 @@ Processing by PostResponsesController#index as HTML
 Completed 200 OK in 273ms (Views: 21.3ms | ActiveRecord: 225.3ms | Allocations: 20129)
 
 
+Started GET "/categories/chino" for 127.0.0.1 at 2023-11-03 21:01:37 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (25.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (25.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (24.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "chino"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  [1m[36mActiveStorage::Attachment Load (25.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 16], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_comment.html.erb:15
+  [1m[36mReaction Load (24.5ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 16], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 16], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.4ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 16], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mActiveStorage::Attachment Load (25.3ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 17], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_comment.html.erb:15
+  [1m[36mReaction Load (24.7ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 17], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 17], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.6ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 17], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mActiveStorage::Attachment Load (25.7ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 18], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_comment.html.erb:15
+  [1m[36mReaction Load (25.5ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 18], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 18], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.3ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 18], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mActiveStorage::Attachment Load (25.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 19], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_comment.html.erb:15
+  [1m[36mReaction Load (24.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 19], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (24.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 19], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (23.8ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 19], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mActiveStorage::Attachment Load (24.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 20], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_comment.html.erb:15
+  [1m[36mReaction Load (24.5ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 20], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 20], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (24.8ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 20], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mActiveStorage::Attachment Load (26.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 21], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_comment.html.erb:15
+  [1m[36mReaction Load (25.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 21], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 21], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.4ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 21], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mActiveStorage::Attachment Load (25.4ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 22], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_comment.html.erb:15
+  [1m[36mReaction Load (24.5ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 22], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (24.8ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 22], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.4ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 22], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mActiveStorage::Attachment Load (25.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 25], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_comment.html.erb:15
+  [1m[36mReaction Load (25.3ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 25], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.3ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 25], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (24.6ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 25], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mActiveStorage::Attachment Load (25.9ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 26], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_comment.html.erb:15
+  [1m[36mReaction Load (24.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 26], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.6ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 26], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (24.6ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 26], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  Rendered layouts/_comment.html.erb (Duration: 1483.1ms | Allocations: 138432)
+  Rendered categories/show.html.erb within layouts/application (Duration: 1527.9ms | Allocations: 148179)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1255)
+  [1m[36mUser Load (25.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 92.8ms | Allocations: 12583)
+  Rendered layout layouts/application.html.erb (Duration: 1636.0ms | Allocations: 181709)
+Completed 200 OK in 1791ms (Views: 429.0ms | ActiveRecord: 1311.8ms | Allocations: 199698)
+
+
+Started GET "/categories/chino" for 127.0.0.1 at 2023-11-03 21:02:54 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (25.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (24.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "chino"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 16], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 16], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.3ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 16], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 17], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 17], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.3ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 17], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (24.5ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 18], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (24.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 18], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.1ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 18], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (24.7ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 19], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 19], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (24.6ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 19], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  Rendered layouts/_comment.html.erb (Duration: 488.1ms | Allocations: 26299)
+  Rendered categories/show.html.erb within layouts/application (Duration: 528.6ms | Allocations: 32858)
+  Rendered layout layouts/application.html.erb (Duration: 528.8ms | Allocations: 32951)
+Completed 500 Internal Server Error in 638ms (ActiveRecord: 555.1ms | Allocations: 37017)
+
+
+  
+ActionView::Template::Error (no implicit conversion of nil into String):
+    12:         <%= image_tag "Feather_more-vertical", class: "three_dots" %>
+    13:       </div>
+    14:       <div class="comment_content"><%= comment.contenido %></div>
+    15:       <%= image_tag "/assets/images/" + comment.ruta_img if comment.ruta_img != "" %>
+    16:       <div class="comment_actions_row">
+    17:         <div class="comment_action_item">
+    18:           <%= image_tag "Like", style: "transform: rotate(-180deg)" %>
+  
+app/views/layouts/_comment.html.erb:15:in `+'
+app/views/layouts/_comment.html.erb:15
+app/views/layouts/_comment.html.erb:2
+app/views/categories/show.html.erb:4
+Started GET "/categories/chino" for 127.0.0.1 at 2023-11-03 21:03:52 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (26.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (25.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "chino"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 16], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 16], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.0ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 16], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 17], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.3ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 17], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.1ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 17], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 18], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 18], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (24.7ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 18], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 19], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.3ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 19], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.1ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 19], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 20], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 20], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.3ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 20], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 21], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 21], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (24.8ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 21], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 22], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 22], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.1ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 22], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 25], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (24.8ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 25], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.2ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 25], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 26], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 26], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.1ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 26], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  Rendered layouts/_comment.html.erb (Duration: 871.5ms | Allocations: 38989)
+  Rendered categories/show.html.erb within layouts/application (Duration: 909.8ms | Allocations: 45599)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 1204)
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 60.9ms | Allocations: 9368)
+  Rendered layout layouts/application.html.erb (Duration: 980.3ms | Allocations: 74465)
+Completed 200 OK in 1092ms (Views: 72.3ms | ActiveRecord: 987.0ms | Allocations: 78572)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images/66f6538d18baa6f3d099.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images/66f6538d18baa6f3d099.png"):
+  
+Started GET "/categories/chino" for 127.0.0.1 at 2023-11-03 21:04:21 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (26.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (25.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "chino"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  [1m[36mReaction Load (25.8ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 16], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 16], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (24.9ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 16], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.3ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 17], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.5ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 17], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.5ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 17], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 18], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (24.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 18], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.1ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 18], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.3ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 19], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.3ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 19], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.1ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 19], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (24.9ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 20], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 20], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.4ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 20], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.3ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 21], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 21], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.6ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 21], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 22], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.5ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 22], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.4ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 22], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (24.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 25], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (24.6ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 25], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (24.4ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 25], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 26], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 26], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (24.3ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 26], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  Rendered layouts/_comment.html.erb (Duration: 736.9ms | Allocations: 27231)
+  Rendered categories/show.html.erb within layouts/application (Duration: 737.3ms | Allocations: 27370)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 945)
+  [1m[36mUser Load (25.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.2ms | Allocations: 2709)
+  Rendered layout layouts/application.html.erb (Duration: 767.6ms | Allocations: 34810)
+Completed 200 OK in 796ms (Views: 39.1ms | ActiveRecord: 755.4ms | Allocations: 35468)
+
+
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images/66f6538d18baa6f3d099.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/assets/images"):
+  
+Started GET "/categories/chino" for 127.0.0.1 at 2023-11-03 21:06:10 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (26.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (24.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "chino"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 16], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (24.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 16], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (24.2ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 16], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 17], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 17], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.3ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 17], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 18], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (24.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 18], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.2ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 18], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 19], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 19], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.0ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 19], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (24.3ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 20], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 20], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.2ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 20], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (24.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 21], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 21], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.1ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 21], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.5ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 22], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 22], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.0ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 22], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (23.8ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 25], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.6ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 25], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.0ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 25], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 26], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 26], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (24.1ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 26], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  Rendered layouts/_comment.html.erb (Duration: 874.6ms | Allocations: 38986)
+  Rendered categories/show.html.erb within layouts/application (Duration: 914.3ms | Allocations: 45600)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 1204)
+  [1m[36mUser Load (24.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 61.0ms | Allocations: 9367)
+  Rendered layout layouts/application.html.erb (Duration: 986.8ms | Allocations: 74473)
+Completed 200 OK in 1094ms (Views: 84.0ms | ActiveRecord: 981.3ms | Allocations: 78594)
+
+
+Started GET "/app/assets/images/" for 127.0.0.1 at 2023-11-03 21:06:11 +0100
+Started GET "/app/assets/images/66f6538d18baa6f3d099.png" for 127.0.0.1 at 2023-11-03 21:06:11 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/images/66f6538d18baa6f3d099.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/images"):
+  
+Started GET "/app/assets/images/" for 127.0.0.1 at 2023-11-03 21:06:11 +0100
+Started GET "/app/assets/images/" for 127.0.0.1 at 2023-11-03 21:06:11 +0100
+Started GET "/app/assets/images/" for 127.0.0.1 at 2023-11-03 21:06:11 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/images"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/images"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/images"):
+  
+Started GET "/categories/chino" for 127.0.0.1 at 2023-11-03 21:07:38 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (26.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (24.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "chino"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  [1m[36mReaction Load (24.9ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 16], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 16], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.4ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 16], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.3ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 17], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 17], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.1ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 17], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (24.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 18], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.3ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 18], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.3ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 18], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 19], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (24.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 19], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.2ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 19], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 20], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (24.7ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 20], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.4ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 20], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (23.6ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 21], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (24.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 21], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (24.2ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 21], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (24.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 22], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (24.7ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 22], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (24.2ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 22], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (24.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 25], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (24.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 25], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (24.0ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 25], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (24.5ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 26], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (24.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 26], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (24.2ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 26], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  Rendered layouts/_comment.html.erb (Duration: 860.2ms | Allocations: 38898)
+  Rendered categories/show.html.erb within layouts/application (Duration: 899.3ms | Allocations: 45510)
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 1207)
+  [1m[36mUser Load (24.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 60.9ms | Allocations: 9402)
+  Rendered layout layouts/application.html.erb (Duration: 973.9ms | Allocations: 74487)
+Completed 200 OK in 1084ms (Views: 80.5ms | ActiveRecord: 971.9ms | Allocations: 78592)
+
+
+Started GET "/app/assets/images/" for 127.0.0.1 at 2023-11-03 21:07:40 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/images"):
+  
+Started GET "/categories/chino" for 127.0.0.1 at 2023-11-03 21:08:07 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (26.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (25.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "chino"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 16], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 16], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.5ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 16], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (24.5ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 17], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 17], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (24.4ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 17], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (24.9ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 18], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.3ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 18], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.1ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 18], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 19], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 19], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (24.9ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 19], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.3ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 20], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (24.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 20], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.3ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 20], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (24.7ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 21], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.3ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 21], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.2ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 21], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (24.3ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 22], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (24.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 22], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.0ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 22], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 25], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 25], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (24.7ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 25], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 26], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (24.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 26], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (24.0ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 26], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  Rendered layouts/_comment.html.erb (Duration: 873.7ms | Allocations: 38893)
+  Rendered categories/show.html.erb within layouts/application (Duration: 914.4ms | Allocations: 45564)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 1204)
+  [1m[36mUser Load (24.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 61.6ms | Allocations: 9367)
+  Rendered layout layouts/application.html.erb (Duration: 987.2ms | Allocations: 74429)
+Completed 200 OK in 1097ms (Views: 86.7ms | ActiveRecord: 979.1ms | Allocations: 78550)
+
+
+Started GET "/app/assets/images/" for 127.0.0.1 at 2023-11-03 21:08:08 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/images"):
+  
+Started GET "/app/assets/images/" for 127.0.0.1 at 2023-11-03 21:08:08 +0100
+Started GET "/app/assets/images/" for 127.0.0.1 at 2023-11-03 21:08:08 +0100
+Started GET "/app/assets/images/66f6538d18baa6f3d099.png" for 127.0.0.1 at 2023-11-03 21:08:08 +0100
+Started GET "/app/assets/images/" for 127.0.0.1 at 2023-11-03 21:08:08 +0100
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/images"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/images"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/images/66f6538d18baa6f3d099.png"):
+  
+  
+ActionController::RoutingError (No route matches [GET] "/app/assets/images"):
+  
+Started GET "/categories/chino" for 127.0.0.1 at 2023-11-03 21:09:44 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (26.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (24.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "chino"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 56.9ms | Allocations: 7537)
+  Rendered categories/show.html.erb within layouts/application (Duration: 96.3ms | Allocations: 14108)
+  Rendered layout layouts/application.html.erb (Duration: 96.5ms | Allocations: 14201)
+Completed 500 Internal Server Error in 206ms (ActiveRecord: 154.6ms | Allocations: 18285)
+
+
+  
+ActionView::Template::Error (The asset "" is not present in the asset pipeline.
+):
+    14:       <div class="comment_content"><%= comment.contenido %></div>
+    15:       <% if comment.ruta_img != nil %>
+    16:         
+    17:         <%= image_tag comment.ruta_img %>
+    18:       <% end %>
+    19:       <div class="comment_actions_row">
+    20:         <div class="comment_action_item">
+  
+app/views/layouts/_comment.html.erb:17
+app/views/layouts/_comment.html.erb:2
+app/views/categories/show.html.erb:4
+Started GET "/categories/chino" for 127.0.0.1 at 2023-11-03 21:10:03 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (26.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  Rendered layouts/_comment.html.erb (Duration: 0.6ms | Allocations: 1444)
+  Rendered categories/show.html.erb within layouts/application (Duration: 42.6ms | Allocations: 8098)
+  Rendered layout layouts/application.html.erb (Duration: 42.8ms | Allocations: 8205)
+Completed 500 Internal Server Error in 154ms (ActiveRecord: 105.6ms | Allocations: 12339)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <ul>
+  <% comments.each do |comment| %>
+    <li class="comment_style">
+      <div class="comment_head">
+        <div class="comment_head_left_wrapper">
+          <img style="width: 40px; height: 40px" src="https://via.placeholder.com/40x40" />
+          <div class="comment_head_author_and_tstamp">
+            <div class="comment_author"><%= comment.autor %></div>
+            <div class="comment_tstamp"><%= time_ago_in_words(comment.updated_at) %> ago </div>
+          </div>
+        </div>
+        <%= image_tag "Feather_more-vertical", class: "three_dots" %>
+      </div>
+      <div class="comment_content"><%= comment.contenido %></div>
+      <%= if comment.ruta_img != nil %>
+        
+        <%= image_tag comment.ruta_img %>
+      <% end %>
+      <div class="comment_actions_row">
+        <div class="comment_action_item">
+          <%= image_tag "Like", style: "transform: rotate(-180deg)" %>
+          <span><%= get_number_of_likes(comment) %></span>
+        </div>
+        <div class="comment_action_item">
+          <%= image_tag "Like" %>
+          <span><%= get_number_of_dislikes(comment) %></span> 
+        </div>
+        <% if is_not_response(comment) %>
+          <div class="comment_action_item">
+            <%= link_to image_tag("Message-square"), get_response_path(comment) %>
+            <span><%= get_number_of_responses(comment) %></span>
+          </div>
+        <% end %>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+):
+1:    <ul>
+2:      <% comments.each do |comment| %>
+3:        <li class="comment_style">
+4:          <div class="comment_head">
+5:            <div class="comment_head_left_wrapper">
+6:              <img style="width: 40px; height: 40px" src="https://via.placeholder.com/40x40" />
+7:              <div class="comment_head_author_and_tstamp">
+8:                <div class="comment_author"><%= comment.autor %></div>
+9:                <div class="comment_tstamp"><%= time_ago_in_words(comment.updated_at) %> ago </div>
+10:              </div>
+11:            </div>
+12:            <%= image_tag "Feather_more-vertical", class: "three_dots" %>
+13:          </div>
+14:          <div class="comment_content"><%= comment.contenido %></div>
+15:          <%= if comment.ruta_img != nil %>
+16:            
+17:            <%= image_tag comment.ruta_img %>
+18:          <% end %>
+19:          <div class="comment_actions_row">
+20:            <div class="comment_action_item">
+21:              <%= image_tag "Like", style: "transform: rotate(-180deg)" %>
+22:              <span><%= get_number_of_likes(comment) %></span>
+23:            </div>
+24:            <div class="comment_action_item">
+25:              <%= image_tag "Like" %>
+26:              <span><%= get_number_of_dislikes(comment) %></span> 
+27:            </div>
+28:            <% if is_not_response(comment) %>
+29:              <div class="comment_action_item">
+30:                <%= link_to image_tag("Message-square"), get_response_path(comment) %>
+31:                <span><%= get_number_of_responses(comment) %></span>
+32:              </div>
+33:            <% end %>
+34:          </div>
+35:        </li>
+36:      <% end %>
+37:    </ul>
+  
+app/views/layouts/_comment.html.erb:15: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/layouts/_comment.html.erb:36: syntax error, unexpected `end', expecting ')'
+app/views/layouts/_comment.html.erb:40: syntax error, unexpected `end', expecting ')'
+app/views/categories/show.html.erb:4
+Started GET "/categories/chino" for 127.0.0.1 at 2023-11-03 21:10:34 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (25.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  Rendered layouts/_comment.html.erb (Duration: 1.0ms | Allocations: 1420)
+  Rendered categories/show.html.erb within layouts/application (Duration: 44.2ms | Allocations: 8013)
+  Rendered layout layouts/application.html.erb (Duration: 44.3ms | Allocations: 8120)
+Completed 500 Internal Server Error in 152ms (ActiveRecord: 103.9ms | Allocations: 12252)
+
+
+  
+ActionView::SyntaxErrorInTemplate (Encountered a syntax error while rendering template: check <ul>
+  <% comments.each do |comment| %>
+    <li class="comment_style">
+      <div class="comment_head">
+        <div class="comment_head_left_wrapper">
+          <img style="width: 40px; height: 40px" src="https://via.placeholder.com/40x40" />
+          <div class="comment_head_author_and_tstamp">
+            <div class="comment_author"><%= comment.autor %></div>
+            <div class="comment_tstamp"><%= time_ago_in_words(comment.updated_at) %> ago </div>
+          </div>
+        </div>
+        <%= image_tag "Feather_more-vertical", class: "three_dots" %>
+      </div>
+      <div class="comment_content"><%= comment.contenido %></div>
+      <%= if comment.ruta_img != nil %>
+        <%= image_tag comment.ruta_img %>
+      <% end %>
+      <div class="comment_actions_row">
+        <div class="comment_action_item">
+          <%= image_tag "Like", style: "transform: rotate(-180deg)" %>
+          <span><%= get_number_of_likes(comment) %></span>
+        </div>
+        <div class="comment_action_item">
+          <%= image_tag "Like" %>
+          <span><%= get_number_of_dislikes(comment) %></span> 
+        </div>
+        <% if is_not_response(comment) %>
+          <div class="comment_action_item">
+            <%= link_to image_tag("Message-square"), get_response_path(comment) %>
+            <span><%= get_number_of_responses(comment) %></span>
+          </div>
+        <% end %>
+      </div>
+    </li>
+  <% end %>
+</ul>
+
+):
+1:    <ul>
+2:      <% comments.each do |comment| %>
+3:        <li class="comment_style">
+4:          <div class="comment_head">
+5:            <div class="comment_head_left_wrapper">
+6:              <img style="width: 40px; height: 40px" src="https://via.placeholder.com/40x40" />
+7:              <div class="comment_head_author_and_tstamp">
+8:                <div class="comment_author"><%= comment.autor %></div>
+9:                <div class="comment_tstamp"><%= time_ago_in_words(comment.updated_at) %> ago </div>
+10:              </div>
+11:            </div>
+12:            <%= image_tag "Feather_more-vertical", class: "three_dots" %>
+13:          </div>
+14:          <div class="comment_content"><%= comment.contenido %></div>
+15:          <%= if comment.ruta_img != nil %>
+16:            <%= image_tag comment.ruta_img %>
+17:          <% end %>
+18:          <div class="comment_actions_row">
+19:            <div class="comment_action_item">
+20:              <%= image_tag "Like", style: "transform: rotate(-180deg)" %>
+21:              <span><%= get_number_of_likes(comment) %></span>
+22:            </div>
+23:            <div class="comment_action_item">
+24:              <%= image_tag "Like" %>
+25:              <span><%= get_number_of_dislikes(comment) %></span> 
+26:            </div>
+27:            <% if is_not_response(comment) %>
+28:              <div class="comment_action_item">
+29:                <%= link_to image_tag("Message-square"), get_response_path(comment) %>
+30:                <span><%= get_number_of_responses(comment) %></span>
+31:              </div>
+32:            <% end %>
+33:          </div>
+34:        </li>
+35:      <% end %>
+36:    </ul>
+  
+app/views/layouts/_comment.html.erb:15: syntax error, unexpected ')', expecting `then' or ';' or '\n'
+app/views/layouts/_comment.html.erb:35: syntax error, unexpected `end', expecting ')'
+app/views/layouts/_comment.html.erb:39: syntax error, unexpected `end', expecting ')'
+app/views/categories/show.html.erb:4
+Started GET "/categories/chino" for 127.0.0.1 at 2023-11-03 21:10:56 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (25.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (23.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "chino"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 54.6ms | Allocations: 7440)
+  Rendered categories/show.html.erb within layouts/application (Duration: 94.5ms | Allocations: 14068)
+  Rendered layout layouts/application.html.erb (Duration: 94.7ms | Allocations: 14161)
+Completed 500 Internal Server Error in 204ms (ActiveRecord: 152.5ms | Allocations: 18247)
+
+
+  
+ActionView::Template::Error (The asset "" is not present in the asset pipeline.
+):
+    13:       </div>
+    14:       <div class="comment_content"><%= comment.contenido %></div>
+    15:       <% if comment.ruta_img != "" %>
+    16:         <%= image_tag comment.ruta_img %>
+    17:       <% end %>
+    18:       <div class="comment_actions_row">
+    19:         <div class="comment_action_item">
+  
+app/views/layouts/_comment.html.erb:16
+app/views/layouts/_comment.html.erb:2
+app/views/categories/show.html.erb:4
+Started GET "/categories/chino" for 127.0.0.1 at 2023-11-03 21:12:29 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (25.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (25.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "chino"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 58.5ms | Allocations: 7436)
+  Rendered categories/show.html.erb within layouts/application (Duration: 96.5ms | Allocations: 14003)
+  Rendered layout layouts/application.html.erb (Duration: 96.7ms | Allocations: 14096)
+Completed 500 Internal Server Error in 206ms (ActiveRecord: 152.7ms | Allocations: 18184)
+
+
+  
+ActionView::Template::Error (The asset "" is not present in the asset pipeline.
+):
+    13:       </div>
+    14:       <div class="comment_content"><%= comment.contenido %></div>
+    15:       <% if comment.ruta_img.present? %>
+    16:         <%= image_tag comment.ruta_img %>
+    17:       <% end %>
+    18:       <div class="comment_actions_row">
+    19:         <div class="comment_action_item">
+  
+app/views/layouts/_comment.html.erb:16
+app/views/layouts/_comment.html.erb:2
+app/views/categories/show.html.erb:4
+Started GET "/categories/chino" for 127.0.0.1 at 2023-11-03 21:15:58 +0100
+Processing by CategoriesController#show as HTML
+  Parameters: {"nombre"=>"chino"}
+  [1m[36mCategory Load (26.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "chino"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (25.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "chino"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 20], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 20], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.0ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 20], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 21], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 21], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.4ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 21], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 22], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 22], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (24.3ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 22], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 25], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 25], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.5ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 25], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 16], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 16], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.4ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 16], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (24.6ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 17], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 17], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.4ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 17], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 18], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (22.7ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 18], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.1ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 18], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 19], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:23:in `get_number_of_likes'
+  [1m[36mReaction Load (24.9ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 19], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:27:in `get_number_of_dislikes'
+  [1m[36mResponse Load (25.2ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 19], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:19:in `get_number_of_responses'
+  Rendered layouts/_comment.html.erb (Duration: 790.9ms | Allocations: 45815)
+  Rendered categories/show.html.erb within layouts/application (Duration: 791.3ms | Allocations: 45956)
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 1204)
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 60.5ms | Allocations: 9456)
+  Rendered layout layouts/application.html.erb (Duration: 862.6ms | Allocations: 74883)
+Completed 200 OK in 890ms (Views: 84.3ms | ActiveRecord: 804.8ms | Allocations: 75540)
+
+

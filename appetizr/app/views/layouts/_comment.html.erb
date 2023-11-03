@@ -12,7 +12,9 @@
         <%= image_tag "Feather_more-vertical", class: "three_dots" %>
       </div>
       <div class="comment_content"><%= comment.contenido %></div>
-      <%= image_tag comment.image if comment.image.attached? %>
+      <% if comment.ruta_img.present? %>
+        <%= image_tag comment.ruta_img %>
+      <% end %>
       <div class="comment_actions_row">
         <div class="comment_action_item">
           <%= image_tag "Like", style: "transform: rotate(-180deg)" %>
