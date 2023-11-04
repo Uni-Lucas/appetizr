@@ -249,7 +249,7 @@ html,body{
 }
 
 .comment_image {
-  height: 50px;
+  height: 80px;
   object-fit: contain;
   margin-left: 50px;
   object-position: left;
@@ -311,7 +311,8 @@ html,body{
   line-height: 25px;
   letter-spacing: 0.80px;
   word-wrap: break-word;
-  overflow: auto; 
+  overflow: auto;
+  margin-left: 50px;
 }
 
 .comment_actions_row {
@@ -332,16 +333,50 @@ html,body{
 }
 
 .comment_action_logo {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
 }
 
+.add_comment_container {
+  grid-template-rows: min-content auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+  width: 1000px;
+  gap: 20px;
+  background-color: white;
+  border-radius: 30px;
+  padding-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+.add_comment_text {
+  color: var(--light-black);
+  font-family: var(--letra);
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal; 
+}
 
 /* -------------------------------------- */
 /* RESPONSES */
 /* -------------------------------------- */
 
-.resposnses_original_comment_wrapper {
+.responses_container {
+  display: grid;
+  grid-template-rows: 107px 1fr auto;
+  height: 100%;
+}
+
+.responses_main_container {
+  overflow: auto;
+}
+
+.responses_original_comment_wrapper {
   display: flex;
   justify-content: center;
 }
@@ -349,6 +384,13 @@ html,body{
 .responses_original_comment {
   display: block;
   margin-left: -100px;
+  margin-top: 40px;
+}
+
+.responses_list {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
 }
 
 

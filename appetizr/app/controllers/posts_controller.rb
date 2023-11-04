@@ -22,21 +22,6 @@ class PostsController < ApplicationController
 
   private
   def post_params
-    params.require(:post).permit(:categoria, :autor, :contenido, :image)
-  end
-
-  def subir_imagen(imagen)
-    begin
-      nombre_imagen = SecureRandom.hex(10) + File.extname(imagen.original_filename)
-      ruta = File.join("app", "assets", "images", nombre_imagen)
-      File.open(ruta, "wb") do |f| 
-         f.write(imagen.read)
-      end
-      nombre_imagen
-    
-    rescue => e
-      Rails.logger.error "Error al subir la imagen: #{e.message}"
-      nil
-    end
+    params.require(:post).permit(:categoria, :autor, :contenido, :ruta_img)
   end
 end
