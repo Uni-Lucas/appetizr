@@ -34,4 +34,21 @@ module ApplicationHelper
     def get_number_of_dislikes(comment)
       comment.reactions.where(reaccion: "Dislike").length()
     end
+
+    def define_turbo_method(comment)
+      if comment.reactions.find_by(who: session[:username])
+        return :put
+      else
+        return :post
+      end
+    end
+
+    def reaction_action_path(locals)
+      reaction = {reaccion: locals[:button], reactionable_type: get_comment_type(locals[:comment]), reactionable_id: locals[:comment].id}
+      if locals[:comment].reactions.find_by(who: session[:username])
+        return reaction_path(reaction: reaction)
+      else
+        return reactions_path(reaction: reaction)
+      end
+    end
 end

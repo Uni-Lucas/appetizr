@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_04_091845) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_04_142233) do
   create_schema "tiger"
   create_schema "tiger_data"
   create_schema "topology"
@@ -136,12 +136,13 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_04_091845) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "reactions", id: false, force: :cascade do |t|
+  create_table "reactions", force: :cascade do |t|
     t.string "who"
     t.string "reactionable_type"
     t.bigint "reactionable_id"
     t.string "reaccion"
     t.index ["reactionable_type", "reactionable_id"], name: "index_reactions_on_reactionable"
+    t.index ["who", "reactionable_id", "reactionable_type"], name: "idx_on_who_reactionable_id_reactionable_type_f0ee917128", unique: true
   end
 
   create_table "responses", force: :cascade do |t|
