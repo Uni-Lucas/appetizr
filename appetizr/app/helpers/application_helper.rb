@@ -44,11 +44,12 @@ module ApplicationHelper
     end
 
     def reaction_action_path(locals)
-      reaction = {reaccion: locals[:button], reactionable_type: get_comment_type(locals[:comment]), reactionable_id: locals[:comment].id}
-      if locals[:comment].reactions.find_by(who: session[:username])
-        return reaction_path(reaction: reaction)
+      new_reaction = {reaccion: locals[:button], reactionable_type: get_comment_type(locals[:comment]), reactionable_id: locals[:comment].id}
+      reaction = locals[:comment].reactions.find_by(who: session[:username])
+      if reaction 
+        return reaction_path(id: reaction.id, reaction: new_reaction)
       else
-        return reactions_path(reaction: reaction)
+        return reactions_path(reaction: new_reaction)
       end
     end
 end

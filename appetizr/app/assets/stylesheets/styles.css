@@ -217,7 +217,11 @@ html,body{
   display: flex;
   justify-content: center;
   margin-top: 40px;
+  overflow: auto;
 }
+
+
+
 
 
 /* -------------------------------------- */
@@ -249,7 +253,7 @@ html,body{
 }
 
 .comment_image {
-  height: 50px;
+  height: 80px;
   object-fit: contain;
   margin-left: 50px;
   object-position: left;
@@ -311,7 +315,8 @@ html,body{
   line-height: 25px;
   letter-spacing: 0.80px;
   word-wrap: break-word;
-  overflow: auto; 
+  overflow: auto;
+  margin-left: 50px;
 }
 
 .comment_actions_row {
@@ -332,16 +337,156 @@ html,body{
 }
 
 .comment_action_logo {
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
 }
 
+.add_comment_container {
+  grid-template-rows: min-content auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 50px;
+  width: 1000px;
+  gap: 20px;
+  background-color: white;
+  border-radius: 30px;
+  padding-left: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+
+.add_comment_text {
+  color: var(--light-black);
+  font-family: var(--letra);
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal; 
+}
+
+/* -------------------------------------- */
+/* POSTS */
+/* -------------------------------------- */
+
+.posts_container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  height: 100%;
+}
+
+.new_post_container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  overflow: auto;
+  gap: 20px;
+  background-color: white;
+  height: 410px;
+  margin: 40px 40px;
+  padding: 40px;
+  box-shadow: 2px 1px 5px 0px rgba(0, 0, 0, 0.15);
+}
+
+.new_post_text_field {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 2px solid lightgrey; 
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.80px;
+  word-wrap: break-word;
+  padding: 10px;
+  outline: none;
+  resize: none;
+}
+
+.new_post_text_field:focus {
+  border: solid var(--strong-gold) 2px;
+}
+
+.new_post_buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.new_post_image_upload_button {
+  display: flex;
+  height: 30px;
+  padding: 12px 20px;
+  align-items: center;
+  gap: 12px;
+  border-radius: 5px;
+  background-color: var(--light-black);
+}
+
+.new_post_image_upload_button > input[type="file"] {
+  display: none;
+}
+
+.new_post_image_upload_icon {
+  width: 15px;
+  height: 15px;
+}
+
+.new_post_image_upload_text {
+  color: var(--white);
+  font-family: var(--letra);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  letter-spacing: 0.24px;
+}
+
+.new_post_submit {
+  display: flex;
+  height: 30px;
+  padding: 25px 20px;
+  align-items: center;
+  gap: 12px; 
+  border-radius: 5px;
+  background: var(--strong-gold);
+}
+
+
+.new_post_submit_icon {
+  width: 15px;
+  height: 15px; 
+}
+
+.new_post_submit_text {
+  color: var(--white);
+  font-family: var(--letra);
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: normal;
+  letter-spacing: 0.24px; 
+}
 
 /* -------------------------------------- */
 /* RESPONSES */
 /* -------------------------------------- */
 
-.resposnses_original_comment_wrapper {
+.responses_container {
+  display: grid;
+  grid-template-rows: 107px 1fr auto;
+  height: 100%;
+}
+
+.responses_main_container {
+  overflow: auto;
+}
+
+.responses_original_comment_wrapper {
   display: flex;
   justify-content: center;
 }
@@ -349,6 +494,13 @@ html,body{
 .responses_original_comment {
   display: block;
   margin-left: -100px;
+  margin-top: 40px;
+}
+
+.responses_list {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0;
 }
 
 
@@ -550,14 +702,12 @@ html,body{
   column-gap: 60px;
 }
 
-
 .restaurant_info_item {
   display: flex;
   flex-direction: column;
   color: var(--white);
   font-family: var(--letra);
   font-size: 20px;
-
 }
 
 .restaurant_info_subtitle {
