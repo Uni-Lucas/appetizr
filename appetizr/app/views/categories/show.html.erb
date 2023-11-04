@@ -1,9 +1,11 @@
-<div class="title_container">
-  <h1 class="title"><span class="title_key_word"><%= @category.nombre %></span> en Zaragoza</h1>
-</div>
-<div class="category_post_list">
-  <%= render "layouts/comment", comments: @category.posts%>
-</div>
-<div>
-  <%= link_to "Crear Post", new_post_path(category: @category.nombre) %>
+<div class="posts_container">
+  <div class="title_container">
+    <h1 class="title"><span class="title_key_word"><%= @category.nombre %></span> en Zaragoza</h1>
+  </div>
+  <div class="category_post_list">
+    <%= render "layouts/comment", comments: @category.posts%>
+  </div>
+  <%= link_to new_post_path(category: @category.nombre), style: "display: flex; justify-content: center; text-decoration: none;" do %>
+    <%= render "layouts/add_comment" %>
+  <% end %>
 </div>
