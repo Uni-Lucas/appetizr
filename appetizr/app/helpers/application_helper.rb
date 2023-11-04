@@ -15,6 +15,14 @@ module ApplicationHelper
       end
     end
 
+    def get_comment_type(comment)
+      if comment.is_a?(Review)
+        return "Review"
+      else
+        return "Post"
+      end
+    end
+
     def get_number_of_responses(comment)
       comment.responses.length()
     end

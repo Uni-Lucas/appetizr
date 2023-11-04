@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_10_31_171120) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_04_091845) do
   create_schema "tiger"
   create_schema "tiger_data"
   create_schema "topology"
@@ -113,7 +113,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_31_171120) do
   create_table "dishes", force: :cascade do |t|
     t.bigint "restaurant_id"
     t.string "nombre"
-    t.string "rutaImgPlato"
+    t.string "ruta_img_plato"
     t.text "descripcion"
     t.float "precio"
     t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
@@ -149,7 +149,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_31_171120) do
     t.string "respondable_type"
     t.bigint "respondable_id"
     t.text "contenido"
-    t.string "rutaImg"
+    t.string "ruta_img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["respondable_type", "respondable_id"], name: "index_responses_on_respondable"
@@ -158,8 +158,8 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_31_171120) do
   create_table "restaurants", force: :cascade do |t|
     t.string "categoria"
     t.string "nombre"
-    t.string "rutaImgPerfil"
-    t.string "rutaImgFondo"
+    t.string "ruta_img_perfil"
+    t.string "ruta_img_fondo"
     t.string "direccion"
     t.string "telefono"
     t.string "horario"
@@ -177,7 +177,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_31_171120) do
     t.string "reviewable_type"
     t.bigint "reviewable_id"
     t.text "contenido"
-    t.string "rutaImg"
+    t.string "ruta_img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["reviewable_type", "reviewable_id"], name: "index_reviews_on_reviewable"
@@ -192,7 +192,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_10_31_171120) do
   end
 
   create_table "users", primary_key: "nombre", id: :string, force: :cascade do |t|
-    t.string "rutaImgPerfil"
+    t.string "ruta_img_perfil"
     t.boolean "esAdmin"
     t.string "password_digest"
     t.index ["nombre"], name: "index_users_on_nombre", unique: true

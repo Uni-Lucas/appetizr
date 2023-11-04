@@ -12,13 +12,24 @@
         <%= image_tag "Feather_more-vertical", class: "three_dots" %>
       </div>
       <div class="comment_content"><%= comment.contenido %></div>
-      <% if comment.ruta_img.present? %>
-        <%= image_tag comment.ruta_img, class: "comment_image" %>
+      <% if comment.image.attached? %>
+        <%= image_tag comment.image, class: "comment_image" %>
       <% end %>
       <div class="comment_actions_row">
         <div class="comment_action_item">
-          <%= image_tag "Like", style: "transform: rotate(-180deg)", class: "comment_action_logo" %>
-          <span><%= get_number_of_likes(comment) %></span>
+          <%= render "reaction", display: "Like" %>
+          <%= link_to reactions_path(reaction: {reaccion: "Like", reactionable_type: get_comment_type(comment), reactionable_id: comment.id}), data: { turbo_method: :post } do %>
+            <%= image_tag "Like", style: "transform: rotate(-180deg)", class: "comment_action_logo" %>
+          <% end %>
+            <!--
+          <% form_with method: :post,  url: reactions_path do |form| %> 
+            <%= form.hidden_field :reactionable_id, value: comment.id %>
+            <%= form.hidden_field :reactionalbe_type, value: get_comment_type(comment) %> 
+            <%= form.hidden_field :reaccion, value: "Like" %> 
+            <%= image_submit_tag("Like", style: "transform: rotate(-180deg)", class: "comment_action_logo") %>
+          <% end %>
+            -->
+            <span><%= get_number_of_likes(comment) %></span>
         </div>
         <div class="comment_action_item">
           <%= image_tag "Like", class: "comment_action_logo" %>
