@@ -1,9 +1,18 @@
-
-<div class="title_container">
-  <span class="title">Respuestas al comentario de <span class="title_key_word"><%= @review.autor %></span></span>
-</div>
-<%= render "layouts/comment", comments: [@review] %> 
-
-<div>
-  <%= render "layouts/comment", comments: @review.responses %>
+<div class="responses_container">
+  <div class="title_container">
+    <h1 class="title">Respuestas al comentario de <span class="title_key_word"><%= @post.autor %></span></h1>
+  </div>
+  <div class="responses_main_container">
+    <div class="responses_original_comment_wrapper">
+      <div class="responses_original_comment">
+        <%= render "layouts/comment", comments: [@review] %>
+      </div>
+    </div>
+    <div class="responses_list">
+      <%= render "layouts/comment", comments: @review.responses %>
+    </div>
+  </div>
+  <div style="display: flex; justify-content: center">
+    <%= render "layouts/add_comment" %>
+  </div>
 </div>
