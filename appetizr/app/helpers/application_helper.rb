@@ -18,8 +18,10 @@ module ApplicationHelper
     def get_comment_type(comment)
       if comment.is_a?(Review)
         return "Review"
-      else
+      elsif comment.is_a?(Post)
         return "Post"
+      else
+        return "Response"
       end
     end
 

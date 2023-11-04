@@ -689,3 +689,198 @@ Processing by PostResponsesController#index as TURBO_STREAM
 Completed 200 OK in 608ms (Views: 66.5ms | ActiveRecord: 538.3ms | Allocations: 20428)
 
 
+Started GET "/posts/10/responses" for 127.0.0.1 at 2023-11-04 21:09:28 +0100
+Processing by PostResponsesController#index as HTML
+  Parameters: {"post_id"=>"10"}
+  [1m[36mPost Load (48.9ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/post_responses_controller.rb:20:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering post_responses/index.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (65.8ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 10], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_comment.html.erb:15
+  [1m[36mReaction Load (50.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 10], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:33:in `get_number_of_likes'
+  [1m[36mReaction Load (51.6ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 10], ["reactionable_type", "Post"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:50:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 10], ["reactionable_type", "Post"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:41:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 65.5ms | Allocations: 4348)
+  [1m[36mReaction Load (146.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 10], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:37:in `get_number_of_dislikes'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 10], ["reactionable_type", "Post"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:50:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 10], ["reactionable_type", "Post"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:41:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 5.4ms | Allocations: 1316)
+  [1m[36mResponse Load (48.1ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 10], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:29:in `get_number_of_responses'
+  Rendered layouts/_comment.html.erb (Duration: 780.8ms | Allocations: 23236)
+  [1m[36mActiveStorage::Attachment Load (50.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Response"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_comment.html.erb:15
+  [1m[36mReaction Load (52.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 1], ["reactionable_type", "Response"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:33:in `get_number_of_likes'
+  [1m[36mReaction Load (49.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 1], ["reactionable_type", "Response"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:50:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 1], ["reactionable_type", "Response"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:41:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 53.9ms | Allocations: 1373)
+  [1m[36mReaction Load (50.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 1], ["reactionable_type", "Response"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:37:in `get_number_of_dislikes'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 1], ["reactionable_type", "Response"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:50:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 1], ["reactionable_type", "Response"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:41:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 3.7ms | Allocations: 1261)
+  Rendered layouts/_comment.html.erb (Duration: 219.5ms | Allocations: 6025)
+  Rendered layouts/_add_comment.html.erb (Duration: 2.5ms | Allocations: 554)
+  Rendered post_responses/index.html.erb within layouts/application (Duration: 1005.2ms | Allocations: 30318)
+  Rendered layouts/_header.html.erb (Duration: 2.0ms | Allocations: 1227)
+  [1m[36mUser Load (48.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 114.4ms | Allocations: 9435)
+  Rendered layout layouts/application.html.erb (Duration: 1137.9ms | Allocations: 59334)
+Completed 200 OK in 1495ms (Views: 132.0ms | ActiveRecord: 1332.3ms | Allocations: 70301)
+
+
+Started POST "/reactions" for 127.0.0.1 at 2023-11-04 21:09:32 +0100
+Processing by ReactionsController#create as TURBO_STREAM
+  Parameters: {"reaction"=>{"reaccion"=>"Like", "reactionable_id"=>"1", "reactionable_type"=>"Response"}}
+  [1m[36mReaction Exists? (92.9ms)[0m  [1m[34mSELECT 1 AS one FROM "reactions" WHERE "reactions"."who" = $1 AND "reactions"."reactionable_id" = $2 AND "reactions"."reactionable_type" = $3 LIMIT $4[0m  [["who", "Atreides"], ["reactionable_id", 1], ["reactionable_type", "Response"], ["LIMIT", 1]]
+  ↳ app/controllers/reactions_controller.rb:6:in `create'
+  [1m[36mResponse Load (87.0ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/reactions_controller.rb:6:in `create'
+  [1m[36mCACHE Reaction Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reactions" WHERE "reactions"."who" = $1 AND "reactions"."reactionable_id" = $2 AND "reactions"."reactionable_type" = $3 LIMIT $4[0m  [["who", "Atreides"], ["reactionable_id", 1], ["reactionable_type", "Response"], ["LIMIT", 1]]
+  ↳ app/controllers/reactions_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (47.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/reactions_controller.rb:6:in `create'
+  [1m[36mReaction Create (104.6ms)[0m  [1m[32mINSERT INTO "reactions" ("who", "reactionable_type", "reactionable_id", "reaccion") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["who", "Atreides"], ["reactionable_type", "Response"], ["reactionable_id", 1], ["reaccion", "Like"]]
+  ↳ app/controllers/reactions_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (49.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/reactions_controller.rb:6:in `create'
+Redirected to http://localhost:3000/posts/10/responses
+Completed 302 Found in 394ms (ActiveRecord: 381.3ms | Allocations: 4712)
+
+
+Started GET "/posts/10/responses" for 127.0.0.1 at 2023-11-04 21:09:32 +0100
+Processing by PostResponsesController#index as TURBO_STREAM
+  Parameters: {"post_id"=>"10"}
+  [1m[36mPost Load (48.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/post_responses_controller.rb:20:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering post_responses/index.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (52.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 10], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_comment.html.erb:15
+  [1m[36mReaction Load (49.6ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 10], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:33:in `get_number_of_likes'
+  [1m[36mReaction Load (73.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 10], ["reactionable_type", "Post"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:50:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 10], ["reactionable_type", "Post"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:41:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 81.4ms | Allocations: 1822)
+  [1m[36mReaction Load (56.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 10], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:37:in `get_number_of_dislikes'
+  [1m[36mCACHE Reaction Load (0.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 10], ["reactionable_type", "Post"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:50:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 10], ["reactionable_type", "Post"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:41:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 8.5ms | Allocations: 1315)
+  [1m[36mResponse Load (67.9ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 10], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:29:in `get_number_of_responses'
+  Rendered layouts/_comment.html.erb (Duration: 328.3ms | Allocations: 6918)
+  [1m[36mActiveStorage::Attachment Load (48.5ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Response"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_comment.html.erb:15
+  [1m[36mReaction Load (46.6ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 1], ["reactionable_type", "Response"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:33:in `get_number_of_likes'
+  [1m[36mReaction Load (47.7ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 1], ["reactionable_type", "Response"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:50:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 1], ["reactionable_type", "Response"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:41:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 52.8ms | Allocations: 1427)
+  [1m[36mReaction Load (46.7ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 1], ["reactionable_type", "Response"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:37:in `get_number_of_dislikes'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 1], ["reactionable_type", "Response"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:50:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 1], ["reactionable_type", "Response"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:41:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 3.2ms | Allocations: 1315)
+  Rendered layouts/_comment.html.erb (Duration: 215.1ms | Allocations: 5087)
+  Rendered layouts/_add_comment.html.erb (Duration: 0.8ms | Allocations: 444)
+  Rendered post_responses/index.html.erb within layouts/application (Duration: 545.7ms | Allocations: 12687)
+  Rendered layouts/_header.html.erb (Duration: 3.2ms | Allocations: 969)
+  [1m[36mUser Load (48.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 53.3ms | Allocations: 2757)
+  Rendered layout layouts/application.html.erb (Duration: 608.8ms | Allocations: 20035)
+Completed 200 OK in 660ms (Views: 73.7ms | ActiveRecord: 584.3ms | Allocations: 20725)
+
+
+Started PUT "/reactions/4" for 127.0.0.1 at 2023-11-04 21:09:36 +0100
+Processing by ReactionsController#update as TURBO_STREAM
+  Parameters: {"reaction"=>{"reaccion"=>"Dislike", "reactionable_id"=>"1", "reactionable_type"=>"Response"}, "id"=>"4"}
+  [1m[36mReaction Load (48.3ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."who" = $1 AND "reactions"."reactionable_id" = $2 AND "reactions"."reactionable_type" = $3 LIMIT $4[0m  [["who", "Atreides"], ["reactionable_id", 1], ["reactionable_type", "Response"], ["LIMIT", 1]]
+  ↳ app/controllers/reactions_controller.rb:13:in `update'
+  [1m[36mReaction Load (52.7ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/reactions_controller.rb:14:in `update'
+  [1m[36mTRANSACTION (49.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/reactions_controller.rb:14:in `update'
+  [1m[36mReaction Update (48.9ms)[0m  [1m[33mUPDATE "reactions" SET "reaccion" = $1 WHERE "reactions"."id" = $2[0m  [["reaccion", "Dislike"], ["id", 4]]
+  ↳ app/controllers/reactions_controller.rb:14:in `update'
+  [1m[36mTRANSACTION (87.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/reactions_controller.rb:14:in `update'
+Redirected to http://localhost:3000/posts/10/responses
+Completed 302 Found in 589ms (ActiveRecord: 625.8ms | Allocations: 3938)
+
+
+Started GET "/posts/10/responses" for 127.0.0.1 at 2023-11-04 21:09:37 +0100
+Processing by PostResponsesController#index as TURBO_STREAM
+  Parameters: {"post_id"=>"10"}
+  [1m[36mPost Load (55.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/post_responses_controller.rb:20:in `index'
+  Rendering layout layouts/application.html.erb
+  Rendering post_responses/index.html.erb within layouts/application
+  [1m[36mActiveStorage::Attachment Load (49.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 10], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_comment.html.erb:15
+  [1m[36mReaction Load (53.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 10], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:33:in `get_number_of_likes'
+  [1m[36mReaction Load (55.8ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 10], ["reactionable_type", "Post"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:50:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 10], ["reactionable_type", "Post"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:41:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 63.2ms | Allocations: 1824)
+  [1m[36mReaction Load (46.8ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 10], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:37:in `get_number_of_dislikes'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 10], ["reactionable_type", "Post"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:50:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 10], ["reactionable_type", "Post"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:41:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 5.2ms | Allocations: 1315)
+  [1m[36mResponse Load (46.0ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 10], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:29:in `get_number_of_responses'
+  Rendered layouts/_comment.html.erb (Duration: 279.4ms | Allocations: 6925)
+  [1m[36mActiveStorage::Attachment Load (52.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Response"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/layouts/_comment.html.erb:15
+  [1m[36mReaction Load (60.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 1], ["reactionable_type", "Response"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:33:in `get_number_of_likes'
+  [1m[36mReaction Load (50.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 1], ["reactionable_type", "Response"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:50:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 1], ["reactionable_type", "Response"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:41:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 56.0ms | Allocations: 1425)
+  [1m[36mReaction Load (51.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 1], ["reactionable_type", "Response"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:37:in `get_number_of_dislikes'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 1], ["reactionable_type", "Response"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:50:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 1], ["reactionable_type", "Response"], ["who", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:41:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 4.1ms | Allocations: 1314)
+  Rendered layouts/_comment.html.erb (Duration: 237.5ms | Allocations: 5083)
+  Rendered layouts/_add_comment.html.erb (Duration: 1.9ms | Allocations: 444)
+  Rendered post_responses/index.html.erb within layouts/application (Duration: 521.8ms | Allocations: 12647)
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 957)
+  [1m[36mUser Load (53.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Atreides"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 60.1ms | Allocations: 2723)
+  Rendered layout layouts/application.html.erb (Duration: 590.4ms | Allocations: 19918)
+Completed 200 OK in 650ms (Views: 73.2ms | ActiveRecord: 574.0ms | Allocations: 20563)
+
+
