@@ -1,0 +1,33 @@
+<div class="posts_container">
+  <div class="title_container">
+    <h1 class="title">Escribe tu <span class="title_key_word"><%= locals[:tipo] %></span></h1>
+  </div>
+    <%= form_with model: locals[:comment] do |form| %>
+      <div class="new_post_container">
+        <% if get_comment_type(locals[:comment]) == "Response" %>
+          <%= form.hidden_field :respondable_id %>
+          <%= form.hidden_field :respondable_type %>
+          <%= form.hidden_field :autor %>
+        <% elsif get_comment_type(locals[:comment]) == "Review" %>
+          <%= form.hidden_field :reviewable_id %>
+          <%= form.hidden_field :reviewable_type %>
+          <%= form.hidden_field :autor %>
+        <% end %>
+        <div>
+          <%= form.text_area :contenido, class: "new_post_text_field", placeholder: "Escribe tu contenido", size: '90x16' %>
+        </div>
+        <div class="new_post_buttons">
+          <label class="new_post_image_upload_button">
+            <%= form.file_field :ruta_img %>
+            <%= image_tag "image-icon", class: "new_post_image_upload_icon" %>
+            <div class="new_post_image_upload_text">Añade una imagen</div>
+          </label>
+          <%= form.submit class: "new_post_submit" do %>
+            <%= image_tag "send", class: "new_post_submit_icon" %>
+            <div class="new_post_submit_text">Publicar</div>
+          <% end %>
+          </button>
+        </div>
+      </div>
+    <% end %>
+</div>

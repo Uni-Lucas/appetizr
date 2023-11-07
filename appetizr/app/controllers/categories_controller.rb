@@ -5,6 +5,7 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:nombre])
+    session[:post_category] = params[:nombre]
   end
 
   def new

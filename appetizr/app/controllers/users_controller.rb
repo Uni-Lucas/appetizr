@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     end
 
     def create
-      @user = User.new(nombre: params[:user][:nombre], password: params[:user][:password], rutaImgPerfil: "default", esAdmin: false, password_confirmation: params[:user][:password_confirmation])
+      @user = User.new(nombre: params[:user][:nombre], password: params[:user][:password], ruta_img_perfil: "default", esAdmin: false, password_confirmation: params[:user][:password_confirmation])
 
       if @user.save
         session[:username] = @user.nombre

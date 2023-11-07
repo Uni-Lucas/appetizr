@@ -1,7 +1,13 @@
 class DishesController < ApplicationController
 
   def show
-    @dish = Dish.find(params[:id])
+    session[:review_referer] = nil
+    alleged_dish = Dish.find_by(id: params[:id], restaurant_id: params[:restaurant_id])
+    if alleged_dish
+      @dish = alleged_dish
+    else
+      redirect_to request.referer
+    end
   end
 
   def new
@@ -39,6 +45,6 @@ class DishesController < ApplicationController
 
   private
   def dish_params
-    params.require(:dish).permit(:nombre, :descripcion, :rutaImgPlato, :precio)
+    params.require(:dish).permit(:nombre, :descripcion, :ruta_img_plato, :precio)
   end
 end
