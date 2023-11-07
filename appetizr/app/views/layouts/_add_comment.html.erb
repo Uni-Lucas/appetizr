@@ -1,6 +1,6 @@
 <div class="add_comment_container">
-    <div class="comment_action_logo">
-        <%= image_tag "add-comment-icon"%>
-    </div>
+    <%= link_to path_param, class: "comment_action_logo" do %>
+      <%= image_tag "add-comment-icon"%>
+    <% end %>
     <div class="add_comment_text">Súmate a la conversación</div>
 </div>

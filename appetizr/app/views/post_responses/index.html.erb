@@ -13,6 +13,6 @@
     </div>
   </div>
   <div  style="display: flex; justify-content: center">
-    <%= render "layouts/add_comment" %>
+    <%= render "layouts/add_comment", path_param: new_response_path(response_to: @post.id, response_type: "Post") %>
   </div>
 </div>

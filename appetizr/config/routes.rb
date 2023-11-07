@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   get '/logout',  to: 'logins#destroy'
 
   resources :reactions, only: [:create, :update]
+  resources :responses, only: [:new, :create]
 
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
