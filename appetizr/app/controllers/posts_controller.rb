@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     nombre_imagen = subir_imagen(params.require(:post)[:ruta_img])
     usuario = User.find_by(nombre: session[:username])
     # Cambiar en un futuro para que el usuario sea el post añada el campo de comentado por restaurante
-    @post = Post.new(categoria: session[:post_category], autor: session[:username], contenido: params[:post][:content], ruta_img: nombre_imagen, created_at: Time.now, updated_at: Time.now)
+    @post = Post.new(categoria: session[:post_category], autor: session[:username], contenido: params[:post][:contenido], ruta_img: nombre_imagen, created_at: Time.now, updated_at: Time.now)
 
     session[:post_category] = nil
     if @post.save

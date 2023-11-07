@@ -21,6 +21,7 @@
 <div id="restaurant_reviews" class="restaurant_section_title"> Reseñas del restaurante </div>
 <div class="restaurant_section_content">
   <%= render "layouts/comment", comments: @restaurant.reviews %>
+  <%= render "layouts/add_comment", path_param: new_review_path(review_to: @restaurant.id, review_type: "Restaurant") %> 
 </div>
 
 <div id="restaurant_posts" class="restaurant_section_title"> Posts del restaurante </div>

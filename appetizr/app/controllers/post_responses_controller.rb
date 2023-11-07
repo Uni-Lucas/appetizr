@@ -15,8 +15,9 @@ class PostResponsesController < ApplicationController
       render :new
     end
   end
-    
+   
   def index
+    session[:response_referer] = nil
     @post = Post.find(params[:post_id])
   end
 

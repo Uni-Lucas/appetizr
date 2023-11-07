@@ -4,8 +4,17 @@
   </div>
     <%= form_with model: locals[:comment] do |form| %>
       <div class="new_post_container">
+        <% if get_comment_type(locals[:comment]) == "Response" %>
+          <%= form.hidden_field :respondable_id %>
+          <%= form.hidden_field :respondable_type %>
+          <%= form.hidden_field :autor %>
+        <% elsif get_comment_type(locals[:comment]) == "Review" %>
+          <%= form.hidden_field :reviewable_id %>
+          <%= form.hidden_field :reviewable_type %>
+          <%= form.hidden_field :autor %>
+        <% end %>
         <div>
-          <%= form.text_area :content, class: "new_post_text_field", placeholder: "Escribe tu contenido", size: '90x16' %>
+          <%= form.text_area :contenido, class: "new_post_text_field", placeholder: "Escribe tu contenido", size: '90x16' %>
         </div>
         <div class="new_post_buttons">
           <label class="new_post_image_upload_button">

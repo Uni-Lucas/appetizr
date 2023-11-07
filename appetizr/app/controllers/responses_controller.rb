@@ -4,7 +4,7 @@ class ResponsesController < ApplicationController
     @response.respondable_id = params[:response_to]
     @response.respondable_type = params[:response_type]
     @response.autor = session[:username]
-    @referer = request.referer
+    session[:response_referer] = request.referer
   end
 
   def create
@@ -19,12 +19,10 @@ class ResponsesController < ApplicationController
       @response.ruta_img = nombre_imagen
       @response.created_at = Time.now 
       @response.updated_at = Time.now 
-      puts "---AQUI---"
-      puts params[:contenido]
       # La ruta de la imagen hay que meterla
-      #if @response.save
-      #  redirect_to params[:referer] 
-      #end
+      if @response.save
+        redirect_to session[:response_referer] 
+      end
     end
   end
 
