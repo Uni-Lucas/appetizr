@@ -12,8 +12,8 @@
         <%= image_tag "Feather_more-vertical", class: "three_dots" %>
       </div>
       <div class="comment_content"><%= comment.contenido %></div>
-      <% if comment.image.attached? %>
-        <%= image_tag comment.image, class: "comment_image" %>
+      <% if comment.ruta_img.present? %>
+        <%= image_tag comment.ruta_img, class: "comment_image" %>
       <% end %>
       <div class="comment_actions_row">
         <div class="comment_action_item">

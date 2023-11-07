@@ -1,8 +1,8 @@
 
 <div class="restaurants_header">
   <div class="restaurants_img">
-    <% if locals[:restaurant].image.attached? %>
-      <%= image_tag locals[:restaurant].image %>
+    <% if locals[:restaurant].ruta_img_fondo.present? %>
+      <%= image_tag locals[:restaurant].ruta_img_fondo %>
     <% else %>
       <%= image_tag "Default-restaurant-img" %>
     <% end %>
