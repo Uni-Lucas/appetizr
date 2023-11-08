@@ -23,8 +23,8 @@
         </div>
         <div>
             <%= form.label :profile_pic, "Foto de perfil" %>
-            <%= image_tag @user.profile_pic if @user.profile_pic.attached? %>
-            <%= form.file_field :profile_pic %>
+            <%= image_tag @user.ruta_img_perfil if @user.ruta_img_perfil.present? %>
+            <%= form.file_field :ruta_img_perfil %>
         </div>
         <div>Placeholder for stats</div>
 
