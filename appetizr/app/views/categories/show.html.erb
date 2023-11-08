@@ -5,7 +5,5 @@
   <div class="category_post_list">
     <%= render "layouts/comment", comments: @category.posts%>
   </div>
-  <%= link_to new_post_path(category: @category.nombre), style: "display: flex; justify-content: center; text-decoration: none;" do %>
-    <%= render "layouts/add_comment", path_param: new_post_path %>
-  <% end %>
+  <%= render "layouts/add_comment", path_param: new_post_path %>
 </div>

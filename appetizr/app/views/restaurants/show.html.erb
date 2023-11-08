@@ -1,36 +1,41 @@
 <div>
-<%= render "header", locals: {restaurant: @restaurant, order: true} %>
+  <%= render "header", locals: {restaurant: @restaurant, order: true} %>
 
-<% if flash[:dishes] %>
-  <div class="notice" ><%= flash[:dishes] %></div>
-<% end %>
+  <% if flash[:dishes] %>
+    <div class="notice" ><%= flash[:dishes] %></div>
+  <% end %>
   <div id="restaurant_menu" class="restaurant_section_title">Menú</div>
   <div class="restaurant_section_content">
-    <ul>
-      <% @restaurant.dishes.each do |dish| %>
-        <li> 
-          <div>
-            <%= dish.nombre %>
-            <%= dish.precio %>
-          </div> 
-        </li>
-      <% end %>
-    </ul>
+    <% @restaurant.dishes.each do |dish| %>
+        <div class="restaurant_dish_container">
+          <% if dish.ruta_img_plato.present? %>
+            <%= image_tag "ruta_img_plato", class: "restaurant_dish_img" %>
+          <% else %>
+            <%= image_tag "default-dish-img", class: "restaurant_dish_img" %>
+          <% end %>
+          <div class="restaurant_dish_content">
+            <div class="restaurant_dish_name"><%= dish.nombre%></div>
+            <div class="restaurant_dish_desc"><%= dish.descripcion %></div>
+          </div>
+          <div class="restaurant_dish_price"><%= dish.precio %> €</div>
+        </div>
+    <% end %>
   </div>
 
-<div id="restaurant_reviews" class="restaurant_section_title"> Reseñas del restaurante </div>
-<div class="restaurant_section_content">
-  <%= render "layouts/comment", comments: @restaurant.reviews %>
-  <%= render "layouts/add_comment", path_param: new_review_path(review_to: @restaurant.id, review_type: "Restaurant") %> 
-</div>
+  <div id="restaurant_reviews" class="restaurant_section_title"> Reseñas del restaurante </div>
+  <div>
+    <div class="restaurant_section_content restaurant_section_content_comments">
+      <%= render "layouts/comment", comments: @restaurant.reviews %>
+      <%= render "layouts/add_comment", path_param: new_review_path(review_to: @restaurant.id, review_type: "Restaurant") %> 
+    </div>
+  </div>
+  <div id="restaurant_posts" class="restaurant_section_title"> Posts del restaurante </div>
+  <div class="restaurant_section_content restaurant_section_content_comments">
+    <%= render "layouts/comment", comments: get_rest_manager.posts %>
+  </div>
 
-<div id="restaurant_posts" class="restaurant_section_title"> Posts del restaurante </div>
-<div class="restaurant_section_content">
-  <%= render "layouts/comment", comments: get_rest_manager.posts %>
-</div>
-
-<div id="restaurant_info" class="restaurant_section_title"> Información del restaurante </div>
-<div class="restaurant_section_content restaurant_section_content_info">
+  <div id="restaurant_info" class="restaurant_section_title"> Información del restaurante </div>
+  <div class="restaurant_section_content restaurant_section_content_info">
   <div class="restaurant_info_item">
     <div class="restaurant_info_subtitle"> Direccion </div>
     <%= @restaurant.direccion %>

@@ -35,24 +35,24 @@
     <div class="explore_lower_section">
         <div class="explore_restaurants_filters">
             <div class="explore_restaurants_filters_title">Filtrar por categoría</div>
-            <div class="explore_restaurants_filters_item">Burger</div>
-            <div class="explore_restaurants_filters_item">Pizza</div>
-            <div class="explore_restaurants_filters_item">Sushi</div>
-            <div class="explore_restaurants_filters_item">Gourmet</div>
-            <div class="explore_restaurants_filters_item">Turco</div>
-            <div class="explore_restaurants_filters_item">Tapas</div>
+            <% @categories.each do |category| %>
+
+                <div class="explore_restaurants_filters_item"><%= category.nombre %></div>
+            <% end %>
         </div>
         <div class="explore_restaurants_section">
             <% @restaurants.each do |restaurant| %>
-                <div  class="explore_restaurants_box">
-                    <%= image_tag "Default-restaurant-img", class: "explore_restaurants_box_image"%>
-                    <div class="explore_restaurant_box_name"><%= restaurant.nombre %></div>
-                    <div class="explore_restaurant_box_category">Categoria</div>
-                    <div>
-                        <%= image_tag "Star", style: "width: 25px; height: 25px" %>
-                        <%= image_tag "Star", style: "width: 25px; height: 25px" %>
+                <%= link_to restaurant_path(restaurant), style: "text-decoration: none;" do %>
+                    <div class="explore_restaurants_box">
+                        <%= image_tag "Default-restaurant-img", class: "explore_restaurants_box_image" %>
+                        <div class="explore_restaurant_box_name"><%= restaurant.nombre %></div>
+                        <div class="explore_restaurant_box_category"><%= restaurant.categoria %></div>
+                        <div>
+                            <%= image_tag "Star", style: "width: 25px; height: 25px" %>
+                            <%= image_tag "Star", style: "width: 25px; height: 25px" %>
+                        </div>
                     </div>
-                </div>
+                <% end %>
             <% end %>
         </div>
     </div>

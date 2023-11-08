@@ -37,10 +37,9 @@ html,body{
 }
 
 .sidenav {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--black);
-    bottom: 0;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--black);
 }
 
 .sidenav > a:nth-last-child(2) {
@@ -354,7 +353,7 @@ html,body{
   padding-left: 20px;
   margin-top: 10px;
   margin-bottom: 10px;
-
+  text-decoration: none;
 }
 
 .add_comment_text {
@@ -576,8 +575,6 @@ html,body{
   position: relative;
   flex-direction: column;
   display: flex;
-  flex-direction: row;
-
 }
 
 .restaurants_img {
@@ -690,15 +687,22 @@ html,body{
 
 .restaurant_section_content {
   background-color: var(--light-black);
-  height: 400px;
+  height: 600px;
+}
+
+
+.restaurant_section_content_comments {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  overflow: auto;
 }
 
 .restaurant_section_content_info {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  height: 160px !important;
+  height: 160px;
   column-gap: 60px;
 }
 
@@ -714,7 +718,53 @@ html,body{
   color: var(--strong-gold);
 }
 
+.restaurant_dish_container {
+  display: flex;
+  align-items: center;
+  padding: 20px 20px
+}
 
+.restaurant_dish_container > div:last-child {
+  margin-left: auto;
+}
+
+.restaurant_dish_img {
+  width: 180px;
+  height: 160px;
+  overflow: hidden;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+.restaurant_dish_content {
+  margin-left: 20px;
+}
+
+.restaurant_dish_name {
+  color: var(--white);
+  font-family: var(--letra);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 51.2px */ 
+}
+.restaurant_dish_desc {
+  color: var(--white);
+  font-family: var(--letra);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 38.4px */ 
+}
+
+.restaurant_dish_price {
+  color: var(--white);
+  font-family: var(--letra);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 51.2px */ 
+}
 
 /* -------------------------------------- */
 /* LOG IN / REGISTER */
@@ -970,7 +1020,6 @@ html,body{
   overflow: hidden;
   display: flex;
   flex-direction: column;
-
   align-items: center;
 
 }

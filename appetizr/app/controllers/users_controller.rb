@@ -24,10 +24,6 @@ class UsersController < ApplicationController
 
     def update
       @user = User.find_by(nombre: session[:username])
-    end
-
-    def update
-      @user = User.find_by(nombre: session[:username])
       if !@user.update(user_params)
         render :edit, status: unprocessable_entity
       end
