@@ -1,7 +1,13 @@
 class RestaurantsController < ApplicationController
     def index
+      if params[:filter]
+        @restaurants = Restaurant.where(categoria: params[:filter]) 
+      else
         @restaurants = Restaurant.all
+      end
         @categories = Category.all
+        tops = Rank.select(:what, "AVG(valoracion) as total_valoracion").group(:what).order("total_valoracion DESC") 
+        @tops = tops.map{|r| Restaurant.find(r.what)}.compact
     end
 
     def show

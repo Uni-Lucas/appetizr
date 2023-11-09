@@ -931,7 +931,9 @@ html,body{
 }
 
 .explore_top_section_best_valued_list_item {
-  
+  background-color: var(--light-dark);
+  color: --var(--light-gold);
+  border-radius: 30;
 } 
 
 .explore_promoted_restaurant {

@@ -2,8 +2,10 @@
     <div class="explore_best_valued">
         <div class="explore_top_section_title">Mejor valorados</div>
         <div class="explore_top_section_best_valued_list">
-            5 mejores, hacer lista y usar explore_top_section_best_valued_list y 
-            explore_top_section_best_valued_list_item de css
+          <% @tops.each_with_index do |restaurant, pos| %>
+            <div class="explore_top_section_best_valued_list_item">
+            <%= pos %> : <%= restaurant.nombre %> </div>
+          <% end %>
         </div>
     </div>
     <div class="explore_promoted_restaurant">
@@ -37,7 +39,12 @@
             <div class="explore_restaurants_filters_title">Filtrar por categoría</div>
             <% @categories.each do |category| %>
 
-                <div class="explore_restaurants_filters_item"><%= category.nombre %></div>
+              <div class="explore_restaurants_filters_item">
+              <%= link_to restaurants_path(filter: category.nombre), style: "text-decoration: none" do %>
+                <span><%= category.nombre %></span>
+              <% end %>
+              </div>
+
             <% end %>
         </div>
         <div class="explore_restaurants_section">
@@ -57,15 +64,3 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-

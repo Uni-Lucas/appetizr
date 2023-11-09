@@ -1,0 +1,9 @@
+restaurantes
+platos
+validación de un usuario
+
+
+Exposición nuestra
+
+Reviews: de restaurante y de platos
+Posts de restaurantes
