@@ -7,18 +7,20 @@
   <div id="restaurant_menu" class="restaurant_section_title">Menú</div>
   <div class="restaurant_section_content">
     <% @restaurant.dishes.each do |dish| %>
-        <div class="restaurant_dish_container">
-          <% if dish.ruta_img_plato.present? %>
-            <%= image_tag "ruta_img_plato", class: "restaurant_dish_img" %>
-          <% else %>
-            <%= image_tag "default-dish-img", class: "restaurant_dish_img" %>
-          <% end %>
-          <div class="restaurant_dish_content">
-            <div class="restaurant_dish_name"><%= dish.nombre%></div>
-            <div class="restaurant_dish_desc"><%= dish.descripcion %></div>
+        <%= link_to get_dish_path(dish), class: "sidenav_element" do %>
+          <div class="restaurant_dish_container">
+            <% if dish.ruta_img_plato.present? %>
+              <%= image_tag "ruta_img_plato", class: "restaurant_dish_img" %>
+            <% else %>
+              <%= image_tag "default-dish-img", class: "restaurant_dish_img" %>
+            <% end %>
+            <div class="restaurant_dish_content">
+              <div class="restaurant_dish_name"><%= dish.nombre%></div>
+              <div class="restaurant_dish_desc"><%= dish.descripcion %></div>
+            </div>
+            <div class="restaurant_dish_price"><%= dish.precio %> €</div>
           </div>
-          <div class="restaurant_dish_price"><%= dish.precio %> €</div>
-        </div>
+        <% end %>
     <% end %>
   </div>
 
