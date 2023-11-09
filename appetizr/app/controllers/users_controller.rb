@@ -24,11 +24,13 @@ class UsersController < ApplicationController
     end
 
     def update
-      nombre_imagen = subir_imagen(params.require(:user)[:ruta_img_perfil])
       @user = User.find_by(nombre: session[:username])
+      nombre_imagen = subir_imagen(params.require(:user)[:ruta_img_perfil])
       
-      if !@user.update(user_params)
+      if !@user.update(user_params.merge(ruta_img_perfil: nombre_imagen))
         render :edit, status: unprocessable_entity
+      else 
+        redirect_to user_path(@user.nombre), notice: "Perfil actualizado"
       end
     end
     private

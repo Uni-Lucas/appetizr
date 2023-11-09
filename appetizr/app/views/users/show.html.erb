@@ -20,22 +20,27 @@
             <br>
                 <%= form.password_field :password, class: "my_account_form_text_field" %>
             </div>
+            <% @user.errors.full_messages.each do |msg| %>
+                <div><%= msg %></div>
+            <% end %>
         </div>
-        <div>
-            <%= form.label :profile_pic, "Foto de perfil" %>
-            <%= image_tag @user.ruta_img_perfil if @user.ruta_img_perfil.present? %>
-            <%= form.file_field :ruta_img_perfil %>
+        <div class="my_account_profile_img_container">
+            <div class="my_account_profile_img_title">Imagen de Perfil</div>
+            <% if @user.ruta_img_perfil.present? %>
+                <%= image_tag @user.ruta_img_perfil, class: "my_account_profile_img" %>
+            <% else %>
+                <%= image_tag "default_profile_img", class: "my_account_profile_img" %>
+            <% end %>
+            <label class="new_post_image_upload_button">
+                <%= form.file_field :ruta_img_perfil %>
+                <%= image_tag "image-icon", class: "new_post_image_upload_icon" %>
+                <div class="new_post_image_upload_text">Modificar</div>
+            </label>
         </div>
         <div>Placeholder for stats</div>
-
-        <% @user.errors.full_messages.each do |msg| %>
-            <div><%= msg %></div>
+        <%= form.button type: :submit, class: "new_post_submit", style: "grid-column: span 3;" do %>
+            <%= image_tag "save", class: "new_post_submit_icon" %>
+            <div class="new_post_submit_text">Guardar</div>
         <% end %>
-    
-        <div class="my_account_form_buttons">
-            <%= form.submit "Guardar" %>
-        </div>
     </div>
-
-    
 <% end %>
