@@ -49,7 +49,7 @@ def get_dishes_reviews(nombre, telefono):
                    reviewable_type='Dish' \
                    AND dishes.id = reviewable_id \
                    AND restaurants.id = dishes.restaurant_id \
-                   AND dishes.nombre='{nombre}' \
+                   AND restaurants.nombre='{nombre}' \
                    AND restaurants.telefono='{telefono}' \
                     )")
     reviews_ = cursor.fetchall()
