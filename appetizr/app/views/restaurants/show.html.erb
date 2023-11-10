@@ -1,5 +1,5 @@
 <div>
-  <%= render "header", locals: {restaurant: @restaurant, order: true} %>
+  <%= render "header", locals: {restaurant: @restaurant, order: true, ratings: @ratings} %>
 
   <% if flash[:dishes] %>
     <div class="notice" ><%= flash[:dishes] %></div>
@@ -7,18 +7,20 @@
   <div id="restaurant_menu" class="restaurant_section_title">Menú</div>
   <div class="restaurant_section_content">
     <% @restaurant.dishes.each do |dish| %>
-        <div class="restaurant_dish_container">
-          <% if dish.ruta_img_plato.present? %>
-            <%= image_tag "ruta_img_plato", class: "restaurant_dish_img" %>
-          <% else %>
-            <%= image_tag "default-dish-img", class: "restaurant_dish_img" %>
-          <% end %>
-          <div class="restaurant_dish_content">
-            <div class="restaurant_dish_name"><%= dish.nombre%></div>
-            <div class="restaurant_dish_desc"><%= dish.descripcion %></div>
+        <%= link_to get_dish_path(dish), class: "sidenav_element" do %>
+          <div class="restaurant_dish_container">
+            <% if dish.ruta_img_plato.present? %>
+              <%= image_tag "ruta_img_plato", class: "restaurant_dish_img" %>
+            <% else %>
+              <%= image_tag "default-dish-img", class: "restaurant_dish_img" %>
+            <% end %>
+            <div class="restaurant_dish_content">
+              <div class="restaurant_dish_name"><%= dish.nombre%></div>
+              <div class="restaurant_dish_desc"><%= dish.descripcion %></div>
+            </div>
+            <div class="restaurant_dish_price"><%= dish.precio %> €</div>
           </div>
-          <div class="restaurant_dish_price"><%= dish.precio %> €</div>
-        </div>
+        <% end %>
     <% end %>
   </div>
 
@@ -31,7 +33,7 @@
   </div>
   <div id="restaurant_posts" class="restaurant_section_title"> Posts del restaurante </div>
   <div class="restaurant_section_content restaurant_section_content_comments">
-    <%= render "layouts/comment", comments: get_rest_manager.posts %>
+    <%= render "layouts/comment", comments: get_rest_managers_posts(@restaurant.id) %>
   </div>
 
   <div id="restaurant_info" class="restaurant_section_title"> Información del restaurante </div>

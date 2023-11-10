@@ -12,6 +12,10 @@
         <%= form.hidden_field :reviewable_id %>
         <%= form.hidden_field :reviewable_type %>
         <%= form.hidden_field :autor %>
+      <% elsif get_comment_type(locals[:comment]) == "Post" && locals[:user_restaurants] %>
+        <%= form.collection_select :asOwnerOf, locals[:user_restaurants], :id, :nombre, prompt: 'None' %> 
+      <% else %>
+        <span>HEEEELLLLOOOO</span>
       <% end %>
       <div>
         <%= form.text_area :contenido, class: "new_post_text_field", placeholder: "Escribe tu contenido", size: '90x16' %>

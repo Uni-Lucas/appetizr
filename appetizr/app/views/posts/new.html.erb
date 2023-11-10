@@ -1,1 +1,1 @@
-<%= render "layouts/new_comment", locals: {tipo: "Post", comment: @post, create_path: posts_path(obj: {refered: @referer})} %>
+<%= render "layouts/new_comment", locals: {user_restaurants: @user_restaurants, tipo: "Post", comment: @post, create_path: posts_path} %>

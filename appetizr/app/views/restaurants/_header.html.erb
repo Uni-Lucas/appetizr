@@ -13,8 +13,10 @@
         <%= locals[:restaurant].nombre %> - <span class="title_key_word"><%= locals[:restaurant].categoria %></span>
       </div>
       <div>
-        <%= image_tag "Star", style: "width: 25px; height: 25px" %>
-        <%= image_tag "Star", style: "width: 25px; height: 25px" %>
+        <% locals[:ratings].floor.times do %>
+          <%= image_tag "Star", style: "width: 25px; height: 25px" %>
+        <% end %>
+        <%= locals[:ratings] %>
       </div>
     </div>
     <div>

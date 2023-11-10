@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_04_142233) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_10_121616) do
   create_schema "tiger"
   create_schema "tiger_data"
   create_schema "topology"
@@ -88,6 +88,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_04_142233) do
     t.string "ruta_img"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "restaurant_id"
   end
 
   create_table "ranks", id: false, force: :cascade do |t|
@@ -130,7 +131,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_04_142233) do
 
   create_table "restaurants_users", id: false, force: :cascade do |t|
     t.bigint "restaurant_id"
-    t.bigint "user_id"
+    t.string "user_id"
     t.index ["restaurant_id"], name: "index_restaurants_users_on_restaurant_id"
     t.index ["user_id"], name: "index_restaurants_users_on_user_id"
   end
@@ -169,5 +170,6 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_04_142233) do
   add_foreign_key "reactions", "users", column: "who", primary_key: "nombre"
   add_foreign_key "responses", "users", column: "autor", primary_key: "nombre"
   add_foreign_key "restaurants", "categories", column: "categoria", primary_key: "nombre"
+  add_foreign_key "restaurants_users", "users", primary_key: "nombre"
   add_foreign_key "reviews", "users", column: "autor", primary_key: "nombre"
 end

@@ -12,6 +12,8 @@ class RestaurantsController < ApplicationController
 
     def show
         @restaurant = Restaurant.find(params[:id])
+        rats = Rank.select(:what, "AVG(valoracion) as rest_val").where(what: @restaurant.id).group(:what)
+        @ratings = rats[0].rest_val
     end
 
     def new

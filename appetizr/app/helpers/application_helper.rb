@@ -25,6 +25,10 @@ module ApplicationHelper
       end
     end
 
+    def get_dish_path(dish)
+      return restaurant_dish_path(restaurant_id: dish.restaurant_id, id: dish.id)
+    end
+
     def get_number_of_responses(comment)
       comment.responses.length()
     end

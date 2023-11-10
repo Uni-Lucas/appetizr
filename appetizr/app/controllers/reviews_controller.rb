@@ -10,8 +10,6 @@ class ReviewsController < ApplicationController
   def create
     if params[:review][:ruta_img]
       nombre_imagen = subir_imagen(params.require(:review)[:ruta_img])
-    else
-      nombre_imagen = "default"
     end
     original_reviewed = get_original_reviewed(params[:review][:reviewable_id], params[:review][:reviewable_type])
     if original_reviewed
