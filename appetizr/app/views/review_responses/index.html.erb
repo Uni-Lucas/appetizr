@@ -1,6 +1,6 @@
 <div class="responses_container">
   <div class="title_container">
-    <h1 class="title">Respuestas al comentario de <span class="title_key_word"><%= @post.autor %></span></h1>
+    <h1 class="title">Respuestas al comentario de <span class="title_key_word"><%= @review.autor %></span></h1>
   </div>
   <div class="responses_main_container">
     <div class="responses_original_comment_wrapper">
@@ -13,6 +13,6 @@
     </div>
   </div>
   <div style="display: flex; justify-content: center">
-    <%= render "layouts/add_comment", path_param: new_response_path(response_to: @review.id, response_type: "Review")} %>
+    <%= render "layouts/add_comment", path_param: new_response_path(response_to: @review.id, response_type: "Review") %>
   </div>
 </div>
