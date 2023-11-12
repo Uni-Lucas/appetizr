@@ -150,12 +150,24 @@ html,body{
 /* -------------------------------------- */
 
 .title {
-    font-family: var(--letra);
-    font-size: 48px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
-    letter-spacing: 2.4px;
+  color: var(--black);
+  font-family: var(--letra);
+  font-size: 48px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 2.4px;
+}
+
+.subtitle {
+  color: var(--black);
+  font-family: var(--letra);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 2.4px;
+  margin-left: 20px;
 }
 
 .title_key_word {
@@ -165,6 +177,7 @@ html,body{
 .title_container {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     margin-top: 40px;
     margin-left: 40px;
     margin-right: 40px;
@@ -715,10 +728,9 @@ html,body{
 
 
 .restaurant_section_content_comments {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  overflow: auto;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  height: 600px;
 }
 
 .restaurant_section_content_info {
@@ -917,30 +929,41 @@ html,body{
   flex-direction: column;
   row-gap: 30px;
   align-items: center;
+  padding: 0 20px;
 }
 
 .explore_top_section_best_valued_list {
   display: flex;
   height: 300px;
-  padding: 0px 10px;
   flex-direction: column;
-  justify-content: space-between;
+  gap: 30px;
   align-items: center;
+  justify-content: center;
   background-color: var(--white);
   border-radius: 30px;
+  align-self: stretch;
 }
 
 .explore_top_section_best_valued_list_item {
-  background-color: var(--light-dark);
-  color: --var(--light-gold);
-  border-radius: 30;
+  background-color: var(--black);
+  border-radius: 30px;
+  padding: 0 20px;
+  margin: 10px;
+  color: #B79B70;
+  font-family: Chillax;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 160%; /* 38.4px */ 
+  align-self: stretch;
 } 
 
 .explore_promoted_restaurant {
   display: flex;
   flex-direction: column;
-  row-gap: 30px;
   align-items: center;
+  gap: 30px;
+  padding: 0 20px;
 }
 
 
@@ -1016,6 +1039,7 @@ html,body{
   font-style: normal;
   font-weight: 400;
   height: 30px;
+  text-decoration: none;
 }
 
 

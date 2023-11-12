@@ -7,7 +7,7 @@
   <div id="restaurant_menu" class="restaurant_section_title">Menú</div>
   <div class="restaurant_section_content">
     <% @restaurant.dishes.each do |dish| %>
-        <%= link_to get_dish_path(dish), class: "sidenav_element" do %>
+        <%= link_to get_dish_path(dish), style: "text-decoration: none !important" do %>
           <div class="restaurant_dish_container">
             <% if dish.ruta_img_plato.present? %>
               <%= image_tag "ruta_img_plato", class: "restaurant_dish_img" %>
@@ -25,9 +25,11 @@
   </div>
 
   <div id="restaurant_reviews" class="restaurant_section_title"> Reseñas del restaurante </div>
-  <div>
+  <div class="restaurant_section_content_comments">
     <div class="restaurant_section_content restaurant_section_content_comments">
-      <%= render "layouts/comment", comments: @restaurant.reviews %>
+      <div class="category_post_list">
+        <%= render "layouts/comment", comments: @restaurant.reviews %>
+      </div>
       <%= render "layouts/add_comment", path_param: new_review_path(review_to: @restaurant.id, review_type: "Restaurant") %> 
     </div>
   </div>

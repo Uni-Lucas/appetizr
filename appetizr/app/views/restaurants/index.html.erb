@@ -4,7 +4,8 @@
         <div class="explore_top_section_best_valued_list">
           <% @tops.each_with_index do |restaurant, pos| %>
             <div class="explore_top_section_best_valued_list_item">
-            <%= pos %> : <%= restaurant.nombre %> </div>
+                <%= pos + 1 %> - <%= restaurant.nombre %> 
+            </div>
           <% end %>
         </div>
     </div>
@@ -38,13 +39,9 @@
         <div class="explore_restaurants_filters">
             <div class="explore_restaurants_filters_title">Filtrar por categoría</div>
             <% @categories.each do |category| %>
-
-              <div class="explore_restaurants_filters_item">
-              <%= link_to restaurants_path(filter: category.nombre), style: "text-decoration: none" do %>
-                <span><%= category.nombre %></span>
-              <% end %>
-              </div>
-
+                <%= link_to restaurants_path(filter: category.nombre), class: "explore_restaurants_filters_item" do %>
+                    <div><%= category.nombre %></div>
+                <% end %>
             <% end %>
         </div>
         <div class="explore_restaurants_section">
