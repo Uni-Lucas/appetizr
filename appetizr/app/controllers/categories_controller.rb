@@ -5,6 +5,13 @@ class CategoriesController < ApplicationController
 
   def show
     @category = Category.find(params[:nombre])
+    @category_posts = @category.posts.find_each
+    @posts_reactions = {}
+    @likes = ActiveRecord::Base.connection.execute("SELECT posts.id, COUNT(reaccion) as react FROM posts LEFT JOIN reactions ON reactionable_id=posts.id AND reactionable_type='Post' AND reaccion='Like' AND categoria='#{params[:nombre]}' GROUP BY posts.id ORDER BY posts.created_at DESC")
+    @dislikes = ActiveRecord::Base.connection.execute("SELECT posts.id, COUNT(reaccion) as react FROM posts LEFT JOIN reactions ON reactionable_id=posts.id AND reactionable_type='Post' AND reaccion='Dislike' AND categoria='#{params[:nombre]}' GROUP BY posts.id ORDER BY posts.created_at DESC")
+    @category_posts.with_index do |post, i|
+      @posts_reactions[post.id] = {likes: @likes[i]["react"], dislikes: @dislikes[i]["react"]} 
+    end
     session[:post_category] = params[:nombre]
   end
 
