@@ -1,6 +1,12 @@
 # app/controllers/admin_control# app/controllers/admin_controller.rb
 # app/controllers/admin_controller.rb
 class AdminController < ApplicationController
+    def index
+        @num_posts_last_month = Post.where("created_at > ?", 1.month.ago).count
+        @num_reviews_last_month = Review.where("created_at > ?", 1.month.ago).count
+        @num_responses_last_month = Response.where("created_at > ?", 1.month.ago).count
+    end
+    
     def actualizar_datos
         # Realizar la llamada a la API y obtener los datos
         rutaAPI = 'https://172.20.10.8/api/restaurantes'

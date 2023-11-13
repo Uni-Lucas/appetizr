@@ -37,7 +37,25 @@
                 <div class="new_post_image_upload_text">Modificar</div>
             </label>
         </div>
-        <div>Placeholder for stats</div>
+        <div>
+            <p>Estadísticas</p>
+            <p>Posts: <%= @num_posts %></p>
+            <p>Reviews: <%= @num_reviews %></p>
+            <p>Respuestas: <%= @num_responses %></p>
+            <p>Comentarios totales en el último mes: <%= @num_comments_last_month %></p>
+
+            <% if @num_restaurants_user > 0 %>
+                <p>Estadísticas de tus restaurantes en el último mes</p>
+                <p>Reviews recibidas sobre restaurantes: <%= @num_reviews_restaurant_last_month %></p>
+                <p>Reviews recibidas sobre platos: <%= @num_reviews_dishes_last_month %></p>
+                <p>Respuestas recibidas: <%= @num_responses_restaurant_last_month %></p>
+                <p>Likes recibidos: <%= @num_likes_restaurant_last_month %></p>
+                <p>Dislikes recibidos: <%= @num_dislikes_restaurant_last_month %></p>
+
+            <% end %>
+
+
+        </div>
         <%= form.button type: :submit, class: "new_post_submit", style: "grid-column: span 3;" do %>
             <%= image_tag "save", class: "new_post_submit_icon" %>
             <div class="new_post_submit_text">Guardar</div>
