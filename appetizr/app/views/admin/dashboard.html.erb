@@ -1,0 +1,18 @@
+<div class="title_container">
+    <h1 class="title">Mi <span class="title_key_word">Cuenta</span></h1>
+    <%= link_to logout_path, class: "logout_button", method: :delete do %>
+        <div>Log out</div>
+    <% end %>
+</div>
+
+
+
+<div class="my_account_form_container">
+    <div class="my_account_user_passwd">
+       <%= link_to 'Actualizar Datos', admin_actualizar_datos_path, method: :get, class: "new_post_submit" %>
+    </div>
+    <div class="my_account_profile_img_container">
+       <div>Placeholder para otro botón</div>
+    <div>Placeholder for stats</div>
+    
+</div>
