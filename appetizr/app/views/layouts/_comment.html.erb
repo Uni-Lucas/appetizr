@@ -26,7 +26,7 @@
           <div class="comment_action_item">
             <%= link_to get_response_path(comment), style: "text-decoration: none; color: black;" do %>
               <%= image_tag "Message-square", class: "comment_action_logo" %>
-              <span><%= get_number_of_responses(comment) %></span>
+              <span><%= locals[:reactions][comment.id][:responses] %></span>
             <% end %>
           </div>
         <% end %>
