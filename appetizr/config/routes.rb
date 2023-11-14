@@ -26,6 +26,9 @@ Rails.application.routes.draw do
   resources :reactions, only: [:create, :update]
   resources :responses, only: [:new, :create]
 
+  get '/404', to: 'errors#not_found'
+  get '/500', to: 'errors#internal_server_error'
+
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
