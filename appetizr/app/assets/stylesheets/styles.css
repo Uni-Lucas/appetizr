@@ -40,9 +40,10 @@ html,body{
   display: flex;
   flex-direction: column;
   background-color: var(--black);
+  justify-content: space-between;
 }
 
-.sidenav > a:nth-last-child(2) {
+.sidenav > a:nth-last-child(1) {
     margin-top: auto;
 }
 
@@ -71,6 +72,17 @@ html,body{
     word-wrap: break-word;
     text-align: center;
     margin-left: 8px;
+}
+
+#mis_restaurantes {
+    background-color: var(--white);
+    border-radius: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+#mis_restaurantes_text {
+  color: var(--black);
 }
 
 #location {
@@ -600,6 +612,45 @@ html,body{
   line-height: normal;
   letter-spacing: 0.32px;
 }
+
+.my_account_stats_container {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  background-color: var(--light-black);
+  border-radius: 30px;
+  padding: 10px;
+  margin: 80px 50px;
+  align-self: stretch;
+  justify-self: stretch;
+  justify-content: center;
+  align-items: center;
+  color: var(--white);
+  font-family: var(--letra);
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0.32px;
+  font-size: 20px;
+}
+
+.my_account_stats_title {
+  font-size: 28px;
+}
+
+.my_account_metrics {
+  color: var(--strong-gold);
+}
+
+
+
+
+
+
+
+
+
+
 
 /* -------------------------------------- */
 /* RESTAURANTS */

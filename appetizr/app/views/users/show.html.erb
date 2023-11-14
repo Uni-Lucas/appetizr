@@ -1,4 +1,4 @@
-<div class="title_container">
+<div class="title_container" style="flex-direction: row !important">
     <h1 class="title">Mi <span class="title_key_word">Cuenta</span></h1>
     <%= link_to logout_path, class: "logout_button", method: :delete do %>
         <div>Log out</div>
@@ -37,13 +37,14 @@
                 <div class="new_post_image_upload_text">Modificar</div>
             </label>
         </div>
-        <div>
-            <p>Estadísticas</p>
-            <p>Posts: <%= @num_posts %></p>
-            <p>Reviews: <%= @num_reviews %></p>
-            <p>Respuestas: <%= @num_responses %></p>
-            <p>Comentarios totales en el último mes: <%= @num_comments_last_month %></p>
-
+        <div class="my_account_stats_container">
+            <p class="my_account_stats_title">Estadísticas</p>
+            <div>
+                <p>Posts - <span class="my_account_metrics"><%= @num_posts %></span></p>
+                <p>Reviews - <span class="my_account_metrics"><%= @num_reviews %></span></p>
+                <p>Respuestas - <span class="my_account_metrics"><%= @num_responses %></span></p>
+                <p>Comentarios en el último mes - <span class="my_account_metrics"><%= @num_comments_last_month %></span></p>
+            </div>
             <% if @num_restaurants_user > 0 %>
                 <p>Estadísticas de tus restaurantes en el último mes</p>
                 <p>Reviews recibidas sobre restaurantes: <%= @num_reviews_restaurant_last_month %></p>
@@ -51,7 +52,6 @@
                 <p>Respuestas recibidas: <%= @num_responses_restaurant_last_month %></p>
                 <p>Likes recibidos: <%= @num_likes_restaurant_last_month %></p>
                 <p>Dislikes recibidos: <%= @num_dislikes_restaurant_last_month %></p>
-
             <% end %>
 
 

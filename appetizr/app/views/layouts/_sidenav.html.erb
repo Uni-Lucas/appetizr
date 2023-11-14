@@ -1,45 +1,57 @@
 <ul class="sidenav">
-  <%= link_to categories_path, class: "sidenav_element" do %>
+  <div>
     <li>
-      <%= image_tag "Categories-logo", class: "sidenav_element_icon" %>
-      <div class="sidenav_element_text">Categorías</div>
-    <% end %>
-  </li>
-
-  <li>
-    <%= link_to restaurants_path, class: "sidenav_element" do %>
-      <%= image_tag "Explore-logo", class: "sidenav_element_icon"%>
-      <div class="sidenav_element_text">Explorar</div>
-    <% end %>
-  </li>
-
-  <li>
-    <%= link_to categories_path, class: "sidenav_element" do %>
-      <%= image_tag "Nearme-logo", class: "sidenav_element_icon" %>
-      <div class="sidenav_element_text">Cerca de Mi</div>
-    <% end %>
-  </li>
-
-  <%= link_to categories_path do %>
-    <li id="location" class="sidenav_element">
-      <%= image_tag "Dark-Nearme-logo", class: "sidenav_element_icon" %>
-      <div id="location_text", class="sidenav_element_text">Zaragoza</div>
-    </li>
-  <% end %>
-
-  <% if logged_in? %>
-    <li>
-      <%= link_to user_path(session[:username]), id: "my_account_cont", class: "sidenav_element" do %>
-        <%= image_tag "Account-logo", id: "my_account_icon", class: "sidenav_element_icon" %>
-        <div id="my_account", class="sidenav_element_text">Mi cuenta</div>
+      <%= link_to categories_path, class: "sidenav_element" do %>
+        <%= image_tag "Categories-logo", class: "sidenav_element_icon" %>
+        <div class="sidenav_element_text">Categorías</div>
       <% end %>
     </li>
-  <% else %>
+
     <li>
-      <%= link_to '/login', method: 'get', id: "my_account_cont", class: "sidenav_element" do %>
-        <%= image_tag "Account-logo", id: "my_account_icon", class: "sidenav_element_icon" %>
-        <div id="my_account", class="sidenav_element_text">Entrar</div>
+      <%= link_to restaurants_path, class: "sidenav_element" do %>
+        <%= image_tag "Explore-logo", class: "sidenav_element_icon"%>
+        <div class="sidenav_element_text">Explorar</div>
       <% end %>
     </li>
-  <% end %>
+
+    <li>
+      <%= link_to categories_path, class: "sidenav_element" do %>
+        <%= image_tag "Nearme-logo", class: "sidenav_element_icon" %>
+        <div class="sidenav_element_text">Cerca de Mi</div>
+      <% end %>
+    </li>
+  </div>
+  <div>
+    <li>
+      <%= link_to categories_path, id: "mis_restaurantes", class: "sidenav_element" do %>
+        <%= image_tag "Dark-Nearme-logo", class: "sidenav_element_icon" %>
+        <div id="mis_restaurantes_text", class="sidenav_element_text">Mis Locales</div>
+      <% end %>
+    </li>
+
+
+
+    <li>
+      <%= link_to categories_path, id: "location", class: "sidenav_element" do %>
+        <%= image_tag "Dark-Nearme-logo", class: "sidenav_element_icon" %>
+        <div id="location_text", class="sidenav_element_text">Zaragoza</div>
+      <% end %>
+    </li>
+    
+    <% if logged_in? %>
+      <li>
+        <%= link_to user_path(session[:username]), id: "my_account_cont", class: "sidenav_element" do %>
+          <%= image_tag "Account-logo", id: "my_account_icon", class: "sidenav_element_icon" %>
+          <div id="my_account", class="sidenav_element_text">Mi cuenta</div>
+        <% end %>
+      </li>
+    <% else %>
+      <li>
+        <%= link_to '/login', method: 'get', id: "my_account_cont", class: "sidenav_element" do %>
+          <%= image_tag "Account-logo", id: "my_account_icon", class: "sidenav_element_icon" %>
+          <div id="my_account", class="sidenav_element_text">Entrar</div>
+        <% end %>
+      </li>
+    <% end %>
+  </div>
 </ul>
