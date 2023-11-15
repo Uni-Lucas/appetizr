@@ -1,5 +1,8 @@
 class PostsController < ApplicationController
   def new
+    if !session[:username]
+      redirect_to login_path
+    end
     @post = Post.new
     user_restos = ActiveRecord::Base.connection.execute("SELECT restaurants.id, restaurants.nombre FROM restaurants, users, restaurants_users as ru WHERE users.nombre='#{session[:username]}' AND users.nombre=ru.user_id AND ru.restaurant_id=restaurants.id ")
     @user_restaurants = user_restos.values.map{|res| Restaurant.new(id: res[0], nombre: res[1])}
