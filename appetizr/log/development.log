@@ -12905,3 +12905,1011 @@ Processing by RestaurantsController#index as HTML
 Completed 200 OK in 185ms (Views: 9.8ms | ActiveRecord: 172.6ms | Allocations: 15989)
 
 
+Started GET "/" for 127.0.0.1 at 2023-11-15 20:08:38 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (25.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (24.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 297.8ms | Allocations: 107106)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1317)
+  Rendered layouts/_sidenav.html.erb (Duration: 2.3ms | Allocations: 3454)
+  Rendered layout layouts/application.html.erb (Duration: 311.2ms | Allocations: 130743)
+Completed 200 OK in 331ms (Views: 236.9ms | ActiveRecord: 77.1ms | Allocations: 142182)
+
+
+Started GET "/login" for 127.0.0.1 at 2023-11-15 20:19:02 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (25.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LoginsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering logins/new.html.erb within layouts/application
+  Rendered logins/new.html.erb within layouts/application (Duration: 81.9ms | Allocations: 36238)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1316)
+  Rendered layouts/_sidenav.html.erb (Duration: 2.6ms | Allocations: 3555)
+  Rendered layout layouts/application.html.erb (Duration: 101.6ms | Allocations: 59836)
+Completed 200 OK in 219ms (Views: 104.4ms | ActiveRecord: 53.1ms | Allocations: 79085)
+
+
+Started POST "/login" for 127.0.0.1 at 2023-11-15 20:19:07 +0100
+Processing by LoginsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nombre"=>"gari", "password"=>"[FILTERED]", "commit"=>"INICIAR SESIÓN"}
+  [1m[36mUser Load (25.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/controllers/logins_controller.rb:7:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 270ms (ActiveRecord: 74.3ms | Allocations: 3673)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-15 20:19:07 +0100
+Processing by CategoriesController#index as TURBO_STREAM
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (49.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 81.3ms | Allocations: 5150)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 1023)
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.1ms | Allocations: 3157)
+  Rendered layout layouts/application.html.erb (Duration: 111.6ms | Allocations: 13198)
+Completed 200 OK in 114ms (Views: 12.6ms | ActiveRecord: 99.4ms | Allocations: 14858)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2023-11-15 20:19:14 +0100
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/_form.html.erb (Duration: 13.7ms | Allocations: 1385)
+  Rendered categories/new.html.erb within layouts/application (Duration: 35.7ms | Allocations: 1624)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 1018)
+  [1m[36mUser Load (25.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 28.2ms | Allocations: 3152)
+  Rendered layout layouts/application.html.erb (Duration: 67.4ms | Allocations: 9578)
+Completed 200 OK in 68ms (Views: 42.0ms | ActiveRecord: 25.7ms | Allocations: 9918)
+
+
+Started POST "/categories" for 127.0.0.1 at 2023-11-15 20:19:58 +0100
+Processing by CategoriesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"nombre"=>"Turca"}, "commit"=>"Create Category"}
+  [1m[36mTRANSACTION (24.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:18:in `create'
+  [1m[36mCategory Create (50.0ms)[0m  [1m[32mINSERT INTO "categories" ("nombre", "created_at", "updated_at") VALUES ($1, $2, $3)[0m  [["nombre", "Turca"], ["created_at", "2023-11-15 19:19:58.054375"], ["updated_at", "2023-11-15 19:19:58.054375"]]
+  ↳ app/controllers/categories_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (26.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:18:in `create'
+Redirected to http://localhost:3000/categories/Turca
+Completed 302 Found in 79ms (ActiveRecord: 101.1ms | Allocations: 3386)
+
+
+Started GET "/categories/Turca" for 127.0.0.1 at 2023-11-15 20:19:58 +0100
+Processing by CategoriesController#show as TURBO_STREAM
+  Parameters: {"nombre"=>"Turca"}
+  [1m[36mCategory Load (25.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "Turca"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (24.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "Turca"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 103.8ms | Allocations: 2236)
+  Rendered layouts/_add_comment.html.erb (Duration: 1.1ms | Allocations: 847)
+  Rendered categories/show.html.erb within layouts/application (Duration: 174.3ms | Allocations: 17580)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 1007)
+  [1m[36mUser Load (24.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 26.9ms | Allocations: 3181)
+  Rendered layout layouts/application.html.erb (Duration: 204.5ms | Allocations: 25452)
+Completed 200 OK in 278ms (Views: 77.6ms | ActiveRecord: 152.4ms | Allocations: 26519)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2023-11-15 20:20:02 +0100
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/_form.html.erb (Duration: 0.7ms | Allocations: 590)
+  Rendered categories/new.html.erb within layouts/application (Duration: 0.9ms | Allocations: 654)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 1018)
+  [1m[36mUser Load (25.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.2ms | Allocations: 3145)
+  Rendered layout layouts/application.html.erb (Duration: 31.4ms | Allocations: 8601)
+Completed 200 OK in 32ms (Views: 6.6ms | ActiveRecord: 25.0ms | Allocations: 8861)
+
+
+Started POST "/categories" for 127.0.0.1 at 2023-11-15 20:20:42 +0100
+Processing by CategoriesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"nombre"=>"Tapas"}, "commit"=>"Create Category"}
+  [1m[36mTRANSACTION (25.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:18:in `create'
+  [1m[36mCategory Create (50.9ms)[0m  [1m[32mINSERT INTO "categories" ("nombre", "created_at", "updated_at") VALUES ($1, $2, $3)[0m  [["nombre", "Tapas"], ["created_at", "2023-11-15 19:20:42.268623"], ["updated_at", "2023-11-15 19:20:42.268623"]]
+  ↳ app/controllers/categories_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (27.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:18:in `create'
+Redirected to http://localhost:3000/categories/Tapas
+Completed 302 Found in 80ms (ActiveRecord: 103.5ms | Allocations: 1991)
+
+
+Started GET "/categories/Tapas" for 127.0.0.1 at 2023-11-15 20:20:42 +0100
+Processing by CategoriesController#show as TURBO_STREAM
+  Parameters: {"nombre"=>"Tapas"}
+  [1m[36mCategory Load (25.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "Tapas"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (24.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "Tapas"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 25.2ms | Allocations: 533)
+  Rendered layouts/_add_comment.html.erb (Duration: 0.6ms | Allocations: 670)
+  Rendered categories/show.html.erb within layouts/application (Duration: 26.3ms | Allocations: 1385)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 993)
+  [1m[36mUser Load (24.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 26.9ms | Allocations: 3144)
+  Rendered layout layouts/application.html.erb (Duration: 56.4ms | Allocations: 9141)
+Completed 200 OK in 83ms (Views: 7.4ms | ActiveRecord: 75.0ms | Allocations: 9986)
+
+
+Started GET "/categories/new" for 127.0.0.1 at 2023-11-15 20:20:46 +0100
+Processing by CategoriesController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/new.html.erb within layouts/application
+  Rendered categories/_form.html.erb (Duration: 0.8ms | Allocations: 595)
+  Rendered categories/new.html.erb within layouts/application (Duration: 1.0ms | Allocations: 659)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 1018)
+  [1m[36mUser Load (24.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.1ms | Allocations: 3145)
+  Rendered layout layouts/application.html.erb (Duration: 31.4ms | Allocations: 8606)
+Completed 200 OK in 32ms (Views: 7.0ms | ActiveRecord: 24.7ms | Allocations: 8865)
+
+
+Started POST "/categories" for 127.0.0.1 at 2023-11-15 20:21:20 +0100
+Processing by CategoriesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "category"=>{"nombre"=>"Gourmet"}, "commit"=>"Create Category"}
+  [1m[36mTRANSACTION (27.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/categories_controller.rb:18:in `create'
+  [1m[36mCategory Create (52.1ms)[0m  [1m[32mINSERT INTO "categories" ("nombre", "created_at", "updated_at") VALUES ($1, $2, $3)[0m  [["nombre", "Gourmet"], ["created_at", "2023-11-15 19:21:20.561818"], ["updated_at", "2023-11-15 19:21:20.561818"]]
+  ↳ app/controllers/categories_controller.rb:18:in `create'
+  [1m[36mTRANSACTION (26.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/categories_controller.rb:18:in `create'
+Redirected to http://localhost:3000/categories/Gourmet
+Completed 302 Found in 81ms (ActiveRecord: 105.2ms | Allocations: 1966)
+
+
+Started GET "/categories/Gourmet" for 127.0.0.1 at 2023-11-15 20:21:20 +0100
+Processing by CategoriesController#show as TURBO_STREAM
+  Parameters: {"nombre"=>"Gourmet"}
+  [1m[36mCategory Load (26.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories" WHERE "categories"."nombre" = $1 LIMIT $2[0m  [["nombre", "Gourmet"], ["LIMIT", 1]]
+  ↳ app/controllers/categories_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering categories/show.html.erb within layouts/application
+  [1m[36mPost Load (25.0ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."categoria" = $1[0m  [["categoria", "Gourmet"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 25.6ms | Allocations: 532)
+  Rendered layouts/_add_comment.html.erb (Duration: 0.6ms | Allocations: 669)
+  Rendered categories/show.html.erb within layouts/application (Duration: 26.5ms | Allocations: 1383)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 993)
+  [1m[36mUser Load (24.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 26.6ms | Allocations: 3144)
+  Rendered layout layouts/application.html.erb (Duration: 55.9ms | Allocations: 9139)
+Completed 200 OK in 83ms (Views: 6.6ms | ActiveRecord: 75.6ms | Allocations: 10018)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-15 20:21:30 +0100
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (49.6ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 51.5ms | Allocations: 2704)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 1034)
+  [1m[36mUser Load (25.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.9ms | Allocations: 3179)
+  Rendered layout layouts/application.html.erb (Duration: 84.5ms | Allocations: 10725)
+Completed 200 OK in 85ms (Views: 9.9ms | ActiveRecord: 74.8ms | Allocations: 10987)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-15 20:23:42 +0100
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (54.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 56.6ms | Allocations: 2706)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 1033)
+  [1m[36mUser Load (25.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.8ms | Allocations: 3179)
+  Rendered layout layouts/application.html.erb (Duration: 183.8ms | Allocations: 69168)
+Completed 200 OK in 184ms (Views: 104.4ms | ActiveRecord: 79.6ms | Allocations: 69427)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-15 20:24:02 +0100
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (50.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 52.1ms | Allocations: 2700)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 1019)
+  [1m[36mUser Load (25.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.6ms | Allocations: 3144)
+  Rendered layout layouts/application.html.erb (Duration: 90.2ms | Allocations: 17040)
+Completed 200 OK in 91ms (Views: 15.1ms | ActiveRecord: 75.4ms | Allocations: 17299)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-15 20:26:15 +0100
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (50.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 52.5ms | Allocations: 2705)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 1033)
+  [1m[36mUser Load (25.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.9ms | Allocations: 3179)
+  Rendered layout layouts/application.html.erb (Duration: 91.2ms | Allocations: 17108)
+Completed 200 OK in 93ms (Views: 16.5ms | ActiveRecord: 75.1ms | Allocations: 17367)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-15 20:26:20 +0100
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (49.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 50.9ms | Allocations: 2705)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 1031)
+  [1m[36mUser Load (24.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.3ms | Allocations: 3174)
+  Rendered layout layouts/application.html.erb (Duration: 81.4ms | Allocations: 10724)
+Completed 200 OK in 82ms (Views: 7.9ms | ActiveRecord: 73.7ms | Allocations: 10984)
+
+
+Started GET "/" for 127.0.0.1 at 2023-11-15 20:27:01 +0100
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (50.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 52.9ms | Allocations: 2697)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 1019)
+  [1m[36mUser Load (25.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.4ms | Allocations: 3144)
+  Rendered layout layouts/application.html.erb (Duration: 91.4ms | Allocations: 17024)
+Completed 200 OK in 92ms (Views: 15.8ms | ActiveRecord: 76.1ms | Allocations: 17283)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-15 20:31:38 +0100
+Processing by RestaurantsController#index as HTML
+  [1m[36mRank Load (25.6ms)[0m  [1m[34mSELECT "ranks"."what", AVG(valoracion) as total_valoracion FROM "ranks" GROUP BY "ranks"."what" ORDER BY total_valoracion DESC[0m
+  ↳ app/controllers/restaurants_controller.rb:10:in `map'
+  [1m[36mRestaurant Load (24.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (24.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (24.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mCategory Load (24.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/index.html.erb:44
+  [1m[36mRestaurant Load (24.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:51
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.5ms | Allocations: 7590)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 994)
+  [1m[36mUser Load (24.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.3ms | Allocations: 3147)
+  Rendered layout layouts/application.html.erb (Duration: 84.7ms | Allocations: 15553)
+Completed 200 OK in 350ms (Views: 11.9ms | ActiveRecord: 274.9ms | Allocations: 37093)
+
+
+Started GET "/restaurants?filter=chino" for 127.0.0.1 at 2023-11-15 20:31:58 +0100
+Processing by RestaurantsController#index as HTML
+  Parameters: {"filter"=>"chino"}
+  [1m[36mRank Load (51.1ms)[0m  [1m[34mSELECT "ranks"."what", AVG(valoracion) as total_valoracion FROM "ranks" GROUP BY "ranks"."what" ORDER BY total_valoracion DESC[0m
+  ↳ app/controllers/restaurants_controller.rb:10:in `map'
+  [1m[36mRestaurant Load (24.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (25.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (24.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mCategory Load (24.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/index.html.erb:44
+  [1m[36mRestaurant Load (25.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."categoria" = $1[0m  [["categoria", "chino"]]
+  ↳ app/views/restaurants/index.html.erb:51
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 77.4ms | Allocations: 4990)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 994)
+  [1m[36mUser Load (24.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 29.5ms | Allocations: 3152)
+  Rendered layout layouts/application.html.erb (Duration: 110.5ms | Allocations: 12939)
+Completed 200 OK in 239ms (Views: 36.9ms | ActiveRecord: 199.1ms | Allocations: 14944)
+
+
+Started GET "/restaurants?filter=burger" for 127.0.0.1 at 2023-11-15 20:31:58 +0100
+Processing by RestaurantsController#index as HTML
+  Parameters: {"filter"=>"burger"}
+  [1m[36mRank Load (49.8ms)[0m  [1m[34mSELECT "ranks"."what", AVG(valoracion) as total_valoracion FROM "ranks" GROUP BY "ranks"."what" ORDER BY total_valoracion DESC[0m
+  ↳ app/controllers/restaurants_controller.rb:10:in `map'
+  [1m[36mRestaurant Load (24.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (24.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (24.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mCategory Load (24.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/index.html.erb:44
+  [1m[36mRestaurant Load (24.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."categoria" = $1[0m  [["categoria", "burger"]]
+  ↳ app/views/restaurants/index.html.erb:51
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.9ms | Allocations: 4976)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 1008)
+  [1m[36mUser Load (24.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 26.7ms | Allocations: 3175)
+  Rendered layout layouts/application.html.erb (Duration: 82.8ms | Allocations: 12971)
+Completed 200 OK in 210ms (Views: 9.8ms | ActiveRecord: 196.9ms | Allocations: 14967)
+
+
+Started GET "/restaurants?filter=pizza" for 127.0.0.1 at 2023-11-15 20:31:59 +0100
+Processing by RestaurantsController#index as HTML
+  Parameters: {"filter"=>"pizza"}
+  [1m[36mRank Load (49.6ms)[0m  [1m[34mSELECT "ranks"."what", AVG(valoracion) as total_valoracion FROM "ranks" GROUP BY "ranks"."what" ORDER BY total_valoracion DESC[0m
+  ↳ app/controllers/restaurants_controller.rb:10:in `map'
+  [1m[36mRestaurant Load (23.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (25.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (24.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mCategory Load (24.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/index.html.erb:44
+  [1m[36mRestaurant Load (24.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."categoria" = $1[0m  [["categoria", "pizza"]]
+  ↳ app/views/restaurants/index.html.erb:51
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.1ms | Allocations: 4975)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 998)
+  [1m[36mUser Load (24.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 26.7ms | Allocations: 3162)
+  Rendered layout layouts/application.html.erb (Duration: 82.2ms | Allocations: 12970)
+Completed 200 OK in 208ms (Views: 9.1ms | ActiveRecord: 196.4ms | Allocations: 14965)
+
+
+Started GET "/restaurants?filter=Turca" for 127.0.0.1 at 2023-11-15 20:32:00 +0100
+Processing by RestaurantsController#index as HTML
+  Parameters: {"filter"=>"Turca"}
+  [1m[36mRank Load (49.5ms)[0m  [1m[34mSELECT "ranks"."what", AVG(valoracion) as total_valoracion FROM "ranks" GROUP BY "ranks"."what" ORDER BY total_valoracion DESC[0m
+  ↳ app/controllers/restaurants_controller.rb:10:in `map'
+  [1m[36mRestaurant Load (24.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (24.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (24.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mCategory Load (24.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/index.html.erb:44
+  [1m[36mRestaurant Load (25.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."categoria" = $1[0m  [["categoria", "Turca"]]
+  ↳ app/views/restaurants/index.html.erb:51
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.7ms | Allocations: 4065)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 994)
+  [1m[36mUser Load (24.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 26.3ms | Allocations: 3144)
+  Rendered layout layouts/application.html.erb (Duration: 82.4ms | Allocations: 12009)
+Completed 200 OK in 209ms (Views: 9.5ms | ActiveRecord: 196.6ms | Allocations: 14006)
+
+
+Started GET "/restaurants?filter=Tapas" for 127.0.0.1 at 2023-11-15 20:32:00 +0100
+Processing by RestaurantsController#index as HTML
+  Parameters: {"filter"=>"Tapas"}
+  [1m[36mRank Load (49.1ms)[0m  [1m[34mSELECT "ranks"."what", AVG(valoracion) as total_valoracion FROM "ranks" GROUP BY "ranks"."what" ORDER BY total_valoracion DESC[0m
+  ↳ app/controllers/restaurants_controller.rb:10:in `map'
+  [1m[36mRestaurant Load (23.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (24.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (24.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mCategory Load (24.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/index.html.erb:44
+  [1m[36mRestaurant Load (24.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."categoria" = $1[0m  [["categoria", "Tapas"]]
+  ↳ app/views/restaurants/index.html.erb:51
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 51.4ms | Allocations: 4065)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 994)
+  [1m[36mUser Load (24.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.0ms | Allocations: 3144)
+  Rendered layout layouts/application.html.erb (Duration: 82.2ms | Allocations: 12003)
+Completed 200 OK in 207ms (Views: 9.8ms | ActiveRecord: 193.9ms | Allocations: 13998)
+
+
+Started GET "/restaurants?filter=Gourmet" for 127.0.0.1 at 2023-11-15 20:32:01 +0100
+Processing by RestaurantsController#index as HTML
+  Parameters: {"filter"=>"Gourmet"}
+  [1m[36mRank Load (49.6ms)[0m  [1m[34mSELECT "ranks"."what", AVG(valoracion) as total_valoracion FROM "ranks" GROUP BY "ranks"."what" ORDER BY total_valoracion DESC[0m
+  ↳ app/controllers/restaurants_controller.rb:10:in `map'
+  [1m[36mRestaurant Load (26.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (24.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (24.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mCategory Load (24.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/index.html.erb:44
+  [1m[36mRestaurant Load (24.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."categoria" = $1[0m  [["categoria", "Gourmet"]]
+  ↳ app/views/restaurants/index.html.erb:51
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 51.9ms | Allocations: 4065)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 994)
+  [1m[36mUser Load (23.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 25.9ms | Allocations: 3144)
+  Rendered layout layouts/application.html.erb (Duration: 82.2ms | Allocations: 12003)
+Completed 200 OK in 210ms (Views: 10.8ms | ActiveRecord: 196.5ms | Allocations: 13999)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-15 20:32:01 +0100
+Processing by RestaurantsController#index as HTML
+  [1m[36mRank Load (49.6ms)[0m  [1m[34mSELECT "ranks"."what", AVG(valoracion) as total_valoracion FROM "ranks" GROUP BY "ranks"."what" ORDER BY total_valoracion DESC[0m
+  ↳ app/controllers/restaurants_controller.rb:10:in `map'
+  [1m[36mRestaurant Load (24.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (24.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (24.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mCategory Load (24.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/index.html.erb:44
+  [1m[36mRestaurant Load (25.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:51
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 54.0ms | Allocations: 6699)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 994)
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 28.0ms | Allocations: 3144)
+  Rendered layout layouts/application.html.erb (Duration: 85.9ms | Allocations: 14631)
+Completed 200 OK in 212ms (Views: 11.8ms | ActiveRecord: 197.7ms | Allocations: 16598)
+
+
+Started GET "/restaurants/2" for 127.0.0.1 at 2023-11-15 20:32:05 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRestaurant Load (25.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:14:in `show'
+  [1m[36mRank Load (24.4ms)[0m  [1m[34mSELECT "ranks"."what", AVG(valoracion) as rest_val FROM "ranks" WHERE "ranks"."what" = $1 GROUP BY "ranks"."what"[0m  [["what", 2]]
+  ↳ app/controllers/restaurants_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  Rendered restaurants/_header.html.erb (Duration: 1.6ms | Allocations: 2836)
+  [1m[36mDish Load (24.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 2]]
+  ↳ app/views/restaurants/show.html.erb:9
+  [1m[36mReview Load (24.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 2], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  [1m[36mReaction Load (25.5ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 1], ["reactionable_type", "Review"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:37:in `get_number_of_likes'
+  [1m[36mReaction Load (24.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 1], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 1], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 51.0ms | Allocations: 1946)
+  [1m[36mReaction Load (25.5ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 1], ["reactionable_type", "Review"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:41:in `get_number_of_dislikes'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 1], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 1], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 1.1ms | Allocations: 1324)
+  [1m[36mResponse Load (25.4ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 1], ["respondable_type", "Review"]]
+  ↳ app/helpers/application_helper.rb:33:in `get_number_of_responses'
+  Rendered layouts/_comment.html.erb (Duration: 387.8ms | Allocations: 26016)
+  Rendered layouts/_add_comment.html.erb (Duration: 0.4ms | Allocations: 489)
+  [1m[35m (25.5ms)[0m  [1m[34mSELECT posts.* FROM posts, users, restaurants_users as ru WHERE ru.user_id=users.nombre AND ru.restaurant_id=2 AND posts.autor=users.nombre AND posts.restaurant_id=2[0m
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_managers_posts'
+  Rendered layouts/_comment.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 549.6ms | Allocations: 36392)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 1007)
+  [1m[36mUser Load (24.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 26.8ms | Allocations: 3182)
+  Rendered layout layouts/application.html.erb (Duration: 579.5ms | Allocations: 44205)
+Completed 200 OK in 631ms (Views: 174.3ms | ActiveRecord: 454.9ms | Allocations: 45503)
+
+
+Started GET "/search?search=Goiko" for 127.0.0.1 at 2023-11-15 20:32:29 +0100
+Processing by RestaurantsController#search as HTML
+  Parameters: {"search"=>"Goiko"}
+  [1m[36mRestaurant Load (25.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."nombre" = $1 LIMIT $2[0m  [["nombre", "Goiko"], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:45:in `search'
+Redirected to http://localhost:3000/restaurants/1
+Completed 302 Found in 52ms (ActiveRecord: 25.3ms | Allocations: 721)
+
+
+Started GET "/restaurants/1" for 127.0.0.1 at 2023-11-15 20:32:29 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (24.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:14:in `show'
+  [1m[36mRank Load (24.8ms)[0m  [1m[34mSELECT "ranks"."what", AVG(valoracion) as rest_val FROM "ranks" WHERE "ranks"."what" = $1 GROUP BY "ranks"."what"[0m  [["what", 1]]
+  ↳ app/controllers/restaurants_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  Rendered restaurants/_header.html.erb (Duration: 1.2ms | Allocations: 1872)
+  [1m[36mDish Load (25.0ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/show.html.erb:9
+  [1m[36mReview Load (25.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  [1m[36mReaction Load (24.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 5], ["reactionable_type", "Review"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:37:in `get_number_of_likes'
+  [1m[36mReaction Load (25.8ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 5], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 5], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 27.1ms | Allocations: 1605)
+  [1m[36mReaction Load (24.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 5], ["reactionable_type", "Review"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:41:in `get_number_of_dislikes'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 5], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 5], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 1.2ms | Allocations: 1323)
+  [1m[36mResponse Load (24.1ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 5], ["respondable_type", "Review"]]
+  ↳ app/helpers/application_helper.rb:33:in `get_number_of_responses'
+  [1m[36mReaction Load (25.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 6], ["reactionable_type", "Review"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:37:in `get_number_of_likes'
+  [1m[36mReaction Load (24.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 6], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 6], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 25.5ms | Allocations: 1432)
+  [1m[36mReaction Load (24.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 6], ["reactionable_type", "Review"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:41:in `get_number_of_dislikes'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 6], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 6], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 0.9ms | Allocations: 1323)
+  [1m[36mResponse Load (25.5ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 6], ["respondable_type", "Review"]]
+  ↳ app/helpers/application_helper.rb:33:in `get_number_of_responses'
+  [1m[36mReaction Load (24.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 10], ["reactionable_type", "Review"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:37:in `get_number_of_likes'
+  [1m[36mReaction Load (24.6ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 10], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 10], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 25.7ms | Allocations: 1432)
+  [1m[36mReaction Load (24.3ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 10], ["reactionable_type", "Review"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:41:in `get_number_of_dislikes'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 10], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 10], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 1.0ms | Allocations: 1323)
+  [1m[36mResponse Load (24.8ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 10], ["respondable_type", "Review"]]
+  ↳ app/helpers/application_helper.rb:33:in `get_number_of_responses'
+  [1m[36mReaction Load (24.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 11], ["reactionable_type", "Review"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:37:in `get_number_of_likes'
+  [1m[36mReaction Load (25.5ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 11], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 11], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 26.8ms | Allocations: 1432)
+  [1m[36mReaction Load (24.3ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 11], ["reactionable_type", "Review"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:41:in `get_number_of_dislikes'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 11], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 11], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 1.3ms | Allocations: 1323)
+  [1m[36mResponse Load (24.5ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 11], ["respondable_type", "Review"]]
+  ↳ app/helpers/application_helper.rb:33:in `get_number_of_responses'
+  Rendered layouts/_comment.html.erb (Duration: 440.0ms | Allocations: 22975)
+  Rendered layouts/_add_comment.html.erb (Duration: 0.4ms | Allocations: 482)
+  [1m[35m (24.2ms)[0m  [1m[34mSELECT posts.* FROM posts, users, restaurants_users as ru WHERE ru.user_id=users.nombre AND ru.restaurant_id=1 AND posts.autor=users.nombre AND posts.restaurant_id=1[0m
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_managers_posts'
+  Rendered layouts/_comment.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 501.1ms | Allocations: 34515)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 1005)
+  [1m[36mUser Load (24.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 26.8ms | Allocations: 3174)
+  Rendered layout layouts/application.html.erb (Duration: 531.5ms | Allocations: 42304)
+Completed 200 OK in 583ms (Views: 38.6ms | ActiveRecord: 542.7ms | Allocations: 43456)
+
+
+Started GET "/users/gari" for 127.0.0.1 at 2023-11-15 20:33:13 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"gari"}
+  [1m[36mUser Load (25.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+  [1m[36mPost Count (25.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:25:in `show'
+  [1m[36mReview Count (25.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."autor" = $1[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:28:in `show'
+  [1m[36mResponse Count (26.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE "responses"."autor" = $1[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+  [1m[36mPost Count (24.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."autor" = $1 AND (created_at > '2023-10-15 19:33:13.475457')[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:35:in `show'
+  [1m[36mReview Count (24.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."autor" = $1 AND (created_at > '2023-10-15 19:33:13.500851')[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:36:in `show'
+  [1m[36mResponse Count (24.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE "responses"."autor" = $1 AND (created_at > '2023-10-15 19:33:13.525556')[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:37:in `show'
+  [1m[36mRestaurant Count (24.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/controllers/users_controller.rb:40:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.7ms | Allocations: 2980)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 994)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 2.1ms | Allocations: 3040)
+  Rendered layout layouts/application.html.erb (Duration: 7.7ms | Allocations: 10614)
+Completed 200 OK in 267ms (Views: 8.2ms | ActiveRecord: 226.4ms | Allocations: 18731)
+
+
+Started GET "/users/gari" for 127.0.0.1 at 2023-11-15 20:33:53 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"gari"}
+  [1m[36mUser Load (25.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+  [1m[36mPost Count (25.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:25:in `show'
+  [1m[36mReview Count (25.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."autor" = $1[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:28:in `show'
+  [1m[36mResponse Count (25.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE "responses"."autor" = $1[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+  [1m[36mPost Count (24.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."autor" = $1 AND (created_at > '2023-10-15 19:33:53.748851')[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:35:in `show'
+  [1m[36mReview Count (24.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."autor" = $1 AND (created_at > '2023-10-15 19:33:53.773875')[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:36:in `show'
+  [1m[36mResponse Count (24.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE "responses"."autor" = $1 AND (created_at > '2023-10-15 19:33:53.799017')[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:37:in `show'
+  [1m[36mRestaurant Count (24.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/controllers/users_controller.rb:40:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 2.3ms | Allocations: 2972)
+  Rendered layouts/_header.html.erb (Duration: 1.0ms | Allocations: 1258)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 3.1ms | Allocations: 3745)
+  Rendered layout layouts/application.html.erb (Duration: 16.4ms | Allocations: 26410)
+Completed 200 OK in 475ms (Views: 17.5ms | ActiveRecord: 402.3ms | Allocations: 49400)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-11-15 20:35:51 +0100
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (58.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 87.5ms | Allocations: 4129)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 1019)
+  [1m[36mUser Load (25.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.4ms | Allocations: 3147)
+  Rendered layout layouts/application.html.erb (Duration: 118.1ms | Allocations: 12118)
+Completed 200 OK in 121ms (Views: 9.7ms | ActiveRecord: 108.9ms | Allocations: 13701)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-11-15 20:36:29 +0100
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (48.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 50.7ms | Allocations: 2698)
+  Rendered layouts/_header.html.erb (Duration: 0.6ms | Allocations: 1019)
+  [1m[36mUser Load (25.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.9ms | Allocations: 3144)
+  Rendered layout layouts/application.html.erb (Duration: 89.8ms | Allocations: 17012)
+Completed 200 OK in 91ms (Views: 16.6ms | ActiveRecord: 73.6ms | Allocations: 17271)
+
+
+Started GET "/categories" for 127.0.0.1 at 2023-11-15 20:37:53 +0100
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (49.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:5
+  Rendered categories/index.html.erb within layouts/application (Duration: 52.3ms | Allocations: 2697)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 1019)
+  [1m[36mUser Load (25.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 28.1ms | Allocations: 3144)
+  Rendered layout layouts/application.html.erb (Duration: 84.3ms | Allocations: 10649)
+Completed 200 OK in 85ms (Views: 9.5ms | ActiveRecord: 75.2ms | Allocations: 10910)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-15 20:38:18 +0100
+Processing by RestaurantsController#index as HTML
+  [1m[36mRank Load (25.4ms)[0m  [1m[34mSELECT "ranks"."what", AVG(valoracion) as total_valoracion FROM "ranks" GROUP BY "ranks"."what" ORDER BY total_valoracion DESC[0m
+  ↳ app/controllers/restaurants_controller.rb:10:in `map'
+  [1m[36mRestaurant Load (25.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (24.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (25.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mCategory Load (24.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/index.html.erb:44
+  [1m[36mRestaurant Load (24.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:51
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.1ms | Allocations: 7449)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 1008)
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.1ms | Allocations: 3182)
+  Rendered layout layouts/application.html.erb (Duration: 85.8ms | Allocations: 15470)
+Completed 200 OK in 245ms (Views: 13.1ms | ActiveRecord: 224.5ms | Allocations: 23948)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-15 20:38:57 +0100
+Processing by RestaurantsController#index as HTML
+  [1m[36mRank Load (50.3ms)[0m  [1m[34mSELECT "ranks"."what", AVG(valoracion) as total_valoracion FROM "ranks" GROUP BY "ranks"."what" ORDER BY total_valoracion DESC[0m
+  ↳ app/controllers/restaurants_controller.rb:10:in `map'
+  [1m[36mRestaurant Load (24.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (25.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (25.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mCategory Load (24.9ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/index.html.erb:44
+  [1m[36mRestaurant Load (24.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:51
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 54.6ms | Allocations: 6712)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 994)
+  [1m[36mUser Load (23.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 26.6ms | Allocations: 3164)
+  Rendered layout layouts/application.html.erb (Duration: 94.1ms | Allocations: 21045)
+Completed 200 OK in 223ms (Views: 21.9ms | ActiveRecord: 198.4ms | Allocations: 23011)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-15 20:39:27 +0100
+Processing by RestaurantsController#index as HTML
+  [1m[36mRank Load (50.5ms)[0m  [1m[34mSELECT "ranks"."what", AVG(valoracion) as total_valoracion FROM "ranks" GROUP BY "ranks"."what" ORDER BY total_valoracion DESC[0m
+  ↳ app/controllers/restaurants_controller.rb:10:in `map'
+  [1m[36mRestaurant Load (24.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (25.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (24.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mCategory Load (24.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/index.html.erb:44
+  [1m[36mRestaurant Load (24.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:51
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 53.3ms | Allocations: 6703)
+  Rendered layouts/_header.html.erb (Duration: 0.8ms | Allocations: 994)
+  [1m[36mUser Load (24.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 26.6ms | Allocations: 3144)
+  Rendered layout layouts/application.html.erb (Duration: 90.1ms | Allocations: 21030)
+Completed 200 OK in 218ms (Views: 17.2ms | ActiveRecord: 198.3ms | Allocations: 22995)
+
+
+Started GET "/restaurants" for 127.0.0.1 at 2023-11-15 20:40:45 +0100
+Processing by RestaurantsController#index as HTML
+  [1m[36mRank Load (48.2ms)[0m  [1m[34mSELECT "ranks"."what", AVG(valoracion) as total_valoracion FROM "ranks" GROUP BY "ranks"."what" ORDER BY total_valoracion DESC[0m
+  ↳ app/controllers/restaurants_controller.rb:10:in `map'
+  [1m[36mRestaurant Load (25.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (25.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  [1m[36mRestaurant Load (24.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:10:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mCategory Load (24.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/index.html.erb:44
+  [1m[36mRestaurant Load (24.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:51
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 52.1ms | Allocations: 6699)
+  Rendered layouts/_header.html.erb (Duration: 0.7ms | Allocations: 994)
+  [1m[36mUser Load (24.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.2ms | Allocations: 3144)
+  Rendered layout layouts/application.html.erb (Duration: 82.7ms | Allocations: 14692)
+Completed 200 OK in 210ms (Views: 10.0ms | ActiveRecord: 196.8ms | Allocations: 16657)
+
+
+Started GET "/restaurants/3" for 127.0.0.1 at 2023-11-15 20:41:38 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (25.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:14:in `show'
+  [1m[36mRank Load (25.2ms)[0m  [1m[34mSELECT "ranks"."what", AVG(valoracion) as rest_val FROM "ranks" WHERE "ranks"."what" = $1 GROUP BY "ranks"."what"[0m  [["what", 3]]
+  ↳ app/controllers/restaurants_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  Rendered restaurants/_header.html.erb (Duration: 3.4ms | Allocations: 2545)
+  [1m[36mDish Load (24.8ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  ↳ app/views/restaurants/show.html.erb:9
+  [1m[36mReview Load (25.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 3], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  [1m[36mReaction Load (25.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 4], ["reactionable_type", "Review"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:37:in `get_number_of_likes'
+  [1m[36mReaction Load (25.7ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 4], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 4], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 28.3ms | Allocations: 1879)
+  [1m[36mReaction Load (25.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 4], ["reactionable_type", "Review"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:41:in `get_number_of_dislikes'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 4], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 4], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 1.4ms | Allocations: 1324)
+  [1m[36mResponse Load (25.3ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 4], ["respondable_type", "Review"]]
+  ↳ app/helpers/application_helper.rb:33:in `get_number_of_responses'
+  Rendered layouts/_comment.html.erb (Duration: 220.1ms | Allocations: 14381)
+  Rendered layouts/_add_comment.html.erb (Duration: 0.9ms | Allocations: 635)
+  [1m[35m (24.4ms)[0m  [1m[34mSELECT posts.* FROM posts, users, restaurants_users as ru WHERE ru.user_id=users.nombre AND ru.restaurant_id=3 AND posts.autor=users.nombre AND posts.restaurant_id=3[0m
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_managers_posts'
+  [1m[36mReaction Load (25.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 39], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:37:in `get_number_of_likes'
+  [1m[36mReaction Load (22.7ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 39], ["reactionable_type", "Post"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 39], ["reactionable_type", "Post"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 24.5ms | Allocations: 1455)
+  [1m[36mReaction Load (24.9ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 39], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:41:in `get_number_of_dislikes'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 39], ["reactionable_type", "Post"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 39], ["reactionable_type", "Post"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 1.5ms | Allocations: 1323)
+  [1m[36mResponse Load (24.9ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 39], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:33:in `get_number_of_responses'
+  [1m[36mReaction Load (24.1ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 40], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:37:in `get_number_of_likes'
+  [1m[36mReaction Load (25.6ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 40], ["reactionable_type", "Post"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 40], ["reactionable_type", "Post"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 27.2ms | Allocations: 1432)
+  [1m[36mReaction Load (24.4ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 40], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:41:in `get_number_of_dislikes'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 40], ["reactionable_type", "Post"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 40], ["reactionable_type", "Post"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 1.4ms | Allocations: 1323)
+  [1m[36mResponse Load (24.1ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 40], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:33:in `get_number_of_responses'
+  Rendered layouts/_comment.html.erb (Duration: 209.7ms | Allocations: 12579)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 608.4ms | Allocations: 53529)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 1007)
+  [1m[36mUser Load (24.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 27.8ms | Allocations: 3181)
+  Rendered layout layouts/application.html.erb (Duration: 639.7ms | Allocations: 61341)
+Completed 200 OK in 693ms (Views: 57.7ms | ActiveRecord: 633.3ms | Allocations: 62601)
+
+
+Started POST "/reactions" for 127.0.0.1 at 2023-11-15 20:41:56 +0100
+Processing by ReactionsController#create as TURBO_STREAM
+  Parameters: {"reaction"=>{"reaccion"=>"Like", "reactionable_id"=>"39", "reactionable_type"=>"Post"}}
+  [1m[36mReaction Exists? (51.1ms)[0m  [1m[34mSELECT 1 AS one FROM "reactions" WHERE "reactions"."who" = $1 AND "reactions"."reactionable_id" = $2 AND "reactions"."reactionable_type" = $3 LIMIT $4[0m  [["who", "gari"], ["reactionable_id", 39], ["reactionable_type", "Post"], ["LIMIT", 1]]
+  ↳ app/controllers/reactions_controller.rb:6:in `create'
+  [1m[36mPost Load (25.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."id" = $1 LIMIT $2[0m  [["id", 39], ["LIMIT", 1]]
+  ↳ app/controllers/reactions_controller.rb:6:in `create'
+  [1m[36mCACHE Reaction Exists? (0.0ms)[0m  [1m[34mSELECT 1 AS one FROM "reactions" WHERE "reactions"."who" = $1 AND "reactions"."reactionable_id" = $2 AND "reactions"."reactionable_type" = $3 LIMIT $4[0m  [["who", "gari"], ["reactionable_id", 39], ["reactionable_type", "Post"], ["LIMIT", 1]]
+  ↳ app/controllers/reactions_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (25.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/reactions_controller.rb:6:in `create'
+  [1m[36mReaction Create (51.0ms)[0m  [1m[32mINSERT INTO "reactions" ("who", "reactionable_type", "reactionable_id", "reaccion") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["who", "gari"], ["reactionable_type", "Post"], ["reactionable_id", 39], ["reaccion", "Like"]]
+  ↳ app/controllers/reactions_controller.rb:6:in `create'
+  [1m[36mTRANSACTION (26.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/reactions_controller.rb:6:in `create'
+Redirected to http://localhost:3000/restaurants/3
+Completed 302 Found in 187ms (ActiveRecord: 179.5ms | Allocations: 7138)
+
+
+Started GET "/restaurants/3" for 127.0.0.1 at 2023-11-15 20:41:56 +0100
+Processing by RestaurantsController#show as TURBO_STREAM
+  Parameters: {"id"=>"3"}
+  [1m[36mRestaurant Load (24.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:14:in `show'
+  [1m[36mRank Load (24.7ms)[0m  [1m[34mSELECT "ranks"."what", AVG(valoracion) as rest_val FROM "ranks" WHERE "ranks"."what" = $1 GROUP BY "ranks"."what"[0m  [["what", 3]]
+  ↳ app/controllers/restaurants_controller.rb:16:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  Rendered restaurants/_header.html.erb (Duration: 1.5ms | Allocations: 2158)
+  [1m[36mDish Load (24.4ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 3]]
+  ↳ app/views/restaurants/show.html.erb:9
+  [1m[36mReview Load (25.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 3], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  [1m[36mReaction Load (25.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 4], ["reactionable_type", "Review"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:37:in `get_number_of_likes'
+  [1m[36mReaction Load (24.9ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 4], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 4], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 26.3ms | Allocations: 1605)
+  [1m[36mReaction Load (25.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 4], ["reactionable_type", "Review"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:41:in `get_number_of_dislikes'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 4], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 4], ["reactionable_type", "Review"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 1.2ms | Allocations: 1323)
+  [1m[36mResponse Load (24.3ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 4], ["respondable_type", "Review"]]
+  ↳ app/helpers/application_helper.rb:33:in `get_number_of_responses'
+  Rendered layouts/_comment.html.erb (Duration: 130.4ms | Allocations: 6430)
+  Rendered layouts/_add_comment.html.erb (Duration: 0.3ms | Allocations: 482)
+  [1m[35m (24.3ms)[0m  [1m[34mSELECT posts.* FROM posts, users, restaurants_users as ru WHERE ru.user_id=users.nombre AND ru.restaurant_id=3 AND posts.autor=users.nombre AND posts.restaurant_id=3[0m
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_managers_posts'
+  [1m[36mReaction Load (25.3ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 39], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:37:in `get_number_of_likes'
+  [1m[36mReaction Load (25.8ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 39], ["reactionable_type", "Post"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 39], ["reactionable_type", "Post"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 27.4ms | Allocations: 1492)
+  [1m[36mReaction Load (24.9ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 39], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:41:in `get_number_of_dislikes'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 39], ["reactionable_type", "Post"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 39], ["reactionable_type", "Post"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 1.3ms | Allocations: 1375)
+  [1m[36mResponse Load (24.4ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 39], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:33:in `get_number_of_responses'
+  [1m[36mReaction Load (24.7ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 40], ["reactionable_type", "Post"], ["reaccion", "Like"]]
+  ↳ app/helpers/application_helper.rb:37:in `get_number_of_likes'
+  [1m[36mReaction Load (24.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 40], ["reactionable_type", "Post"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 40], ["reactionable_type", "Post"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 25.1ms | Allocations: 1435)
+  [1m[36mReaction Load (24.2ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."reaccion" = $3[0m  [["reactionable_id", 40], ["reactionable_type", "Post"], ["reaccion", "Dislike"]]
+  ↳ app/helpers/application_helper.rb:41:in `get_number_of_dislikes'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 40], ["reactionable_type", "Post"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:54:in `reaction_action_path'
+  [1m[36mCACHE Reaction Load (0.0ms)[0m  [1m[34mSELECT "reactions".* FROM "reactions" WHERE "reactions"."reactionable_id" = $1 AND "reactions"."reactionable_type" = $2 AND "reactions"."who" = $3 LIMIT $4[0m  [["reactionable_id", 40], ["reactionable_type", "Post"], ["who", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:45:in `define_turbo_method'
+  Rendered layouts/_reaction.html.erb (Duration: 1.5ms | Allocations: 1323)
+  [1m[36mResponse Load (23.9ms)[0m  [1m[34mSELECT "responses".* FROM "responses" WHERE "responses"."respondable_id" = $1 AND "responses"."respondable_type" = $2[0m  [["respondable_id", 40], ["respondable_type", "Post"]]
+  ↳ app/helpers/application_helper.rb:33:in `get_number_of_responses'
+  Rendered layouts/_comment.html.erb (Duration: 209.8ms | Allocations: 10808)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 393.0ms | Allocations: 21915)
+  Rendered layouts/_header.html.erb (Duration: 0.9ms | Allocations: 1007)
+  [1m[36mUser Load (24.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 26.2ms | Allocations: 3179)
+  Rendered layout layouts/application.html.erb (Duration: 422.6ms | Allocations: 29725)
+Completed 200 OK in 474ms (Views: 28.4ms | ActiveRecord: 443.6ms | Allocations: 30925)
+
+
