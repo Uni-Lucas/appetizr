@@ -49,12 +49,11 @@ class UsersController < ApplicationController
           @user.restaurants.each do |restaurant|
             @num_reviews_restaurant_last_month += Review.where(reviewable_id: restaurant.id, reviewable_type: 'Restaurant').where("created_at > ?", 1.month.ago).count
             # MODIFICAR: reviewable_id tiene que ser un plato de restaurant
-            @num_reviews_dishes_last_month += Review.where(reviewable_id: restaurant.id, reviewable_type: 'Dish').where("created_at > ?", 1.month.ago).count
-            # MODIFICAR: el autor tiene que ser el user y que esté marcado como realizado por el propietario
-            @num_responses_restaurant_last_month += Response.where(autor: restaurant.id).where("created_at > ?", 1.month.ago).count
-            # MODIFICAR: no me carga la base de datos
-            @num_likes_restaurant_last_month += Reaction.where(autor: restaurant.id).where("created_at > ?", 1.month.ago).where(reaction: 'Like').count
-            @num_dislikes_restaurant_last_month += Reaction.where(autor: restaurant.id).where("created_at > ?", 1.month.ago).where(reaction: 'Dislike').count
+            restaurant.dishes.each do |dish|
+              @num_reviews_dishes_last_month += Review.where(reviewable_id: dish.id, reviewable_type: 'Dish').where("created_at > ?", 1.month.ago).count
+            end
+            @num_likes_restaurant_last_month += Reaction.where(who: restaurant.id).where(reaccion: 'Like').count
+            @num_dislikes_restaurant_last_month += Reaction.where(who: restaurant.id).where(reaccion: 'Dislike').count
           end
         end
     end
