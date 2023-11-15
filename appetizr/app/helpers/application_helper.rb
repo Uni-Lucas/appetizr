@@ -58,4 +58,5 @@ module ApplicationHelper
         return reactions_path(reaction: new_reaction)
       end
     end
+
 end
