@@ -5,11 +5,11 @@
   <div class="responses_main_container">
     <div class="responses_original_comment_wrapper">
       <div class="responses_original_comment">
-        <%= render "layouts/comment", comments: [@review], locals: {reactions: {@review.id: {likes: @review.reactions.where(reaccion: "Like").length(), dislikes: @review.reactions.where(reaccion: "Dislike").length()}}}%>
+        <%= render "layouts/comment", comments: [@review], locals: {reactions: @review_responses_reactions, user_reactions: @review_responses_user_reactions}%>
       </div>
     </div>
     <div class="responses_list">
-      <%= render "layouts/comment", comments: @review_responses, locals: {reactions: @review_reactions} %>
+      <%= render "layouts/comment", comments: @review_responses, locals: {reactions: @review_responses_reactions, user_reactions: @review_responses_user_reactions} %>
     </div>
   </div>
   <div style="display: flex; justify-content: center">

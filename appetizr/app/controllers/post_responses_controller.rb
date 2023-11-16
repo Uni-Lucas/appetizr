@@ -21,15 +21,15 @@ class PostResponsesController < ApplicationController
     session[:response_referer] = nil
     @post = Post.find(params[:post_id])
     @post_responses = @post.responses.find_each
-    puts @post_responses.inspect
-    @posts_reactions = {}
-    @likes = get_all_reactions("AND respondable_id=#{@post.id} AND respondable_type='Post'", 'responses', 'Response', 'Like')
-    @dislikes = get_all_reactions("AND respondable_id=#{@post.id} AND respondable_type='Post'", 'responses', 'Response', 'Dislike')
-    @post_responses.with_index do |post, i|
-      @posts_reactions[post.id] = {likes: @likes[i]["react"], dislikes: @dislikes[i]["react"]} 
+    @post_responses_reactions = get_comment_pack(@post_responses, 'responses', 'Response', "AND respondable_id=#{@post.id} AND respondable_type='Post'")
+    @post_responses_user_reactions = get_user_reactions_pack('responses', 'Response', session[:username], "AND respondable_id=#{@post.id} AND respondable_type='Post'")
+    @post_responses_reactions[@post.id] = {likes: @post.reactions.where(reaccion: "Like").length(), dislikes: @post.reactions.where(reaccion: "Dislike").length(), responses: @post_responses.size()}
+    user_reaction_id = @post.reactions.find_by(who: session[:username])
+    if user_reaction_id
+      @post_responses_user_reactions[@post.id] = {reaction_id: user_reaction_id.id}
+    else
+      @post_responses_user_reactions[@post.id] = {}
     end
-    @posts_reactions[@post.id] = {likes: @post.reactions.where(reaccion: "Like").length(), dislikes: @post.reactions.where(reaccion: "Dislike").length(), responses: @post_responses.size()}
-    puts @posts_reactions.inspect
   end
 
 

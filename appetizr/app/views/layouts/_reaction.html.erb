@@ -1,5 +1,5 @@
 
-<%= link_to reaction_action_path(locals), data: { turbo_method: define_turbo_method(locals[:comment]), style: "text-decoration: none; color: black;"} do %>
+<%= link_to reaction_action_path(locals), data: { turbo_method: define_turbo_method(locals[:user_reaction_id]), style: "text-decoration: none; color: black;"} do %>
   <% if locals[:button] == "Like" %>
     <%= image_tag "Like", style: "transform: rotate(-180deg)", class: "comment_action_logo" %>
   <% else %>

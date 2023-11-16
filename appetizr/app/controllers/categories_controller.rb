@@ -7,13 +7,9 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:nombre])
     @category_posts = @category.posts.find_each
-    @posts_reactions = {}
-    @likes = get_all_reactions("AND categoria='#{params[:nombre]}'", 'posts', 'Post', 'Like')
-    @dislikes = get_all_reactions("AND categoria='#{params[:nombre]}'", 'posts', 'Post', 'Dislike')
-    @responses = get_all_responses("AND categoria='#{params[:nombre]}'", 'posts', 'Post')
-    @category_posts.with_index do |post, i|
-      @posts_reactions[post.id] = {likes: @likes[i]["react"], dislikes: @dislikes[i]["react"], responses: @responses[i]["resp_count"]} 
-    end
+    @posts_reactions = get_comment_pack(@category_posts, 'posts', 'Post', "AND categoria='#{params[:nombre]}'")
+    @comments_user_reactions = get_user_reactions_pack('posts', 'Post', session[:username], "AND categoria='#{params[:nombre]}'")
+        #  for every comment, check whether a user has already reacted to that comment
     session[:post_category] = params[:nombre]
   end
 

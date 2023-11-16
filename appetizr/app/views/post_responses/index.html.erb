@@ -5,11 +5,11 @@
   <div class="responses_main_container">
     <div class="responses_original_comment_wrapper">
       <div class="responses_original_comment">
-        <%= render "layouts/comment", comments: [@post], locals: {reactions: @posts_reactions} %>
+        <%= render "layouts/comment", comments: [@post], locals: {reactions: @post_responses_reactions, user_reactions: @post_responses_user_reactions} %>
       </div>
     </div>
     <div class="responses_list">
-      <%= render "layouts/comment", comments: @post_responses, locals: {reactions: @posts_reactions} %>
+      <%= render "layouts/comment", comments: @post_responses, locals: {reactions: @post_responses_reactions, user_reactions: @post_responses_user_reactions}%>
     </div>
   </div>
   <div  style="display: flex; justify-content: center">

@@ -27,13 +27,13 @@
   <div id="restaurant_reviews" class="restaurant_section_title"> Reseñas del restaurante </div>
   <div>
     <div class="restaurant_section_content restaurant_section_content_comments">
-      <%= render "layouts/comment", comments: @restaurant.reviews %>
+      <%= render "layouts/comment", comments: @restaurant.reviews, locals: {reactions: @reviews_reactions, user_reactions: @reviews_user_reactions}%>
       <%= render "layouts/add_comment", path_param: new_review_path(review_to: @restaurant.id, review_type: "Restaurant") %> 
     </div>
   </div>
   <div id="restaurant_posts" class="restaurant_section_title"> Posts del restaurante </div>
   <div class="restaurant_section_content restaurant_section_content_comments">
-    <%= render "layouts/comment", comments: get_rest_managers_posts(@restaurant.id) %>
+    <%= render "layouts/comment", comments: get_rest_managers_posts(@restaurant.id), locals: {reactions: @posts_reactions, user_reactions: @posts_user_reactions} %>
   </div>
 
   <div id="restaurant_info" class="restaurant_section_title"> Información del restaurante </div>

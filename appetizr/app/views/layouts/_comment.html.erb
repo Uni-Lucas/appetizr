@@ -17,10 +17,10 @@
       <% end %>
       <div class="comment_actions_row">
         <div class="comment_action_item">
-          <%= render "layouts/reaction", locals: {comment: comment, button: "Like", rcts_no: locals[:reactions][comment.id][:likes]} %>
+          <%= render "layouts/reaction", locals: {comment: comment, button: "Like", rcts_no: locals[:reactions][comment.id][:likes], user_reaction_id: locals[:user_reactions][comment.id][:reaction_id]} %>
         </div>
         <div class="comment_action_item">
-          <%= render "layouts/reaction", locals: {comment: comment, button: "Dislike", rcts_no: locals[:reactions][comment.id][:dislikes]} %>
+          <%= render "layouts/reaction", locals: {comment: comment, button: "Dislike", rcts_no: locals[:reactions][comment.id][:dislikes], user_reaction_id: locals[:user_reactions][comment.id][:reaction_id]} %>
         </div>
         <% if is_not_response(comment) %>
           <div class="comment_action_item">
