@@ -141,7 +141,7 @@ html,body{
     position: relative;
     border-radius: 15px;
     padding-left: 12px;
-    margin-right:10px;
+    margin-right: 10px;
 }
 
 .search_bar_field {
@@ -195,6 +195,41 @@ html,body{
     margin-left: 40px;
     margin-right: 40px;
 }
+
+/* -------------------------------------- */
+/* ADMIN */
+/* -------------------------------------- */
+
+
+.admin_view_button {
+  background-color: var(--black);
+  text-decoration: none;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  color: var(--strong-gold);
+  font-family: var(--letra);
+  letter-spacing: 2.4px;
+  font-size: 24px;
+}
+
+
+
+.admin_user_list {
+
+}
+
+
+
+
+
+
+
+
+
+
 
 /* -------------------------------------- */
 /* CATEGORIES */
@@ -534,17 +569,17 @@ html,body{
 /* -------------------------------------- */
 
 .logout_button {
-    background-color: var(--strong-gold);
-    text-decoration: none;
-    width: 250px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 30px;
-    color: var(--black);
-    font-family: var(--letra);
-    letter-spacing: 2.4px;
-    font-size: 24px;
+  background-color: var(--strong-gold);
+  text-decoration: none;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  color: var(--black);
+  font-family: var(--letra);
+  letter-spacing: 2.4px;
+  font-size: 24px;
 }
 
 .my_account_form_container {
@@ -634,6 +669,16 @@ html,body{
   line-height: normal;
   letter-spacing: 0.32px;
   font-size: 20px;
+}
+
+.my_account_stats_line {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#my_account_month_comments {
+  width: 300px;
 }
 
 .my_account_stats_title {
