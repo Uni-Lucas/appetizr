@@ -587,8 +587,8 @@ html,body{
     margin-top: 24px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 80% 20%;
-    height: 535px;
+    grid-template-rows: 1fr 120px;
+    padding-top: 20px;
     align-items: center;
     justify-items: center;
     margin-left: 40px;
@@ -650,6 +650,13 @@ html,body{
   letter-spacing: 0.32px;
 }
 
+.my_account_stats_container_wrapper {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-direction: column;
+}
+
 .my_account_stats_container {
   display: flex;
   flex-direction: column;
@@ -657,7 +664,7 @@ html,body{
   background-color: var(--light-black);
   border-radius: 30px;
   padding: 10px;
-  margin: 80px 50px;
+  margin: 0 50px;
   align-self: stretch;
   justify-self: stretch;
   justify-content: center;

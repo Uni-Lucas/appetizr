@@ -1,7 +1,9 @@
 <div class="title_container" style="flex-direction: row !important">
     <h1 class="title">Mi <span class="title_key_word">Cuenta</span></h1>
-    <%= link_to categories_path, class: "admin_view_button", style: "text-decoration: none" do %>
-        <div>Administración</div>
+    <% if @user.esAdmin %>
+        <%= link_to "/admin", class: "admin_view_button", style: "text-decoration: none" do %>
+            <div>Administración</div>
+        <% end %>
     <% end %>
     <%= link_to logout_path, class: "logout_button", method: :delete do %>
         <div>Log out</div>
@@ -25,6 +27,30 @@
                 <div><%= msg %></div>
             <% end %>
         </div>
+        
+        <div class="my_account_stats_container_wrapper">
+            <div class="my_account_stats_container">
+                <p class="my_account_stats_title">Estadísticas</p>
+                <div>
+                    <div class="my_account_stats_line"><p>Posts</p><span class="my_account_metrics"><%= @num_posts %></span></div>
+                    <div class="my_account_stats_line"><p>Reviews</p><span class="my_account_metrics"><%= @num_reviews %></span></div>
+                    <div class="my_account_stats_line"><p>Respuestas</p><span class="my_account_metrics"><%= @num_responses %></span></div>
+                    <div class="my_account_stats_line"><p id="my_account_month_comments">Comentarios del último mes</p><span class="my_account_metrics"><%= @num_comments_last_month %></span></div>
+                </div>
+            </div>
+            <div class="my_account_stats_container">
+                <% if @num_restaurants_user > 0 %>
+                    <p class="my_account_stats_title">Estadísticas de tus restaurantes en el último mes</p>
+                    <div>
+                        <div class="my_account_stats_line"><p>Reviews recibidas sobre restaurantes: <span class="my_account_metrics"><%= @num_reviews_restaurant_last_month %></span></p></div>
+                        <div class="my_account_stats_line"><p>Reviews recibidas sobre platos: <span class="my_account_metrics"><%= @num_reviews_dishes_last_month %></span></p></div>
+                        <div class="my_account_stats_line"><p>Respuestas recibidas: <span class="my_account_metrics"><%= @num_responses_restaurant_last_month %></span></p></div>
+                        <div class="my_account_stats_line"><p>Likes recibidos: <span class="my_account_metrics"><%= @num_likes_restaurant_last_month %></span></p></div>
+                        <div class="my_account_stats_line"><p>Dislikes recibidos: <span class="my_account_metrics"><%= @num_dislikes_restaurant_last_month %></span></p></div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
         <div class="my_account_profile_img_container">
             <div class="my_account_profile_img_title">Imagen de Perfil</div>
             <% if @user.ruta_img_perfil.present? %>
@@ -37,25 +63,6 @@
                 <%= image_tag "image-icon", class: "new_post_image_upload_icon" %>
                 <div class="new_post_image_upload_text">Modificar</div>
             </label>
-        </div>
-        <div class="my_account_stats_container">
-            <p class="my_account_stats_title">Estadísticas</p>
-            <div>
-                <div class="my_account_stats_line"><p>Posts</p><span class="my_account_metrics"><%= @num_posts %></span></div>
-                <div class="my_account_stats_line"><p>Reviews</p><span class="my_account_metrics"><%= @num_reviews %></span></div>
-                <div class="my_account_stats_line"><p>Respuestas</p><span class="my_account_metrics"><%= @num_responses %></span></div>
-                <div class="my_account_stats_line"><p id="my_account_month_comments">Comentarios del último mes</p><span class="my_account_metrics"><%= @num_comments_last_month %></span></div>
-                <% if @num_restaurants_user > 0 %>
-                    <p class="my_account_stats_title">Estadísticas de tus restaurantes en el último mes</p>
-                    <div>
-                        <div class="my_account_stats_line"><p>Reviews recibidas sobre restaurantes: <span class="my_account_metrics"><%= @num_reviews_restaurant_last_month %></span></p></div>
-                        <div class="my_account_stats_line"><p>Reviews recibidas sobre platos: <span class="my_account_metrics"><%= @num_reviews_dishes_last_month %></span></p></div>
-                        <div class="my_account_stats_line"><p>Respuestas recibidas: <span class="my_account_metrics"><%= @num_responses_restaurant_last_month %></span></p></div>
-                        <div class="my_account_stats_line"><p>Likes recibidos: <span class="my_account_metrics"><%= @num_likes_restaurant_last_month %></span></p></div>
-                        <div class="my_account_stats_line"><p>Dislikes recibidos: <span class="my_account_metrics"><%= @num_dislikes_restaurant_last_month %></span></p></div>
-                    </div>
-                <% end %>
-            </div>
         </div>
         <%= form.button type: :submit, class: "new_post_submit", style: "grid-column: span 3;" do %>
             <%= image_tag "save", class: "new_post_submit_icon" %>
