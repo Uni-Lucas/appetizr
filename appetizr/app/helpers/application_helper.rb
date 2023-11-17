@@ -41,8 +41,8 @@ module ApplicationHelper
       comment.reactions.where(reaccion: "Dislike").length()
     end
 
-    def define_turbo_method(comment)
-      if comment.reactions.find_by(who: session[:username])
+    def define_turbo_method(reaction_id)
+      if reaction_id 
         return :put
       else
         return :post
@@ -51,11 +51,11 @@ module ApplicationHelper
 
     def reaction_action_path(locals)
       new_reaction = {reaccion: locals[:button], reactionable_type: get_comment_type(locals[:comment]), reactionable_id: locals[:comment].id}
-      reaction = locals[:comment].reactions.find_by(who: session[:username])
-      if reaction 
-        return reaction_path(id: reaction.id, reaction: new_reaction)
+      if locals[:user_reaction_id] 
+        return reaction_path(id: locals[:user_reaction_id], reaction: new_reaction)
       else
         return reactions_path(reaction: new_reaction)
       end
     end
+
 end

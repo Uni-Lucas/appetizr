@@ -1,10 +1,15 @@
 class CategoriesController < ApplicationController
+  include QueriesConcern
   def index 
     @categories = Category.all
   end
 
   def show
     @category = Category.find(params[:nombre])
+    @category_posts = @category.posts.find_each
+    @posts_reactions = get_comment_pack(@category_posts, 'posts', 'Post', "AND categoria='#{params[:nombre]}'")
+    @comments_user_reactions = get_user_reactions_pack('posts', 'Post', session[:username], "AND categoria='#{params[:nombre]}'")
+        #  for every comment, check whether a user has already reacted to that comment
     session[:post_category] = params[:nombre]
   end
 

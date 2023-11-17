@@ -17,16 +17,16 @@
       <% end %>
       <div class="comment_actions_row">
         <div class="comment_action_item">
-          <%= render "layouts/reaction", locals: {comment: comment, button: "Like", rcts_no: get_number_of_likes(comment)} %>
+          <%= render "layouts/reaction", locals: {comment: comment, button: "Like", rcts_no: locals[:reactions][comment.id][:likes], user_reaction_id: locals[:user_reactions][comment.id][:reaction_id]} %>
         </div>
         <div class="comment_action_item">
-          <%= render "layouts/reaction", locals: {comment: comment, button: "Dislike", rcts_no: get_number_of_dislikes(comment)} %>
+          <%= render "layouts/reaction", locals: {comment: comment, button: "Dislike", rcts_no: locals[:reactions][comment.id][:dislikes], user_reaction_id: locals[:user_reactions][comment.id][:reaction_id]} %>
         </div>
         <% if is_not_response(comment) %>
           <div class="comment_action_item">
             <%= link_to get_response_path(comment), style: "text-decoration: none; color: black;" do %>
               <%= image_tag "Message-square", class: "comment_action_logo" %>
-              <span><%= get_number_of_responses(comment) %></span>
+              <span><%= locals[:reactions][comment.id][:responses] %></span>
             <% end %>
           </div>
         <% end %>
