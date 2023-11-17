@@ -7,7 +7,7 @@
         </div>
       </div>
       <div class="my_account_profile_img_container">
-        <div class="my_account_profile_img_title">Añade una magen identificativa</div>
+        <div class="my_account_profile_img_title">Añade una imagen identificativa</div>
         <% if @category.ruta_img.present? %>
             <%= image_tag @category.ruta_img, class: "categories_new_img" %>
         <% else %>
@@ -27,7 +27,4 @@
         <% end %>
       </div>
   </div>
-
-  
 <% end %>
-

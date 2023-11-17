@@ -12,4 +12,14 @@ module RestaurantsHelper
     end
     rest_revs+acc_dish_revs
   end
+
+  def user_is_owner?(rest_id)
+    user_restos = ActiveRecord::Base.connection.execute("SELECT restaurants.id, restaurants.nombre 
+                                                        FROM restaurants, users, restaurants_users as ru 
+                                                        WHERE users.nombre='#{session[:username]}' 
+                                                        AND users.nombre=ru.user_id 
+                                                        AND ru.restaurant_id=restaurants.id ")
+    rest_ids = user_restos.values.map { |rest| rest[0] }
+    rest_ids.include?(rest_id)
+  end
 end

@@ -1,36 +1,4 @@
-<%= render "header", locals: {restaurant: @restaurant, statistics: true} %>
-
-<% if flash[:dishes] %>
-  <div class="notice" ><%= flash[:dishes] %></div>
-<% end %>
-<ul>
-  <% @restaurant.dishes.each do |dish| %>
-    <li> 
-      <div>
-        <%= dish.nombre %>
-        <%= link_to "Modificar", edit_dish_path(dish.id) %>
-      </div> 
-    </li>
-  <% end %>
-</ul>
-
-<%= link_to "Añadir", new_dish_path(restaurant: @restaurant.id) %>
-
-<%= form_with model: @restaurant do |form| %>
-  <%= form.file_field :image %>
-  <%= form.submit %>
-<% end %>
-
-
-<h2> Reviews del restaurante </h2>
-<%= render "layouts/comment", comments: @restaurant.reviews %>
-
-<h2> Información del restaurante </h2>
-
-<%= @restaurant.direccion %><hr>
-<%= @restaurant.telefono %><hr>
-<%= @restaurant.horario %><hr>
-
-<h2> Posts del restaurante </h2>
-
-<%= render "layouts/comment", comments: get_rest_manager.posts %>
+<div class="title_container">
+    <h1 class="title">Editar <span class="title_key_word">Restaurante</span></h1>
+</div>
+<%= render "form", restaurant: @restaurant %>

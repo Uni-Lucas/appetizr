@@ -1,4 +1,3 @@
-
 <div class="restaurants_header">
   <div class="restaurants_img">
     <% if locals[:restaurant].ruta_img_fondo.present? %>
@@ -19,7 +18,17 @@
         <div class="restaurant_rating_text"> - <span><%= locals[:ratings] %></span></div>
       </div>
     </div>
-    <div>
+    
+    <div class="restaurants_header_buttons_container">
+      <div>
+        <% if session[:username].present? and user_is_owner?(locals[:restaurant].id) %>
+          <%= link_to edit_restaurant_path(locals[:restaurant].id), style: "text-decoration: none" do %>
+            <div class="restaurants_header_edit_button">
+              <span class="restaurants_header_edit_button_text">Editar</span>
+            </div> 
+          <% end %>
+        <% end %>
+      </div>
       <% if locals[:statistics] %>
         <div class="restaurants_stats_button">
           <%= image_tag "Barchart" %>

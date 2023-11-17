@@ -35,7 +35,8 @@ class RestaurantsController < ApplicationController
 
     def update 
         @restaurant = Restaurant.find(params[:id])
-        if @restaurant.update(restaurant_params)
+        nombre_imagen = subir_imagen(params.require(:restaurant)[:ruta_img_fondo])
+        if @restaurant.update(restaurant_params.merge(ruta_img_fondo: nombre_imagen))
             redirect_to @restaurant
           else
             render :new, status: :unprocessable_entity
