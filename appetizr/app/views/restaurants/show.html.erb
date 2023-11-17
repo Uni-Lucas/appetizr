@@ -7,7 +7,7 @@
   <div id="restaurant_menu" class="restaurant_section_title">Menú</div>
   <div class="restaurant_section_content">
     <% @restaurant.dishes.each do |dish| %>
-        <%= link_to get_dish_path(dish), class: "sidenav_element" do %>
+        <%= link_to get_dish_path(dish), style: "text-decoration: none !important" do %>
           <div class="restaurant_dish_container">
             <% if dish.ruta_img_plato.present? %>
               <%= image_tag "ruta_img_plato", class: "restaurant_dish_img" %>
@@ -25,29 +25,37 @@
   </div>
 
   <div id="restaurant_reviews" class="restaurant_section_title"> Reseñas del restaurante </div>
-  <div>
+  <div class="restaurant_section_content_comments">
     <div class="restaurant_section_content restaurant_section_content_comments">
-      <%= render "layouts/comment", comments: @restaurant.reviews, locals: {reactions: @reviews_reactions, user_reactions: @reviews_user_reactions}%>
+      <div class="category_post_list">
+        <%= render "layouts/comment", comments: @restaurant.reviews, locals: {reactions: @reviews_reactions, user_reactions: @reviews_user_reactions}%>
+      </div>
       <%= render "layouts/add_comment", path_param: new_review_path(review_to: @restaurant.id, review_type: "Restaurant") %> 
     </div>
   </div>
   <div id="restaurant_posts" class="restaurant_section_title"> Posts del restaurante </div>
   <div class="restaurant_section_content restaurant_section_content_comments">
-    <%= render "layouts/comment", comments: get_rest_managers_posts(@restaurant.id), locals: {reactions: @posts_reactions, user_reactions: @posts_user_reactions} %>
+    <div class="category_post_list">
+      <%= render "layouts/comment", comments: get_rest_managers_posts(@restaurant.id), locals: {reactions: @posts_reactions, user_reactions: @posts_user_reactions} %>
+    </div>
   </div>
 
   <div id="restaurant_info" class="restaurant_section_title"> Información del restaurante </div>
   <div class="restaurant_section_content restaurant_section_content_info">
-  <div class="restaurant_info_item">
-    <div class="restaurant_info_subtitle"> Direccion </div>
-    <%= @restaurant.direccion %>
+  <div class="restaurant_dir_tlf_container">
+    <div class="restaurant_info_item">
+      <div class="restaurant_info_subtitle"> Direccion </div>
+      <%= @restaurant.direccion %>
+    </div>
+    <div class="restaurant_info_item">
+      <div class="restaurant_info_subtitle"> Telefono </div>
+      <%= @restaurant.telefono %>
+    </div>
   </div>
-  <div class="restaurant_info_item">
-    <div class="restaurant_info_subtitle"> Telefono </div>
-    <%= @restaurant.telefono %>
-  </div>
-  <div class="restaurant_info_item">
-    <div class="restaurant_info_subtitle"> Horario </div>
-    <%= @restaurant.horario %>
+  <div class="restaurant_dir_tlf_container">
+    <div class="restaurant_info_item">
+      <div class="restaurant_info_subtitle"> Horario </div>
+      <%= @restaurant.horario %>
+    </div>
   </div>
 </div>

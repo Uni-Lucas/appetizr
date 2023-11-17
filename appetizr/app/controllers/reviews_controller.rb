@@ -1,5 +1,8 @@
 class ReviewsController < ApplicationController
   def new
+    if !session[:username]
+      redirect_to login_path
+    end
     @review = Review.new
     @review.reviewable_id = params[:review_to]
     @review.reviewable_type = params[:review_type]

@@ -1,0 +1,28 @@
+<div class="title_container" style="flex-direction: row">
+    <h1 class="title"><span class="title_key_word">Administración</span></h1>
+    <%= link_to logout_path, class: "logout_button", method: :delete do %>
+        <div>Log out</div>
+    <% end %>
+</div>
+
+
+
+<div class="my_account_form_container">
+    <div class="my_account_user_passwd">
+       <%= link_to 'Actualizar Datos', admin_actualizar_datos_path, method: :get, class: "new_post_submit" %>
+    </div>
+    <div class="admin_user_list">
+        
+    </div>
+    <div class="my_account_stats_container">
+        <p class="my_account_stats_title">Estadísticas del mes</p>
+        <div>
+            <div class="my_account_stats_line"><p>Posts totales</p><span class="my_account_metrics"><%= @num_posts %></span></div>
+                <div class="my_account_stats_line"><p>Reviews totales</p><span class="my_account_metrics"><%= @num_reviews %></span></div>
+                <div class="my_account_stats_line"><p>Respuestas totales</p><span class="my_account_metrics"><%= @num_responses %></span></div>
+                <div class="my_account_stats_line"><p id="my_account_month_comments">Comentarios totales</p><span class="my_account_metrics"><%= @num_comments_last_month %></span></div>
+                <div class="my_account_stats_line"><p>Usuarios registrados</p><span class="my_account_metrics"><%= @num_users %></span></div>
+            </div>
+        </div>
+    </div>
+</div>

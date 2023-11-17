@@ -20,6 +20,8 @@ module Appetizr
       html_tag
     }
 
+    config.exceptions_app = self.routes
+    config.action_dispatch.show_exceptions = true
     
 
     # Configuration for the application, engines, and railties goes here.

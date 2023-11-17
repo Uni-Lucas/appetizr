@@ -1,5 +1,8 @@
 class ResponsesController < ApplicationController
   def new
+    if !session[:username]
+      redirect_to login_path
+    end
     @response = Response.new
     @response.respondable_id = params[:response_to]
     @response.respondable_type = params[:response_type]

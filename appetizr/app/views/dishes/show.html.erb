@@ -1,13 +1,11 @@
+<div class="posts_container">
+  <div class="title_container">
+    <div class="title">Restaurante <span class="title_key_word"><%= @dish.restaurant.nombre %></span></div>
+    <div class="subtitle">Comentarios sobre el plato: <span class="title_key_word"><%= @dish.nombre %></span></div>
+  </div>
 
-<div style="margin-left: 50px; margin-top: 50px">
-  <div class="title">Restaurante<span class="title_key_word"><%= @dish.restaurant.nombre %></span></div>
-  <span class="title" style="font-size: 24px">Comentarios sobre el plato: <span class="title_key_word"><%= @dish.nombre %></span></span>
-</div>
-
-<div style="margin-left: 100px; margin-top: 30px">
-  <%= render "layouts/comment", comments: @dish.reviews %>
-</div>
-
-<div  style="display: flex; justify-content: center">
+  <div class="category_post_list">
+    <%= render "layouts/comment", comments: @dish.reviews %>
+  </div>
   <%= render "layouts/add_comment", path_param: new_review_path(review_to: @dish.id, review_type: "Dish") %>
 </div>
