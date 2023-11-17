@@ -57,5 +57,14 @@ module ApplicationHelper
         return reactions_path(reaction: new_reaction)
       end
     end
+    def user_has_restaurants()
+      if !session[:username]
+        return false
+      end
+      if User.find_by(nombre: session[:username]).restaurants.length() > 0
+        return true
+      end
+      return false
+    end
 
 end
