@@ -1,12 +1,21 @@
-<div class="title_container">
+<div class="title_container categories_title_container">
   <h1 class="title"><span class="title_key_word">Categorías</span> de conversación</h1>
+  <% if session[:username].present? and getCurrentUser.esAdmin %>
+    <%= link_to new_category_path, class: "categories_new_button" do %>
+      <div>Añadir</div>
+    <% end %>
+  <% end %>
 </div>
 <ul class="categories_list">
   <% @categories.each do |category| %>
     <li>
       <%= link_to category_path(category) do %>
         <div class="category_box">
-          <%= image_tag "burger-category", class: "category_image" %>
+          <% if category.ruta_img.present? %>
+            <%= image_tag category.ruta_img, class: "category_image" %>
+          <% else %>
+            <%= image_tag "burger-category", class: "category_image" %>
+          <% end %>
           <div class="category_name"><%= category.nombre %></div>
         </div>
       <% end %>

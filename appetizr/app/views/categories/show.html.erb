@@ -1,6 +1,11 @@
 <div class="posts_container">
-  <div class="title_container">
+  <div class="title_container categories_title_container">
     <h1 class="title"><span class="title_key_word"><%= @category.nombre %></span> en Zaragoza</h1>
+    <% if session[:username].present? and getCurrentUser.esAdmin %>
+    <%= link_to edit_category_path, class: "categories_new_button" do %>
+      <div>Editar</div>
+    <% end %>
+  <% end %>
   </div>
   <div class="category_post_list">
     <%= render "layouts/comment", comments: @category_posts, locals: {reactions: @posts_reactions, user_reactions: @comments_user_reactions} %>

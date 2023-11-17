@@ -39,7 +39,7 @@
         <div class="explore_restaurants_filters">
             <div class="explore_restaurants_filters_title">Filtrar por categoría</div>
             <%= link_to restaurants_path, class: "explore_restaurants_filters_item" do %>
-              <div>Todos</div>
+              <div>Todos los restaurantes</div>
             <% end %>
             <% @categories.each do |category| %>
                 <%= link_to restaurants_path(filter: category.nombre), class: "explore_restaurants_filters_item" do %>

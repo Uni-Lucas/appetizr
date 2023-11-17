@@ -1,15 +1,33 @@
 <%= form_with model: @category do |form| %>
-  <div>
-    <%= form.label :nombre, "Nombre de la categoría" %>
-    <%= form.text_field :nombre %>
-  </div>
-  <div>
-    <%= form.label :photo, "Imagen identificativa" %>
-    <%= form.file_field :photo %>
-  </div>
-  <% @category.errors.full_messages.each do |msg| %>
-    <div><%= msg %></div>
-  <% end %>
+  <div class="categories_new_form_container">
+      <div class="categories_new_name_container">
+        <div>
+          <label class="my_account_form_label">Nombre de la categoría</label><br>
+          <%= form.text_field :nombre, class: "my_account_form_text_field", placeholder: "Burger" %>
+        </div>
+      </div>
+      <div class="my_account_profile_img_container">
+        <div class="my_account_profile_img_title">Añade una magen identificativa</div>
+        <% if @category.ruta_img.present? %>
+            <%= image_tag @category.ruta_img, class: "categories_new_img" %>
+        <% else %>
+            <%= image_tag "burger-category", class: "categories_new_img" %>
+        <% end %>
+        <label class="new_post_image_upload_button">
+            <%= form.file_field :ruta_img %>
+            <%= image_tag "image-icon", class: "new_post_image_upload_icon" %>
+            <div class="new_post_image_upload_text">Modificar</div>
+        </label>
+      </div>
 
-  <%= form.submit %>
+      <div class="categories_new_button_container">
+        <%= form.button type: :submit, class: "new_post_submit" do %>
+          <%= image_tag "send", class: "new_post_submit_icon" %>
+          <div class="new_post_submit_text">Publicar</div>
+        <% end %>
+      </div>
+  </div>
+
+  
 <% end %>
+

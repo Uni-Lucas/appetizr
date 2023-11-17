@@ -18,7 +18,8 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category = Category.new(category_params)
+    nombre_imagen = subir_imagen(params.require(:category)[:ruta_img])
+    @category = Category.new(nombre: params[:category][:nombre], ruta_img: nombre_imagen)
 
     if @category.save
       redirect_to @category
@@ -33,7 +34,8 @@ class CategoriesController < ApplicationController
 
   def update
     @category = Category.find(params[:nombre])
-    if @category.update(category_params)
+    nombre_imagen = subir_imagen(params.require(:category)[:ruta_img])
+    if @category.update(category_params.merge(ruta_img: nombre_imagen))
       redirect_to @category
     else
       render :edit, status: :unprocessable_entity
@@ -49,6 +51,6 @@ class CategoriesController < ApplicationController
 
   private 
     def category_params
-      params.require(:category).permit(:nombre, :photo)
+      params.require(:category).permit(:nombre, :ruta_img)
     end
 end

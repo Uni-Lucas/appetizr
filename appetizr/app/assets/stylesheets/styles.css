@@ -235,6 +235,61 @@ html,body{
 /* CATEGORIES */
 /* -------------------------------------- */
 
+.categories_title_container {
+  flex-direction: row;
+}
+
+.categories_new_button {
+  background-color: var(--black);
+  text-decoration: none;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  color: var(--strong-gold);
+  font-family: var(--letra);
+  letter-spacing: 2.4px;
+  font-size: 24px;
+}
+
+.categories_new_button:hover {
+  filter: brightness(120%);
+}
+
+.categories_new_form_container {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 1fr auto;
+  height: 100%;
+  background-color: white;
+  height: 410px;
+  margin: 40px 40px;
+  padding: 40px;
+  box-shadow: 2px 1px 5px 0px rgba(0, 0, 0, 0.15);
+}
+
+.categories_new_name_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.categories_new_button_container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  grid-column: span 2;
+}
+
+.categories_new_img {
+  width: 400px;
+  height: 200px;
+  border-radius: 20px;
+  object-fit: cover;
+}
+
 .categories_list {
     margin-top: 40px;
     display: flex;
@@ -612,7 +667,6 @@ html,body{
     border-radius: 15px;
     border: 2px solid grey;
     padding-left: 10px;
-    padding-bottom: 4px;
 }
 
 .my_account_form_text_field:focus {
