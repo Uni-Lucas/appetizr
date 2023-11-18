@@ -12,8 +12,11 @@
         <%= locals[:restaurant].nombre %> - <span class="title_key_word"><%= locals[:restaurant].categoria %></span>
       </div>
       <div class="restaurant_rating_container">
-        <% locals[:ratings].floor.times do %>
-          <%= image_tag "Star", style: "width: 40px; height: 40px" %>
+        
+        <% if locals[:ratings] %>
+          <% locals[:ratings].floor.times do %>
+            <%= image_tag "Star", style: "width: 40px; height: 40px" %>
+          <% end %>
         <% end %>
         <div class="restaurant_rating_text"> - <span><%= locals[:ratings] %></span></div>
       </div>

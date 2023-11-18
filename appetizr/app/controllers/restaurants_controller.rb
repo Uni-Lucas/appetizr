@@ -14,7 +14,12 @@ class RestaurantsController < ApplicationController
     def show
         @restaurant = Restaurant.find(params[:id])
         rats = Rank.select(:what, "AVG(valoracion) as rest_val").where(what: @restaurant.id).group(:what)
-        @ratings = rats[0].rest_val
+        # Si no hay valoraciones, se pone a 0
+        if rats.empty?
+          @ratings = nil
+        else
+          @ratings = rats[0].rest_val
+        end
         @posts_reactions = get_comment_pack(@restaurant.posts.find_each, 'posts', 'Post', "AND restaurant_id=#{@restaurant.id}")
         @posts_user_reactions = get_user_reactions_pack('posts', 'Post', session[:username], "AND restaurant_id=#{@restaurant.id}")
         @reviews_reactions = get_comment_pack(@restaurant.reviews.find_each, 'reviews', 'Review', "AND reviewable_id=#{@restaurant.id} AND reviewable_type='Restaurant'")
@@ -26,7 +31,13 @@ class RestaurantsController < ApplicationController
     end
 
     def create
-
+        nombre_imagen = subir_imagen(params.require(:restaurant)[:ruta_img_fondo])
+        @restaurant = Restaurant.new(restaurant_params.merge(ruta_img_fondo: nombre_imagen))
+        if @restaurant.save
+            redirect_to @restaurant
+          else
+            render :new, status: :unprocessable_entity
+          end
     end
 
     def edit
