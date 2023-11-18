@@ -10999,3 +10999,142 @@ Processing by RestaurantsController#show as HTML
 Completed 200 OK in 892ms (Views: 40.8ms | ActiveRecord: 819.2ms | Allocations: 83850)
 
 
+Started GET "/" for ::1 at 2023-11-18 16:28:15 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (41.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (40.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:10
+  Rendered categories/index.html.erb within layouts/application (Duration: 822.9ms | Allocations: 83064)
+  Rendered layouts/_header.html.erb (Duration: 2.0ms | Allocations: 1361)
+  Rendered layouts/_sidenav.html.erb (Duration: 4.5ms | Allocations: 3292)
+  Rendered layout layouts/application.html.erb (Duration: 852.5ms | Allocations: 106665)
+Completed 200 OK in 927ms (Views: 740.4ms | ActiveRecord: 123.3ms | Allocations: 118151)
+
+
+Started GET "/categories" for ::1 at 2023-11-18 16:30:16 +0100
+Processing by CategoriesController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering categories/index.html.erb within layouts/application
+  [1m[36mCategory Load (92.1ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/categories/index.html.erb:10
+  Rendered categories/index.html.erb within layouts/application (Duration: 199.5ms | Allocations: 7070)
+  Rendered layouts/_header.html.erb (Duration: 4.2ms | Allocations: 1331)
+  Rendered layouts/_sidenav.html.erb (Duration: 11.4ms | Allocations: 3272)
+  Rendered layout layouts/application.html.erb (Duration: 251.3ms | Allocations: 30431)
+Completed 200 OK in 259ms (Views: 73.0ms | ActiveRecord: 180.5ms | Allocations: 32726)
+
+
+Started GET "/nearme" for ::1 at 2023-11-18 16:30:19 +0100
+DEPRECATION WARNING: Setting action_dispatch.show_exceptions to true is deprecated. Set to :all instead. (called from rescue in call at /home/dani/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:43)
+  
+ActionController::RoutingError (uninitialized constant NearmeController):
+  
+Started GET "/nearme" for ::1 at 2023-11-18 16:31:59 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 92)
+  Rendered layouts/_header.html.erb (Duration: 2.8ms | Allocations: 1370)
+  Rendered layouts/_sidenav.html.erb (Duration: 10.3ms | Allocations: 3274)
+  Rendered layout layouts/application.html.erb (Duration: 51.7ms | Allocations: 23932)
+Completed 200 OK in 55ms (Views: 54.1ms | ActiveRecord: 0.0ms | Allocations: 24872)
+
+
+Started GET "/nearme" for ::1 at 2023-11-18 16:35:16 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 2.2ms | Allocations: 95)
+  Rendered layouts/_header.html.erb (Duration: 6.2ms | Allocations: 1370)
+  Rendered layouts/_sidenav.html.erb (Duration: 7.6ms | Allocations: 3274)
+  Rendered layout layouts/application.html.erb (Duration: 64.0ms | Allocations: 23913)
+Completed 200 OK in 68ms (Views: 67.3ms | ActiveRecord: 0.0ms | Allocations: 24853)
+
+
+Started GET "/nearme" for ::1 at 2023-11-18 16:35:28 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 0.0ms | Allocations: 6)
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 1076)
+  Rendered layouts/_sidenav.html.erb (Duration: 2.6ms | Allocations: 2539)
+  Rendered layout layouts/application.html.erb (Duration: 11.9ms | Allocations: 7658)
+Completed 200 OK in 16ms (Views: 15.0ms | ActiveRecord: 0.0ms | Allocations: 7910)
+
+
+Started GET "/nearme" for ::1 at 2023-11-18 16:36:40 +0100
+Processing by NearmeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering nearme/index.html.erb within layouts/application
+  Rendered nearme/index.html.erb within layouts/application (Duration: 0.7ms | Allocations: 93)
+  Rendered layouts/_header.html.erb (Duration: 4.5ms | Allocations: 1370)
+  Rendered layouts/_sidenav.html.erb (Duration: 5.4ms | Allocations: 3274)
+  Rendered layout layouts/application.html.erb (Duration: 37.5ms | Allocations: 23915)
+Completed 200 OK in 40ms (Views: 39.3ms | ActiveRecord: 0.0ms | Allocations: 24853)
+
+
+Started GET "/search?search=Goiko" for ::1 at 2023-11-18 16:37:12 +0100
+Processing by RestaurantsController#search as HTML
+  Parameters: {"search"=>"Goiko"}
+  [1m[36mRestaurant Load (43.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."nombre" = $1 LIMIT $2[0m  [["nombre", "Goiko"], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:55:in `search'
+Redirected to http://localhost:3000/restaurants/1
+Completed 302 Found in 400ms (ActiveRecord: 251.9ms | Allocations: 17053)
+
+
+Started GET "/restaurants/1" for ::1 at 2023-11-18 16:37:13 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (40.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:15:in `show'
+  [1m[36mRank Load (43.8ms)[0m  [1m[34mSELECT "ranks"."what", AVG(valoracion) as rest_val FROM "ranks" WHERE "ranks"."what" = $1 GROUP BY "ranks"."what"[0m  [["what", 1]]
+  ↳ app/controllers/restaurants_controller.rb:17:in `show'
+  [1m[35m (41.2ms)[0m  [1m[34mSELECT posts.id, COUNT(reaccion) as react FROM posts LEFT JOIN reactions ON reactionable_id=posts.id AND reactionable_type='Post' AND reaccion='Like' AND restaurant_id=1 GROUP BY posts.id ORDER BY posts.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (41.0ms)[0m  [1m[34mSELECT posts.id, COUNT(reaccion) as react FROM posts LEFT JOIN reactions ON reactionable_id=posts.id AND reactionable_type='Post' AND reaccion='Dislike' AND restaurant_id=1 GROUP BY posts.id ORDER BY posts.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (49.1ms)[0m  [1m[34mSELECT posts.id, COUNT(responses.id) as resp_count FROM posts LEFT JOIN responses ON respondable_id=posts.id AND respondable_type='Post' AND restaurant_id=1 GROUP BY posts.id ORDER BY posts.id ASC[0m
+  ↳ app/controllers/concerns/queries_concern.rb:9:in `get_all_responses'
+  [1m[36mPost Load (39.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."restaurant_id" = $1 ORDER BY "posts"."id" ASC LIMIT $2[0m  [["restaurant_id", 1], ["LIMIT", 1000]]
+  ↳ app/controllers/concerns/queries_concern.rb:23:in `each'
+  [1m[35m (44.9ms)[0m  [1m[34mSELECT posts.id, reactions.id as reaction_id FROM posts LEFT JOIN reactions ON reactions.who='' AND reactions.reactionable_id=posts.id AND reactions.reactionable_type='Post' AND restaurant_id=1 GROUP BY posts.id, reaction_id[0m
+  ↳ app/controllers/concerns/queries_concern.rb:13:in `get_comments_user_reactions'
+  [1m[35m (40.7ms)[0m  [1m[34mSELECT reviews.id, COUNT(reaccion) as react FROM reviews LEFT JOIN reactions ON reactionable_id=reviews.id AND reactionable_type='Review' AND reaccion='Like' AND reviewable_id=1 AND reviewable_type='Restaurant' GROUP BY reviews.id ORDER BY reviews.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (41.4ms)[0m  [1m[34mSELECT reviews.id, COUNT(reaccion) as react FROM reviews LEFT JOIN reactions ON reactionable_id=reviews.id AND reactionable_type='Review' AND reaccion='Dislike' AND reviewable_id=1 AND reviewable_type='Restaurant' GROUP BY reviews.id ORDER BY reviews.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (47.0ms)[0m  [1m[34mSELECT reviews.id, COUNT(responses.id) as resp_count FROM reviews LEFT JOIN responses ON respondable_id=reviews.id AND respondable_type='Review' AND reviewable_id=1 AND reviewable_type='Restaurant' GROUP BY reviews.id ORDER BY reviews.id ASC[0m
+  ↳ app/controllers/concerns/queries_concern.rb:9:in `get_all_responses'
+  [1m[36mReview Load (41.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2 ORDER BY "reviews"."id" ASC LIMIT $3[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"], ["LIMIT", 1000]]
+  ↳ app/controllers/concerns/queries_concern.rb:23:in `each'
+  [1m[35m (43.2ms)[0m  [1m[34mSELECT reviews.id, reactions.id as reaction_id FROM reviews LEFT JOIN reactions ON reactions.who='' AND reactions.reactionable_id=reviews.id AND reactions.reactionable_type='Review' AND reviewable_id=1 AND reviewable_type='Restaurant' GROUP BY reviews.id, reaction_id[0m
+  ↳ app/controllers/concerns/queries_concern.rb:13:in `get_comments_user_reactions'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  Rendered restaurants/_header.html.erb (Duration: 10.2ms | Allocations: 2483)
+  [1m[36mDish Load (40.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/show.html.erb:9
+  [1m[36mReview Load (40.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_reaction.html.erb (Duration: 1.4ms | Allocations: 878)
+  Rendered layouts/_reaction.html.erb (Duration: 0.5ms | Allocations: 418)
+  Rendered layouts/_reaction.html.erb (Duration: 0.5ms | Allocations: 420)
+  Rendered layouts/_reaction.html.erb (Duration: 0.4ms | Allocations: 417)
+  Rendered layouts/_reaction.html.erb (Duration: 0.5ms | Allocations: 421)
+  Rendered layouts/_reaction.html.erb (Duration: 0.4ms | Allocations: 417)
+  Rendered layouts/_reaction.html.erb (Duration: 0.7ms | Allocations: 420)
+  Rendered layouts/_reaction.html.erb (Duration: 0.6ms | Allocations: 417)
+  Rendered layouts/_comment.html.erb (Duration: 116.6ms | Allocations: 11339)
+  Rendered layouts/_add_comment.html.erb (Duration: 1.7ms | Allocations: 661)
+  [1m[35m (42.2ms)[0m  [1m[34mSELECT posts.* FROM posts, users, restaurants_users as ru WHERE ru.user_id=users.nombre AND ru.restaurant_id=1 AND posts.autor=users.nombre AND posts.restaurant_id=1[0m
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_managers_posts'
+  Rendered layouts/_comment.html.erb (Duration: 0.1ms | Allocations: 7)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 406.5ms | Allocations: 27020)
+  Rendered layouts/_header.html.erb (Duration: 3.3ms | Allocations: 1051)
+  Rendered layouts/_sidenav.html.erb (Duration: 8.1ms | Allocations: 2569)
+  Rendered layout layouts/application.html.erb (Duration: 433.4ms | Allocations: 34366)
+Completed 200 OK in 1458ms (Views: 224.3ms | ActiveRecord: 984.1ms | Allocations: 60413)
+
+

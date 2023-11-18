@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # Defines the root path route ("/"), categories for now, will be explore (restaurantes#index)
-  root "categories#index"
+  root "restaurants#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :categories, param: :nombre
   resources :restaurants do
@@ -25,7 +25,11 @@ Rails.application.routes.draw do
 
   resources :reactions, only: [:create, :update]
   resources :responses, only: [:new, :create]
+  
+  get '/nearme', to: 'nearme#index', as: 'nearme'
 
+
+  # Error pages
   get '/404', to: 'errors#not_found'
   get '/500', to: 'errors#internal_server_error'
 
@@ -35,6 +39,9 @@ Rails.application.routes.draw do
   namespace :admin do
     get 'actualizar_datos', to: 'admin#actualizar_datos'
   end
+
+
+
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
