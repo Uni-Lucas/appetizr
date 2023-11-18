@@ -14,7 +14,11 @@ class RestaurantsController < ApplicationController
     def show
         @restaurant = Restaurant.find(params[:id])
         rats = Rank.select(:what, "AVG(valoracion) as rest_val").where(what: @restaurant.id).group(:what)
-        @ratings = rats[0].rest_val
+        if rats.length() > 0
+          @ratings = rats[0].rest_val
+        else
+          @ratings = 0
+        end
         @posts_reactions = get_comment_pack(@restaurant.posts.find_each, 'posts', 'Post', "AND restaurant_id=#{@restaurant.id}")
         @posts_user_reactions = get_user_reactions_pack('posts', 'Post', session[:username], "AND restaurant_id=#{@restaurant.id}")
         @reviews_reactions = get_comment_pack(@restaurant.reviews.find_each, 'reviews', 'Review', "AND reviewable_id=#{@restaurant.id} AND reviewable_type='Restaurant'")

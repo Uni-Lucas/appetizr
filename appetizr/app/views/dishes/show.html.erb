@@ -5,7 +5,7 @@
   </div>
 
   <div class="category_post_list">
-    <%= render "layouts/comment", comments: @dish.reviews %>
+    <%= render "layouts/comment", comments: @dish.reviews, locals: {reactions: @reviews_reactions, user_reactions: @reviews_user_reactions}%>
   </div>
   <%= render "layouts/add_comment", path_param: new_review_path(review_to: @dish.id, review_type: "Dish") %>
 </div>

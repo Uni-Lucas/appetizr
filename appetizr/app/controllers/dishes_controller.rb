@@ -1,5 +1,5 @@
 class DishesController < ApplicationController
-
+  include QueriesConcern
   def show
     session[:review_referer] = nil
     alleged_dish = Dish.find_by(id: params[:id], restaurant_id: params[:restaurant_id])
@@ -8,6 +8,10 @@ class DishesController < ApplicationController
     else
       redirect_to request.referer
     end
+    @reviews_reactions = get_comment_pack(@dish.reviews.find_each, 'reviews', 'Review', "AND reviewable_type='Dish' AND reviewable_id=#{@dish.id}")
+    puts "HEEERRREEE"
+    puts @reviews_reactions.inspect
+    @reviews_user_reactions = get_user_reactions_pack('reviews', 'Review', session[:username], "AND reviewable_id=#{@dish.id} AND reviewable_type='Dish'")
   end
 
   def new

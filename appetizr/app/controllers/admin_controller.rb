@@ -36,8 +36,40 @@ class AdminController < ApplicationController
   
         redirect_to admin_dashboard_path, notice: 'Datos actualizados correctamente'
     end
+
+    def borrar_restaurante
+      # borrar entrada de gestionados
+      # borrar posts relacionados con el restaurante
+      # borrar respuestas asociadas al post
+      # borrar reviews relacionadas con el restaurante
+      # borrar respuestas asociadas a las reviews
+      # borrar platos asociados al restaurante
+      # borrar valoraciones del restaurante
+      # borrar entrada del restaurante
+    end
+
+    def borrar_categoria
+      # borrar posts de la categoria
+      # borrar respuestas de los posts
+    end
+
+    def borrar_plato
+      # borrar entrada del plato
+      # borrar reviews del plato 
+      # borrar respuestas de las reviews
+    end
+
+    def borrar_post
+      # borrar respuestas
+      # borrar reacciones
+      # borrar entrada del post
+    end
   
-    private
+    def borrar_review
+      # borrar respuestas
+      # borrar reacciones
+      # borrar entrada de la review
+    end
 end
   
   
