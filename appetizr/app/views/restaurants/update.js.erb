@@ -1,0 +1,6 @@
+<% if @restaurant.errors.empty? %>
+  var imagePath = "<%= j @restaurant.ruta_img_fondo.url %>"; // Ruta de la nueva imagen
+  $(".categories_new_img").attr("src", imagePath); // Actualizar la imagen
+<% else %>
+  alert("Error al actualizar la imagen");
+<% end %>

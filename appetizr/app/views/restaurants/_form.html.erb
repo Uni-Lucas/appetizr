@@ -1,22 +1,43 @@
-<%= form_with model: @restaurant do |form| %>
+<%= form_with model: @restaurant, html: {multipart:true, remote: true} do |form| %>
   <div class="categories_new_form_container">
       <div class="categories_new_name_container">
         <div>
           <label class="my_account_form_label">Nombre del restaurante</label><br>
-          <%= form.text_field :nombre, class: "my_account_form_text_field", placeholder: "Burger" %>
+          <%= form.text_field :nombre, class: "my_account_form_text_field", placeholder: "Mi restaurante" %>
+        </div>
+
+        <div>
+          <label class="my_account_form_label">Teléfono de contacto</label><br>
+          <%= form.text_field :telefono, class: "my_account_form_text_field", placeholder: "123 45 67 89" %>
+        </div>
+
+        <div>
+          <label class="my_account_form_label">Dirección</label><br>
+          <%= form.text_field :direccion, class: "my_account_form_text_field", placeholder: "Calle Mayor, 8" %>
+        </div>
+        <div>
+          <label class="my_account_form_label">Horario</label><br>
+          <%= form.text_field :horario, class: "my_account_form_text_field", placeholder: "Todos los días de 20:00 a 0:00" %>
+        </div>
+
+        <!-- Desplegable con las categorías -->
+        <div>
+          <label class="my_account_form_label">Categoría</label><br>
+          <%= form.text_field :categoria, class: "my_account_form_text_field", placeholder: "Burger" %>
         </div>
       </div>
+       
       <div class="my_account_profile_img_container">
         <div class="my_account_profile_img_title">Añade una imagen de fondo</div>
         <% if @restaurant.ruta_img_fondo.present? %>
-            <%= image_tag @restaurant.ruta_img, class: "categories_new_img" %>
+          <%= image_tag @restaurant.ruta_img_fondo, class: "categories_new_img", id: "restaurant_image" %>
         <% else %>
-            <%= image_tag "Default-restaurant-img", class: "categories_new_img" %>
+          <%= image_tag "Default-restaurant-img", class: "categories_new_img", id: "restaurant_image" %>
         <% end %>
         <label class="new_post_image_upload_button">
-            <%= form.file_field :ruta_img %>
-            <%= image_tag "image-icon", class: "new_post_image_upload_icon" %>
-            <div class="new_post_image_upload_text">Modificar</div>
+          <%= form.file_field :ruta_img_fondo, id: "upload_image_input", style: "display:none;" %>
+          <%= image_tag "image-icon", class: "new_post_image_upload_icon", onclick: "$('#upload_image_input').click();" %>
+          <div class="new_post_image_upload_text">Modificar</div>
         </label>
       </div>
 
@@ -28,3 +49,15 @@
       </div>
   </div>
 <% end %>
+
+
+
+<script>
+  document.getElementById('upload_image_input').addEventListener('change', function(event) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('restaurant_image').src = e.target.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  });
+</script>

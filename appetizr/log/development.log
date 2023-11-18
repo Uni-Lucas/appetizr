@@ -14162,3 +14162,1236 @@ Migrating to AddImportedIdToRestaurants (20231118200254)
   [1m[35m (46.3ms)[0m  [1m[35mALTER TABLE "restaurants" ADD "imported_id" integer DEFAULT NULL[0m
   [1m[36mTRANSACTION (44.0ms)[0m  [1m[31mROLLBACK[0m
   [1m[35m (46.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(1120147408448878005)[0m
+Started GET "/login" for ::1 at 2023-11-18 22:27:24 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (42.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Setting action_dispatch.show_exceptions to true is deprecated. Set to :all instead. (called from rescue in call at /home/dani/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:43)
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 2 pending migrations:
+
+db/migrate/20231118200254_add_imported_id_to_restaurants.rb
+db/migrate/20231118200256_add_imported_id_to_dishes.rb
+
+
+):
+  
+activerecord (7.1.1) lib/active_record/migration.rb:753:in `check_pending_migrations'
+activerecord (7.1.1) lib/active_record/migration.rb:642:in `block (2 levels) in call'
+activesupport (7.1.1) lib/active_support/file_update_checker.rb:85:in `execute'
+activesupport (7.1.1) lib/active_support/file_update_checker.rb:95:in `execute_if_updated'
+activerecord (7.1.1) lib/active_record/migration.rb:649:in `block in call'
+activerecord (7.1.1) lib/active_record/migration.rb:639:in `synchronize'
+activerecord (7.1.1) lib/active_record/migration.rb:639:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.1) lib/active_support/broadcast_logger.rb:232:in `method_missing'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.1) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started POST "/rails/actions" for ::1 at 2023-11-18 22:27:36 +0100
+  [1m[35m (39.7ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1120147408448878005)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (40.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (40.1ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to AddImportedIdToRestaurants (20231118200254)
+  [1m[36mTRANSACTION (39.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (45.8ms)[0m  [1m[35mALTER TABLE "restaurants" ADD "imported_id" integer DEFAULT NULL[0m
+  [1m[36mTRANSACTION (41.2ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (42.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(1120147408448878005)[0m
+DEPRECATION WARNING: Setting action_dispatch.show_exceptions to true is deprecated. Set to :all instead. (called from rescue in call at /home/dani/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:43)
+  
+StandardError (An error has occurred, this and all later migrations canceled:
+
+PG::DuplicateColumn: ERROR:  column "imported_id" of relation "restaurants" already exists
+):
+  
+Started GET "/login" for ::1 at 2023-11-18 22:27:43 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (41.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Setting action_dispatch.show_exceptions to true is deprecated. Set to :all instead. (called from rescue in call at /home/dani/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:43)
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 2 pending migrations:
+
+db/migrate/20231118200254_add_imported_id_to_restaurants.rb
+db/migrate/20231118200256_add_imported_id_to_dishes.rb
+
+
+):
+  
+activerecord (7.1.1) lib/active_record/migration.rb:753:in `check_pending_migrations'
+activerecord (7.1.1) lib/active_record/migration.rb:642:in `block (2 levels) in call'
+activesupport (7.1.1) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.1) lib/active_record/migration.rb:647:in `block in call'
+activerecord (7.1.1) lib/active_record/migration.rb:639:in `synchronize'
+activerecord (7.1.1) lib/active_record/migration.rb:639:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.1) lib/active_support/broadcast_logger.rb:232:in `method_missing'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.1) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+  [1m[35m (39.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1120147408448878005)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (40.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (40.9ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to AddImportedIdToRestaurants (20231118200254)
+  [1m[36mTRANSACTION (39.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (40.8ms)[0m  [1m[35mALTER TABLE "restaurants" ADD "imported_id" integer DEFAULT NULL[0m
+  [1m[36mTRANSACTION (40.9ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (41.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(1120147408448878005)[0m
+Started GET "/login" for ::1 at 2023-11-18 22:28:54 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (39.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+DEPRECATION WARNING: Setting action_dispatch.show_exceptions to true is deprecated. Set to :all instead. (called from rescue in call at /home/dani/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:43)
+  
+ActiveRecord::PendingMigrationError (
+
+Migrations are pending. To resolve this issue, run:
+
+        bin/rails db:migrate
+
+You have 2 pending migrations:
+
+db/migrate/20231118200254_add_imported_id_to_restaurants.rb
+db/migrate/20231118200256_add_imported_id_to_dishes.rb
+
+
+):
+  
+activerecord (7.1.1) lib/active_record/migration.rb:753:in `check_pending_migrations'
+activerecord (7.1.1) lib/active_record/migration.rb:642:in `block (2 levels) in call'
+activesupport (7.1.1) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.1) lib/active_record/migration.rb:647:in `block in call'
+activerecord (7.1.1) lib/active_record/migration.rb:639:in `synchronize'
+activerecord (7.1.1) lib/active_record/migration.rb:639:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.1) lib/active_support/broadcast_logger.rb:232:in `method_missing'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.1) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/login" for ::1 at 2023-11-18 22:29:09 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (40.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by LoginsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering logins/new.html.erb within layouts/application
+  Rendered logins/new.html.erb within layouts/application (Duration: 85.7ms | Allocations: 2547)
+  Rendered layouts/_header.html.erb (Duration: 6.2ms | Allocations: 1053)
+  Rendered layouts/_sidenav.html.erb (Duration: 31.3ms | Allocations: 2570)
+  Rendered layout layouts/application.html.erb (Duration: 166.3ms | Allocations: 9881)
+Completed 200 OK in 191ms (Views: 173.8ms | ActiveRecord: 0.0ms | Allocations: 10142)
+
+
+Started POST "/login" for ::1 at 2023-11-18 22:29:16 +0100
+Processing by LoginsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "nombre"=>"Mr.Dani", "password"=>"[FILTERED]", "commit"=>"INICIAR SESIÓN"}
+  [1m[36mUser Load (39.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/controllers/logins_controller.rb:7:in `create'
+Redirected to http://localhost:3000/
+Completed 302 Found in 357ms (ActiveRecord: 117.5ms | Allocations: 846)
+
+
+Started GET "/" for ::1 at 2023-11-18 22:29:17 +0100
+Processing by RestaurantsController#index as TURBO_STREAM
+  [1m[36mRank Load (81.7ms)[0m  [1m[34mSELECT "ranks"."what", AVG(valoracion) as total_valoracion FROM "ranks" GROUP BY "ranks"."what" ORDER BY total_valoracion DESC[0m
+  ↳ app/controllers/restaurants_controller.rb:11:in `map'
+  [1m[36mRestaurant Load (39.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:11:in `block in index'
+  [1m[36mRestaurant Load (41.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:11:in `block in index'
+  [1m[36mRestaurant Load (39.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:11:in `block in index'
+  [1m[36mRestaurant Load (39.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:11:in `block in index'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/index.html.erb within layouts/application
+  [1m[36mCategory Load (40.2ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/index.html.erb:44
+  [1m[36mRestaurant Load (41.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants"[0m
+  ↳ app/views/restaurants/index.html.erb:51
+  Rendered restaurants/index.html.erb within layouts/application (Duration: 114.1ms | Allocations: 8080)
+  Rendered layouts/_header.html.erb (Duration: 2.5ms | Allocations: 1045)
+  [1m[36mUser Load (39.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (40.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 151.5ms | Allocations: 4011)
+  Rendered layout layouts/application.html.erb (Duration: 276.6ms | Allocations: 17021)
+Completed 200 OK in 572ms (Views: 115.9ms | ActiveRecord: 403.3ms | Allocations: 19475)
+
+
+Started GET "/users/Mr.Dani" for ::1 at 2023-11-18 22:29:20 +0100
+Processing by UsersController#show as */*
+  Parameters: {"id"=>"Mr"}
+  [1m[36mUser Load (40.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:23:in `show'
+  [1m[36mPost Count (40.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "Mr.Dani"]]
+  ↳ app/controllers/users_controller.rb:25:in `show'
+  [1m[36mReview Count (41.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."autor" = $1[0m  [["autor", "Mr.Dani"]]
+  ↳ app/controllers/users_controller.rb:28:in `show'
+  [1m[36mResponse Count (41.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE "responses"."autor" = $1[0m  [["autor", "Mr.Dani"]]
+  ↳ app/controllers/users_controller.rb:31:in `show'
+  [1m[36mPost Count (38.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."autor" = $1 AND (created_at > '2023-10-18 21:29:20.843434')[0m  [["autor", "Mr.Dani"]]
+  ↳ app/controllers/users_controller.rb:35:in `show'
+  [1m[36mReview Count (39.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."autor" = $1 AND (created_at > '2023-10-18 21:29:20.893574')[0m  [["autor", "Mr.Dani"]]
+  ↳ app/controllers/users_controller.rb:36:in `show'
+  [1m[36mResponse Count (40.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE "responses"."autor" = $1 AND (created_at > '2023-10-18 21:29:20.935818')[0m  [["autor", "Mr.Dani"]]
+  ↳ app/controllers/users_controller.rb:37:in `show'
+  [1m[36mRestaurant Count (40.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/controllers/users_controller.rb:40:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 20.7ms | Allocations: 2196)
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 1041)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (39.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 45.9ms | Allocations: 3878)
+  Rendered layout layouts/application.html.erb (Duration: 76.0ms | Allocations: 10778)
+Completed 200 OK in 440ms (Views: 37.7ms | ActiveRecord: 362.3ms | Allocations: 15160)
+
+
+Started GET "/restaurants/new" for ::1 at 2023-11-18 22:57:47 +0100
+Processing by RestaurantsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (Duration: 22.4ms | Allocations: 2569)
+  Rendered restaurants/new.html.erb within layouts/application (Duration: 31.3ms | Allocations: 2809)
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 1040)
+  [1m[36mUser Load (43.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (44.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 1089.5ms | Allocations: 7150)
+  Rendered layout layouts/application.html.erb (Duration: 1133.3ms | Allocations: 14662)
+Completed 200 OK in 1168ms (Views: 625.9ms | ActiveRecord: 509.0ms | Allocations: 14996)
+
+
+Started GET "/restaurants/edit" for ::1 at 2023-11-18 22:59:36 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"edit"}
+  [1m[36mRestaurant Load (47.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:15:in `show'
+Completed 404 Not Found in 102ms (ActiveRecord: 47.6ms | Allocations: 881)
+
+
+DEPRECATION WARNING: Setting action_dispatch.show_exceptions to true is deprecated. Set to :all instead. (called from rescue in call at /home/dani/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:43)
+  
+ActiveRecord::RecordNotFound (Couldn't find Restaurant with 'id'=edit):
+  
+app/controllers/restaurants_controller.rb:15:in `show'
+Started GET "/restaurants/1/edit" for ::1 at 2023-11-18 22:59:42 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (64.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:33:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (Duration: 9.7ms | Allocations: 2222)
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 12.2ms | Allocations: 2396)
+  Rendered layouts/_header.html.erb (Duration: 1.9ms | Allocations: 1052)
+  [1m[36mUser Load (47.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (52.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 110.8ms | Allocations: 4014)
+  Rendered layout layouts/application.html.erb (Duration: 129.5ms | Allocations: 11144)
+Completed 200 OK in 197ms (Views: 29.9ms | ActiveRecord: 164.4ms | Allocations: 11890)
+
+
+Started GET "/restaurants/1/edit" for ::1 at 2023-11-18 23:03:19 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (44.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:33:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (Duration: 5.1ms | Allocations: 3003)
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3245)
+  Rendered layouts/_header.html.erb (Duration: 2.1ms | Allocations: 1308)
+  [1m[36mUser Load (44.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (43.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 220.8ms | Allocations: 12795)
+  Rendered layout layouts/application.html.erb (Duration: 279.9ms | Allocations: 36054)
+Completed 200 OK in 651ms (Views: 106.7ms | ActiveRecord: 472.8ms | Allocations: 46544)
+
+
+Started GET "/restaurants/1/edit" for ::1 at 2023-11-18 23:05:47 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (44.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:33:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (Duration: 13.1ms | Allocations: 3023)
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 15.6ms | Allocations: 3267)
+  Rendered layouts/_header.html.erb (Duration: 1.7ms | Allocations: 1308)
+  [1m[36mUser Load (44.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (44.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 213.1ms | Allocations: 12780)
+  Rendered layout layouts/application.html.erb (Duration: 256.7ms | Allocations: 36093)
+Completed 200 OK in 529ms (Views: 83.0ms | ActiveRecord: 409.6ms | Allocations: 45604)
+
+
+Started GET "/restaurants/1/edit" for ::1 at 2023-11-18 23:08:19 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (44.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:33:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (Duration: 5.0ms | Allocations: 3015)
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 5.9ms | Allocations: 3259)
+  Rendered layouts/_header.html.erb (Duration: 2.0ms | Allocations: 1308)
+  [1m[36mUser Load (59.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (44.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 225.0ms | Allocations: 12779)
+  Rendered layout layouts/application.html.erb (Duration: 256.2ms | Allocations: 36085)
+Completed 200 OK in 523ms (Views: 59.8ms | ActiveRecord: 435.2ms | Allocations: 45584)
+
+
+Started GET "/restaurants/new" for ::1 at 2023-11-18 23:08:31 +0100
+Processing by RestaurantsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (Duration: 5.6ms | Allocations: 2352)
+  Rendered restaurants/new.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2524)
+  Rendered layouts/_header.html.erb (Duration: 6.8ms | Allocations: 1040)
+  [1m[36mUser Load (46.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (43.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 100.2ms | Allocations: 3985)
+  Rendered layout layouts/application.html.erb (Duration: 119.8ms | Allocations: 11212)
+Completed 200 OK in 121ms (Views: 31.0ms | ActiveRecord: 89.4ms | Allocations: 11546)
+
+
+Started GET "/restaurants/new" for ::1 at 2023-11-18 23:25:50 +0100
+Processing by RestaurantsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (Duration: 7.8ms | Allocations: 3005)
+  Rendered restaurants/new.html.erb within layouts/application (Duration: 8.8ms | Allocations: 3249)
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 1308)
+  [1m[36mUser Load (45.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (47.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 249.9ms | Allocations: 12723)
+  Rendered layout layouts/application.html.erb (Duration: 284.1ms | Allocations: 36021)
+Completed 200 OK in 1175ms (Views: 149.2ms | ActiveRecord: 503.2ms | Allocations: 47170)
+
+
+Started GET "/restaurants/new" for ::1 at 2023-11-18 23:31:45 +0100
+Processing by RestaurantsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (Duration: 4.4ms | Allocations: 2973)
+  Rendered restaurants/new.html.erb within layouts/application (Duration: 5.7ms | Allocations: 3213)
+  Rendered layouts/_header.html.erb (Duration: 1.9ms | Allocations: 1296)
+  [1m[36mUser Load (40.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (39.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 307.1ms | Allocations: 12647)
+  Rendered layout layouts/application.html.erb (Duration: 391.4ms | Allocations: 35626)
+Completed 200 OK in 1259ms (Views: 216.2ms | ActiveRecord: 522.4ms | Allocations: 46606)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:32:10 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"", "telefono"=>"", "direccion"=>"", "horario"=>"", "categoria"=>"", "ruta_img"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa56bf700 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-76ens6.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 5ms (ActiveRecord: 0.0ms | Allocations: 713)
+
+
+Started GET "/restaurants/new" for ::1 at 2023-11-18 23:35:41 +0100
+Processing by RestaurantsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (Duration: 8.9ms | Allocations: 3048)
+  Rendered restaurants/new.html.erb within layouts/application (Duration: 9.9ms | Allocations: 3290)
+  Rendered layouts/_header.html.erb (Duration: 2.1ms | Allocations: 1308)
+  [1m[36mUser Load (40.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (39.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 190.8ms | Allocations: 12877)
+  Rendered layout layouts/application.html.erb (Duration: 233.0ms | Allocations: 36222)
+Completed 200 OK in 488ms (Views: 70.8ms | ActiveRecord: 332.1ms | Allocations: 44582)
+
+
+Started GET "/restaurants/new" for ::1 at 2023-11-18 23:35:52 +0100
+Processing by RestaurantsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (Duration: 22.3ms | Allocations: 3034)
+  Rendered restaurants/new.html.erb within layouts/application (Duration: 26.3ms | Allocations: 3274)
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 1296)
+  [1m[36mUser Load (39.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (41.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 193.3ms | Allocations: 12845)
+  Rendered layout layouts/application.html.erb (Duration: 260.5ms | Allocations: 36108)
+Completed 200 OK in 506ms (Views: 108.6ms | ActiveRecord: 302.3ms | Allocations: 44478)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:36:55 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa6123160 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-8k0phz.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms | Allocations: 698)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:36:58 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa61af430 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-3k7ke9.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 388)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:01 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa61a89f0 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-3fx2n9.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 394)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:01 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa61a03e0 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-6ssg6b.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 415)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:01 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa6227688 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-869ygh.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 397)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:03 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa6255e20 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-22w72t.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 382)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:03 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa627f518 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-1uej43.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 376)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:03 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa64abb98 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-wz1ncn.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 385)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:03 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa650ec48 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-pqcm5e.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 397)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:03 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa65069a8 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-7q9beu.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 382)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:06 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa6eb6548 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-ule8aq.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 400)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:06 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa6ec8630 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-b5mneh.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 397)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:06 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa691db18 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-nle0aw.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms | Allocations: 412)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:06 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa6917998 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-uzrhut.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms | Allocations: 397)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:18 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa5f1f5f8 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-tikbrj.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 391)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:18 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa5f166d8 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-sjxbcw.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 385)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:22 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa5e8dae0 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-hkdjwd.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms | Allocations: 394)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:22 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa5e89350 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-hczes9.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 385)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:23 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa5e83cc0 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-ssxjf4.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms | Allocations: 373)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:23 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa541d718 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-8zhswr.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 406)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:23 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa5418808 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-hk4c08.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 406)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:24 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa54140c8 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-cunojw.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 376)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:24 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa546d088 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-wga94l.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 385)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:24 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa5468948 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-upmdr3.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 400)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:25 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f9aa5461cd8 @tempfile=#<Tempfile:/tmp/RackMultipart20231118-13157-sysme6.jpg>, @content_type="image/jpeg", @original_filename="21_bestrestaurantintheworld.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"21_bestrestaurantintheworld.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 418)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:31 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 397)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:31 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms | Allocations: 400)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:31 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 409)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:32 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 385)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:32 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 103ms (ActiveRecord: 0.0ms | Allocations: 394)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:32 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 391)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:32 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 391)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:32 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 391)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:33 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 394)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:34 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 400)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:34 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 397)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:35 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 379)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:37 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 5ms (ActiveRecord: 0.0ms | Allocations: 382)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:38 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 388)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:38 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms | Allocations: 403)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:38 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 388)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:39 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 397)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:37:45 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms | Allocations: 388)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:38:25 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"El Mejor Restaurante Del Mundo", "telefono"=>"123 45 67 89", "direccion"=>"Calle Appetizr, 10", "horario"=>"Siempre activos", "categoria"=>"Burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 394)
+
+
+Started GET "/restaurants/new" for ::1 at 2023-11-18 23:38:32 +0100
+Processing by RestaurantsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (Duration: 5.5ms | Allocations: 2368)
+  Rendered restaurants/new.html.erb within layouts/application (Duration: 6.0ms | Allocations: 2432)
+  Rendered layouts/_header.html.erb (Duration: 6.4ms | Allocations: 1052)
+  [1m[36mUser Load (42.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (39.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 98.7ms | Allocations: 4015)
+  Rendered layout layouts/application.html.erb (Duration: 126.0ms | Allocations: 11215)
+Completed 200 OK in 129ms (Views: 45.2ms | ActiveRecord: 81.6ms | Allocations: 11480)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:38:39 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>"a"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 388)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:38:40 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>"a"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms | Allocations: 397)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:38:40 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>"a"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 391)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:38:40 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>"a"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 382)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:38:41 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>"a"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms | Allocations: 400)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:38:41 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>"a"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 379)
+
+
+Started GET "/restaurants/1" for ::1 at 2023-11-18 23:38:46 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (39.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:15:in `show'
+  [1m[36mRank Load (55.4ms)[0m  [1m[34mSELECT "ranks"."what", AVG(valoracion) as rest_val FROM "ranks" WHERE "ranks"."what" = $1 GROUP BY "ranks"."what"[0m  [["what", 1]]
+  ↳ app/controllers/restaurants_controller.rb:17:in `show'
+  [1m[35m (42.1ms)[0m  [1m[34mSELECT posts.id, COUNT(reaccion) as react FROM posts LEFT JOIN reactions ON reactionable_id=posts.id AND reactionable_type='Post' AND reaccion='Like' AND restaurant_id=1 GROUP BY posts.id ORDER BY posts.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (40.5ms)[0m  [1m[34mSELECT posts.id, COUNT(reaccion) as react FROM posts LEFT JOIN reactions ON reactionable_id=posts.id AND reactionable_type='Post' AND reaccion='Dislike' AND restaurant_id=1 GROUP BY posts.id ORDER BY posts.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (44.7ms)[0m  [1m[34mSELECT posts.id, COUNT(responses.id) as resp_count FROM posts LEFT JOIN responses ON respondable_id=posts.id AND respondable_type='Post' AND restaurant_id=1 GROUP BY posts.id ORDER BY posts.id ASC[0m
+  ↳ app/controllers/concerns/queries_concern.rb:9:in `get_all_responses'
+  [1m[36mPost Load (39.7ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."restaurant_id" = $1 ORDER BY "posts"."id" ASC LIMIT $2[0m  [["restaurant_id", 1], ["LIMIT", 1000]]
+  ↳ app/controllers/concerns/queries_concern.rb:23:in `each'
+  [1m[35m (39.6ms)[0m  [1m[34mSELECT posts.id, reactions.id as reaction_id FROM posts LEFT JOIN reactions ON reactions.who='Mr.Dani' AND reactions.reactionable_id=posts.id AND reactions.reactionable_type='Post' AND restaurant_id=1 GROUP BY posts.id, reaction_id[0m
+  ↳ app/controllers/concerns/queries_concern.rb:13:in `get_comments_user_reactions'
+  [1m[35m (40.2ms)[0m  [1m[34mSELECT reviews.id, COUNT(reaccion) as react FROM reviews LEFT JOIN reactions ON reactionable_id=reviews.id AND reactionable_type='Review' AND reaccion='Like' AND reviewable_id=1 AND reviewable_type='Restaurant' GROUP BY reviews.id ORDER BY reviews.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (41.9ms)[0m  [1m[34mSELECT reviews.id, COUNT(reaccion) as react FROM reviews LEFT JOIN reactions ON reactionable_id=reviews.id AND reactionable_type='Review' AND reaccion='Dislike' AND reviewable_id=1 AND reviewable_type='Restaurant' GROUP BY reviews.id ORDER BY reviews.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (41.3ms)[0m  [1m[34mSELECT reviews.id, COUNT(responses.id) as resp_count FROM reviews LEFT JOIN responses ON respondable_id=reviews.id AND respondable_type='Review' AND reviewable_id=1 AND reviewable_type='Restaurant' GROUP BY reviews.id ORDER BY reviews.id ASC[0m
+  ↳ app/controllers/concerns/queries_concern.rb:9:in `get_all_responses'
+  [1m[36mReview Load (41.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2 ORDER BY "reviews"."id" ASC LIMIT $3[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"], ["LIMIT", 1000]]
+  ↳ app/controllers/concerns/queries_concern.rb:23:in `each'
+  [1m[35m (39.7ms)[0m  [1m[34mSELECT reviews.id, reactions.id as reaction_id FROM reviews LEFT JOIN reactions ON reactions.who='Mr.Dani' AND reactions.reactionable_id=reviews.id AND reactions.reactionable_type='Review' AND reviewable_id=1 AND reviewable_type='Restaurant' GROUP BY reviews.id, reaction_id[0m
+  ↳ app/controllers/concerns/queries_concern.rb:13:in `get_comments_user_reactions'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[35m (39.5ms)[0m  [1m[34mSELECT restaurants.id, restaurants.nombre 
+                                                        FROM restaurants, users, restaurants_users as ru 
+                                                        WHERE users.nombre='Mr.Dani' 
+                                                        AND users.nombre=ru.user_id 
+                                                        AND ru.restaurant_id=restaurants.id [0m
+  ↳ app/helpers/restaurants_helper.rb:17:in `user_is_owner?'
+  Rendered restaurants/_header.html.erb (Duration: 50.8ms | Allocations: 2682)
+  [1m[36mDish Load (40.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/show.html.erb:9
+  [1m[36mReview Load (40.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_reaction.html.erb (Duration: 7.5ms | Allocations: 853)
+  Rendered layouts/_reaction.html.erb (Duration: 1.2ms | Allocations: 418)
+  Rendered layouts/_reaction.html.erb (Duration: 1.4ms | Allocations: 420)
+  Rendered layouts/_reaction.html.erb (Duration: 1.1ms | Allocations: 417)
+  Rendered layouts/_reaction.html.erb (Duration: 0.6ms | Allocations: 420)
+  Rendered layouts/_reaction.html.erb (Duration: 0.8ms | Allocations: 417)
+  Rendered layouts/_reaction.html.erb (Duration: 0.6ms | Allocations: 420)
+  Rendered layouts/_reaction.html.erb (Duration: 0.6ms | Allocations: 417)
+  Rendered layouts/_comment.html.erb (Duration: 149.6ms | Allocations: 10982)
+  Rendered layouts/_add_comment.html.erb (Duration: 5.0ms | Allocations: 656)
+  [1m[35m (39.6ms)[0m  [1m[34mSELECT posts.* FROM posts, users, restaurants_users as ru WHERE ru.user_id=users.nombre AND ru.restaurant_id=1 AND posts.autor=users.nombre AND posts.restaurant_id=1[0m
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_managers_posts'
+  Rendered layouts/_comment.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 431.8ms | Allocations: 23115)
+  Rendered layouts/_header.html.erb (Duration: 1.2ms | Allocations: 1040)
+  [1m[36mUser Load (42.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (40.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 89.3ms | Allocations: 3988)
+  Rendered layout layouts/application.html.erb (Duration: 526.8ms | Allocations: 31803)
+Completed 200 OK in 1483ms (Views: 203.0ms | ActiveRecord: 1076.2ms | Allocations: 57406)
+
+
+Started GET "/restaurants/1/edit" for ::1 at 2023-11-18 23:38:51 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (40.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:33:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (Duration: 3.9ms | Allocations: 2398)
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 5.6ms | Allocations: 2570)
+  Rendered layouts/_header.html.erb (Duration: 3.0ms | Allocations: 1040)
+  [1m[36mUser Load (41.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (39.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 90.3ms | Allocations: 3984)
+  Rendered layout layouts/application.html.erb (Duration: 104.3ms | Allocations: 11253)
+Completed 200 OK in 152ms (Views: 24.6ms | ActiveRecord: 121.5ms | Allocations: 11999)
+
+
+Started PATCH "/restaurants/1" for ::1 at 2023-11-18 23:38:53 +0100
+Processing by RestaurantsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"Goiko", "telefono"=>"111111111", "direccion"=>"Calle 1233", "horario"=>"todos los dias", "categoria"=>"burger"}, "button"=>"", "id"=>"1"}
+  [1m[36mRestaurant Load (39.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:37:in `update'
+Error al subir la imagen: undefined method `original_filename' for nil:NilClass
+Redirected to http://localhost:3000/restaurants/1
+Completed 302 Found in 44ms (ActiveRecord: 39.6ms | Allocations: 1850)
+
+
+Started GET "/restaurants/1" for ::1 at 2023-11-18 23:38:53 +0100
+Processing by RestaurantsController#show as TURBO_STREAM
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (39.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:15:in `show'
+  [1m[36mRank Load (42.9ms)[0m  [1m[34mSELECT "ranks"."what", AVG(valoracion) as rest_val FROM "ranks" WHERE "ranks"."what" = $1 GROUP BY "ranks"."what"[0m  [["what", 1]]
+  ↳ app/controllers/restaurants_controller.rb:17:in `show'
+  [1m[35m (39.8ms)[0m  [1m[34mSELECT posts.id, COUNT(reaccion) as react FROM posts LEFT JOIN reactions ON reactionable_id=posts.id AND reactionable_type='Post' AND reaccion='Like' AND restaurant_id=1 GROUP BY posts.id ORDER BY posts.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (39.8ms)[0m  [1m[34mSELECT posts.id, COUNT(reaccion) as react FROM posts LEFT JOIN reactions ON reactionable_id=posts.id AND reactionable_type='Post' AND reaccion='Dislike' AND restaurant_id=1 GROUP BY posts.id ORDER BY posts.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (40.2ms)[0m  [1m[34mSELECT posts.id, COUNT(responses.id) as resp_count FROM posts LEFT JOIN responses ON respondable_id=posts.id AND respondable_type='Post' AND restaurant_id=1 GROUP BY posts.id ORDER BY posts.id ASC[0m
+  ↳ app/controllers/concerns/queries_concern.rb:9:in `get_all_responses'
+  [1m[36mPost Load (39.3ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."restaurant_id" = $1 ORDER BY "posts"."id" ASC LIMIT $2[0m  [["restaurant_id", 1], ["LIMIT", 1000]]
+  ↳ app/controllers/concerns/queries_concern.rb:23:in `each'
+  [1m[35m (39.9ms)[0m  [1m[34mSELECT posts.id, reactions.id as reaction_id FROM posts LEFT JOIN reactions ON reactions.who='Mr.Dani' AND reactions.reactionable_id=posts.id AND reactions.reactionable_type='Post' AND restaurant_id=1 GROUP BY posts.id, reaction_id[0m
+  ↳ app/controllers/concerns/queries_concern.rb:13:in `get_comments_user_reactions'
+  [1m[35m (40.2ms)[0m  [1m[34mSELECT reviews.id, COUNT(reaccion) as react FROM reviews LEFT JOIN reactions ON reactionable_id=reviews.id AND reactionable_type='Review' AND reaccion='Like' AND reviewable_id=1 AND reviewable_type='Restaurant' GROUP BY reviews.id ORDER BY reviews.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (40.7ms)[0m  [1m[34mSELECT reviews.id, COUNT(reaccion) as react FROM reviews LEFT JOIN reactions ON reactionable_id=reviews.id AND reactionable_type='Review' AND reaccion='Dislike' AND reviewable_id=1 AND reviewable_type='Restaurant' GROUP BY reviews.id ORDER BY reviews.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (40.7ms)[0m  [1m[34mSELECT reviews.id, COUNT(responses.id) as resp_count FROM reviews LEFT JOIN responses ON respondable_id=reviews.id AND respondable_type='Review' AND reviewable_id=1 AND reviewable_type='Restaurant' GROUP BY reviews.id ORDER BY reviews.id ASC[0m
+  ↳ app/controllers/concerns/queries_concern.rb:9:in `get_all_responses'
+  [1m[36mReview Load (39.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2 ORDER BY "reviews"."id" ASC LIMIT $3[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"], ["LIMIT", 1000]]
+  ↳ app/controllers/concerns/queries_concern.rb:23:in `each'
+  [1m[35m (40.3ms)[0m  [1m[34mSELECT reviews.id, reactions.id as reaction_id FROM reviews LEFT JOIN reactions ON reactions.who='Mr.Dani' AND reactions.reactionable_id=reviews.id AND reactions.reactionable_type='Review' AND reviewable_id=1 AND reviewable_type='Restaurant' GROUP BY reviews.id, reaction_id[0m
+  ↳ app/controllers/concerns/queries_concern.rb:13:in `get_comments_user_reactions'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[35m (40.6ms)[0m  [1m[34mSELECT restaurants.id, restaurants.nombre 
+                                                        FROM restaurants, users, restaurants_users as ru 
+                                                        WHERE users.nombre='Mr.Dani' 
+                                                        AND users.nombre=ru.user_id 
+                                                        AND ru.restaurant_id=restaurants.id [0m
+  ↳ app/helpers/restaurants_helper.rb:17:in `user_is_owner?'
+  Rendered restaurants/_header.html.erb (Duration: 46.9ms | Allocations: 2198)
+  [1m[36mDish Load (43.3ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 1]]
+  ↳ app/views/restaurants/show.html.erb:9
+  [1m[36mReview Load (39.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 1], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_reaction.html.erb (Duration: 2.9ms | Allocations: 593)
+  Rendered layouts/_reaction.html.erb (Duration: 0.9ms | Allocations: 417)
+  Rendered layouts/_reaction.html.erb (Duration: 0.7ms | Allocations: 420)
+  Rendered layouts/_reaction.html.erb (Duration: 0.6ms | Allocations: 417)
+  Rendered layouts/_reaction.html.erb (Duration: 0.5ms | Allocations: 420)
+  Rendered layouts/_reaction.html.erb (Duration: 0.7ms | Allocations: 417)
+  Rendered layouts/_reaction.html.erb (Duration: 0.5ms | Allocations: 420)
+  Rendered layouts/_reaction.html.erb (Duration: 0.5ms | Allocations: 417)
+  Rendered layouts/_comment.html.erb (Duration: 60.7ms | Allocations: 8270)
+  Rendered layouts/_add_comment.html.erb (Duration: 1.8ms | Allocations: 504)
+  [1m[35m (40.4ms)[0m  [1m[34mSELECT posts.* FROM posts, users, restaurants_users as ru WHERE ru.user_id=users.nombre AND ru.restaurant_id=1 AND posts.autor=users.nombre AND posts.restaurant_id=1[0m
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_managers_posts'
+  Rendered layouts/_comment.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 206.6ms | Allocations: 13468)
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 1040)
+  [1m[36mUser Load (39.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (39.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 93.2ms | Allocations: 3992)
+  Rendered layout layouts/application.html.erb (Duration: 309.2ms | Allocations: 22160)
+Completed 200 OK in 810ms (Views: 63.6ms | ActiveRecord: 728.9ms | Allocations: 27432)
+
+
+Started GET "/restaurants/1/edit" for ::1 at 2023-11-18 23:38:57 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRestaurant Load (39.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:33:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (Duration: 3.6ms | Allocations: 2391)
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 5.9ms | Allocations: 2455)
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 1044)
+  [1m[36mUser Load (41.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (39.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 97.5ms | Allocations: 3990)
+  Rendered layout layouts/application.html.erb (Duration: 114.3ms | Allocations: 11161)
+Completed 200 OK in 158ms (Views: 33.4ms | ActiveRecord: 121.3ms | Allocations: 11822)
+
+
+Started PATCH "/restaurants/1" for ::1 at 2023-11-18 23:39:00 +0100
+Processing by RestaurantsController#update as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"Goiko", "telefono"=>"111111111", "direccion"=>"Calle 1233", "horario"=>"todos los dias", "categoria"=>"burgerr"}, "button"=>"", "id"=>"1"}
+  [1m[36mRestaurant Load (39.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:37:in `update'
+Error al subir la imagen: undefined method `original_filename' for nil:NilClass
+  [1m[36mTRANSACTION (38.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/restaurants_controller.rb:39:in `update'
+  [1m[36mRestaurant Update (83.6ms)[0m  [1m[33mUPDATE "restaurants" SET "categoria" = $1 WHERE "restaurants"."id" = $2[0m  [["categoria", "burgerr"], ["id", 1]]
+  ↳ app/controllers/restaurants_controller.rb:39:in `update'
+  [1m[36mTRANSACTION (42.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/restaurants_controller.rb:39:in `update'
+Completed 500 Internal Server Error in 171ms (ActiveRecord: 204.0ms | Allocations: 3835)
+
+
+DEPRECATION WARNING: Setting action_dispatch.show_exceptions to true is deprecated. Set to :all instead. (called from rescue in call at /home/dani/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:43)
+  
+ActiveRecord::InvalidForeignKey (PG::ForeignKeyViolation: ERROR:  insert or update on table "restaurants" violates foreign key constraint "fk_rails_933d904194"
+DETAIL:  Key (categoria)=(burgerr) is not present in table "categories".
+):
+  
+Started POST "/restaurants" for ::1 at 2023-11-18 23:39:23 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>"burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 3ms (ActiveRecord: 0.0ms | Allocations: 372)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:39:25 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>"burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 378)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:39:26 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>"burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 369)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:39:26 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>"burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 372)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:39:26 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>"burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 360)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:39:26 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>"burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 2ms (ActiveRecord: 0.0ms | Allocations: 369)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:39:26 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>"burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 384)
+
+
+Started GET "/restaurants/new" for ::1 at 2023-11-18 23:39:27 +0100
+Processing by RestaurantsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (Duration: 6.8ms | Allocations: 2340)
+  Rendered restaurants/new.html.erb within layouts/application (Duration: 9.3ms | Allocations: 2404)
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 1052)
+  [1m[36mUser Load (39.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (39.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 89.5ms | Allocations: 4015)
+  Rendered layout layouts/application.html.erb (Duration: 114.8ms | Allocations: 11187)
+Completed 200 OK in 116ms (Views: 36.3ms | ActiveRecord: 79.1ms | Allocations: 11451)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:39:35 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>"burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 378)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:39:36 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>"burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 381)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:39:36 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>"burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 384)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:39:36 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>"burger"}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 378)
+
+
+Started GET "/restaurants/new" for ::1 at 2023-11-18 23:39:40 +0100
+Processing by RestaurantsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (Duration: 4.5ms | Allocations: 2343)
+  Rendered restaurants/new.html.erb within layouts/application (Duration: 4.8ms | Allocations: 2407)
+  Rendered layouts/_header.html.erb (Duration: 11.4ms | Allocations: 1040)
+  [1m[36mUser Load (60.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (45.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 132.6ms | Allocations: 3985)
+  Rendered layout layouts/application.html.erb (Duration: 166.0ms | Allocations: 11095)
+Completed 200 OK in 167ms (Views: 61.3ms | ActiveRecord: 105.5ms | Allocations: 11359)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:39:44 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>""}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 372)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:39:44 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>""}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 372)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:39:44 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>""}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 399)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:39:49 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>""}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 381)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-18 23:39:50 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"a", "telefono"=>"a", "direccion"=>"a", "horario"=>"a", "categoria"=>""}, "button"=>""}
+No template found for RestaurantsController#create, rendering head :no_content
+Completed 204 No Content in 1ms (ActiveRecord: 0.0ms | Allocations: 384)
+
+
