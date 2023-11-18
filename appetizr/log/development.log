@@ -14154,3 +14154,11 @@ Processing by RestaurantsController#show as HTML
 Completed 200 OK in 823ms (Views: 86.7ms | ActiveRecord: 711.7ms | Allocations: 24960)
 
 
+  [1m[35m (44.4ms)[0m  [1m[34mSELECT pg_try_advisory_lock(1120147408448878005)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (45.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (45.5ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to AddImportedIdToRestaurants (20231118200254)
+  [1m[36mTRANSACTION (44.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (46.3ms)[0m  [1m[35mALTER TABLE "restaurants" ADD "imported_id" integer DEFAULT NULL[0m
+  [1m[36mTRANSACTION (44.0ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (46.8ms)[0m  [1m[34mSELECT pg_advisory_unlock(1120147408448878005)[0m
