@@ -6,9 +6,10 @@
     </div>
     
     <div class="search_bar">
-        <%= image_tag "search-logo" %>
-        <%= form_tag search_restaurants_path, method: :get do %>
-        <%= text_field_tag :search, params[:search], placeholder: "¿Cuál es tu restaurante favorito?", class: "search_bar_field" %>
-        <% end %>
-    </div>
+    <%= image_tag "search-logo" %>
+    <%= form_tag search_restaurants_path, method: :get do %>
+        <%= text_field_tag :search, params[:search], placeholder: "¿Cuál es tu restaurante favorito?", class: "search_bar_field", autocomplete: "off" %>
+    <% end %>
+</div>
+
 </header>

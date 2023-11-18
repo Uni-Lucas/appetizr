@@ -52,9 +52,11 @@ class RestaurantsController < ApplicationController
 
     def search
         if params[:search]
-            @restaurant = Restaurant.find_by(nombre: params[:search])
+            @restaurant= Restaurant.where("lower(nombre) LIKE ?", "%#{params[:search].downcase}%")
+
+            #@restaurant = Restaurant.find_by(nombre: params[:search])
             if @restaurant
-                redirect_to @restaurant
+                redirect_to @restaurant[0]
             else 
                 # flash.now[:notice] = "No se encontró ningún restaurante con ese nombre"
                 redirect_to categories_path
