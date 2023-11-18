@@ -16464,3 +16464,211 @@ Processing by RestaurantsController#show as HTML
 Completed 200 OK in 1615ms (Views: 268.9ms | ActiveRecord: 1275.0ms | Allocations: 62918)
 
 
+Started GET "/restaurants/new" for ::1 at 2023-11-19 00:04:01 +0100
+Processing by RestaurantsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (Duration: 6.4ms | Allocations: 2966)
+  Rendered restaurants/new.html.erb within layouts/application (Duration: 9.1ms | Allocations: 3201)
+  Rendered layouts/_header.html.erb (Duration: 3.0ms | Allocations: 1048)
+  [1m[36mUser Load (40.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (40.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 90.6ms | Allocations: 4005)
+  Rendered layout layouts/application.html.erb (Duration: 108.4ms | Allocations: 11932)
+Completed 200 OK in 114ms (Views: 30.0ms | ActiveRecord: 81.0ms | Allocations: 12266)
+
+
+Started GET "/restaurants/new" for ::1 at 2023-11-19 00:10:39 +0100
+Processing by RestaurantsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/new.html.erb within layouts/application
+  [1m[36mCategory Load (46.8ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/_form.html.erb:26
+  Rendered restaurants/_form.html.erb (Duration: 109.1ms | Allocations: 5563)
+  Rendered restaurants/new.html.erb within layouts/application (Duration: 110.0ms | Allocations: 5803)
+  Rendered layout layouts/application.html.erb (Duration: 110.2ms | Allocations: 5896)
+Completed 500 Internal Server Error in 982ms (ActiveRecord: 466.6ms | Allocations: 16967)
+
+
+DEPRECATION WARNING: Setting action_dispatch.show_exceptions to true is deprecated. Set to :all instead. (called from rescue in call at /home/dani/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:43)
+  
+ActionView::Template::Error ({:prompt=>"Seleccionar categoría"} is not a symbol nor a string):
+    23:         <!-- Desplegable con todas los nombres de la tabla categories-->
+    24:         <div>
+    25:           <label class="my_account_form_label">Categoría</label><br>
+    26:           <%= form.collection_select :categoria, Category.all, :nombre, { prompt: "Seleccionar categoría" }, { class: "my_account_form_text_field" } %>
+    27:         </div>
+    28:       </div>
+    29:        
+  
+app/views/restaurants/_form.html.erb:26
+app/views/restaurants/_form.html.erb:1
+app/views/restaurants/new.html.erb:4
+Started GET "/restaurants/new" for ::1 at 2023-11-19 00:11:27 +0100
+Processing by RestaurantsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/new.html.erb within layouts/application
+  [1m[36mCategory Load (47.4ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/_form.html.erb:26
+  Rendered restaurants/_form.html.erb (Duration: 100.3ms | Allocations: 5028)
+  Rendered restaurants/new.html.erb within layouts/application (Duration: 101.2ms | Allocations: 5268)
+  Rendered layout layouts/application.html.erb (Duration: 101.4ms | Allocations: 5361)
+Completed 500 Internal Server Error in 363ms (ActiveRecord: 284.6ms | Allocations: 13833)
+
+
+DEPRECATION WARNING: Setting action_dispatch.show_exceptions to true is deprecated. Set to :all instead. (called from rescue in call at /home/dani/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:43)
+  
+ActionView::Template::Error ({:class=>"my_account_form_text_field"} is not a symbol nor a string):
+    23:         <!-- Desplegable con todas los nombres de la tabla categories-->
+    24:         <div>
+    25:           <label class="my_account_form_label">Categoría</label><br>
+    26:           <%= form.collection_select :categoria, Category.all, :nombre, { class: "my_account_form_text_field" } %>
+    27:         </div>
+    28:       </div>
+    29:        
+  
+app/views/restaurants/_form.html.erb:26
+app/views/restaurants/_form.html.erb:1
+app/views/restaurants/new.html.erb:4
+Started GET "/restaurants/new" for ::1 at 2023-11-19 00:11:39 +0100
+Processing by RestaurantsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (Duration: 17.5ms | Allocations: 3029)
+  Rendered restaurants/new.html.erb within layouts/application (Duration: 19.5ms | Allocations: 3269)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | Allocations: 3362)
+Completed 500 Internal Server Error in 233ms (ActiveRecord: 136.0ms | Allocations: 11816)
+
+
+DEPRECATION WARNING: Setting action_dispatch.show_exceptions to true is deprecated. Set to :all instead. (called from rescue in call at /home/dani/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:43)
+  
+ActionView::Template::Error (wrong number of arguments (given 3, expected 4..6)):
+    23:         <!-- Desplegable con todas los nombres de la tabla categories-->
+    24:         <div>
+    25:           <label class="my_account_form_label">Categoría</label><br>
+    26:           <%= form.collection_select :categoria, Category.all, :nombre%>
+    27:         </div>
+    28:       </div>
+    29:        
+  
+app/views/restaurants/_form.html.erb:26
+app/views/restaurants/_form.html.erb:1
+app/views/restaurants/new.html.erb:4
+Started GET "/restaurants/new" for ::1 at 2023-11-19 00:11:54 +0100
+Processing by RestaurantsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (Duration: 1.2ms | Allocations: 1358)
+  Rendered restaurants/new.html.erb within layouts/application (Duration: 1.4ms | Allocations: 1422)
+  Rendered layout layouts/application.html.erb (Duration: 1.7ms | Allocations: 1514)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1760)
+
+
+DEPRECATION WARNING: Setting action_dispatch.show_exceptions to true is deprecated. Set to :all instead. (called from rescue in call at /home/dani/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:43)
+  
+ActionView::Template::Error (wrong number of arguments (given 3, expected 4..6)):
+    23:         <!-- Desplegable con todas los nombres de la tabla categories-->
+    24:         <div>
+    25:           <label class="my_account_form_label">Categoría</label><br>
+    26:           <%= form.collection_select :categoria, Category.all, :nombre%>
+    27:         </div>
+    28:       </div>
+    29:        
+  
+app/views/restaurants/_form.html.erb:26
+app/views/restaurants/_form.html.erb:1
+app/views/restaurants/new.html.erb:4
+Started GET "/restaurants/new" for ::1 at 2023-11-19 00:12:00 +0100
+Processing by RestaurantsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/new.html.erb within layouts/application
+  Rendered restaurants/_form.html.erb (Duration: 1.3ms | Allocations: 1358)
+  Rendered restaurants/new.html.erb within layouts/application (Duration: 1.7ms | Allocations: 1422)
+  Rendered layout layouts/application.html.erb (Duration: 1.9ms | Allocations: 1514)
+Completed 500 Internal Server Error in 3ms (ActiveRecord: 0.0ms | Allocations: 1759)
+
+
+DEPRECATION WARNING: Setting action_dispatch.show_exceptions to true is deprecated. Set to :all instead. (called from rescue in call at /home/dani/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:43)
+  
+ActionView::Template::Error (wrong number of arguments (given 3, expected 4..6)):
+    23:         <!-- Desplegable con todas los nombres de la tabla categories-->
+    24:         <div>
+    25:           <label class="my_account_form_label">Categoría</label><br>
+    26:           <%= form.collection_select :categoria, Category.all, :nombre%>
+    27:         </div>
+    28:       </div>
+    29:        
+  
+app/views/restaurants/_form.html.erb:26
+app/views/restaurants/_form.html.erb:1
+app/views/restaurants/new.html.erb:4
+Started GET "/restaurants/new" for ::1 at 2023-11-19 00:12:05 +0100
+Processing by RestaurantsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/new.html.erb within layouts/application
+  [1m[36mCategory Load (45.3ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/_form.html.erb:26
+  Rendered restaurants/_form.html.erb (Duration: 108.2ms | Allocations: 5030)
+  Rendered restaurants/new.html.erb within layouts/application (Duration: 110.5ms | Allocations: 5270)
+  Rendered layout layouts/application.html.erb (Duration: 110.8ms | Allocations: 5363)
+Completed 500 Internal Server Error in 331ms (ActiveRecord: 240.4ms | Allocations: 13816)
+
+
+DEPRECATION WARNING: Setting action_dispatch.show_exceptions to true is deprecated. Set to :all instead. (called from rescue in call at /home/dani/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:43)
+  
+ActionView::Template::Error ({:prompt=>"Seleccionar categoría"} is not a symbol nor a string):
+    23:         <!-- Desplegable con todas los nombres de la tabla categories-->
+    24:         <div>
+    25:           <label class="my_account_form_label">Categoría</label><br>
+    26:           <%= form.collection_select :categoria, Category.all, :nombre, { prompt: "Seleccionar categoría" }, { class: "my_account_form_text_field" } %>
+    27:         </div>
+    28:       </div>
+    29:        
+  
+app/views/restaurants/_form.html.erb:26
+app/views/restaurants/_form.html.erb:1
+app/views/restaurants/new.html.erb:4
+Started GET "/restaurants/new" for ::1 at 2023-11-19 00:13:02 +0100
+Processing by RestaurantsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/new.html.erb within layouts/application
+  [1m[36mCategory Load (45.0ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/_form.html.erb:26
+  Rendered restaurants/_form.html.erb (Duration: 138.8ms | Allocations: 6295)
+  Rendered restaurants/new.html.erb within layouts/application (Duration: 141.3ms | Allocations: 6539)
+  Rendered layouts/_header.html.erb (Duration: 5.0ms | Allocations: 1316)
+  [1m[36mUser Load (44.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (49.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 377.7ms | Allocations: 12964)
+  Rendered layout layouts/application.html.erb (Duration: 577.7ms | Allocations: 39616)
+Completed 200 OK in 785ms (Views: 252.4ms | ActiveRecord: 469.4ms | Allocations: 48090)
+
+
+Started GET "/restaurants/new" for ::1 at 2023-11-19 00:14:24 +0100
+Processing by RestaurantsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/new.html.erb within layouts/application
+  [1m[36mCategory Load (90.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/_form.html.erb:26
+  Rendered restaurants/_form.html.erb (Duration: 101.5ms | Allocations: 2974)
+  Rendered restaurants/new.html.erb within layouts/application (Duration: 101.9ms | Allocations: 3038)
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 1048)
+  [1m[36mUser Load (45.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (45.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 103.5ms | Allocations: 4004)
+  Rendered layout layouts/application.html.erb (Duration: 214.7ms | Allocations: 11767)
+Completed 200 OK in 216ms (Views: 34.9ms | ActiveRecord: 180.8ms | Allocations: 12032)
+
+

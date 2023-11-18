@@ -20,10 +20,10 @@
           <%= form.text_field :horario, class: "my_account_form_text_field", placeholder: "Todos los días de 20:00 a 0:00" %>
         </div>
 
-        <!-- Desplegable con las categorías -->
+        <!-- Desplegable con todas los nombres de la tabla categories-->
         <div>
           <label class="my_account_form_label">Categoría</label><br>
-          <%= form.text_field :categoria, class: "my_account_form_text_field", placeholder: "Burger" %>
+            <%= form.collection_select :categoria, Category.all, :id, :nombre, { include_blank: "Seleccionar categoría" }, { class: "my_account_form_text_field" } %>
         </div>
       </div>
        
