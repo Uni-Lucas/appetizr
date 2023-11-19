@@ -1,6 +1,8 @@
 <%= form_with model: @restaurant, html: {multipart:true, remote: true} do |form| %>
   <div class="categories_new_form_container">
       <div class="categories_new_name_container">
+        
+        
         <div>
           <label class="my_account_form_label">Nombre del restaurante</label><br>
           <%= form.text_field :nombre, class: "my_account_form_text_field", placeholder: "Mi restaurante" %>
@@ -20,7 +22,6 @@
           <%= form.text_field :horario, class: "my_account_form_text_field", placeholder: "Todos los días de 20:00 a 0:00" %>
         </div>
 
-        <!-- Desplegable con todas los nombres de la tabla categories-->
         <div>
           <label class="my_account_form_label">Categoría</label><br>
             <%= form.collection_select :categoria, Category.all, :id, :nombre, { include_blank: "Seleccionar categoría" }, { class: "my_account_form_text_field" } %>

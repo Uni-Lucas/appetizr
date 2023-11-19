@@ -38,6 +38,7 @@ class RestaurantsController < ApplicationController
           else
             render :new, status: :unprocessable_entity
           end
+        @restaurant.users << User.find_by(nombre: session[:username])
     end
 
     def edit
