@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_18_191544) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_19_162249) do
   create_schema "tiger"
   create_schema "tiger_data"
   create_schema "topology"
@@ -79,6 +79,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_18_191544) do
     t.string "ruta_img_plato"
     t.text "descripcion"
     t.float "precio"
+    t.integer "imported_id"
     t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
   end
 
