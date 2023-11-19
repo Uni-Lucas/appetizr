@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2023_11_17_111513) do
+ActiveRecord::Schema[7.1].define(version: 2023_11_18_191544) do
   create_schema "tiger"
   create_schema "tiger_data"
   create_schema "topology"
@@ -128,6 +128,7 @@ ActiveRecord::Schema[7.1].define(version: 2023_11_17_111513) do
     t.string "direccion"
     t.string "telefono"
     t.string "horario"
+    t.integer "imported_id"
   end
 
   create_table "restaurants_users", id: false, force: :cascade do |t|
