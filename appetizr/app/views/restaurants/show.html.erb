@@ -21,16 +21,6 @@
               <div class="restaurant_dish_desc"><%= dish.descripcion %></div>
             </div>
             <div class="restaurant_dish_price"><%= dish.precio %> €</div>
-            
-            <!-- si dish no tiene un imported id mostraremos un botón de editar el plato que llevará a la página de editar plato -->
-            <% if dish.imported_id?.nil? %>
-              <%= link_to edit_restaurant_dish_path(@restaurant, dish), style: "text-decoration: none" do %>
-                <div class="restaurants_header_edit_button">
-                  <span class="restaurants_header_edit_button_text">Editar</span>
-                </div> 
-              <% end %>
-            <% end %>
-
           </div>
         <% end %>
       <% end %>

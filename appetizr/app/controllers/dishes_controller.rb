@@ -2,6 +2,7 @@ class DishesController < ApplicationController
 
   def show
     session[:review_referer] = nil
+    @restaurant = Restaurant.find(params[:restaurant_id])
     alleged_dish = Dish.find_by(id: params[:id], restaurant_id: params[:restaurant_id])
     if alleged_dish
       @dish = alleged_dish
