@@ -12296,3 +12296,425 @@ Processing by RestaurantsController#show as HTML
 Completed 200 OK in 932ms (Views: 49.6ms | ActiveRecord: 863.8ms | Allocations: 19422)
 
 
+Started GET "/restaurants/new" for ::1 at 2023-11-19 20:19:46 +0100
+Processing by RestaurantsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/new.html.erb within layouts/application
+  [1m[36mCategory Load (100.7ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/_form.html.erb:27
+  Rendered restaurants/_form.html.erb (Duration: 211.1ms | Allocations: 18079)
+  Rendered restaurants/new.html.erb within layouts/application (Duration: 212.9ms | Allocations: 18382)
+  Rendered layouts/_header.html.erb (Duration: 10.1ms | Allocations: 1072)
+  [1m[36mUser Load (45.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (59.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 151.2ms | Allocations: 4633)
+  Rendered layout layouts/application.html.erb (Duration: 398.7ms | Allocations: 27828)
+Completed 200 OK in 402ms (Views: 148.2ms | ActiveRecord: 253.0ms | Allocations: 28164)
+
+
+Started POST "/restaurants" for ::1 at 2023-11-19 20:20:49 +0100
+Processing by RestaurantsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "restaurant"=>{"nombre"=>"Kebab de la esquina", "telefono"=>"121321 2132133", "direccion"=>"La esquina", "horario"=>"Todos los días amigo", "categoria"=>"Turca", "ruta_img_fondo"=>#<ActionDispatch::Http::UploadedFile:0x00007f3ebc607cd0 @tempfile=#<Tempfile:/tmp/RackMultipart20231119-4356-lvgf9y.jpg>, @content_type="image/jpeg", @original_filename="le-chalet-a-kebab.jpg", @headers="Content-Disposition: form-data; name=\"restaurant[ruta_img_fondo]\"; filename=\"le-chalet-a-kebab.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+  [1m[36mTRANSACTION (45.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/restaurants_controller.rb:43:in `create'
+  [1m[36mRestaurant Create (92.0ms)[0m  [1m[32mINSERT INTO "restaurants" ("categoria", "nombre", "ruta_img_perfil", "ruta_img_fondo", "direccion", "telefono", "horario", "imported_id") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["categoria", "Turca"], ["nombre", "Kebab de la esquina"], ["ruta_img_perfil", nil], ["ruta_img_fondo", "4ea8cbd6844011a5a22b.jpg"], ["direccion", "La esquina"], ["telefono", "121321 2132133"], ["horario", "Todos los días amigo"], ["imported_id", nil]]
+  ↳ app/controllers/restaurants_controller.rb:43:in `create'
+  [1m[36mTRANSACTION (43.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/restaurants_controller.rb:43:in `create'
+Redirected to http://localhost:3000/restaurants/13
+  [1m[36mUser Load (43.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:48:in `create'
+  [1m[36mTRANSACTION (42.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/restaurants_controller.rb:48:in `create'
+  [1m[36mRestaurant::HABTM_Users Create (43.5ms)[0m  [1m[32mINSERT INTO "restaurants_users" ("restaurant_id", "user_id") VALUES ($1, $2)[0m  [["restaurant_id", 13], ["user_id", "Mr.Dani"]]
+  ↳ app/controllers/restaurants_controller.rb:48:in `create'
+  [1m[36mTRANSACTION (44.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/restaurants_controller.rb:48:in `create'
+Completed 302 Found in 370ms (ActiveRecord: 442.0ms | Allocations: 5967)
+
+
+Started GET "/restaurants/13" for ::1 at 2023-11-19 20:20:50 +0100
+Processing by RestaurantsController#show as TURBO_STREAM
+  Parameters: {"id"=>"13"}
+  [1m[36mRestaurant Load (45.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:22:in `show'
+  [1m[36mRank Exists? (42.3ms)[0m  [1m[34mSELECT 1 AS one FROM "ranks" WHERE "ranks"."what" = $1 GROUP BY "ranks"."what" LIMIT $2[0m  [["what", 13], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `show'
+  [1m[35m (44.3ms)[0m  [1m[34mSELECT posts.id, COUNT(reaccion) as react FROM posts LEFT JOIN reactions ON reactionable_id=posts.id AND reactionable_type='Post' AND reaccion='Like' AND restaurant_id=13 GROUP BY posts.id ORDER BY posts.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (44.6ms)[0m  [1m[34mSELECT posts.id, COUNT(reaccion) as react FROM posts LEFT JOIN reactions ON reactionable_id=posts.id AND reactionable_type='Post' AND reaccion='Dislike' AND restaurant_id=13 GROUP BY posts.id ORDER BY posts.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (43.7ms)[0m  [1m[34mSELECT posts.id, COUNT(responses.id) as resp_count FROM posts LEFT JOIN responses ON respondable_id=posts.id AND respondable_type='Post' AND restaurant_id=13 GROUP BY posts.id ORDER BY posts.id ASC[0m
+  ↳ app/controllers/concerns/queries_concern.rb:9:in `get_all_responses'
+  [1m[36mPost Load (43.6ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."restaurant_id" = $1 ORDER BY "posts"."id" ASC LIMIT $2[0m  [["restaurant_id", 13], ["LIMIT", 1000]]
+  ↳ app/controllers/concerns/queries_concern.rb:23:in `each'
+  [1m[35m (45.4ms)[0m  [1m[34mSELECT posts.id, reactions.id as reaction_id FROM posts LEFT JOIN reactions ON reactions.who='Mr.Dani' AND reactions.reactionable_id=posts.id AND reactions.reactionable_type='Post' AND restaurant_id=13 GROUP BY posts.id, reaction_id[0m
+  ↳ app/controllers/concerns/queries_concern.rb:13:in `get_comments_user_reactions'
+  [1m[35m (45.5ms)[0m  [1m[34mSELECT reviews.id, COUNT(reaccion) as react FROM reviews LEFT JOIN reactions ON reactionable_id=reviews.id AND reactionable_type='Review' AND reaccion='Like' AND reviewable_id=13 AND reviewable_type='Restaurant' GROUP BY reviews.id ORDER BY reviews.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (45.7ms)[0m  [1m[34mSELECT reviews.id, COUNT(reaccion) as react FROM reviews LEFT JOIN reactions ON reactionable_id=reviews.id AND reactionable_type='Review' AND reaccion='Dislike' AND reviewable_id=13 AND reviewable_type='Restaurant' GROUP BY reviews.id ORDER BY reviews.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (49.5ms)[0m  [1m[34mSELECT reviews.id, COUNT(responses.id) as resp_count FROM reviews LEFT JOIN responses ON respondable_id=reviews.id AND respondable_type='Review' AND reviewable_id=13 AND reviewable_type='Restaurant' GROUP BY reviews.id ORDER BY reviews.id ASC[0m
+  ↳ app/controllers/concerns/queries_concern.rb:9:in `get_all_responses'
+  [1m[36mReview Load (44.7ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2 ORDER BY "reviews"."id" ASC LIMIT $3[0m  [["reviewable_id", 13], ["reviewable_type", "Restaurant"], ["LIMIT", 1000]]
+  ↳ app/controllers/concerns/queries_concern.rb:23:in `each'
+  [1m[35m (47.7ms)[0m  [1m[34mSELECT reviews.id, reactions.id as reaction_id FROM reviews LEFT JOIN reactions ON reactions.who='Mr.Dani' AND reactions.reactionable_id=reviews.id AND reactions.reactionable_type='Review' AND reviewable_id=13 AND reviewable_type='Restaurant' GROUP BY reviews.id, reaction_id[0m
+  ↳ app/controllers/concerns/queries_concern.rb:13:in `get_comments_user_reactions'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[35m (46.0ms)[0m  [1m[34mSELECT restaurants.id, restaurants.nombre 
+                                                        FROM restaurants, users, restaurants_users as ru 
+                                                        WHERE users.nombre='Mr.Dani' 
+                                                        AND users.nombre=ru.user_id 
+                                                        AND ru.restaurant_id=restaurants.id [0m
+  ↳ app/helpers/restaurants_helper.rb:17:in `user_is_owner?'
+  Rendered restaurants/_header.html.erb (Duration: 350.3ms | Allocations: 59082)
+  [1m[36mDish Load (84.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 13]]
+  ↳ app/views/restaurants/show.html.erb:10
+  [1m[35m (44.5ms)[0m  [1m[34mSELECT restaurants.id, restaurants.nombre 
+                                                        FROM restaurants, users, restaurants_users as ru 
+                                                        WHERE users.nombre='Mr.Dani' 
+                                                        AND users.nombre=ru.user_id 
+                                                        AND ru.restaurant_id=restaurants.id [0m
+  ↳ app/helpers/restaurants_helper.rb:17:in `user_is_owner?'
+  [1m[36mReview Load (44.5ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 13], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 46.4ms | Allocations: 485)
+  Rendered layouts/_add_comment.html.erb (Duration: 5.5ms | Allocations: 549)
+  [1m[35m (44.7ms)[0m  [1m[34mSELECT posts.* FROM posts, users, restaurants_users as ru WHERE ru.user_id=users.nombre AND ru.restaurant_id=13 AND posts.autor=users.nombre AND posts.restaurant_id=13[0m
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_managers_posts'
+  Rendered layouts/_comment.html.erb (Duration: 0.0ms | Allocations: 7)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 589.9ms | Allocations: 61530)
+  Rendered layouts/_header.html.erb (Duration: 5.6ms | Allocations: 1080)
+  [1m[36mUser Load (45.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (46.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 111.7ms | Allocations: 4678)
+  Rendered layout layouts/application.html.erb (Duration: 726.6ms | Allocations: 71044)
+Completed 200 OK in 1306ms (Views: 371.4ms | ActiveRecord: 897.8ms | Allocations: 76033)
+
+
+Started GET "/users/mis_restaurantes" for ::1 at 2023-11-19 20:20:57 +0100
+Processing by UsersController#mis_restaurantes as HTML
+  [1m[36mUser Load (43.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:77:in `mis_restaurantes'
+  Rendering layout layouts/application.html.erb
+  Rendering users/mis_restaurantes.html.erb within layouts/application
+  [1m[36mRestaurant Load (43.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/views/users/mis_restaurantes.html.erb:8
+  Rendered users/mis_restaurantes.html.erb within layouts/application (Duration: 53.2ms | Allocations: 3640)
+  Rendered layouts/_header.html.erb (Duration: 1.3ms | Allocations: 1102)
+  [1m[36mCACHE User Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE Restaurant Load (0.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 10.6ms | Allocations: 4403)
+  Rendered layout layouts/application.html.erb (Duration: 70.6ms | Allocations: 12892)
+Completed 200 OK in 116ms (Views: 27.6ms | ActiveRecord: 86.5ms | Allocations: 13779)
+
+
+Started GET "/restaurants/13" for ::1 at 2023-11-19 20:21:01 +0100
+Processing by RestaurantsController#show as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mRestaurant Load (48.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:22:in `show'
+  [1m[36mRank Exists? (42.8ms)[0m  [1m[34mSELECT 1 AS one FROM "ranks" WHERE "ranks"."what" = $1 GROUP BY "ranks"."what" LIMIT $2[0m  [["what", 13], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `show'
+  [1m[35m (43.2ms)[0m  [1m[34mSELECT posts.id, COUNT(reaccion) as react FROM posts LEFT JOIN reactions ON reactionable_id=posts.id AND reactionable_type='Post' AND reaccion='Like' AND restaurant_id=13 GROUP BY posts.id ORDER BY posts.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (42.9ms)[0m  [1m[34mSELECT posts.id, COUNT(reaccion) as react FROM posts LEFT JOIN reactions ON reactionable_id=posts.id AND reactionable_type='Post' AND reaccion='Dislike' AND restaurant_id=13 GROUP BY posts.id ORDER BY posts.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (43.3ms)[0m  [1m[34mSELECT posts.id, COUNT(responses.id) as resp_count FROM posts LEFT JOIN responses ON respondable_id=posts.id AND respondable_type='Post' AND restaurant_id=13 GROUP BY posts.id ORDER BY posts.id ASC[0m
+  ↳ app/controllers/concerns/queries_concern.rb:9:in `get_all_responses'
+  [1m[36mPost Load (43.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."restaurant_id" = $1 ORDER BY "posts"."id" ASC LIMIT $2[0m  [["restaurant_id", 13], ["LIMIT", 1000]]
+  ↳ app/controllers/concerns/queries_concern.rb:23:in `each'
+  [1m[35m (44.0ms)[0m  [1m[34mSELECT posts.id, reactions.id as reaction_id FROM posts LEFT JOIN reactions ON reactions.who='Mr.Dani' AND reactions.reactionable_id=posts.id AND reactions.reactionable_type='Post' AND restaurant_id=13 GROUP BY posts.id, reaction_id[0m
+  ↳ app/controllers/concerns/queries_concern.rb:13:in `get_comments_user_reactions'
+  [1m[35m (44.9ms)[0m  [1m[34mSELECT reviews.id, COUNT(reaccion) as react FROM reviews LEFT JOIN reactions ON reactionable_id=reviews.id AND reactionable_type='Review' AND reaccion='Like' AND reviewable_id=13 AND reviewable_type='Restaurant' GROUP BY reviews.id ORDER BY reviews.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (63.3ms)[0m  [1m[34mSELECT reviews.id, COUNT(reaccion) as react FROM reviews LEFT JOIN reactions ON reactionable_id=reviews.id AND reactionable_type='Review' AND reaccion='Dislike' AND reviewable_id=13 AND reviewable_type='Restaurant' GROUP BY reviews.id ORDER BY reviews.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (48.9ms)[0m  [1m[34mSELECT reviews.id, COUNT(responses.id) as resp_count FROM reviews LEFT JOIN responses ON respondable_id=reviews.id AND respondable_type='Review' AND reviewable_id=13 AND reviewable_type='Restaurant' GROUP BY reviews.id ORDER BY reviews.id ASC[0m
+  ↳ app/controllers/concerns/queries_concern.rb:9:in `get_all_responses'
+  [1m[36mReview Load (45.8ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2 ORDER BY "reviews"."id" ASC LIMIT $3[0m  [["reviewable_id", 13], ["reviewable_type", "Restaurant"], ["LIMIT", 1000]]
+  ↳ app/controllers/concerns/queries_concern.rb:23:in `each'
+  [1m[35m (46.4ms)[0m  [1m[34mSELECT reviews.id, reactions.id as reaction_id FROM reviews LEFT JOIN reactions ON reactions.who='Mr.Dani' AND reactions.reactionable_id=reviews.id AND reactions.reactionable_type='Review' AND reviewable_id=13 AND reviewable_type='Restaurant' GROUP BY reviews.id, reaction_id[0m
+  ↳ app/controllers/concerns/queries_concern.rb:13:in `get_comments_user_reactions'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[35m (46.3ms)[0m  [1m[34mSELECT restaurants.id, restaurants.nombre 
+                                                        FROM restaurants, users, restaurants_users as ru 
+                                                        WHERE users.nombre='Mr.Dani' 
+                                                        AND users.nombre=ru.user_id 
+                                                        AND ru.restaurant_id=restaurants.id [0m
+  ↳ app/helpers/restaurants_helper.rb:17:in `user_is_owner?'
+  Rendered restaurants/_header.html.erb (Duration: 54.4ms | Allocations: 1003)
+  [1m[36mDish Load (45.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 13]]
+  ↳ app/views/restaurants/show.html.erb:10
+  [1m[35m (48.1ms)[0m  [1m[34mSELECT restaurants.id, restaurants.nombre 
+                                                        FROM restaurants, users, restaurants_users as ru 
+                                                        WHERE users.nombre='Mr.Dani' 
+                                                        AND users.nombre=ru.user_id 
+                                                        AND ru.restaurant_id=restaurants.id [0m
+  ↳ app/helpers/restaurants_helper.rb:17:in `user_is_owner?'
+  [1m[36mReview Load (51.2ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 13], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 55.2ms | Allocations: 485)
+  Rendered layouts/_add_comment.html.erb (Duration: 8.1ms | Allocations: 547)
+  [1m[35m (49.5ms)[0m  [1m[34mSELECT posts.* FROM posts, users, restaurants_users as ru WHERE ru.user_id=users.nombre AND ru.restaurant_id=13 AND posts.autor=users.nombre AND posts.restaurant_id=13[0m
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_managers_posts'
+  Rendered layouts/_comment.html.erb (Duration: 0.1ms | Allocations: 7)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 282.3ms | Allocations: 3404)
+  Rendered layouts/_header.html.erb (Duration: 7.9ms | Allocations: 1076)
+  [1m[36mUser Load (45.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (46.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 133.1ms | Allocations: 4656)
+  Rendered layout layouts/application.html.erb (Duration: 455.5ms | Allocations: 12879)
+Completed 200 OK in 1048ms (Views: 124.6ms | ActiveRecord: 889.1ms | Allocations: 17830)
+
+
+Started GET "/restaurants/13/edit" for ::1 at 2023-11-19 20:21:03 +0100
+Processing by RestaurantsController#edit as HTML
+  Parameters: {"id"=>"13"}
+  [1m[36mRestaurant Load (43.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:56:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/edit.html.erb within layouts/application
+  [1m[36mCategory Load (44.5ms)[0m  [1m[34mSELECT "categories".* FROM "categories"[0m
+  ↳ app/views/restaurants/_form.html.erb:27
+  Rendered restaurants/_form.html.erb (Duration: 50.7ms | Allocations: 3060)
+  Rendered restaurants/edit.html.erb within layouts/application (Duration: 52.7ms | Allocations: 3236)
+  Rendered layouts/_header.html.erb (Duration: 1.9ms | Allocations: 1076)
+  [1m[36mUser Load (43.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (42.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 93.7ms | Allocations: 4655)
+  Rendered layout layouts/application.html.erb (Duration: 154.5ms | Allocations: 12709)
+Completed 200 OK in 200ms (Views: 24.5ms | ActiveRecord: 173.7ms | Allocations: 13458)
+
+
+Started GET "/restaurants/13/dishes/new" for ::1 at 2023-11-19 20:21:10 +0100
+Processing by DishesController#new as HTML
+  Parameters: {"restaurant_id"=>"13"}
+  [1m[36mRestaurant Load (43.1ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/dishes_controller.rb:17:in `new'
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/new.html.erb within layouts/application
+  Rendered dishes/_form.html.erb (Duration: 6.4ms | Allocations: 2644)
+  Rendered dishes/new.html.erb within layouts/application (Duration: 8.8ms | Allocations: 2932)
+  Rendered layouts/_header.html.erb (Duration: 1.4ms | Allocations: 1076)
+  [1m[36mUser Load (44.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (42.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 94.7ms | Allocations: 4656)
+  Rendered layout layouts/application.html.erb (Duration: 110.7ms | Allocations: 12409)
+Completed 200 OK in 159ms (Views: 25.0ms | ActiveRecord: 129.8ms | Allocations: 13505)
+
+
+Started POST "/restaurants/13/dishes" for ::1 at 2023-11-19 20:22:38 +0100
+Processing by DishesController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "dish"=>{"nombre"=>"El mejor kebab", "descripcion"=>"Carne de rata amigo", "precio"=>"4.50", "ruta_img_plato"=>#<ActionDispatch::Http::UploadedFile:0x00007f3ebdea6db8 @tempfile=#<Tempfile:/tmp/RackMultipart20231119-4356-yjktp7.jpg>, @content_type="image/jpeg", @original_filename="kebab.jpg", @headers="Content-Disposition: form-data; name=\"dish[ruta_img_plato]\"; filename=\"kebab.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>"", "restaurant_id"=>"13"}
+  [1m[36mTRANSACTION (44.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/dishes_controller.rb:23:in `create'
+  [1m[36mRestaurant Load (43.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/dishes_controller.rb:23:in `create'
+  [1m[36mDish Create (43.6ms)[0m  [1m[32mINSERT INTO "dishes" ("restaurant_id", "nombre", "ruta_img_plato", "descripcion", "precio", "imported_id") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["restaurant_id", 13], ["nombre", "El mejor kebab"], ["ruta_img_plato", "e88582bc1458cc1e4515.jpg"], ["descripcion", "Carne de rata amigo"], ["precio", 4.5], ["imported_id", nil]]
+  ↳ app/controllers/dishes_controller.rb:23:in `create'
+  [1m[36mTRANSACTION (43.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/dishes_controller.rb:23:in `create'
+Redirected to http://localhost:3000/restaurants/13
+Completed 302 Found in 185ms (ActiveRecord: 175.8ms | Allocations: 3853)
+
+
+Started GET "/restaurants/13" for ::1 at 2023-11-19 20:22:39 +0100
+Processing by RestaurantsController#show as TURBO_STREAM
+  Parameters: {"id"=>"13"}
+  [1m[36mRestaurant Load (43.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:22:in `show'
+  [1m[36mRank Exists? (43.2ms)[0m  [1m[34mSELECT 1 AS one FROM "ranks" WHERE "ranks"."what" = $1 GROUP BY "ranks"."what" LIMIT $2[0m  [["what", 13], ["LIMIT", 1]]
+  ↳ app/controllers/restaurants_controller.rb:25:in `show'
+  [1m[35m (46.0ms)[0m  [1m[34mSELECT posts.id, COUNT(reaccion) as react FROM posts LEFT JOIN reactions ON reactionable_id=posts.id AND reactionable_type='Post' AND reaccion='Like' AND restaurant_id=13 GROUP BY posts.id ORDER BY posts.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (43.3ms)[0m  [1m[34mSELECT posts.id, COUNT(reaccion) as react FROM posts LEFT JOIN reactions ON reactionable_id=posts.id AND reactionable_type='Post' AND reaccion='Dislike' AND restaurant_id=13 GROUP BY posts.id ORDER BY posts.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (43.2ms)[0m  [1m[34mSELECT posts.id, COUNT(responses.id) as resp_count FROM posts LEFT JOIN responses ON respondable_id=posts.id AND respondable_type='Post' AND restaurant_id=13 GROUP BY posts.id ORDER BY posts.id ASC[0m
+  ↳ app/controllers/concerns/queries_concern.rb:9:in `get_all_responses'
+  [1m[36mPost Load (43.2ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."restaurant_id" = $1 ORDER BY "posts"."id" ASC LIMIT $2[0m  [["restaurant_id", 13], ["LIMIT", 1000]]
+  ↳ app/controllers/concerns/queries_concern.rb:23:in `each'
+  [1m[35m (43.1ms)[0m  [1m[34mSELECT posts.id, reactions.id as reaction_id FROM posts LEFT JOIN reactions ON reactions.who='Mr.Dani' AND reactions.reactionable_id=posts.id AND reactions.reactionable_type='Post' AND restaurant_id=13 GROUP BY posts.id, reaction_id[0m
+  ↳ app/controllers/concerns/queries_concern.rb:13:in `get_comments_user_reactions'
+  [1m[35m (48.3ms)[0m  [1m[34mSELECT reviews.id, COUNT(reaccion) as react FROM reviews LEFT JOIN reactions ON reactionable_id=reviews.id AND reactionable_type='Review' AND reaccion='Like' AND reviewable_id=13 AND reviewable_type='Restaurant' GROUP BY reviews.id ORDER BY reviews.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (48.7ms)[0m  [1m[34mSELECT reviews.id, COUNT(reaccion) as react FROM reviews LEFT JOIN reactions ON reactionable_id=reviews.id AND reactionable_type='Review' AND reaccion='Dislike' AND reviewable_id=13 AND reviewable_type='Restaurant' GROUP BY reviews.id ORDER BY reviews.id ASC [0m
+  ↳ app/controllers/concerns/queries_concern.rb:5:in `get_all_reactions'
+  [1m[35m (65.6ms)[0m  [1m[34mSELECT reviews.id, COUNT(responses.id) as resp_count FROM reviews LEFT JOIN responses ON respondable_id=reviews.id AND respondable_type='Review' AND reviewable_id=13 AND reviewable_type='Restaurant' GROUP BY reviews.id ORDER BY reviews.id ASC[0m
+  ↳ app/controllers/concerns/queries_concern.rb:9:in `get_all_responses'
+  [1m[36mReview Load (45.4ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2 ORDER BY "reviews"."id" ASC LIMIT $3[0m  [["reviewable_id", 13], ["reviewable_type", "Restaurant"], ["LIMIT", 1000]]
+  ↳ app/controllers/concerns/queries_concern.rb:23:in `each'
+  [1m[35m (45.2ms)[0m  [1m[34mSELECT reviews.id, reactions.id as reaction_id FROM reviews LEFT JOIN reactions ON reactions.who='Mr.Dani' AND reactions.reactionable_id=reviews.id AND reactions.reactionable_type='Review' AND reviewable_id=13 AND reviewable_type='Restaurant' GROUP BY reviews.id, reaction_id[0m
+  ↳ app/controllers/concerns/queries_concern.rb:13:in `get_comments_user_reactions'
+  Rendering layout layouts/application.html.erb
+  Rendering restaurants/show.html.erb within layouts/application
+  [1m[35m (44.3ms)[0m  [1m[34mSELECT restaurants.id, restaurants.nombre 
+                                                        FROM restaurants, users, restaurants_users as ru 
+                                                        WHERE users.nombre='Mr.Dani' 
+                                                        AND users.nombre=ru.user_id 
+                                                        AND ru.restaurant_id=restaurants.id [0m
+  ↳ app/helpers/restaurants_helper.rb:17:in `user_is_owner?'
+  Rendered restaurants/_header.html.erb (Duration: 46.9ms | Allocations: 1007)
+  [1m[36mDish Load (43.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."restaurant_id" = $1[0m  [["restaurant_id", 13]]
+  ↳ app/views/restaurants/show.html.erb:10
+  [1m[35m (44.3ms)[0m  [1m[34mSELECT restaurants.id, restaurants.nombre 
+                                                        FROM restaurants, users, restaurants_users as ru 
+                                                        WHERE users.nombre='Mr.Dani' 
+                                                        AND users.nombre=ru.user_id 
+                                                        AND ru.restaurant_id=restaurants.id [0m
+  ↳ app/helpers/restaurants_helper.rb:17:in `user_is_owner?'
+  [1m[36mReview Load (45.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 13], ["reviewable_type", "Restaurant"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 48.0ms | Allocations: 485)
+  Rendered layouts/_add_comment.html.erb (Duration: 4.7ms | Allocations: 551)
+  [1m[35m (46.0ms)[0m  [1m[34mSELECT posts.* FROM posts, users, restaurants_users as ru WHERE ru.user_id=users.nombre AND ru.restaurant_id=13 AND posts.autor=users.nombre AND posts.restaurant_id=13[0m
+  ↳ app/helpers/restaurants_helper.rb:3:in `get_rest_managers_posts'
+  Rendered layouts/_comment.html.erb (Duration: 0.1ms | Allocations: 7)
+  Rendered restaurants/show.html.erb within layouts/application (Duration: 576.5ms | Allocations: 62719)
+  Rendered layouts/_header.html.erb (Duration: 5.4ms | Allocations: 1084)
+  [1m[36mUser Load (45.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (45.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 123.4ms | Allocations: 4689)
+  Rendered layout layouts/application.html.erb (Duration: 725.7ms | Allocations: 72247)
+Completed 200 OK in 1307ms (Views: 413.5ms | ActiveRecord: 869.9ms | Allocations: 77201)
+
+
+Started GET "/restaurants/13/dishes/15" for ::1 at 2023-11-19 20:22:44 +0100
+Processing by DishesController#show as HTML
+  Parameters: {"restaurant_id"=>"13", "id"=>"15"}
+  [1m[36mRestaurant Load (42.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/dishes_controller.rb:5:in `show'
+  [1m[36mDish Load (43.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 AND "dishes"."restaurant_id" = $2 LIMIT $3[0m  [["id", 15], ["restaurant_id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/dishes_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/show.html.erb within layouts/application
+  [1m[36mRestaurant Load (44.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/dishes/show.html.erb:3
+  [1m[35m (43.1ms)[0m  [1m[34mSELECT restaurants.id, restaurants.nombre 
+                                                        FROM restaurants, users, restaurants_users as ru 
+                                                        WHERE users.nombre='Mr.Dani' 
+                                                        AND users.nombre=ru.user_id 
+                                                        AND ru.restaurant_id=restaurants.id [0m
+  ↳ app/helpers/restaurants_helper.rb:17:in `user_is_owner?'
+  [1m[36mReview Load (49.9ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 15], ["reviewable_type", "Dish"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 55.5ms | Allocations: 1776)
+  Rendered layouts/_add_comment.html.erb (Duration: 1.0ms | Allocations: 732)
+  Rendered dishes/show.html.erb within layouts/application (Duration: 148.9ms | Allocations: 4470)
+  Rendered layouts/_header.html.erb (Duration: 1.8ms | Allocations: 1080)
+  [1m[36mUser Load (42.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (42.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 92.6ms | Allocations: 4667)
+  Rendered layout layouts/application.html.erb (Duration: 249.7ms | Allocations: 13966)
+Completed 200 OK in 385ms (Views: 28.1ms | ActiveRecord: 309.1ms | Allocations: 16307)
+
+
+Started GET "/reviews/new?review_to=15&review_type=Dish" for ::1 at 2023-11-19 20:22:47 +0100
+Processing by ReviewsController#new as HTML
+  Parameters: {"review_to"=>"15", "review_type"=>"Dish"}
+  Rendering layout layouts/application.html.erb
+  Rendering reviews/new.html.erb within layouts/application
+  Rendered layouts/_new_comment.html.erb (Duration: 3.3ms | Allocations: 2176)
+  Rendered reviews/new.html.erb within layouts/application (Duration: 4.5ms | Allocations: 2412)
+  Rendered layouts/_header.html.erb (Duration: 1.1ms | Allocations: 1080)
+  [1m[36mUser Load (44.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (42.5ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "Mr.Dani"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "Mr.Dani"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 94.4ms | Allocations: 4672)
+  Rendered layout layouts/application.html.erb (Duration: 104.7ms | Allocations: 11915)
+Completed 200 OK in 107ms (Views: 18.5ms | ActiveRecord: 87.1ms | Allocations: 12621)
+
+
+Started POST "/reviews" for ::1 at 2023-11-19 20:23:24 +0100
+Processing by ReviewsController#create as TURBO_STREAM
+  Parameters: {"authenticity_token"=>"[FILTERED]", "review"=>{"reviewable_id"=>"15", "reviewable_type"=>"Dish", "autor"=>"Mr.Dani", "contenido"=>"El mejor kebab de Zaragoza. El pakistaní me llamó amigo :)", "ruta_img"=>#<ActionDispatch::Http::UploadedFile:0x00007f3ebd3dd850 @tempfile=#<Tempfile:/tmp/RackMultipart20231119-4356-3f1ulo.jpg>, @content_type="image/jpeg", @original_filename="le-chalet-a-kebab.jpg", @headers="Content-Disposition: form-data; name=\"review[ruta_img]\"; filename=\"le-chalet-a-kebab.jpg\"\r\nContent-Type: image/jpeg\r\n">}, "button"=>""}
+  [1m[36mDish Load (45.1ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:32:in `get_original_reviewed'
+  [1m[36mTRANSACTION (46.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/reviews_controller.rb:24:in `create'
+  [1m[36mDish Load (83.9ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/reviews_controller.rb:24:in `create'
+  [1m[36mReview Create (43.4ms)[0m  [1m[32mINSERT INTO "reviews" ("autor", "reviewable_type", "reviewable_id", "contenido", "ruta_img", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["autor", "Mr.Dani"], ["reviewable_type", "Dish"], ["reviewable_id", 15], ["contenido", "El mejor kebab de Zaragoza. El pakistaní me llamó amigo :)"], ["ruta_img", "64e1ac97a1750f3dc6bd.jpg"], ["created_at", "2023-11-19 19:23:24.446897"], ["updated_at", "2023-11-19 19:23:24.446920"]]
+  ↳ app/controllers/reviews_controller.rb:24:in `create'
+  [1m[36mTRANSACTION (44.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/reviews_controller.rb:24:in `create'
+Redirected to http://localhost:3000/restaurants/13/dishes/15
+Completed 302 Found in 321ms (ActiveRecord: 263.7ms | Allocations: 4889)
+
+
+Started GET "/restaurants/13/dishes/15" for ::1 at 2023-11-19 20:23:24 +0100
+Processing by DishesController#show as TURBO_STREAM
+  Parameters: {"restaurant_id"=>"13", "id"=>"15"}
+  [1m[36mRestaurant Load (42.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/dishes_controller.rb:5:in `show'
+  [1m[36mDish Load (44.7ms)[0m  [1m[34mSELECT "dishes".* FROM "dishes" WHERE "dishes"."id" = $1 AND "dishes"."restaurant_id" = $2 LIMIT $3[0m  [["id", 15], ["restaurant_id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/dishes_controller.rb:6:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering dishes/show.html.erb within layouts/application
+  [1m[36mRestaurant Load (42.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" WHERE "restaurants"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/views/dishes/show.html.erb:3
+  [1m[35m (46.7ms)[0m  [1m[34mSELECT restaurants.id, restaurants.nombre 
+                                                        FROM restaurants, users, restaurants_users as ru 
+                                                        WHERE users.nombre='Mr.Dani' 
+                                                        AND users.nombre=ru.user_id 
+                                                        AND ru.restaurant_id=restaurants.id [0m
+  ↳ app/helpers/restaurants_helper.rb:17:in `user_is_owner?'
+  [1m[36mReview Load (54.6ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."reviewable_id" = $1 AND "reviews"."reviewable_type" = $2[0m  [["reviewable_id", 15], ["reviewable_type", "Dish"]]
+  ↳ app/views/layouts/_comment.html.erb:2
+  Rendered layouts/_comment.html.erb (Duration: 431.4ms | Allocations: 61988)
+  Rendered dishes/show.html.erb within layouts/application (Duration: 527.7ms | Allocations: 62971)
+  Rendered layout layouts/application.html.erb (Duration: 530.2ms | Allocations: 63063)
+Completed 500 Internal Server Error in 626ms (ActiveRecord: 231.4ms | Allocations: 64364)
+
+
+DEPRECATION WARNING: Setting action_dispatch.show_exceptions to true is deprecated. Set to :all instead. (called from rescue in call at /home/dani/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:43)
+  
+ActionView::Template::Error (undefined local variable or method `locals' for #<ActionView::Base:0x000000001e30e8>):
+    17:       <% end %>
+    18:       <div class="comment_actions_row">
+    19:         <div class="comment_action_item">
+    20:           <%= render "layouts/reaction", locals: {comment: comment, button: "Like", rcts_no: locals[:reactions][comment.id][:likes], user_reaction_id: locals[:user_reactions][comment.id][:reaction_id]} %>
+    21:         </div>
+    22:         <div class="comment_action_item">
+    23:           <%= render "layouts/reaction", locals: {comment: comment, button: "Dislike", rcts_no: locals[:reactions][comment.id][:dislikes], user_reaction_id: locals[:user_reactions][comment.id][:reaction_id]} %>
+  
+app/views/layouts/_comment.html.erb:20
+app/views/layouts/_comment.html.erb:2
+app/views/dishes/show.html.erb:28
