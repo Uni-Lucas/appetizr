@@ -24,7 +24,7 @@
         <% if @dish.ruta_img_plato.present? %>
           <%= image_tag @dish.ruta_img_plato, class: "categories_new_img", id: "restaurant_image" %>
         <% else %>
-          <%= image_tag "Default-dish-img", class: "categories_new_img", id: "restaurant_image" %>
+          <%= image_tag "default-dish-img", class: "categories_new_img", id: "restaurant_image" %>
         <% end %>
         <label class="new_post_image_upload_button">
           <%= form.file_field :ruta_img_plato, id: "upload_image_input", style: "display:none;" %>

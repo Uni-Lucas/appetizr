@@ -17,10 +17,9 @@ class DishesController < ApplicationController
   end
 
   def create
-    @dish = Dish.new(dish_params.merge(restaurant_id: session[:dish_restaurant]))
-    @restaurant = Restaurant.find(session[:dish_restaurant])
+    nombre_imagen = subir_imagen(params.require(:dish)[:ruta_img_plato])
+    @dish = Dish.new(dish_params.merge(ruta_img_plato: nombre_imagen, restaurant_id: session[:dish_restaurant]))
     if @dish.save
-      flash[:dishes] = "El plato ha sido creado" 
       redirect_to restaurant_path(session[:dish_restaurant])
     else
       flash[:fails] = "El plato no ha sido creado" 

@@ -11,7 +11,7 @@
         <%= link_to get_dish_path(dish), style: "text-decoration: none !important" do %>
           <div class="restaurant_dish_container">
             <% if dish.ruta_img_plato.present? %>
-              <%= image_tag "ruta_img_plato", class: "restaurant_dish_img" %>
+              <%= image_tag dish.ruta_img_plato, class: "restaurant_dish_img" %>
             <% else %>
               <%= image_tag "default-dish-img", class: "restaurant_dish_img" %>
             <% end %>
