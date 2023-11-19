@@ -818,9 +818,7 @@ html,body{
   justify-content: center;
   background: var(--strong-gold);
   border-radius: 30px;
-}
-
-.restaurants_new_dish_button_text {
+  text-decoration: none;
   color: var(--light-black);
   font-family: var(--letra);
   font-size: 24px;
@@ -946,7 +944,6 @@ html,body{
   height: 700px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
 }
 
 
@@ -987,7 +984,6 @@ html,body{
   display: flex;
   align-items: center;
   padding: 20px 20px;
-  width: 100%;
 }
 
 .restaurant_dish_container > div:last-child {
@@ -1181,7 +1177,7 @@ html,body{
   display: flex;
   height: 300px;
   flex-direction: column;
-  gap: 30px;
+  gap: 10px;
   align-items: center;
   justify-content: center;
   background-color: var(--white);
