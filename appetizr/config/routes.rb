@@ -3,19 +3,23 @@ Rails.application.routes.draw do
   root "restaurants#index"
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   resources :categories, param: :nombre
+  
   resources :restaurants do
     resources :dishes, only: [:show, :new, :create, :edit, :update]
   end
+
   get 'search', to: 'restaurants#search', as: 'search_restaurants'
   get '/restaurants/:id/stats', to: 'restaurants#stats'
   get '/link_account', to: 'restaurants#link_to_einaeats'
   get '/restaurants/:id/edit_info', to: 'restaurants#edit_info'
+  
   resources :posts, only: [:new, :create] do
     get '/responses', to: 'post_responses#index' 
   end
   resources :reviews, only: [:new, :create] do
     get '/responses', to: 'review_responses#index' 
   end
+  
   resources :users
   get '/users/:nombre', to: 'users#show'
   post '/users/new', to: 'users#create'
