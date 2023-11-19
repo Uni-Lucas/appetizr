@@ -76,10 +76,6 @@ def get_dishes_reviews(imported_id):
 #                          IMPORTAR/EDITAR
 #---------------------------------------------------------------------------
 
-
-
-
-
 # Un plato es el mismo si tienen el mismo nombre y pertenecen al mismo restaurante, independientemente de su imported_id
 # Por lo tanto, si se inserta un plato con el mismo nombre y perteneciente al mismo restaurante que uno ya existente
 # se actualizará el imported_id del plato existente con el nuevo imported_id vinculandolos
@@ -91,12 +87,12 @@ def get_dishes_reviews(imported_id):
 #  y si no lo está se busca si el restaurante con el imported_id tiene un plato con el mismo nombre
 #   si lo hay se actualiza el imported_id y se actualiza el resto de datos del plato
 #   si no hay se añade a la base de datos con toda la información proporcionada.
-@app.route('/dishes/<imported_id_res>/<imported_id_dish>/<nombre_dish>/<new_nombre_dish>/<new_descripcion>/<new_precio>', methods=['PUT'])
-def edit_dish(imported_id_res, imported_id_dish, nombre_dish, new_nombre_dish, new_descripcion, new_precio):
-    import_dish(imported_id_res, imported_id_dish, nombre_dish, new_nombre_dish, new_descripcion, new_precio)
+@app.route('/dishes/<imported_id_res>/<imported_id_dish>/<new_nombre_dish>/<new_descripcion>/<new_precio>', methods=['PUT'])
+def edit_dish(imported_id_res, imported_id_dish, new_nombre_dish, new_descripcion, new_precio):
+    import_dish(imported_id_res, imported_id_dish, new_nombre_dish, new_descripcion, new_precio)
 
 
-def import_dish(imported_id_res, imported_id_dish, nombre_dish, new_nombre_dish, new_descripcion, new_precio):
+def import_dish(imported_id_res, imported_id_dish, new_nombre_dish, new_descripcion, new_precio):
     connection = get_db_connection()
     cursor = connection.cursor()
 
@@ -118,15 +114,15 @@ def import_dish(imported_id_res, imported_id_dish, nombre_dish, new_nombre_dish,
         # si lo hay se actualiza el imported_id y se actualiza el resto de datos
         cursor.execute(f"SELECT * FROM dishes \
                         WHERE ( \
-                        nombre='{nombre_dish}' \
+                        nombre='{new_nombre_dish}' \
                         AND restaurant_id=(SELECT id FROM restaurants WHERE imported_id='{imported_id_res}') \
                         )")
         dishSameName = cursor.fetchone()
         if dishSameName:
             cursor.execute(f"UPDATE dishes SET \
-                                nombre='{new_nombre_dish}', descripcion='{new_descripcion}', precio='{new_precio}', imported_id='{imported_id_dish}' \
+                                descripcion='{new_descripcion}', precio='{new_precio}', imported_id='{imported_id_dish}' \
                             WHERE ( \
-                            nombre='{nombre_dish}' \
+                            nombre='{new_nombre_dish}' \
                             AND restaurant_id=(SELECT id FROM restaurants WHERE imported_id='{imported_id_res}') \
                             )")
         else:
@@ -165,7 +161,7 @@ def import_restaurant(imported_id, new_nombre, new_telefono, new_categoria, new_
     
     if restaurantImported:
         # El restaurante ya estaba importado, se actualiza
-        cursor.execute(f"UPDATE restaurants SET 
+        cursor.execute(f"UPDATE restaurants SET \
                             nombre='{new_nombre}', telefono='{new_telefono}', categoria='{new_categoria}', horario='{new_horario}', direccion='{new_direccion}' \
                         WHERE ( \
                         nombre='{imported_id}' \
@@ -229,6 +225,12 @@ def import_all_dishes_from_imported_restaurant(imported_id):
 
 
 
+
+
+#---------------------------------------------------------------------------
+#                               UNLINK
+#---------------------------------------------------------------------------
+
 # Cuando EinaEats borre un restaurante se mantendrá en la base de datos
 # pero se eliminará su imported_id. Si se vuelve a crear en EinaEats
 # si tiene el mismo nombre y telefono se vinculará con el mismo restaurante
@@ -281,6 +283,13 @@ def unlink_dish(imported_id):
     connection.close()
 
     return jsonify({'status': 'ok'})
+
+
+
+
+#---------------------------------------------------------------------------
+#                               PROPIETARIO
+#---------------------------------------------------------------------------
 
 
 # Utilizada para vincular un restaurante importado con un usuario

@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     get '/responses', to: 'review_responses#index' 
   end
   
+  get '/users/mis_restaurantes', to: 'users#mis_restaurantes'
   resources :users
   get '/users/:nombre', to: 'users#show'
   post '/users/new', to: 'users#create'

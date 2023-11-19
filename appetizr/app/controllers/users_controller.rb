@@ -72,6 +72,14 @@ class UsersController < ApplicationController
         redirect_to user_path(@user.nombre), notice: "Perfil actualizado"
       end
     end
+
+    def mis_restaurantes
+      @user = User.find_by(nombre: session[:username])
+      @restaurants = @user.restaurants
+      
+      render :mis_restaurantes
+    end
+
     private
     def user_params
         params.require(:user).permit(:nombre, :password, :password_confirmation, :ruta_img_perfil)

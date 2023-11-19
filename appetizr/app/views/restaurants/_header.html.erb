@@ -41,16 +41,14 @@
           <% end %>
         <% end %>
       </div>
-      <% if locals[:statistics] %>
-        <div class="restaurants_stats_button">
-          <%= image_tag "Barchart" %>
-          <span class="restaurant_stats_text">Estadísticas</span>
-        </div> 
-      <% else %>
-        <div class="restaurants_einaeats_button">
-          <%= image_tag "Bolsa-einaeats" %>
-          <span class="restaurant_einaeats_button_text">Pedir en EinaEats</span>
-        </div> 
+    
+      <% if locals[:restaurant].imported_id %>
+        <%= link_to ENV['EINA_EATS_WEB'] , style: "text-decoration: none" do %>
+          <div class="restaurants_einaeats_button">
+            <%= image_tag "Bolsa-einaeats" %>
+            <span class="restaurant_einaeats_button_text">Pedir en EinaEats</span>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
