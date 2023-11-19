@@ -26,6 +26,15 @@
         </div>
       <% end %>
     <% end %>
+
+    <!--  Si el usuario es el propietario del restaurante mostar un botón con el enlace a la pagina de añadir plato -->
+    <% if session[:username].present? and user_is_owner?(@restaurant.id) %>
+      <div class="restaurants_new_dish_button">    
+        <%= link_to "Añadir plato", new_restaurant_dish_path(@restaurant.id), class: "restaurants_new_dish_button_text" %>
+      </div>
+    <% end %>
+
+
   </div>
 
   <div id="restaurant_reviews" class="restaurant_section_title"> Reseñas del restaurante </div>

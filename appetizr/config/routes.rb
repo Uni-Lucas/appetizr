@@ -36,8 +36,8 @@ Rails.application.routes.draw do
 
 
   # Error pages
-  get '/404', to: 'errors#not_found'
-  get '/500', to: 'errors#internal_server_error'
+  get '/404', to: 'errors#not_found', via: :all
+  get '/500', to: 'errors#internal_server_error', via: :all
 
   
   # /admin tiene que renderizar la vista admin/dashboard.html.erb
