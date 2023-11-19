@@ -9,8 +9,6 @@ class DishesController < ApplicationController
       redirect_to request.referer
     end
     @reviews_reactions = get_comment_pack(@dish.reviews.find_each, 'reviews', 'Review', "AND reviewable_type='Dish' AND reviewable_id=#{@dish.id}")
-    puts "HEEERRREEE"
-    puts @reviews_reactions.inspect
     @reviews_user_reactions = get_user_reactions_pack('reviews', 'Review', session[:username], "AND reviewable_id=#{@dish.id} AND reviewable_type='Dish'")
   end
 
