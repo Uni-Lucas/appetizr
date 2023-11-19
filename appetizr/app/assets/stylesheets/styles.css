@@ -808,6 +808,28 @@ html,body{
   letter-spacing: 3px;
 }
 
+
+.restaurants_new_dish_button {
+  width: 200px;
+  height: 80px;
+  flex-direction: row;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--strong-gold);
+  border-radius: 30px;
+}
+
+.restaurants_new_dish_button_text {
+  color: var(--light-black);
+  font-family: var(--letra);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 3px;
+}
+
 .restaurants_header_info_button {
   width: 25%;
   height: 100%;
@@ -834,7 +856,8 @@ html,body{
 }
 
 .restaurants_header_botones {
-  position: relative;
+  position: sticky;
+  top: 0;
   width: 100%;
   height: 100%;
   flex-direction: row;
@@ -921,6 +944,10 @@ html,body{
 .restaurant_section_content {
   background-color: var(--light-black);
   height: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 
