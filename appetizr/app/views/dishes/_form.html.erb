@@ -1,0 +1,55 @@
+<!-- Formulario para crear un nuevo plato: tiene que usar el modelo Dish y el modelo Restaurant -->
+<%= form_for @dish, url: restaurant_dishes_path(@restaurant), html: { multipart: true } do |form| %>
+  <div class="categories_new_form_container">
+      <div class="categories_new_name_container">
+        <div>
+          <label class="my_account_form_label">Nombre del plato</label><br>
+          <%= form.text_field :nombre, class: "my_account_form_text_field", placeholder: "Mi plato" %>
+        </div>
+
+        <div>
+          <label class="my_account_form_label">Descripción</label><br>
+          <%= form.text_field :descripcion, class: "my_account_form_text_field", placeholder: "El mejor plato que vas a probar" %>
+        </div>
+
+        <div>
+          <label class="my_account_form_label">Precio</label><br>
+          <!-- El precio tiene que poder ser un numero decimal por lo que se usa el tipo number_field y para que pueda introducir un numero decimal se usa el atributo step -->
+          <%= form.number_field :precio, class: "my_account_form_text_field", placeholder: "9.99", step: "0.01" %>
+        </div>
+      </div>
+
+      <div class="my_account_profile_img_container">
+        <div class="my_account_profile_img_title">Añade una imagen del plato</div>
+        <% if @dish.ruta_img_plato.present? %>
+          <%= image_tag @dish.ruta_img_plato, class: "categories_new_img", id: "restaurant_image" %>
+        <% else %>
+          <%= image_tag "default-dish-img", class: "categories_new_img", id: "restaurant_image" %>
+        <% end %>
+        <label class="new_post_image_upload_button">
+          <%= form.file_field :ruta_img_plato, id: "upload_image_input", style: "display:none;" %>
+          <%= image_tag "image-icon", class: "new_post_image_upload_icon", onclick: "$('#upload_image_input').click();" %>
+          <div class="new_post_image_upload_text">Modificar</div>
+        </label>
+      </div>
+
+      <div class="categories_new_button_container">
+        <%= form.button type: :submit, class: "new_post_submit" do %>
+          <%= image_tag "send", class: "new_post_submit_icon" %>
+          <div class="new_post_submit_text">Publicar</div>
+        <% end %>
+      </div>
+  </div>
+<% end %>
+
+
+
+<script>
+  document.getElementById('upload_image_input').addEventListener('change', function(event) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('restaurant_image').src = e.target.result;
+    };
+    reader.readAsDataURL(event.target.files[0]);
+  });
+</script>

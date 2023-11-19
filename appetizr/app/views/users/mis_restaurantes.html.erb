@@ -1,0 +1,23 @@
+<div class="title_container categories_title_container">
+  <h1 class="title">Mis <span class="title_key_word">Restaurantes</span></h1>
+  <%= link_to new_restaurant_path, class: "categories_new_button" do %>
+    <div>Añadir</div>
+  <% end %>
+</div>
+<ul class="categories_list">
+  <% @restaurants.each do |restaurant| %>
+    <li>
+      <%= link_to restaurant_path(restaurant) do %>
+        <div class="category_box">
+          <% if restaurant.ruta_img_fondo.present? %>
+            <%= image_tag restaurant.ruta_img_fondo, class: "category_image" %>
+          <% else %>
+            <%= image_tag "Default-restaurant-img", class: "category_image" %>
+          <% end %>
+          <div class="category_name"><%= restaurant.nombre %></div>
+        </div>
+      <% end %>
+    </li>
+  <% end %>
+</ul>
+

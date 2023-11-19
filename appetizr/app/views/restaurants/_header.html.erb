@@ -12,8 +12,11 @@
         <%= locals[:restaurant].nombre %> - <span class="title_key_word"><%= locals[:restaurant].categoria %></span>
       </div>
       <div class="restaurant_rating_container">
-        <% locals[:ratings].floor.times do %>
-          <%= image_tag "Star", style: "width: 40px; height: 40px" %>
+        
+        <% if locals[:ratings] %>
+          <% locals[:ratings].floor.times do %>
+            <%= image_tag "Star", style: "width: 40px; height: 40px" %>
+          <% end %>
         <% end %>
         <div class="restaurant_rating_text"> - <span><%= locals[:ratings] %></span></div>
       </div>
@@ -22,28 +25,35 @@
     <div class="restaurants_header_buttons_container">
       <div>
         <% if session[:username].present? and user_is_owner?(locals[:restaurant].id) %>
-          <%= link_to edit_restaurant_path(locals[:restaurant].id), style: "text-decoration: none" do %>
+          <!-- Si el restaurante tiene su imported_id distinto de nil, significa que es un restaurante importado y no se puede editar -->
+          <% if locals[:restaurant].imported_id.nil? %>
+            <%= link_to edit_restaurant_path(locals[:restaurant].id), style: "text-decoration: none" do %>
             <div class="restaurants_header_edit_button">
               <span class="restaurants_header_edit_button_text">Editar</span>
             </div> 
+            <% end %>
+          <% else %>
+             <%= link_to ENV['EINA_EATS_WEB'] , style: "text-decoration: none" do %>
+              <div class="restaurants_header_edit_button">
+                <span class="restaurants_header_edit_button_text">Editar en EinaEats</span>
+              </div> 
+            <% end %>
           <% end %>
         <% end %>
       </div>
-      <% if locals[:statistics] %>
-        <div class="restaurants_stats_button">
-          <%= image_tag "Barchart" %>
-          <span class="restaurant_stats_text">Estadísticas</span>
-        </div> 
-      <% else %>
-        <div class="restaurants_einaeats_button">
-          <%= image_tag "Bolsa-einaeats" %>
-          <span class="restaurant_einaeats_button_text">Pedir en EinaEats</span>
-        </div> 
+    
+      <% if locals[:restaurant].imported_id %>
+        <%= link_to ENV['EINA_EATS_WEB'] , style: "text-decoration: none" do %>
+          <div class="restaurants_einaeats_button">
+            <%= image_tag "Bolsa-einaeats" %>
+            <span class="restaurant_einaeats_button_text">Pedir en EinaEats</span>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>
-
-  <div class="restaurants_header_botones">
+</div>
+<div class="restaurants_header_botones">
     <a href="#restaurant_menu" class="restaurants_header_page_button">
       <div>Menú</div>
     </a>
@@ -57,4 +67,3 @@
       <div>Información</div>
     </a>
   </div>
-</div>

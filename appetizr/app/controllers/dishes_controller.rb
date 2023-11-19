@@ -2,6 +2,7 @@ class DishesController < ApplicationController
   include QueriesConcern
   def show
     session[:review_referer] = nil
+    @restaurant = Restaurant.find(params[:restaurant_id])
     alleged_dish = Dish.find_by(id: params[:id], restaurant_id: params[:restaurant_id])
     if alleged_dish
       @dish = alleged_dish
@@ -14,19 +15,18 @@ class DishesController < ApplicationController
 
   def new
     @dish = Dish.new
-    session[:dish_restaurant] = params[:restaurant]
+    session[:dish_restaurant] = params[:restaurant_id]
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def create
-    @dish = Dish.new(dish_params)
-    @dish.restaurant_id = session[:dish_restaurant] 
+    nombre_imagen = subir_imagen(params.require(:dish)[:ruta_img_plato])
+    @dish = Dish.new(dish_params.merge(ruta_img_plato: nombre_imagen, restaurant_id: session[:dish_restaurant]))
     if @dish.save
-      session[:dish_restaurant] = nil
-      flash[:dishes] = "Nuevo plato creado" 
-      redirect_to edit_restaurant_path(@dish.restaurant_id)
+      redirect_to restaurant_path(session[:dish_restaurant])
     else
-      flash[:fails] = "Plato no se ha podido crear"
-      render :new 
+      flash[:fails] = "El plato no ha sido creado" 
+      render :new, status: :unprocessable_entity
     end
   end
 
