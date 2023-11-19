@@ -1,6 +1,23 @@
 <div class="posts_container">
   <div class="title_container">
     <div class="title">Restaurante <span class="title_key_word"><%= @dish.restaurant.nombre %></span></div>
+    <!-- Mostrar el botón de editar solo si el usuario es el propietario del restaurante -->
+    <% if session[:username].present? and user_is_owner?(locals[:restaurant].id) %>
+      <!-- Si el restaurante tiene su imported_id distinto de nil, significa que es un restaurante importado y no se puede editar -->
+      <% if locals[:restaurant].imported_id.nil? %>
+          <%= link_to edit_restaurant_dish_path(locals[:restaurant].id), style: "text-decoration: none" do %>
+          <div class="restaurants_header_edit_button">
+            <span class="restaurants_header_edit_button_text">Editar</span>
+          </div> 
+        <% end %>
+      <% else %>
+          <%= link_to ENV['EINA_EATS_WEB'] , style: "text-decoration: none" do %>
+            <div class="restaurants_header_edit_button">
+              <span class="restaurants_header_edit_button_text">Editar en EinaEats</span>
+            </div> 
+          <% end %>
+      <% end %>
+    <% end %>
     <div class="subtitle">Comentarios sobre el plato: <span class="title_key_word"><%= @dish.nombre %></span></div>
   </div>
 
@@ -9,3 +26,5 @@
   </div>
   <%= render "layouts/add_comment", path_param: new_review_path(review_to: @dish.id, review_type: "Dish") %>
 </div>
+
+

@@ -49,8 +49,7 @@ class RestaurantsController < ApplicationController
     end
 
     def link_to_einaeats
-      sleep 5
-      redirect_to root_path, notice: "Restaurante enlazado"
+  
     end
 
     def edit

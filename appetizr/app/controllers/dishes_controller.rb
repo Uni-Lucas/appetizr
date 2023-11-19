@@ -12,19 +12,19 @@ class DishesController < ApplicationController
 
   def new
     @dish = Dish.new
-    session[:dish_restaurant] = params[:restaurant]
+    session[:dish_restaurant] = params[:restaurant_id]
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def create
-    @dish = Dish.new(dish_params)
-    @dish.restaurant_id = session[:dish_restaurant] 
+    @dish = Dish.new(dish_params.merge(restaurant_id: session[:dish_restaurant]))
+    @restaurant = Restaurant.find(session[:dish_restaurant])
     if @dish.save
-      session[:dish_restaurant] = nil
-      flash[:dishes] = "Nuevo plato creado" 
-      redirect_to edit_restaurant_path(@dish.restaurant_id)
+      flash[:dishes] = "El plato ha sido creado" 
+      redirect_to restaurant_path(session[:dish_restaurant])
     else
-      flash[:fails] = "Plato no se ha podido crear"
-      render :new 
+      flash[:fails] = "El plato no ha sido creado" 
+      render :new, status: :unprocessable_entity
     end
   end
 

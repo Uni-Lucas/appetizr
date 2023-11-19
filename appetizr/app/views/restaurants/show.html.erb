@@ -6,35 +6,37 @@
   <% end %>
   <div id="restaurant_menu" class="restaurant_section_title">Menú</div>
   <div class="restaurant_section_content">
-    <% @restaurant.dishes.each do |dish| %>
-      <%= link_to get_dish_path(dish), style: "text-decoration: none !important" do %>
-        <div class="restaurant_dish_container">
-          <% if dish.ruta_img_plato.present? %>
-            <%= image_tag "ruta_img_plato", class: "restaurant_dish_img" %>
-          <% else %>
-            <%= image_tag "default-dish-img", class: "restaurant_dish_img" %>
-          <% end %>
-        
-          <div class="restaurant_dish_content">
-            <div class="restaurant_dish_name"><%= dish.nombre%></div>
-            <div class="restaurant_dish_desc"><%= dish.descripcion %></div>
-          </div>
+    <div>
+      <% @restaurant.dishes.each do |dish| %>
+        <%= link_to get_dish_path(dish), style: "text-decoration: none !important" do %>
+          <div class="restaurant_dish_container">
+            <% if dish.ruta_img_plato.present? %>
+              <%= image_tag "ruta_img_plato", class: "restaurant_dish_img" %>
+            <% else %>
+              <%= image_tag "default-dish-img", class: "restaurant_dish_img" %>
+            <% end %>
+          
+            <div class="restaurant_dish_content">
+              <div class="restaurant_dish_name"><%= dish.nombre%></div>
+              <div class="restaurant_dish_desc"><%= dish.descripcion %></div>
+            </div>
 
-          
-          
-          <div class="restaurant_dish_price"><%= dish.precio %> €</div>
+            
+            
+            <div class="restaurant_dish_price"><%= dish.precio %> €</div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div style="display: flex; flex-direction: column; justify-content: center;">
+      <!--  Si el usuario es el propietario del restaurante mostar un botón con el enlace a la pagina de añadir plato -->
+      <% if session[:username].present? and user_is_owner?(@restaurant.id) %>
+        <div class="restaurants_new_dish_button">    
+          <%= link_to "Añadir plato", new_restaurant_dish_path(@restaurant.id), class: "restaurants_new_dish_button_text" %>
         </div>
       <% end %>
-    <% end %>
-
-    <!--  Si el usuario es el propietario del restaurante mostar un botón con el enlace a la pagina de añadir plato -->
-    <% if session[:username].present? and user_is_owner?(@restaurant.id) %>
-      <div class="restaurants_new_dish_button">    
-        <%= link_to "Añadir plato", new_restaurant_dish_path(@restaurant.id), class: "restaurants_new_dish_button_text" %>
-      </div>
-    <% end %>
-
-
+    </div>
   </div>
 
   <div id="restaurant_reviews" class="restaurant_section_title"> Reseñas del restaurante </div>

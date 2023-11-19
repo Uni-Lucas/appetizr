@@ -25,10 +25,19 @@
     <div class="restaurants_header_buttons_container">
       <div>
         <% if session[:username].present? and user_is_owner?(locals[:restaurant].id) %>
-          <%= link_to edit_restaurant_path(locals[:restaurant].id), style: "text-decoration: none" do %>
-            <div class="restaurants_header_edit_button">
-              <span class="restaurants_header_edit_button_text">Editar</span>
-            </div> 
+          <!-- Si el restaurante tiene su imported_id distinto de nil, significa que es un restaurante importado y no se puede editar -->
+          <% if locals[:restaurant].imported_id.nil? %>
+             <%= link_to edit_restaurant_path(locals[:restaurant].id), style: "text-decoration: none" do %>
+              <div class="restaurants_header_edit_button">
+                <span class="restaurants_header_edit_button_text">Editar</span>
+              </div> 
+            <% end %>
+          <% else %>
+             <%= link_to ENV['EINA_EATS_WEB'] , style: "text-decoration: none" do %>
+              <div class="restaurants_header_edit_button">
+                <span class="restaurants_header_edit_button_text">Editar en EinaEats</span>
+              </div> 
+            <% end %>
           <% end %>
         <% end %>
       </div>

@@ -3,4 +3,9 @@
 </div>
 <%= render "form", restaurant: @restaurant %>
 
-<button href="https://www.einaeats.com/vincular-restaurante" class="btn">Vincular restaurante existente desde EinaEats</a>
+
+<%= link_to ENV['EINA_EATS_WEB'] , style: "text-decoration: none" do %>
+    <div class="restaurants_header_edit_button" style="width: 700px">
+        <span class="restaurants_header_edit_button_text">Vincular restaurante desde EinaEats</span>
+    </div> 
+<% end %>
