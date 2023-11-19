@@ -2,7 +2,7 @@ from flask import Flask, jsonify
 import psycopg2
 import os
 
-
+EINAEATS_API_GET_DISHES_FROM_RESTAURANT = 'http://einaeats.herokuapp.com/api/dishes/restaurant/1'
 
 
 
@@ -18,6 +18,13 @@ def get_db_connection():
         port=os.environ.get('POSTGRESQL_ADDON_PORT'),
         database=os.environ.get('POSTGRESQL_ADDON_DB')
     )
+
+
+
+
+#---------------------------------------------------------------------------
+#                               REVIEWS
+#---------------------------------------------------------------------------
 
 # Dado el imported_id de un restaurante, devuelve las reviews de ese restaurante
 @app.route('/reviews/restaurants/<imported_id>', methods=['GET'])
@@ -64,64 +71,15 @@ def get_dishes_reviews(imported_id):
 
 
 
-# Un restaurante es el mismo si tienen el mismo nombre y telefono, independientemente de su imported_id
-# Por lo tanto, si se inserta un restaurante con el mismo nombre y telefono que uno ya existente
-# se actualizará el imported_id del restaurante existente con el nuevo imported_id vinculandolos
-# Si EinaEats añade un restaurante con el mismo nombre y telefono que uno ya existente diremos que es el mismo
-# y se actualizará su información
-#
-# Dado el imported_id un restaurante para referenciarlo.
-# Si el restaurante está importado se edita el nombre, telefono, categoria, dirección y horario de ese restaurante al nuevo indicado
-#  y si no lo está se busca si un restaurante tiene el mismo nombre y numero de telefono (entendemos que es el mismo restaurante)
-#   si lo hay se actualiza el imported_id y se actualiza el resto de datos
-#   si no hay se añade a la base de datos con toda la información proporcionada.
-@app.route('/restaurants/<imported_id>/<new_nombre>/<new_telefono>/<new_categoria>/<new_horario>/<new_direccion>', methods=['PUT'])
-def edit_restaurant(imported_id, new_nombre, new_telefono, new_categoria, new_horario, new_direccion):
-    connection = get_db_connection()
-    cursor = connection.cursor()
 
-    cursor.execute(f"SELECT * FROM restaurants \
-                   WHERE ( \
-                   imported_id='{imported_id}' \
-                    )")
-    restaurantImported = cursor.fetchone()
-    
-    if restaurantImported:
-        # El restaurante ya estaba importado, se actualiza
-        cursor.execute(f"UPDATE restaurants SET 
-                            nombre='{new_nombre}', telefono='{new_telefono}', categoria='{new_categoria}', horario='{new_horario}', direccion='{new_direccion}' \
-                        WHERE ( \
-                        nombre='{imported_id}' \
-                        )")
-    else:
-        # El restaurante no estaba importado, buscamos si hay un restaurante con el mismo nombre y telefono
-        # si lo hay se actualiza el imported_id y se actualiza el resto de datos
-        cursor.execute(f"SELECT * FROM restaurants \
-                        WHERE ( \
-                        nombre='{new_nombre}' \
-                        AND telefono='{new_telefono}' \
-                        )")
-        restaurantSameNameAndTfno = cursor.fetchone()
-        if restaurantSameNameAndTfno:
-            cursor.execute(f"UPDATE restaurants SET \
-                                nombre='{new_nombre}', telefono='{new_telefono}', categoria='{new_categoria}', horario='{new_horario}', direccion='{new_direccion}', imported_id='{imported_id}' \
-                            WHERE ( \
-                            nombre='{new_nombre}' \
-                            AND telefono='{new_telefono}' \
-                            )")
-        else:
-            # No hay ningun restaurante con el mismo nombre y telefono, se crea uno nuevo
-            cursor.execute(f"INSERT INTO restaurants (nombre, telefono, categoria, horario, direccion, imported_id) \
-                            VALUES ('{new_nombre}', '{new_telefono}', '{new_categoria}', '{new_horario}', '{new_direccion}', '{imported_id}')")
-
-    connection.commit()
-    cursor.close()
-    connection.close()
-
-    return jsonify({'status': 'ok'})
+#---------------------------------------------------------------------------
+#                          IMPORTAR/EDITAR
+#---------------------------------------------------------------------------
 
 
- 
+
+
+
 # Un plato es el mismo si tienen el mismo nombre y pertenecen al mismo restaurante, independientemente de su imported_id
 # Por lo tanto, si se inserta un plato con el mismo nombre y perteneciente al mismo restaurante que uno ya existente
 # se actualizará el imported_id del plato existente con el nuevo imported_id vinculandolos
@@ -135,6 +93,10 @@ def edit_restaurant(imported_id, new_nombre, new_telefono, new_categoria, new_ho
 #   si no hay se añade a la base de datos con toda la información proporcionada.
 @app.route('/dishes/<imported_id_res>/<imported_id_dish>/<nombre_dish>/<new_nombre_dish>/<new_descripcion>/<new_precio>', methods=['PUT'])
 def edit_dish(imported_id_res, imported_id_dish, nombre_dish, new_nombre_dish, new_descripcion, new_precio):
+    import_dish(imported_id_res, imported_id_dish, nombre_dish, new_nombre_dish, new_descripcion, new_precio)
+
+
+def import_dish(imported_id_res, imported_id_dish, nombre_dish, new_nombre_dish, new_descripcion, new_precio):
     connection = get_db_connection()
     cursor = connection.cursor()
 
@@ -177,6 +139,94 @@ def edit_dish(imported_id_res, imported_id_dish, nombre_dish, new_nombre_dish, n
     connection.close()
 
     return jsonify({'status': 'ok'})
+
+
+# Un restaurante es el mismo si tienen el mismo nombre y telefono, independientemente de su imported_id
+# Por lo tanto, si se inserta un restaurante con el mismo nombre y telefono que uno ya existente
+# se actualizará el imported_id del restaurante existente con el nuevo imported_id vinculandolos
+# Si EinaEats añade un restaurante con el mismo nombre y telefono que uno ya existente diremos que es el mismo
+# y se actualizará su información
+#
+# Dado el imported_id un restaurante para referenciarlo.
+# Si el restaurante está importado se edita el nombre, telefono, categoria, dirección y horario de ese restaurante al nuevo indicado
+#  y si no lo está se busca si un restaurante tiene el mismo nombre y numero de telefono (entendemos que es el mismo restaurante)
+#   si lo hay se actualiza el imported_id y se actualiza el resto de datos
+#   si no hay se añade a la base de datos con toda la información proporcionada.
+@app.route('/restaurants/<imported_id>/<new_nombre>/<new_telefono>/<new_categoria>/<new_horario>/<new_direccion>', methods=['PUT'])
+def import_restaurant(imported_id, new_nombre, new_telefono, new_categoria, new_horario, new_direccion):
+    connection = get_db_connection()
+    cursor = connection.cursor()
+
+    cursor.execute(f"SELECT * FROM restaurants \
+                   WHERE ( \
+                   imported_id='{imported_id}' \
+                    )")
+    restaurantImported = cursor.fetchone()
+    
+    if restaurantImported:
+        # El restaurante ya estaba importado, se actualiza
+        cursor.execute(f"UPDATE restaurants SET 
+                            nombre='{new_nombre}', telefono='{new_telefono}', categoria='{new_categoria}', horario='{new_horario}', direccion='{new_direccion}' \
+                        WHERE ( \
+                        nombre='{imported_id}' \
+                        )")
+    else:
+        # El restaurante no estaba importado, buscamos si hay un restaurante con el mismo nombre y telefono
+        # si lo hay se actualiza el imported_id y se actualiza el resto de datos
+        cursor.execute(f"SELECT * FROM restaurants \
+                        WHERE ( \
+                        nombre='{new_nombre}' \
+                        AND telefono='{new_telefono}' \
+                        )")
+        restaurantSameNameAndTfno = cursor.fetchone()
+        if restaurantSameNameAndTfno:
+            cursor.execute(f"UPDATE restaurants SET \
+                                nombre='{new_nombre}', telefono='{new_telefono}', categoria='{new_categoria}', horario='{new_horario}', direccion='{new_direccion}', imported_id='{imported_id}' \
+                            WHERE ( \
+                            nombre='{new_nombre}' \
+                            AND telefono='{new_telefono}' \
+                            )")
+        else:
+            # No hay ningun restaurante con el mismo nombre y telefono, se crea uno nuevo
+            cursor.execute(f"INSERT INTO restaurants (nombre, telefono, categoria, horario, direccion, imported_id) \
+                            VALUES ('{new_nombre}', '{new_telefono}', '{new_categoria}', '{new_horario}', '{new_direccion}', '{imported_id}')")
+
+        import_all_dishes_from_imported_restaurant(imported_id)
+
+
+    connection.commit()
+    cursor.close()
+    connection.close()
+
+    return jsonify({'status': 'ok'})
+
+# Esta función será llamada cuando se importe un restaurante desde EinaEats
+# y este no esté en la base de datos de Appetizr, se harán llamadas a la función de importar platos
+#
+# Dado el imported_id de un restaurante, importa todos los platos de ese restaurante
+# realizando una llamada a la API de EinaEats que devuelve los platos de un restaurante
+# y los añade a la base de datos
+def import_all_dishes_from_imported_restaurant(imported_id):
+    connection = get_db_connection()
+    cursor = connection.cursor()
+
+    cursor.execute(f"SELECT id FROM restaurants \
+                    WHERE ( \
+                    imported_id='{imported_id}' \
+                    )")
+    restaurant = cursor.fetchone()
+    if restaurant:
+        dishes = requests.get(f"'{EINAEATS_API_GET_DISHES_FROM_RESTAURANT}'").json()['dishes']
+        for dish in dishes:
+            import_dish(imported_id, dish['id'], dish['nombre'], dish['nombre'], dish['descripcion'], dish['precio'])
+
+    connection.commit()
+    cursor.close()
+    connection.close()
+
+    return jsonify({'status': 'ok'})
+    
+
 
 
 # Cuando EinaEats borre un restaurante se mantendrá en la base de datos
