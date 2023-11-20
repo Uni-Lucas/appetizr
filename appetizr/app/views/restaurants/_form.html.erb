@@ -2,16 +2,17 @@
   <div class="categories_new_form_container">
       <div class="categories_new_name_container">
         
-        
-        <div>
-          <label class="my_account_form_label">Nombre del restaurante</label><br>
-          <%= form.text_field :nombre, class: "my_account_form_text_field", placeholder: "Mi restaurante" %>
-        </div>
+        <% if !@restaurant.imported_id %>        
+          <div>
+            <label class="my_account_form_label">Nombre del restaurante</label><br>
+            <%= form.text_field :nombre, class: "my_account_form_text_field", placeholder: "Mi restaurante" %>
+          </div>
 
-        <div>
-          <label class="my_account_form_label">Teléfono de contacto</label><br>
-          <%= form.text_field :telefono, class: "my_account_form_text_field", placeholder: "123 45 67 89" %>
-        </div>
+          <div>
+            <label class="my_account_form_label">Teléfono de contacto</label><br>
+            <%= form.text_field :telefono, class: "my_account_form_text_field", placeholder: "123 45 67 89" %>
+          </div>
+        <% end %>
 
         <div>
           <label class="my_account_form_label">Dirección</label><br>

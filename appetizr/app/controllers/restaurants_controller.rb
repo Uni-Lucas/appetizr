@@ -19,7 +19,11 @@ class RestaurantsController < ApplicationController
     end
 
     def show
-        @restaurant = Restaurant.find(params[:id])
+        @restaurant = Restaurant.find_by(id: params[:id])
+        if !@restaurant
+          redirect_to "/not_found" 
+          return
+        end
         rats = Rank.select(:what, "AVG(valoracion) as rest_val").where(what: @restaurant.id).group(:what)
         # Si no hay valoraciones, se pone a 0
         if rats.empty?
@@ -46,10 +50,6 @@ class RestaurantsController < ApplicationController
             render :new, status: :unprocessable_entity
           end
         @restaurant.users << User.find_by(nombre: session[:username])
-    end
-
-    def link_to_einaeats
-  
     end
 
     def edit

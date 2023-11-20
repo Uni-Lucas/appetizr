@@ -2,10 +2,12 @@
 <%= form_for @dish, url: restaurant_dishes_path(@restaurant), html: { multipart: true } do |form| %>
   <div class="categories_new_form_container">
       <div class="categories_new_name_container">
-        <div>
-          <label class="my_account_form_label">Nombre del plato</label><br>
-          <%= form.text_field :nombre, class: "my_account_form_text_field", placeholder: "Mi plato" %>
-        </div>
+        <% if !@dish.imported_id %>
+          <div>
+            <label class="my_account_form_label">Nombre del plato</label><br>
+            <%= form.text_field :nombre, class: "my_account_form_text_field", placeholder: "Mi plato" %>
+          </div>
+        <% end %>
 
         <div>
           <label class="my_account_form_label">Descripción</label><br>

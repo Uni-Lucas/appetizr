@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-   
+
     def subir_imagen(imagen)
         begin
           nombre_imagen = SecureRandom.hex(10) + File.extname(imagen.original_filename)
