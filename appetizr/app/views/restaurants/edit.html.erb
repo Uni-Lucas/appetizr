@@ -2,3 +2,8 @@
     <h1 class="title">Editar <span class="title_key_word">Restaurante</span></h1>
 </div>
 <%= render "form", restaurant: @restaurant %>
+<%= link_to restaurant_path(@restaurant.id), style: "text-decoration: none", data: {turbo_method: :delete} do %>
+    <div class="restaurants_header_edit_button" style="width: 700px">
+        <span class="restaurants_header_edit_button_text">Eliminar Restaurante</span>
+    </div> 
+<% end %>
