@@ -20,9 +20,17 @@
         </div>
 
         <div style="display: flex; gap: 20px; align-items: center;">
-          <% if session[:username].present? and user_is_owner?(@restaurant.id) %>
-            <%= link_to edit_restaurant_dish_path(@restaurant.id, dish.id), class: "restaurants_new_dish_button", onclick: "event.stopPropagation();" do %>
-              <div class="restaurants_new_dish_button_text">Editar plato</div>
+          <% if dish.imported_id %>
+            <%= link_to "#{ENV['EINA_EATS_WEB']}/platosrestaurante/#{@restaurant.imported_id}", style: "text-decoration: none" do %>
+              <div class="restaurants_new_dish_button">
+                <span class="restaurants_new_dish_button_text">Editar en EinaEats</span>
+              </div> 
+            <% end %>
+          <% else %>
+            <%= link_to edit_restaurant_dish_path(@restaurant.id, dish.id), style: "text-decoration: none", onclick: "event.stopPropagation();" do %>
+              <div class="restaurants_new_dish_button">
+                <span class="restaurants_new_dish_button_text">Editar</span>
+              </div> 
             <% end %>
           <% end %>
           <div class="restaurant_dish_price"><%= dish.precio %> €</div>

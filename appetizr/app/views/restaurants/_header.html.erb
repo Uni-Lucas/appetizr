@@ -26,19 +26,23 @@
       <div>
         <% if session[:username].present? and user_is_owner?(locals[:restaurant].id) %>
           <!-- Si el restaurante tiene su imported_id distinto de nil, significa que es un restaurante importado y no se puede editar -->
-          <% if locals[:restaurant].imported_id.nil? %>
-            <%= link_to edit_restaurant_path(locals[:restaurant].id), style: "text-decoration: none" do %>
-            <div class="restaurants_header_edit_button">
-              <span class="restaurants_header_edit_button_text">Editar</span>
-            </div> 
+          <div style=" display: flex; flex-direction: row; gap: 20px;">
+            <% if locals[:restaurant].imported_id.nil? %>
+              <%= link_to edit_restaurant_path(locals[:restaurant].id), style: "text-decoration: none;" do %>
+                <div class="restaurants_header_edit_button">
+                  <span class="restaurants_header_edit_button_text">Editar</span>
+                </div>
+              <% end %>
+              <!-- same thing, poner la dirección que toca -->
+              <%= link_to "Eliminar", categories_path, class: "restaurants_header_edit_button", style: "background-color: var(--delete-color); text-decoration: none;", data: {turbo_method: :delete} %>
+            <% else %>
+              <%= link_to ENV['EINA_EATS_WEB'] , style: "text-decoration: none" do %>
+                <div class="restaurants_header_edit_button">
+                  <span class="restaurants_header_edit_button_text">Editar en EinaEats</span>
+                </div> 
+              <% end %>
             <% end %>
-          <% else %>
-             <%= link_to ENV['EINA_EATS_WEB'] , style: "text-decoration: none" do %>
-              <div class="restaurants_header_edit_button">
-                <span class="restaurants_header_edit_button_text">Editar en EinaEats</span>
-              </div> 
-            <% end %>
-          <% end %>
+          </div>
         <% end %>
       </div>
     

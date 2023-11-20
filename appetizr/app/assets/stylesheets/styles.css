@@ -8,7 +8,8 @@
     --strong-gold: #B79B70;
     --white: #EAEAEA;
     --black: #0E0E15;
-    --light-black: #171722
+    --light-black: #171722;
+    --delete-color: #333333;
 }
 
 html,body{
@@ -360,7 +361,11 @@ a {
   overflow: auto;
 }
 
-
+.edit_delete_category_buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
 
 
 
@@ -436,6 +441,26 @@ a {
   width: 24px;
   height: 24px;
 }
+
+
+
+.delete_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--delete-color);
+  border-radius: 30px;
+  text-decoration: none;
+  color: var(--strong-gold);
+  font-family: var(--letra);
+  letter-spacing: 2.4px;
+  font-size: 18px;
+  padding: 5px 10px;
+}
+
+.delete_button:hover {
+  filter: brightness(120%);
+} 
 
 .comment_continent {
   align-self: stretch;
@@ -598,6 +623,11 @@ a {
   gap: 12px; 
   border-radius: 5px;
   background: var(--strong-gold);
+  border: none;
+}
+
+.new_post_submit:hover {
+  filter: brightness(120%);
 }
 
 .new_post_submit_icon {
@@ -828,7 +858,15 @@ a {
   justify-content: center;
   background: var(--light-black);
   border-radius: 30px;
+  color: var(--strong-gold);
+  font-family: var(--letra);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 3px;
 }
+
 
 .restaurants_header_edit_button:hover {
   filter: brightness(120%);
@@ -1039,9 +1077,6 @@ a {
   padding: 20px 20px;
 }
 
-.restaurant_dish_container:hover {
-  filter: brightness(120%);
-}
 
 .restaurant_dish_container > div:last-child {
   margin-left: auto;
