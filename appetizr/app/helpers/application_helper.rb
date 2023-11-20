@@ -69,7 +69,7 @@ module ApplicationHelper
 
     def soy_admin?
       user = User.find_by(nombre: session[:username])
-      return user.esAdmin
+      return user && user.esAdmin
     end
 
     def get_delete_comment_path(comment)
