@@ -7,6 +7,7 @@ class AdminController < ApplicationController
         @num_responses_last_month = Response.where("created_at > ?", 1.month.ago).count
         @num_comments_last_month = @num_posts_last_month + @num_reviews_last_month + @num_responses_last_month
         @num_users = User.count
+        @users = User.all
     end
     
     def actualizar_datos

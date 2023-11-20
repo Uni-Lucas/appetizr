@@ -12,7 +12,13 @@
        <%= link_to 'Actualizar Datos', admin_actualizar_datos_path, method: :get, class: "new_post_submit" %>
     </div>
     <div class="admin_user_list">
-        
+        <% @users.each do |user| %>
+            <div class="admin_user_list_item">
+                <%= user.nombre %>
+                <!-- poner la url bien -->
+                <%= link_to "Eliminar", categories_path,  class: "delete_button", data: {turbo_method: :delete} %>
+            </div>
+        <% end %>
     </div>
     <div class="my_account_stats_container">
         <p class="my_account_stats_title">Estadísticas del mes</p>
