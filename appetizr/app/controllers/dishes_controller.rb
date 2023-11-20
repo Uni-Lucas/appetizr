@@ -36,9 +36,15 @@ class DishesController < ApplicationController
 
   def update
     @dish = Dish.find(params[:id])
-    if @dish.update(dish_params)
+    if params.require(:dish)[:ruta_img_plato].present?
+      nombre_imagen = subir_imagen(params.require(:dish)[:ruta_img_plato])
+      update_params = dish_params.merge(ruta_img_plato: nombre_imagen)
+    else
+      update_params = dish_params
+    end
+    if @dish.update(update_params)
       flash[:dishes] = "El plato ha sido modificado" 
-      redirect_to edit_restaurant_path(@dish.restaurant_id)
+      redirect_to restaurant_path(@dish.restaurant_id)
     else
       flash[:fails] = "El plato no ha sido modificado" 
       render :new, status: :unprocessable_entity
