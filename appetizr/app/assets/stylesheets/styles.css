@@ -8,7 +8,8 @@
     --strong-gold: #B79B70;
     --white: #EAEAEA;
     --black: #0E0E15;
-    --light-black: #171722
+    --light-black: #171722;
+    --delete-color: #333333;
 }
 
 html,body{
@@ -19,6 +20,11 @@ html,body{
     margin: 0;
     padding: 0;
 }
+
+a {
+    text-decoration: none;
+}
+
 
 /* -------------------------------------- */
 /* MAIN LAYOUT */
@@ -57,6 +63,10 @@ html,body{
     text-decoration: none;
     margin-left: 15px;
     margin-right: 15px;
+}
+
+.sidenav_element:hover {
+    filter: brightness(130%);
 }
 
 .sidenav_element_icon {
@@ -132,6 +142,10 @@ html,body{
     margin: 8px;
 }
 
+.logo:hover {
+    filter: brightness(120%);
+}
+
 .search_bar {
     display: flex;
     align-items: center;
@@ -142,6 +156,10 @@ html,body{
     border-radius: 15px;
     padding-left: 12px;
     margin-right: 10px;
+}
+
+.search_bar:hover {
+    filter: brightness(90%);
 }
 
 .search_bar_field {
@@ -215,14 +233,31 @@ html,body{
   font-size: 24px;
 }
 
-
-
-.admin_user_list {
-
+.admin_view_button:hover {
+  filter: brightness(120%);
 }
 
 
+.admin_user_list {
+  background-color: var(--light-black);
+  border-radius: 30px;
+  min-width: 300px;
+  max-height: 400px;
+  padding: 10px;
+  color: var(--strong-gold);
+  font-family: var(--letra);
+  letter-spacing: 2.4px;
+  font-size: 18px;
+  overflow: scroll;
+}
 
+.admin_user_list_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
 
 
 
@@ -315,6 +350,10 @@ html,body{
     border-radius: 15px;
 }
 
+.category_box:hover {
+    filter: brightness(120%);
+}
+
 .category_image {
     filter: brightness(50%);
     object-fit: cover;
@@ -336,7 +375,11 @@ html,body{
   overflow: auto;
 }
 
-
+.edit_delete_category_buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
 
 
 
@@ -412,6 +455,26 @@ html,body{
   width: 24px;
   height: 24px;
 }
+
+
+
+.delete_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--delete-color);
+  border-radius: 30px;
+  text-decoration: none;
+  color: var(--strong-gold);
+  font-family: var(--letra);
+  letter-spacing: 2.4px;
+  font-size: 18px;
+  padding: 5px 10px;
+}
+
+.delete_button:hover {
+  filter: brightness(120%);
+} 
 
 .comment_continent {
   align-self: stretch;
@@ -543,6 +606,10 @@ html,body{
   background-color: var(--light-black);
 }
 
+.new_post_image_upload_button:hover {
+  filter: brightness(120%);
+}
+
 .new_post_image_upload_button > input[type="file"] {
   display: none;
 }
@@ -570,6 +637,11 @@ html,body{
   gap: 12px; 
   border-radius: 5px;
   background: var(--strong-gold);
+  border: none;
+}
+
+.new_post_submit:hover {
+  filter: brightness(120%);
 }
 
 .new_post_submit_icon {
@@ -637,13 +709,17 @@ html,body{
   font-size: 24px;
 }
 
+.logout_button:hover {
+  filter: brightness(120%);
+}
+
 .my_account_form_container {
     background-color: var(--white);
     margin-top: 24px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 120px;
-    padding-top: 20px;
+    padding-top: 40px;
     align-items: center;
     justify-items: center;
     margin-left: 40px;
@@ -796,6 +872,18 @@ html,body{
   justify-content: center;
   background: var(--light-black);
   border-radius: 30px;
+  color: var(--strong-gold);
+  font-family: var(--letra);
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 3px;
+}
+
+
+.restaurants_header_edit_button:hover {
+  filter: brightness(120%);
 }
 
 .restaurants_header_edit_button_text {
@@ -828,11 +916,16 @@ html,body{
   letter-spacing: 3px;
 }
 
+.restaurants_new_dish_button:hover {
+  filter: brightness(120%);
+}
+
 .restaurants_header_info_button {
   width: 25%;
   height: 100%;
   position: relative;
 }
+
 
 .restaurant_rating_container {
   display: flex;
@@ -883,6 +976,10 @@ html,body{
   color: var(--white);
 }
 
+.restaurants_header_page_button:hover {
+  filter: brightness(120%);
+}
+
 .restaurants_einaeats_button {
   width: 200px;
   height: 80px;
@@ -892,6 +989,10 @@ html,body{
   padding-left: 20px;
   background: var(--black);
   border-radius: 30px;
+}
+
+.restaurants_einaeats_button:hover {
+  filter: brightness(120%);
 }
 
 .restaurant_einaeats_button_text {
@@ -912,6 +1013,10 @@ html,body{
   color: var(--black);
   background: var(--strong-gold);
   border-radius: 30px; 
+}
+
+.restaurants_stats_button:hover {
+  filter: brightness(120%);
 }
 
 .restaurant_section_title {
@@ -986,6 +1091,7 @@ html,body{
   padding: 20px 20px;
 }
 
+
 .restaurant_dish_container > div:last-child {
   margin-left: auto;
 }
@@ -1040,6 +1146,10 @@ html,body{
   font-family: var(--letra);
   letter-spacing: 2.4px;
   font-size: 24px;
+}
+
+.restaurant_dish_edit_button:hover {
+  filter: brightness(120%);
 }
 
 /* -------------------------------------- */

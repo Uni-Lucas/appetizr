@@ -1,5 +1,5 @@
 <!-- Formulario para crear un nuevo plato: tiene que usar el modelo Dish y el modelo Restaurant -->
-<%= form_for @dish, url: restaurant_dishes_path(@restaurant), html: { multipart: true } do |form| %>
+<%= form_for @dish, url: restaurant_dishes_path(params[:restaurant_id]), html: { multipart: true } do |form| %>
   <div class="categories_new_form_container">
       <div class="categories_new_name_container">
         <% if !@dish.imported_id %>

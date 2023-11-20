@@ -9,11 +9,11 @@
             <div class="comment_tstamp"><%= time_ago_in_words(comment.updated_at) %> ago </div>
           </div>
         </div>
-      <% if (session[:username] == comment.autor || soy_admin?) && get_comment_type(comment) != "Response" %>
-          <%= link_to "Eliminar", get_delete_comment_path(comment),  class: "three_dots", data: {turbo_method: :delete} %>
-      <% else %>
-          <%= image_tag "Feather_more-vertical", class: "three_dots" %>
-      <% end %>
+        <% if (session[:username] == comment.autor || soy_admin?) %>
+            <%= link_to "Eliminar", get_delete_comment_path(comment),  class: "delete_button", data: {turbo_method: :delete} %>
+        <% else %>
+            <%= image_tag "Feather_more-vertical", class: "three_dots" %>
+        <% end %>
       </div>
       <div class="comment_content"><%= comment.contenido %></div>
       <% if comment.ruta_img.present? %>
