@@ -67,4 +67,17 @@ module ApplicationHelper
       return false
     end
 
+    def soy_admin?
+      user = User.find_by(nombre: session[:username])
+      return user.esAdmin
+    end
+
+    def get_delete_comment_path(comment)
+      type = get_comment_type(comment)
+      if type == "Post"
+        return post_path(comment.id)
+      elsif type == "Review"
+        return review_path(comment.id)
+      end
+    end
 end

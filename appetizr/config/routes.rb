@@ -12,10 +12,10 @@ Rails.application.routes.draw do
   get '/restaurants/:id/stats', to: 'restaurants#stats'
   get '/restaurants/:id/edit_info', to: 'restaurants#edit_info'
   
-  resources :posts, only: [:new, :create] do
+  resources :posts, only: [:new, :create, :destroy] do
     get '/responses', to: 'post_responses#index' 
   end
-  resources :reviews, only: [:new, :create] do
+  resources :reviews, only: [:new, :create, :destroy] do
     get '/responses', to: 'review_responses#index' 
   end
   
