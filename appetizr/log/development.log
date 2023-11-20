@@ -10677,3 +10677,694 @@ Processing by AdminController#dashboard as HTML
 Completed 200 OK in 536ms (Views: 26.7ms | ActiveRecord: 498.8ms | Allocations: 12011)
 
 
+Started GET "/admin" for 127.0.0.1 at 2023-11-20 21:06:58 +0100
+  [1m[36mActiveRecord::SchemaMigration Load (69.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by AdminController#dashboard as HTML
+  [1m[36mPost Count (58.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE (created_at > '2023-10-20 20:07:00.728099')[0m
+  ↳ app/controllers/admin_controller.rb:5:in `dashboard'
+  [1m[36mReview Count (67.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE (created_at > '2023-10-20 20:07:00.967071')[0m
+  ↳ app/controllers/admin_controller.rb:6:in `dashboard'
+  [1m[36mResponse Count (76.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE (created_at > '2023-10-20 20:07:01.118368')[0m
+  ↳ app/controllers/admin_controller.rb:7:in `dashboard'
+  [1m[36mUser Count (69.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/admin_controller.rb:9:in `dashboard'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/dashboard.html.erb within layouts/application
+  [1m[36mUser Load (113.0ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/admin/dashboard.html.erb:15
+  Rendered admin/dashboard.html.erb within layouts/application (Duration: 219.1ms | Allocations: 7251)
+  Rendered layouts/_header.html.erb (Duration: 54.0ms | Allocations: 1438)
+  [1m[36mUser Load (121.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (78.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 3340.3ms | Allocations: 16737)
+  Rendered layout layouts/application.html.erb (Duration: 4077.1ms | Allocations: 171727)
+Completed 200 OK in 4900ms (Views: 873.1ms | ActiveRecord: 3908.7ms | Allocations: 195800)
+
+
+Started GET "/admin" for 127.0.0.1 at 2023-11-20 21:07:26 +0100
+Processing by AdminController#dashboard as HTML
+  [1m[36mPost Count (66.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE (created_at > '2023-10-20 20:07:27.111311')[0m
+  ↳ app/controllers/admin_controller.rb:5:in `dashboard'
+  [1m[36mReview Count (57.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE (created_at > '2023-10-20 20:07:32.676101')[0m
+  ↳ app/controllers/admin_controller.rb:6:in `dashboard'
+  [1m[36mResponse Count (1194.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE (created_at > '2023-10-20 20:07:32.812623')[0m
+  ↳ app/controllers/admin_controller.rb:7:in `dashboard'
+  [1m[36mUser Count (64.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/admin_controller.rb:9:in `dashboard'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/dashboard.html.erb within layouts/application
+  [1m[36mUser Load (70.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/admin/dashboard.html.erb:15
+  Rendered admin/dashboard.html.erb within layouts/application (Duration: 145.0ms | Allocations: 3076)
+  Rendered layouts/_header.html.erb (Duration: 4.8ms | Allocations: 1391)
+  [1m[36mUser Load (80.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (48.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 406.7ms | Allocations: 11926)
+  Rendered layout layouts/application.html.erb (Duration: 594.9ms | Allocations: 35754)
+Completed 200 OK in 7758ms (Views: 94.7ms | ActiveRecord: 2896.9ms | Allocations: 49556)
+
+
+Started GET "/admin" for 127.0.0.1 at 2023-11-20 21:08:00 +0100
+Processing by AdminController#dashboard as HTML
+  [1m[36mPost Count (59.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE (created_at > '2023-10-20 20:08:01.073001')[0m
+  ↳ app/controllers/admin_controller.rb:5:in `dashboard'
+  [1m[36mReview Count (59.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE (created_at > '2023-10-20 20:08:01.313724')[0m
+  ↳ app/controllers/admin_controller.rb:6:in `dashboard'
+  [1m[36mResponse Count (56.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE (created_at > '2023-10-20 20:08:01.460252')[0m
+  ↳ app/controllers/admin_controller.rb:7:in `dashboard'
+  [1m[36mUser Count (58.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/admin_controller.rb:9:in `dashboard'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/dashboard.html.erb within layouts/application
+  [1m[36mUser Load (72.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/admin/dashboard.html.erb:15
+  Rendered admin/dashboard.html.erb within layouts/application (Duration: 152.9ms | Allocations: 2730)
+  Rendered layouts/_header.html.erb (Duration: 5.4ms | Allocations: 1391)
+  [1m[36mUser Load (62.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (66.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 357.5ms | Allocations: 11924)
+  Rendered layout layouts/application.html.erb (Duration: 550.3ms | Allocations: 35443)
+Completed 200 OK in 1262ms (Views: 92.3ms | ActiveRecord: 990.4ms | Allocations: 48860)
+
+
+Started GET "/admin" for 127.0.0.1 at 2023-11-20 21:08:25 +0100
+Processing by AdminController#dashboard as HTML
+  [1m[36mPost Count (135.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE (created_at > '2023-10-20 20:08:25.431025')[0m
+  ↳ app/controllers/admin_controller.rb:5:in `dashboard'
+  [1m[36mReview Count (122.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE (created_at > '2023-10-20 20:08:25.570381')[0m
+  ↳ app/controllers/admin_controller.rb:6:in `dashboard'
+  [1m[36mResponse Count (87.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE (created_at > '2023-10-20 20:08:25.695472')[0m
+  ↳ app/controllers/admin_controller.rb:7:in `dashboard'
+  [1m[36mUser Count (86.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/admin_controller.rb:9:in `dashboard'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/dashboard.html.erb within layouts/application
+  [1m[36mUser Load (115.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/admin/dashboard.html.erb:15
+  Rendered admin/dashboard.html.erb within layouts/application (Duration: 119.8ms | Allocations: 994)
+  Rendered layouts/_header.html.erb (Duration: 3.6ms | Allocations: 1114)
+  [1m[36mUser Load (58.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (288.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 363.3ms | Allocations: 4105)
+  Rendered layout layouts/application.html.erb (Duration: 542.6ms | Allocations: 17094)
+Completed 200 OK in 987ms (Views: 81.8ms | ActiveRecord: 893.4ms | Allocations: 19136)
+
+
+Started GET "/admin" for 127.0.0.1 at 2023-11-20 21:09:09 +0100
+Processing by AdminController#dashboard as HTML
+  [1m[36mPost Count (144.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE (created_at > '2023-10-20 20:09:09.122128')[0m
+  ↳ app/controllers/admin_controller.rb:5:in `dashboard'
+  [1m[36mReview Count (64.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE (created_at > '2023-10-20 20:09:09.269513')[0m
+  ↳ app/controllers/admin_controller.rb:6:in `dashboard'
+  [1m[36mResponse Count (82.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE (created_at > '2023-10-20 20:09:09.337404')[0m
+  ↳ app/controllers/admin_controller.rb:7:in `dashboard'
+  [1m[36mUser Count (71.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/admin_controller.rb:9:in `dashboard'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/dashboard.html.erb within layouts/application
+  [1m[36mUser Load (69.4ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/admin/dashboard.html.erb:15
+  Rendered admin/dashboard.html.erb within layouts/application (Duration: 73.1ms | Allocations: 994)
+  Rendered layouts/_header.html.erb (Duration: 3.2ms | Allocations: 1114)
+  [1m[36mUser Load (63.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (63.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 143.2ms | Allocations: 4107)
+  Rendered layout layouts/application.html.erb (Duration: 258.3ms | Allocations: 17109)
+Completed 200 OK in 636ms (Views: 64.1ms | ActiveRecord: 558.8ms | Allocations: 19124)
+
+
+Started GET "/admin" for 127.0.0.1 at 2023-11-20 21:09:52 +0100
+Processing by AdminController#dashboard as HTML
+  [1m[36mPost Count (178.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE (created_at > '2023-10-20 20:09:52.778068')[0m
+  ↳ app/controllers/admin_controller.rb:5:in `dashboard'
+  [1m[36mReview Count (98.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE (created_at > '2023-10-20 20:09:52.959563')[0m
+  ↳ app/controllers/admin_controller.rb:6:in `dashboard'
+  [1m[36mResponse Count (89.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE (created_at > '2023-10-20 20:09:53.060826')[0m
+  ↳ app/controllers/admin_controller.rb:7:in `dashboard'
+  [1m[36mUser Count (76.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/admin_controller.rb:9:in `dashboard'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/dashboard.html.erb within layouts/application
+  [1m[36mUser Load (73.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/admin/dashboard.html.erb:15
+  Rendered admin/dashboard.html.erb within layouts/application (Duration: 77.4ms | Allocations: 994)
+  Rendered layouts/_header.html.erb (Duration: 5.9ms | Allocations: 1114)
+  [1m[36mUser Load (243.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (128.0ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 403.7ms | Allocations: 4117)
+  Rendered layout layouts/application.html.erb (Duration: 538.5ms | Allocations: 17108)
+Completed 200 OK in 992ms (Views: 95.4ms | ActiveRecord: 886.0ms | Allocations: 19124)
+
+
+Started GET "/admin" for 127.0.0.1 at 2023-11-20 21:10:19 +0100
+Processing by AdminController#dashboard as HTML
+  [1m[36mPost Count (174.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE (created_at > '2023-10-20 20:10:19.436015')[0m
+  ↳ app/controllers/admin_controller.rb:5:in `dashboard'
+  [1m[36mReview Count (155.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE (created_at > '2023-10-20 20:10:19.613232')[0m
+  ↳ app/controllers/admin_controller.rb:6:in `dashboard'
+  [1m[36mResponse Count (104.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE (created_at > '2023-10-20 20:10:19.771190')[0m
+  ↳ app/controllers/admin_controller.rb:7:in `dashboard'
+  [1m[36mUser Count (61.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/admin_controller.rb:9:in `dashboard'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/dashboard.html.erb within layouts/application
+  [1m[36mUser Load (83.3ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/admin/dashboard.html.erb:15
+  Rendered admin/dashboard.html.erb within layouts/application (Duration: 87.6ms | Allocations: 994)
+  Rendered layouts/_header.html.erb (Duration: 4.5ms | Allocations: 1118)
+  [1m[36mUser Load (57.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (57.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 134.8ms | Allocations: 4114)
+  Rendered layout layouts/application.html.erb (Duration: 282.4ms | Allocations: 17136)
+Completed 200 OK in 790ms (Views: 86.4ms | ActiveRecord: 692.5ms | Allocations: 19156)
+
+
+Started GET "/admin" for 127.0.0.1 at 2023-11-20 21:10:56 +0100
+Processing by AdminController#dashboard as HTML
+  [1m[36mPost Count (161.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE (created_at > '2023-10-20 20:10:56.285538')[0m
+  ↳ app/controllers/admin_controller.rb:5:in `dashboard'
+  [1m[36mReview Count (58.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE (created_at > '2023-10-20 20:10:56.449464')[0m
+  ↳ app/controllers/admin_controller.rb:6:in `dashboard'
+  [1m[36mResponse Count (78.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE (created_at > '2023-10-20 20:10:56.510518')[0m
+  ↳ app/controllers/admin_controller.rb:7:in `dashboard'
+  [1m[36mUser Count (48.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/admin_controller.rb:9:in `dashboard'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/dashboard.html.erb within layouts/application
+  [1m[36mUser Load (63.7ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/admin/dashboard.html.erb:15
+  Rendered admin/dashboard.html.erb within layouts/application (Duration: 67.3ms | Allocations: 995)
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 1114)
+  [1m[36mUser Load (70.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (79.2ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 165.2ms | Allocations: 4104)
+  Rendered layout layouts/application.html.erb (Duration: 286.4ms | Allocations: 17082)
+Completed 200 OK in 647ms (Views: 74.6ms | ActiveRecord: 559.8ms | Allocations: 19097)
+
+
+Started GET "/admin" for 127.0.0.1 at 2023-11-20 21:11:06 +0100
+Processing by AdminController#dashboard as HTML
+  [1m[36mPost Count (149.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE (created_at > '2023-10-20 20:11:06.461250')[0m
+  ↳ app/controllers/admin_controller.rb:5:in `dashboard'
+  [1m[36mReview Count (69.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE (created_at > '2023-10-20 20:11:06.613797')[0m
+  ↳ app/controllers/admin_controller.rb:6:in `dashboard'
+  [1m[36mResponse Count (100.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE (created_at > '2023-10-20 20:11:06.685999')[0m
+  ↳ app/controllers/admin_controller.rb:7:in `dashboard'
+  [1m[36mUser Count (355.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/admin_controller.rb:9:in `dashboard'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/dashboard.html.erb within layouts/application
+  [1m[36mUser Load (69.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/admin/dashboard.html.erb:15
+  Rendered admin/dashboard.html.erb within layouts/application (Duration: 73.5ms | Allocations: 994)
+  Rendered layouts/_header.html.erb (Duration: 3.8ms | Allocations: 1114)
+  [1m[36mUser Load (70.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (65.6ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 152.2ms | Allocations: 4104)
+  Rendered layout layouts/application.html.erb (Duration: 283.9ms | Allocations: 17099)
+Completed 200 OK in 972ms (Views: 79.9ms | ActiveRecord: 879.5ms | Allocations: 19115)
+
+
+Started GET "/admin" for 127.0.0.1 at 2023-11-20 21:11:18 +0100
+Processing by AdminController#dashboard as HTML
+  [1m[36mPost Count (170.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE (created_at > '2023-10-20 20:11:18.119539')[0m
+  ↳ app/controllers/admin_controller.rb:5:in `dashboard'
+  [1m[36mReview Count (66.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE (created_at > '2023-10-20 20:11:18.293658')[0m
+  ↳ app/controllers/admin_controller.rb:6:in `dashboard'
+  [1m[36mResponse Count (58.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE (created_at > '2023-10-20 20:11:18.362293')[0m
+  ↳ app/controllers/admin_controller.rb:7:in `dashboard'
+  [1m[36mUser Count (56.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/admin_controller.rb:9:in `dashboard'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/dashboard.html.erb within layouts/application
+  [1m[36mUser Load (87.9ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/admin/dashboard.html.erb:15
+  Rendered admin/dashboard.html.erb within layouts/application (Duration: 92.3ms | Allocations: 994)
+  Rendered layouts/_header.html.erb (Duration: 2.7ms | Allocations: 1122)
+  [1m[36mUser Load (67.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (65.8ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 147.7ms | Allocations: 4120)
+  Rendered layout layouts/application.html.erb (Duration: 292.4ms | Allocations: 17145)
+Completed 200 OK in 660ms (Views: 73.1ms | ActiveRecord: 574.0ms | Allocations: 19161)
+
+
+Started GET "/admin" for 127.0.0.1 at 2023-11-20 21:11:37 +0100
+Processing by AdminController#dashboard as HTML
+  [1m[36mPost Count (137.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE (created_at > '2023-10-20 20:11:37.937270')[0m
+  ↳ app/controllers/admin_controller.rb:5:in `dashboard'
+  [1m[36mReview Count (62.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE (created_at > '2023-10-20 20:11:38.081291')[0m
+  ↳ app/controllers/admin_controller.rb:6:in `dashboard'
+  [1m[36mResponse Count (66.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE (created_at > '2023-10-20 20:11:38.146805')[0m
+  ↳ app/controllers/admin_controller.rb:7:in `dashboard'
+  [1m[36mUser Count (54.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/admin_controller.rb:9:in `dashboard'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/dashboard.html.erb within layouts/application
+  [1m[36mUser Load (61.1ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/admin/dashboard.html.erb:15
+  Rendered admin/dashboard.html.erb within layouts/application (Duration: 64.9ms | Allocations: 994)
+  Rendered layouts/_header.html.erb (Duration: 2.8ms | Allocations: 1122)
+  [1m[36mUser Load (56.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (81.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 154.5ms | Allocations: 4120)
+  Rendered layout layouts/application.html.erb (Duration: 256.7ms | Allocations: 17130)
+Completed 200 OK in 595ms (Views: 59.4ms | ActiveRecord: 519.8ms | Allocations: 19146)
+
+
+Started GET "/admin" for 127.0.0.1 at 2023-11-20 21:11:56 +0100
+Processing by AdminController#dashboard as HTML
+  [1m[36mPost Count (149.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE (created_at > '2023-10-20 20:11:56.187015')[0m
+  ↳ app/controllers/admin_controller.rb:5:in `dashboard'
+  [1m[36mReview Count (65.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE (created_at > '2023-10-20 20:11:56.337889')[0m
+  ↳ app/controllers/admin_controller.rb:6:in `dashboard'
+  [1m[36mResponse Count (58.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE (created_at > '2023-10-20 20:11:56.405317')[0m
+  ↳ app/controllers/admin_controller.rb:7:in `dashboard'
+  [1m[36mUser Count (60.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/admin_controller.rb:9:in `dashboard'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/dashboard.html.erb within layouts/application
+  [1m[36mUser Load (58.5ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/admin/dashboard.html.erb:15
+  Rendered admin/dashboard.html.erb within layouts/application (Duration: 61.8ms | Allocations: 994)
+  Rendered layouts/_header.html.erb (Duration: 2.2ms | Allocations: 1114)
+  [1m[36mUser Load (74.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (60.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 152.5ms | Allocations: 4105)
+  Rendered layout layouts/application.html.erb (Duration: 258.0ms | Allocations: 17093)
+Completed 200 OK in 602ms (Views: 66.4ms | ActiveRecord: 526.6ms | Allocations: 19108)
+
+
+Started GET "/users/gari" for 127.0.0.1 at 2023-11-20 21:13:30 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"gari"}
+  [1m[36mUser Load (2180.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27:in `show'
+  [1m[36mPost Count (138.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:29:in `show'
+  [1m[36mReview Count (202.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."autor" = $1[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:32:in `show'
+  [1m[36mResponse Count (98.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE "responses"."autor" = $1[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:35:in `show'
+  [1m[36mPost Count (305.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."autor" = $1 AND (created_at > '2023-10-20 20:13:33.321310')[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:39:in `show'
+  [1m[36mReview Count (97.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."autor" = $1 AND (created_at > '2023-10-20 20:13:33.630525')[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:40:in `show'
+  [1m[36mResponse Count (98.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE "responses"."autor" = $1 AND (created_at > '2023-10-20 20:13:33.732767')[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:41:in `show'
+  [1m[36mRestaurant Count (84.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/controllers/users_controller.rb:44:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 21.0ms | Allocations: 3923)
+  Rendered layouts/_header.html.erb (Duration: 7.0ms | Allocations: 1089)
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (78.4ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 101.2ms | Allocations: 4019)
+  Rendered layout layouts/application.html.erb (Duration: 145.1ms | Allocations: 12769)
+Completed 200 OK in 3384ms (Views: 68.7ms | ActiveRecord: 3284.6ms | Allocations: 17506)
+
+
+Started GET "/users/gari" for 127.0.0.1 at 2023-11-20 21:14:15 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"gari"}
+  [1m[36mUser Load (2542.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27:in `show'
+  [1m[36mPost Count (145.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:29:in `show'
+  [1m[36mReview Count (125.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."autor" = $1[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:32:in `show'
+  [1m[36mResponse Count (140.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE "responses"."autor" = $1[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:35:in `show'
+  [1m[36mPost Count (111.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."autor" = $1 AND (created_at > '2023-10-20 20:14:18.410924')[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:39:in `show'
+  [1m[36mReview Count (108.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."autor" = $1 AND (created_at > '2023-10-20 20:14:18.524974')[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:40:in `show'
+  [1m[36mResponse Count (112.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE "responses"."autor" = $1 AND (created_at > '2023-10-20 20:14:18.635831')[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:41:in `show'
+  [1m[36mRestaurant Count (131.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/controllers/users_controller.rb:44:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 6.6ms | Allocations: 2302)
+  Rendered layouts/_header.html.erb (Duration: 2.8ms | Allocations: 1097)
+  [1m[36mCACHE User Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (92.7ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 103.8ms | Allocations: 4013)
+  Rendered layout layouts/application.html.erb (Duration: 146.1ms | Allocations: 17913)
+Completed 200 OK in 3584ms (Views: 54.3ms | ActiveRecord: 3510.4ms | Allocations: 22278)
+
+
+Started GET "/users/gari" for 127.0.0.1 at 2023-11-20 21:15:11 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"gari"}
+  [1m[36mUser Load (99.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27:in `show'
+  [1m[36mPost Count (64.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."autor" = $1[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:29:in `show'
+  [1m[36mReview Count (57.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."autor" = $1[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:32:in `show'
+  [1m[36mResponse Count (143.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE "responses"."autor" = $1[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:35:in `show'
+  [1m[36mPost Count (77.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."autor" = $1 AND (created_at > '2023-10-20 20:15:11.571380')[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:39:in `show'
+  [1m[36mReview Count (73.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE "reviews"."autor" = $1 AND (created_at > '2023-10-20 20:15:11.651655')[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:40:in `show'
+  [1m[36mResponse Count (70.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE "responses"."autor" = $1 AND (created_at > '2023-10-20 20:15:11.727376')[0m  [["autor", "gari"]]
+  ↳ app/controllers/users_controller.rb:41:in `show'
+  [1m[36mRestaurant Count (67.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/controllers/users_controller.rb:44:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 9.7ms | Allocations: 2285)
+  Rendered layouts/_header.html.erb (Duration: 4.0ms | Allocations: 1089)
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (65.9ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 83.7ms | Allocations: 3998)
+  Rendered layout layouts/application.html.erb (Duration: 137.4ms | Allocations: 17851)
+Completed 200 OK in 819ms (Views: 73.5ms | ActiveRecord: 720.5ms | Allocations: 22209)
+
+
+Started GET "/admin" for 127.0.0.1 at 2023-11-20 21:15:17 +0100
+Processing by AdminController#dashboard as HTML
+  [1m[36mPost Count (152.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE (created_at > '2023-10-20 20:15:17.151893')[0m
+  ↳ app/controllers/admin_controller.rb:5:in `dashboard'
+  [1m[36mReview Count (67.0ms)[0m  [1m[34mSELECT COUNT(*) FROM "reviews" WHERE (created_at > '2023-10-20 20:15:17.306754')[0m
+  ↳ app/controllers/admin_controller.rb:6:in `dashboard'
+  [1m[36mResponse Count (65.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "responses" WHERE (created_at > '2023-10-20 20:15:17.375468')[0m
+  ↳ app/controllers/admin_controller.rb:7:in `dashboard'
+  [1m[36mUser Count (67.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/admin_controller.rb:9:in `dashboard'
+  Rendering layout layouts/application.html.erb
+  Rendering admin/dashboard.html.erb within layouts/application
+  [1m[36mUser Load (349.8ms)[0m  [1m[34mSELECT "users".* FROM "users"[0m
+  ↳ app/views/admin/dashboard.html.erb:15
+  Rendered admin/dashboard.html.erb within layouts/application (Duration: 354.8ms | Allocations: 994)
+  Rendered layouts/_header.html.erb (Duration: 2.6ms | Allocations: 1114)
+  [1m[36mUser Load (465.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mRestaurant Load (274.3ms)[0m  [1m[34mSELECT "restaurants".* FROM "restaurants" INNER JOIN "restaurants_users" ON "restaurants"."id" = "restaurants_users"."restaurant_id" WHERE "restaurants_users"."user_id" = $1[0m  [["user_id", "gari"]]
+  ↳ app/helpers/application_helper.rb:64:in `user_has_restaurants'
+  [1m[36mCACHE User Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/helpers/logins_helper.rb:9:in `current_user'
+  Rendered layouts/_sidenav.html.erb (Duration: 764.2ms | Allocations: 4107)
+  Rendered layout layouts/application.html.erb (Duration: 1137.5ms | Allocations: 10358)
+Completed 200 OK in 1498ms (Views: 48.7ms | ActiveRecord: 1441.6ms | Allocations: 12448)
+
+
+Started GET "/users/gari" for 127.0.0.1 at 2023-11-20 21:15:53 +0100
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"gari"}
+  [1m[36mUser Load (15464.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."nombre" = $1 LIMIT $2[0m  [["nombre", "gari"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:27:in `show'
+Completed 500 Internal Server Error in 15469ms (ActiveRecord: 15464.1ms | Allocations: 2018)
+
+
+DEPRECATION WARNING: Setting action_dispatch.show_exceptions to true is deprecated. Set to :all instead. (called from rescue in call at /home/alain/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:43)
+  
+ActiveRecord::ConnectionFailed (PQconsumeInput() server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+server closed the connection unexpectedly
+	This probably means the server terminated abnormally
+	before or while processing the request.
+):
+  
+Started GET "/admin" for 127.0.0.1 at 2023-11-20 21:16:10 +0100
+Processing by AdminController#dashboard as HTML
+  [1m[36mPost Count (2176.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE (created_at > '2023-10-20 20:16:10.348214')[0m
+  ↳ app/controllers/admin_controller.rb:5:in `dashboard'
+Completed 500 Internal Server Error in 2180ms (ActiveRecord: 2176.2ms | Allocations: 3313)
+
+
+DEPRECATION WARNING: Setting action_dispatch.show_exceptions to true is deprecated. Set to :all instead. (called from rescue in call at /home/alain/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:43)
+  
+ActiveRecord::NoDatabaseError (We could not find your database: brm33sftclngywwhayzb. Available database configurations can be found in config/database.yml file.
+
+To resolve this error:
+
+- Did you create the database for this app, or delete it? You may need to create your database.
+- Has the database name changed? Check your database.yml config has the correct database name.
+
+To create your database, run:
+
+        bin/rails db:create
+):
+  
+app/controllers/admin_controller.rb:5:in `dashboard'
+Started GET "/" for 127.0.0.1 at 2023-11-20 21:16:26 +0100
+Processing by RestaurantsController#index as HTML
+Completed 500 Internal Server Error in 20062ms (ActiveRecord: 0.0ms | Allocations: 5113)
+
+
+DEPRECATION WARNING: Setting action_dispatch.show_exceptions to true is deprecated. Set to :all instead. (called from rescue in call at /home/alain/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:43)
+  
+ActiveRecord::NoDatabaseError (We could not find your database: brm33sftclngywwhayzb. Available database configurations can be found in config/database.yml file.
+
+To resolve this error:
+
+- Did you create the database for this app, or delete it? You may need to create your database.
+- Has the database name changed? Check your database.yml config has the correct database name.
+
+To create your database, run:
+
+        bin/rails db:create
+):
+  
+app/controllers/restaurants_controller.rb:12:in `index'
+Started GET "/" for 127.0.0.1 at 2023-11-20 21:16:59 +0100
+DEPRECATION WARNING: Setting action_dispatch.show_exceptions to true is deprecated. Set to :all instead. (called from rescue in call at /home/alain/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:43)
+  
+ActiveRecord::NoDatabaseError (We could not find your database: brm33sftclngywwhayzb. Available database configurations can be found in config/database.yml file.
+
+To resolve this error:
+
+- Did you create the database for this app, or delete it? You may need to create your database.
+- Has the database name changed? Check your database.yml config has the correct database name.
+
+To create your database, run:
+
+        bin/rails db:create
+):
+  
+activerecord (7.1.1) lib/active_record/connection_adapters/postgresql_adapter.rb:74:in `rescue in new_client'
+activerecord (7.1.1) lib/active_record/connection_adapters/postgresql_adapter.rb:68:in `new_client'
+activerecord (7.1.1) lib/active_record/connection_adapters/postgresql_adapter.rb:981:in `connect'
+activerecord (7.1.1) lib/active_record/connection_adapters/postgresql_adapter.rb:993:in `reconnect'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract_adapter.rb:685:in `block in reconnect!'
+activesupport (7.1.1) lib/active_support/concurrency/null_lock.rb:9:in `synchronize'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract_adapter.rb:684:in `reconnect!'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract_adapter.rb:788:in `verify!'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract_adapter.rb:795:in `connect!'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract_adapter.rb:997:in `block in with_raw_connection'
+activesupport (7.1.1) lib/active_support/concurrency/null_lock.rb:9:in `synchronize'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract_adapter.rb:996:in `with_raw_connection'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract_adapter.rb:1104:in `valid_raw_connection'
+activerecord (7.1.1) lib/active_record/connection_adapters/postgresql_adapter.rb:619:in `get_database_version'
+activerecord (7.1.1) lib/active_record/connection_adapters/schema_cache.rb:374:in `database_version'
+activerecord (7.1.1) lib/active_record/connection_adapters/schema_cache.rb:70:in `database_version'
+activerecord (7.1.1) lib/active_record/connection_adapters/schema_cache.rb:200:in `database_version'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract_adapter.rb:871:in `database_version'
+activerecord (7.1.1) lib/active_record/connection_adapters/postgresql_adapter.rb:647:in `check_version'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:675:in `new_connection'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:720:in `checkout_new_connection'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:699:in `try_to_checkout_new_connection'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:657:in `acquire_connection'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `connection'
+activerecord (7.1.1) lib/active_record/tasks/database_tasks.rb:501:in `block in with_temporary_connection'
+activerecord (7.1.1) lib/active_record/tasks/database_tasks.rb:518:in `with_temporary_pool'
+activerecord (7.1.1) lib/active_record/tasks/database_tasks.rb:500:in `with_temporary_connection'
+activerecord (7.1.1) lib/active_record/tasks/database_tasks.rb:494:in `block in with_temporary_connection_for_each'
+activerecord (7.1.1) lib/active_record/tasks/database_tasks.rb:493:in `each'
+activerecord (7.1.1) lib/active_record/tasks/database_tasks.rb:493:in `with_temporary_connection_for_each'
+activerecord (7.1.1) lib/active_record/migration.rb:771:in `pending_migrations'
+activerecord (7.1.1) lib/active_record/migration.rb:750:in `check_pending_migrations'
+activerecord (7.1.1) lib/active_record/migration.rb:642:in `block (2 levels) in call'
+activesupport (7.1.1) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.1) lib/active_record/migration.rb:647:in `block in call'
+activerecord (7.1.1) lib/active_record/migration.rb:639:in `synchronize'
+activerecord (7.1.1) lib/active_record/migration.rb:639:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.1) lib/active_support/broadcast_logger.rb:232:in `method_missing'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.1) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'
+Started GET "/" for 127.0.0.1 at 2023-11-20 21:21:53 +0100
+DEPRECATION WARNING: Setting action_dispatch.show_exceptions to true is deprecated. Set to :all instead. (called from rescue in call at /home/alain/.asdf/installs/ruby/3.2.2/lib/ruby/gems/3.2.0/gems/actionpack-7.1.1/lib/action_dispatch/middleware/debug_exceptions.rb:43)
+  
+ActiveRecord::DatabaseConnectionError (There is an issue connecting to your database with your username/password, username: ufmtugbort5e5ro1nkzn.
+
+Please check your database configuration to ensure the username/password are valid.
+):
+  
+activerecord (7.1.1) lib/active_record/connection_adapters/postgresql_adapter.rb:76:in `rescue in new_client'
+activerecord (7.1.1) lib/active_record/connection_adapters/postgresql_adapter.rb:68:in `new_client'
+activerecord (7.1.1) lib/active_record/connection_adapters/postgresql_adapter.rb:981:in `connect'
+activerecord (7.1.1) lib/active_record/connection_adapters/postgresql_adapter.rb:993:in `reconnect'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract_adapter.rb:685:in `block in reconnect!'
+activesupport (7.1.1) lib/active_support/concurrency/null_lock.rb:9:in `synchronize'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract_adapter.rb:684:in `reconnect!'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract_adapter.rb:788:in `verify!'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract_adapter.rb:795:in `connect!'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract_adapter.rb:997:in `block in with_raw_connection'
+activesupport (7.1.1) lib/active_support/concurrency/null_lock.rb:9:in `synchronize'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract_adapter.rb:996:in `with_raw_connection'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract_adapter.rb:1104:in `valid_raw_connection'
+activerecord (7.1.1) lib/active_record/connection_adapters/postgresql_adapter.rb:619:in `get_database_version'
+activerecord (7.1.1) lib/active_record/connection_adapters/schema_cache.rb:374:in `database_version'
+activerecord (7.1.1) lib/active_record/connection_adapters/schema_cache.rb:70:in `database_version'
+activerecord (7.1.1) lib/active_record/connection_adapters/schema_cache.rb:200:in `database_version'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract_adapter.rb:871:in `database_version'
+activerecord (7.1.1) lib/active_record/connection_adapters/postgresql_adapter.rb:647:in `check_version'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:675:in `new_connection'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:720:in `checkout_new_connection'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:699:in `try_to_checkout_new_connection'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:657:in `acquire_connection'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+activerecord (7.1.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `connection'
+activerecord (7.1.1) lib/active_record/tasks/database_tasks.rb:501:in `block in with_temporary_connection'
+activerecord (7.1.1) lib/active_record/tasks/database_tasks.rb:518:in `with_temporary_pool'
+activerecord (7.1.1) lib/active_record/tasks/database_tasks.rb:500:in `with_temporary_connection'
+activerecord (7.1.1) lib/active_record/tasks/database_tasks.rb:494:in `block in with_temporary_connection_for_each'
+activerecord (7.1.1) lib/active_record/tasks/database_tasks.rb:493:in `each'
+activerecord (7.1.1) lib/active_record/tasks/database_tasks.rb:493:in `with_temporary_connection_for_each'
+activerecord (7.1.1) lib/active_record/migration.rb:771:in `pending_migrations'
+activerecord (7.1.1) lib/active_record/migration.rb:750:in `check_pending_migrations'
+activerecord (7.1.1) lib/active_record/migration.rb:642:in `block (2 levels) in call'
+activesupport (7.1.1) lib/active_support/file_update_checker.rb:85:in `execute'
+activerecord (7.1.1) lib/active_record/migration.rb:647:in `block in call'
+activerecord (7.1.1) lib/active_record/migration.rb:639:in `synchronize'
+activerecord (7.1.1) lib/active_record/migration.rb:639:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+activesupport (7.1.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (7.1.1) lib/action_dispatch/middleware/callbacks.rb:28:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/actionable_exceptions.rb:16:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+web-console (4.2.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.2.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.2.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (7.1.1) lib/rails/rack/logger.rb:37:in `call_app'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `block in tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:39:in `tagged'
+activesupport (7.1.1) lib/active_support/tagged_logging.rb:135:in `tagged'
+activesupport (7.1.1) lib/active_support/broadcast_logger.rb:232:in `method_missing'
+railties (7.1.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.4.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/remote_ip.rb:92:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/request_id.rb:28:in `call'
+rack (3.0.8) lib/rack/method_override.rb:28:in `call'
+rack (3.0.8) lib/rack/runtime.rb:24:in `call'
+activesupport (7.1.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:59:in `block in call'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:24:in `collect_events'
+actionpack (7.1.1) lib/action_dispatch/middleware/server_timing.rb:58:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/static.rb:25:in `call'
+rack (3.0.8) lib/rack/sendfile.rb:114:in `call'
+actionpack (7.1.1) lib/action_dispatch/middleware/host_authorization.rb:141:in `call'
+railties (7.1.1) lib/rails/engine.rb:529:in `call'
+puma (6.4.0) lib/puma/configuration.rb:272:in `call'
+puma (6.4.0) lib/puma/request.rb:100:in `block in handle_request'
+puma (6.4.0) lib/puma/thread_pool.rb:378:in `with_force_shutdown'
+puma (6.4.0) lib/puma/request.rb:99:in `handle_request'
+puma (6.4.0) lib/puma/server.rb:443:in `process_client'
+puma (6.4.0) lib/puma/server.rb:241:in `block in run'
+puma (6.4.0) lib/puma/thread_pool.rb:155:in `block in spawn_thread'

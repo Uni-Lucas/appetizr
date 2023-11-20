@@ -239,11 +239,25 @@ a {
 
 
 .admin_user_list {
-
+  background-color: var(--light-black);
+  border-radius: 30px;
+  min-width: 300px;
+  max-height: 400px;
+  padding: 10px;
+  color: var(--strong-gold);
+  font-family: var(--letra);
+  letter-spacing: 2.4px;
+  font-size: 18px;
+  overflow: scroll;
 }
 
-
-
+.admin_user_list_item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px;
+}
 
 
 
@@ -705,7 +719,7 @@ a {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 120px;
-    padding-top: 20px;
+    padding-top: 40px;
     align-items: center;
     justify-items: center;
     margin-left: 40px;
