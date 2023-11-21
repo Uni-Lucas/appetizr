@@ -7,15 +7,27 @@ FROM registry.docker.com/library/ruby:$RUBY_VERSION-slim as base
 # Rails app lives here
 WORKDIR /rails
 
+ARG DB_HOST
+ARG DB_NAME
+ARG DB_USER
+ARG DB_PASSWORD
+ARG DB_PORT
+
+ENV PQL_HOST=$DB_HOST
+ENV PQL_NAME=$DB_NAME
+ENV PQL_USER=$DB_USER
+ENV PQL_PASSWORD=$DB_PASSWORD
+ENV PQL_PORT=$DB_PORT
 # Set production environment
 ENV RAILS_ENV="development" \
     BUNDLE_DEPLOYMENT="1" \
     BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_WITHOUT="development" \
-    POSTGRESQL_ADDON_HOST="boolrzlwsuzzvitfldlo-postgresql.services.clever-cloud.com" \
-    POSTGRESQL_ADDON_DB="boolrzlwsuzzvitfldlo" \
-    POSTGRESQL_ADDON_USER="uiet1bl8indhu2rgwxtk" \
-    POSTGRESQL_ADDON_PASSWORD="7PzbRVYPaorjXLH16LtKR44LluR5Z8"
+    POSTGRESQL_ADDON_HOST="${PQL_HOST}" \
+    POSTGRESQL_ADDON_DB="${PQL_NAME}" \
+    POSTGRESQL_ADDON_USER="${PQL_USER}" \
+    POSTGRESQL_ADDON_PASSWORD="${PQL_PASSWORD}" \
+    POSTGRESQL_ADDON_PORT="${PQL_PORT}"
 
 
 # Throw-away build stage to reduce size of final image
