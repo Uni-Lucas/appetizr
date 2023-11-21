@@ -29,3 +29,5 @@ docker build \
   --build-arg DB_PASSWORD=$POSTGRESQL_ADDON_PASSWORD \
   --build-arg DB_PORT=$POSTGRESQL_ADDON_PORT \
   -t appetizr .
+
+docker run --network host -d --name appetizr appetizr
