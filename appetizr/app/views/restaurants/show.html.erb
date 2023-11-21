@@ -5,7 +5,7 @@
     <div class="notice" ><%= flash[:dishes] %></div>
   <% end %>
   <div id="restaurant_menu" class="restaurant_section_title">Menú</div>
-  <div class="restaurant_section_content">
+  <div class="restaurant_section_content" style="overflow: scroll;">
     <% @restaurant.dishes.each do |dish| %>
       <div class="restaurant_dish_container" onclick="window.location='<%= get_dish_path(dish) %>'" style="cursor: pointer;">
         <% if dish.ruta_img_plato.present? %>
