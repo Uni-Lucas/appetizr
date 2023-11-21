@@ -10,7 +10,7 @@
 
           <div>
             <label class="my_account_form_label">Teléfono de contacto</label><br>
-            <%= form.number_field :telefono, class: "my_account_form_text_field", placeholder: "123456789" %>
+            <%= form.number_field :telefono, class: "my_account_form_text_field", placeholder: "123456789", pattern: "[0-9]{9}" %>
           </div>
         <% end %>
 
