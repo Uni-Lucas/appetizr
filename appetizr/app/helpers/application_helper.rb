@@ -80,4 +80,8 @@ module ApplicationHelper
         return review_path(comment.id)
       end
     end
+
+    def get_user_of_comment(comment)
+      User.find(comment.autor)
+    end
 end
