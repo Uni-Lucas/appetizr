@@ -51,19 +51,21 @@
             <% @restaurants.each do |restaurant| %>
                 <%= link_to restaurant_path(restaurant), style: "text-decoration: none;" do %>
                     <div class="explore_restaurants_box">
-                      <% if restaurant.ruta_img_fondo %>
-                        <%= image_tag restaurant.ruta_img_fondo, class: "explore_restaurants_box_image" %>
-                      <% else %>
-                        <%= image_tag "Default-restaurant-img", class: "explore_restaurants_box_image" %>
-                      <% end %>
-                        <div class="explore_restaurant_box_name"><%= restaurant.nombre %></div>
-                        <div class="explore_restaurant_box_category"><%= restaurant.categoria %></div>
-                        <div>
-                          <% if @ratings && !@ratings.select {|r| r.what == restaurant.id}.empty? %>
-                            <% @ratings.select {|r| r.what == restaurant.id}[0][:rest_val].floor.times do %> 
-                            <%= image_tag "Star", style: "width: 25px; height: 25px" %>
-                          <% end %>
+                        <% if restaurant.ruta_img_fondo %>
+                            <%= image_tag restaurant.ruta_img_fondo, class: "explore_restaurants_box_image" %>
+                        <% else %>
+                            <%= image_tag "Default-restaurant-img", class: "explore_restaurants_box_image" %>
                         <% end %>
+                        <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;height: 100%;gap: 5px;">
+                            <div class="explore_restaurant_box_name"><%= restaurant.nombre %></div>
+                            <div class="explore_restaurant_box_category"><%= restaurant.categoria %></div>
+                            <div>
+                                <% if @ratings && !@ratings.select {|r| r.what == restaurant.id}.empty? %>
+                                    <% @ratings.select {|r| r.what == restaurant.id}[0][:rest_val].floor.times do %> 
+                                    <%= image_tag "Star", style: "width: 25px; height: 25px" %>
+                                <% end %>
+                                <% end %>
+                            </div>
                         </div>
                     </div>
                 <% end %>
