@@ -9,7 +9,7 @@
     --white: #EAEAEA;
     --black: #0E0E15;
     --light-black: #171722;
-    --delete-color: #333333;
+    --delete-color: #FF5858;
 }
 
 html,body{
@@ -478,7 +478,7 @@ a {
   background-color: var(--delete-color);
   border-radius: 30px;
   text-decoration: none;
-  color: var(--strong-gold);
+  color: var(--black);
   font-family: var(--letra);
   letter-spacing: 2.4px;
   font-size: 18px;

@@ -73,6 +73,10 @@ class UsersController < ApplicationController
       end
     end
 
+    def destroy
+      @user = User.find_by(nombre: )
+    end
+    
     def mis_restaurantes
       @user = User.find_by(nombre: session[:username])
       @restaurants = @user.restaurants

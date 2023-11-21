@@ -23,7 +23,7 @@
     
     <div class="restaurants_header_buttons_container">
       <div>
-        <% if session[:username].present? and user_is_owner?(locals[:restaurant].id) %>
+        <% if session[:username].present? and (user_is_owner?(locals[:restaurant].id) or soy_admin?) %>
           <!-- Si el restaurante tiene su imported_id distinto de nil, significa que es un restaurante importado y no se puede editar -->
           <div style=" display: flex; flex-direction: row; gap: 20px;">
             <% if locals[:restaurant].imported_id.nil? %>
@@ -32,12 +32,17 @@
                   <span class="restaurants_header_edit_button_text">Editar</span>
                 </div>
               <% end %>
-              <!-- same thing, poner la dirección que toca -->
-              <%= link_to "Eliminar", categories_path, class: "restaurants_header_edit_button", style: "background-color: var(--delete-color); text-decoration: none;", data: {turbo_method: :delete} %>
             <% else %>
+              <% if soy_admin? %>
+                <%= link_to edit_restaurant_path(locals[:restaurant].id), style: "text-decoration: none;" do %>
+                  <div class="restaurants_header_edit_button">
+                    <span class="restaurants_header_edit_button_text">Editar</span>
+                  </div>
+                <% end %>
+              <% end %>
               <%= link_to ENV['EINA_EATS_WEB'] , style: "text-decoration: none" do %>
                 <div class="restaurants_header_edit_button">
-                  <span class="restaurants_header_edit_button_text">Editar en EinaEats</span>
+                  <span class="restaurants_header_edit_button_text" style="text-align: center;">Editar en EinaEats</span>
                 </div> 
               <% end %>
             <% end %>

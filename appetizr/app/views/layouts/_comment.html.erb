@@ -9,7 +9,7 @@
             </div>
           <% else %>
             <div class="comment_author_img_container">
-              <%= image_tag "https://via.placeholder.com/40x40", class: "comment_author_img" %>
+              <%= image_tag "default_profile_img", class: "comment_author_img", style: "filter: brightness(90%);" %>
             </div>
           <% end %>
 
@@ -19,7 +19,7 @@
           </div>
         </div>
         <% if (session[:username] == comment.autor || soy_admin?) %>
-            <%= link_to "Eliminar", get_delete_comment_path(comment),  class: "delete_button", data: {turbo_method: :delete} %>
+            <%= link_to "Eliminar", get_delete_comment_path(comment), class: "delete_button", data: {turbo_method: :delete} %>
         <% else %>
             <%= image_tag "Feather_more-vertical", class: "three_dots" %>
         <% end %>

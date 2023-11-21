@@ -51,6 +51,11 @@ class DishesController < ApplicationController
     end
   end
 
+  def destroy
+    @dish = Dish.find(params[:id])
+    @dish.destroy
+  end
+
   private
   def dish_params
     params.require(:dish).permit(:nombre, :descripcion, :ruta_img_plato, :precio)

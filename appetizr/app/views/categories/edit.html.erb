@@ -2,3 +2,9 @@
     <h1 class="title">Editar <span class="title_key_word">categoría</span></h1>
 </div>
 <%= render "form", category: @category %>
+
+<%= link_to category_path(@category.nombre), style: "text-decoration: none; display: flex; justify-content: center;", data: {turbo_method: :delete} do %>
+    <div class="restaurants_header_edit_button" style="width: 700px; background-color: var(--delete-color);">
+        <span class="restaurants_header_edit_button_text" style="color: var(--black);">Eliminar Categoría</span>
+    </div> 
+<% end %>

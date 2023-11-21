@@ -4,9 +4,6 @@
         <div>Log out</div>
     <% end %>
 </div>
-
-
-
 <div class="my_account_form_container">
     <div class="my_account_user_passwd">
        <%= link_to 'Actualizar Datos', admin_actualizar_datos_path, method: :get, class: "new_post_submit" %>
@@ -16,7 +13,7 @@
             <div class="admin_user_list_item">
                 <%= user.nombre %>
                 <!-- poner la url bien -->
-                <%= link_to "Eliminar", categories_path,  class: "delete_button", data: {turbo_method: :delete} %>
+                <%= link_to "Eliminar", user_path(user.nombre),  class: "delete_button", data: {turbo_method: :delete} %>
             </div>
         <% end %>
     </div>
