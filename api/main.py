@@ -89,8 +89,14 @@ def get_dishes_reviews(imported_id):
 #   si no hay se añade a la base de datos con toda la información proporcionada.
 @app.route('/dishes/<imported_id_res>/<imported_id_dish>/<new_nombre_dish>/<new_descripcion>/<new_precio>', methods=['PUT'])
 def edit_dish(imported_id_res, imported_id_dish, new_nombre_dish, new_descripcion, new_precio):
-    import_dish(imported_id_res, imported_id_dish, new_nombre_dish, new_descripcion, new_precio)
-
+    # Comentario Gari:
+    # Tienes añadir las siguientes lineas, para poder manejar las respuestas HTTP en Flask
+    response = import_dish(imported_id_res, imported_id_dish, new_nombre_dish, new_descripcion, new_precio)
+    
+    if response.status_code == 200:
+        return jsonify({'status': 'ok'}), 200
+    else:
+        return jsonify({'status': 'error', 'message': 'Algo salió mal'}), 500
 
 def import_dish(imported_id_res, imported_id_dish, new_nombre_dish, new_descripcion, new_precio):
     connection = get_db_connection()
@@ -156,7 +162,7 @@ def import_restaurant(imported_id, new_nombre, new_telefono, new_categoria, new_
     cursor.execute(f"SELECT * FROM restaurants \
                    WHERE ( \
                    imported_id='{imported_id}' \
-                    )")
+                    );")
     restaurantImported = cursor.fetchone()
     
     if restaurantImported:
@@ -165,7 +171,7 @@ def import_restaurant(imported_id, new_nombre, new_telefono, new_categoria, new_
                             nombre='{new_nombre}', telefono='{new_telefono}', categoria='{new_categoria}', horario='{new_horario}', direccion='{new_direccion}' \
                         WHERE ( \
                         nombre='{imported_id}' \
-                        )")
+                        );")
     else:
         # El restaurante no estaba importado, buscamos si hay un restaurante con el mismo nombre y telefono
         # si lo hay se actualiza el imported_id y se actualiza el resto de datos
@@ -334,4 +340,4 @@ if __name__ == '__main__':
 # EinaEats
 # En una pagina de tu restaurante con url " dominio/login-integration/:idUser/:nombre_rest/:telf_rest/"
 #       Si hace bien el login en einaeats y es propietario del restaurante que pide
-#        llamar a api appetizr con el id string user pasado/el nombre y tfno del us
+#        llamar a api appetizr con el id string user pasado/el nombre y tfno del us
