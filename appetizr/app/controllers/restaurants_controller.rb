@@ -1,21 +1,26 @@
 class RestaurantsController < ApplicationController
     include QueriesConcern
     def index
+      @categories = Category.all
+      @promoted_restaurant = Restaurant.find_by(id: Rails.application.config.promoted_restaurant)
+
       if params[:filter]
         @restaurants = Restaurant.where(categoria: params[:filter]) 
+        session[:filter] = params[:filter]
       else
         @restaurants = Restaurant.all
+        session[:filter] = nil
       end
-        @categories = Category.all
-        rats = Restaurant.joins(:ranks).select(:what, "AVG(valoracion) as rest_val").group(:what)
-          # Si no hay valoraciones, se pone a 0
-          if rats.empty?
-            @ratings = nil
-          else
-            @ratings = rats
-          end
-        tops = Rank.select(:what, "AVG(valoracion) as total_valoracion").group(:what).order("total_valoracion DESC") 
-        @tops = tops.map{|r| Restaurant.find(r.what)}.compact
+      
+      rats = Restaurant.joins(:ranks).select(:what, "AVG(valoracion) as rest_val").group(:what)
+        # Si no hay valoraciones, se pone a 0
+        if rats.empty?
+          @ratings = nil
+        else
+          @ratings = rats
+        end
+      tops = Rank.select(:what, "AVG(valoracion) as total_valoracion").group(:what).order("total_valoracion DESC") 
+      @tops = tops.map{|r| Restaurant.find(r.what)}.compact
     end
 
     def show

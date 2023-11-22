@@ -22,8 +22,9 @@ module Appetizr
 
     config.exceptions_app = self.routes
     config.action_dispatch.show_exceptions = true
-    
 
+    config.promoted_restaurant = 1
+    
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

@@ -62,6 +62,9 @@
     <div class="category_post_list">
       <%= render "layouts/comment", comments: get_rest_managers_posts(@restaurant.id), locals: {reactions: @posts_reactions, user_reactions: @posts_user_reactions} %>
     </div>
+    <% if session[:username].present? and user_is_owner?(@restaurant.id) %> 
+      <%= render "layouts/add_comment", path_param: new_post_path(post_to: @restaurant.id, post_type: "Restaurant") %>
+    <% end %>
   </div>
 
   <div id="restaurant_info" class="restaurant_section_title"> Información del restaurante </div>

@@ -8,6 +8,7 @@ class AdminController < ApplicationController
         @num_comments_last_month = @num_posts_last_month + @num_reviews_last_month + @num_responses_last_month
         @num_users = User.count
         @users = User.all
+        @restaurants = Restaurant.all
     end
     
     def actualizar_datos
@@ -30,7 +31,6 @@ class AdminController < ApplicationController
                     # Otros atributos...
                     id_api: api_restaurante['idrestaurante']
                 )
-        
                 restaurante.save
             end
         end
@@ -38,38 +38,9 @@ class AdminController < ApplicationController
         redirect_to admin_dashboard_path, notice: 'Datos actualizados correctamente'
     end
 
-    def borrar_restaurante
-      # borrar entrada de gestionados
-      # borrar posts relacionados con el restaurante
-      # borrar respuestas asociadas al post
-      # borrar reviews relacionadas con el restaurante
-      # borrar respuestas asociadas a las reviews
-      # borrar platos asociados al restaurante
-      # borrar valoraciones del restaurante
-      # borrar entrada del restaurante
-    end
-
-    def borrar_categoria
-      # borrar posts de la categoria
-      # borrar respuestas de los posts
-    end
-
-    def borrar_plato
-      # borrar entrada del plato
-      # borrar reviews del plato 
-      # borrar respuestas de las reviews
-    end
-
-    def borrar_post
-      # borrar respuestas
-      # borrar reacciones
-      # borrar entrada del post
-    end
-  
-    def borrar_review
-      # borrar respuestas
-      # borrar reacciones
-      # borrar entrada de la review
+    def promote
+      Rails.application.config.promoted_restaurant = params[:restaurant_id]
+      redirect_to '/admin', notice: 'Restaurante promocionado correctamente'
     end
 end
   

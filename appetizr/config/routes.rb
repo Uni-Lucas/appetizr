@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   
   resources :restaurants do
     post '/rank', to: 'ranks#create'
-    resources :dishes, only: [:show, :new, :create, :edit, :update]
+    resources :dishes, only: [:show, :new, :create, :edit, :update, :destroy]
   end
 
   get 'search', to: 'restaurants#search', as: 'search_restaurants'
@@ -42,6 +42,7 @@ Rails.application.routes.draw do
   
   # /admin tiene que renderizar la vista admin/dashboard.html.erb
   get '/admin', to: 'admin#dashboard', as: 'admin_dashboard'
+  get '/admin/promote', to: 'admin#promote', as: 'admin_promote'
   namespace :admin do
     get 'actualizar_datos', to: 'admin#actualizar_datos'
   end

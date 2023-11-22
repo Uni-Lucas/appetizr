@@ -26,6 +26,12 @@ class ReviewsController < ApplicationController
       end
     end
   end
+
+  def destroy
+    @review = Review.find(params[:id])
+    @review.destroy
+  end
+
   private
   def get_original_reviewed(id, type)
     if type == "Dish"

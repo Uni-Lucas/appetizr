@@ -12,25 +12,30 @@
     <div class="explore_promoted_restaurant">
         <div class="explore_top_section_title">Restaurante promocionado</div>
         <div class="explore_promoted_restaurant_box">
-            <%= image_tag "Default-restaurant-img", class: "explore_promoted_restaurant_image" %>
+            <% if @promoted_restaurant.ruta_img_fondo %>
+                <%= image_tag @promoted_restaurant.ruta_img_fondo, class: "explore_promoted_restaurant_image" %>
+            <% else %>
+                <%= image_tag "Default-restaurant-img", class: "explore_promoted_restaurant_image" %>
+            <% end %>
             <div class="explore_promoted_restaurant_info">
                 <div>
                     <div class="explore_promoted_restaurant_name">
-                        Madison Smashburgers<br><span class="title_key_word">Burger</span>
+                        <%= @promoted_restaurant.nombre %><br>
+                        <span class="title_key_word"><%= @promoted_restaurant.categoria %></span>
                     </div>
                     <div class="explore_promoted_restaurant_stars">
-                        <%= image_tag "Star", style: "width: 25px; height: 25px" %>
-                        <%= image_tag "Star", style: "width: 25px; height: 25px" %>
-                        <%= image_tag "Star", style: "width: 25px; height: 25px" %>
-                        <%= image_tag "Star", style: "width: 25px; height: 25px" %>
-                        <%= image_tag "Star", style: "width: 25px; height: 25px" %>
+                        <% if @ratings && !@ratings.select {|r| r.what == @promoted_restaurant.id}.empty? %>
+                            <% @ratings.select {|r| r.what == @promoted_restaurant.id}[0][:rest_val].floor.times do %> 
+                            <%= image_tag "Star", style: "width: 25px; height: 25px" %>
+                        <% end %>
+                        <% end %>
                     </div>
                 </div>
                 <div>
-                    <div class="restaurants_einaeats_button">
+                    <%= link_to 'https://google.com', class: "restaurants_einaeats_button" do %>
                         <%= image_tag "Bolsa-einaeats" %>
                         <span class="restaurant_einaeats_button_text">Pedir en EinaEats</span>
-                    </div>
+                    <% end %>
                 </div>
             </div>
         </div>
@@ -38,13 +43,26 @@
     <div class="explore_lower_section">
         <div class="explore_restaurants_filters">
             <div class="explore_restaurants_filters_title">Filtrar por categoría</div>
-            <%= link_to restaurants_path, class: "explore_restaurants_filters_item" do %>
-              <div>Todos los restaurantes</div>
+            
+            <% if !session[:filter].present? %>
+              <%= link_to restaurants_path, class: "explore_restaurants_filters_item", style: "background-color: var(--light-black); color: var(--strong-gold);" do %>
+                <div>Todos los restaurantes</div>
+              <% end %>
+            <% else %>
+              <%= link_to restaurants_path, class: "explore_restaurants_filters_item" do %>
+                <div>Todos los restaurantes</div>
+              <% end %>
             <% end %>
             <% @categories.each do |category| %>
+              <% if session[:filter].present? and session[:filter] == category.nombre %>
+                <%= link_to restaurants_path(filter: category.nombre), class: "explore_restaurants_filters_item", style: "background-color: var(--light-black); color: var(--strong-gold);" do %>
+                    <div><%= category.nombre %></div>
+                <% end %>
+              <% else %>
                 <%= link_to restaurants_path(filter: category.nombre), class: "explore_restaurants_filters_item" do %>
                     <div><%= category.nombre %></div>
                 <% end %>
+              <% end %>
             <% end %>
         </div>
         <div class="explore_restaurants_section">

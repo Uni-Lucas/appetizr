@@ -32,6 +32,7 @@ class DishesController < ApplicationController
 
   def edit
     @dish = Dish.find(params[:id])
+    @restaurant = Restaurant.find(params[:restaurant_id])
   end
 
   def update
@@ -54,6 +55,7 @@ class DishesController < ApplicationController
   def destroy
     @dish = Dish.find(params[:id])
     @dish.destroy
+    redirect_to restaurant_path(@dish.restaurant_id)
   end
 
   private
