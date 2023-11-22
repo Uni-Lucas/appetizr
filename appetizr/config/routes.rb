@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :categories, param: :nombre
   
   resources :restaurants do
+    post '/rank', to: 'ranks#create'
     resources :dishes, only: [:show, :new, :create, :edit, :update]
   end
 
@@ -20,8 +21,7 @@ Rails.application.routes.draw do
   end
   
   get '/users/mis_restaurantes', to: 'users#mis_restaurantes'
-  resources :users
-  get '/users/:nombre', to: 'users#show'
+  resources :users, param: :nombre
   post '/users/new', to: 'users#create'
   get '/is_rest_owner', to: 'users#is_restaurant_owner'
   

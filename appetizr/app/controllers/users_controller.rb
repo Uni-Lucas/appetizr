@@ -74,7 +74,13 @@ class UsersController < ApplicationController
     end
 
     def destroy
-      @user = User.find_by(nombre: )
+      @user = User.find_by(nombre: params[:nombre])
+      if @user.destroy
+        flash[:notice] = "Usuario eliminado"
+      else
+        flash[:notice] = "El usuario no ha podido ser eliminado"
+      end
+      redirect_to request.referer
     end
     
     def mis_restaurantes

@@ -6,8 +6,10 @@
 <% end %>
 <%= render "form", dish: @dish %>
 
-<%= link_to restaurant_dish_path(@dish.id), style: "text-decoration: none; display: flex; justify-content: center;", data: {turbo_method: :delete} do %>
+<% if !@dish.imported_id %> 
+  <%= link_to restaurant_dish_path(@dish.id), style: "text-decoration: none; display: flex; justify-content: center;", data: {turbo_method: :delete} do %>
   <div class="restaurants_header_edit_button" style="width: 700px; background-color: var(--delete-color);">
     <span class="restaurants_header_edit_button_text" style="color: var(--black);">Eliminar Plato</span>
   </div> 
+  <% end %>
 <% end %>
