@@ -19,6 +19,30 @@ def get_db_connection():
         database=os.environ.get('POSTGRESQL_ADDON_DB')
     )
 
+#---------------------------------------------------------------------------
+#                               RESTAURANTS
+#---------------------------------------------------------------------------
+
+# Dado un imported_id de un restaurante, devuelve la url de la página de ese restaurante
+@app.route('/restaurants/<imported_id>', methods=['GET'])
+def get_restaurant_url(imported_id):
+    connection = get_db_connection()
+    cursor = connection.cursor()
+
+    cursor.execute(f"SELECT * FROM restaurants \
+                   WHERE ( \
+                   imported_id='{imported_id}' \
+                    )")
+    restaurant = cursor.fetchone()
+    if restaurant:
+        cursor.close()
+        connection.close()
+        return jsonify({'url': f'http://appetizr.herokuapp.com/restaurants/{restaurant[0]}'})
+    else:
+        cursor.close()
+        connection.close()
+        return jsonify({'url': 'No existe el restaurante'}), 404
+
 
 
 
@@ -68,8 +92,6 @@ def get_dishes_reviews(imported_id):
     connection.close()
 
     return jsonify({'reviews': reviews})
-
-
 
 
 #---------------------------------------------------------------------------
