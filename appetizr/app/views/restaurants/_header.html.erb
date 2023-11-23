@@ -16,7 +16,7 @@
           <% locals[:ratings].floor.times do %>
             <%= image_tag "Star", style: "width: 40px; height: 40px" %>
           <% end %>
-          <div class="restaurant_rating_text"> - <span><%= locals[:ratings] %></span></div>
+          <div class="restaurant_rating_text"> - <span><%= sprintf('%.1f', locals[:ratings]) %></span></div>
         <% end %>
       </div>
     </div>

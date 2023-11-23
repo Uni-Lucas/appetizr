@@ -192,7 +192,7 @@ def import_restaurant(imported_id, new_nombre, new_telefono, new_categoria, new_
         cursor.execute(f"UPDATE restaurants SET \
                             nombre='{new_nombre}', telefono='{new_telefono}', categoria='{new_categoria}', horario='{new_horario}', direccion='{new_direccion}' \
                         WHERE ( \
-                        nombre='{imported_id}' \
+                        imported_id='{imported_id}' \
                         );")
     else:
         # El restaurante no estaba importado, buscamos si hay un restaurante con el mismo nombre y telefono

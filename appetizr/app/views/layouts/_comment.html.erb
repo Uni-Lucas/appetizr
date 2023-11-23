@@ -5,7 +5,11 @@
         <div class="comment_head_left_wrapper">
           <% if get_user_of_comment(comment).ruta_img_perfil.present? %>
             <div class="comment_author_img_container">
-              <%= image_tag get_user_of_comment(comment).ruta_img_perfil, class: "comment_author_img" %>
+              <% if get_comment_type(comment) == "Post" and comment.restaurant_id.present? %>
+                <%= image_tag get_restaurant_of_post(comment).ruta_img_perfil, class: "comment_author_img" %>
+              <% else %>
+                <%= image_tag get_user_of_comment(comment).ruta_img_perfil, class: "comment_author_img" %>
+              <% end %>
             </div>
           <% else %>
             <div class="comment_author_img_container">
@@ -14,7 +18,11 @@
           <% end %>
 
           <div class="comment_head_author_and_tstamp">
-            <div class="comment_author"><%= comment.autor %></div>
+            <% if get_comment_type(comment) == "Post" and comment.restaurant_id.present? %>
+              <div class="comment_author"><%= get_restaurant_of_post(comment).nombre %></div>
+            <% else %>
+              <div class="comment_author"><%= comment.autor %></div>
+            <% end %>
             <div class="comment_tstamp"><%= time_ago_in_words(comment.updated_at) %> ago </div>
           </div>
         </div>

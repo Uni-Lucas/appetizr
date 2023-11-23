@@ -13,6 +13,15 @@
     --ok-color: #119911;
 }
 
+div::-webkit-scrollbar {
+  display: none;
+}
+
+div {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 html,body{
     height: 100%;
 }
@@ -632,6 +641,10 @@ a {
   gap: 12px;
   border-radius: 5px;
   background-color: var(--light-black);
+}
+
+.new_post_choose_author_selector {
+  border: var(--light-black) 2px solid;
 }
 
 .new_post_image_upload_button:hover {
