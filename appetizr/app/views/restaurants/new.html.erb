@@ -5,7 +5,7 @@
 
 <div style="display: flex; justify-content: center;">
   <div class="restaurants_header_edit_button" style="width: 700px; margin-bottom: 20px;">
-    <%= link_to ENV['EINA_EATS_WEB'] , style: "text-decoration: none; ", target: :_blank do %>
+    <%= link_to Rails.application.config.EINAEATS_WEB , style: "text-decoration: none; ", target: :_blank do %>
       <span class="restaurants_header_edit_button_text">Vincular restaurante desde EinaEats</span>
     <% end %>
   </div> 

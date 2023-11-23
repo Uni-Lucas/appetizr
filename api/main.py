@@ -2,7 +2,7 @@ from flask import Flask, jsonify
 import psycopg2
 import os
 
-EINAEATS_API_GET_DISHES_FROM_RESTAURANT = 'http://einaeats.herokuapp.com/api/dishes/restaurant/1'
+EINAEATS_API_GET_DISHES_FROM_RESTAURANT = 'http://einaeats.herokuapp.com/'
 
 
 

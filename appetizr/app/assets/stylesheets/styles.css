@@ -789,7 +789,6 @@ a {
 .my_account_form_text_field:focus {
     outline: none !important;
     border: 2px solid var(--strong-gold);
-    
 }
 
 .my_account_form_buttons {
@@ -1294,6 +1293,7 @@ a {
     justify-content: center;
     align-content: center;
     flex-direction: column;
+    border: none;
 }
 
 .register_button:hover {

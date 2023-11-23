@@ -24,6 +24,7 @@ module Appetizr
     config.action_dispatch.show_exceptions = true
 
     config.promoted_restaurant = 1
+    config.EINAEATS_WEB = "https://www.einaeats.com"
     
     # Configuration for the application, engines, and railties goes here.
     #
