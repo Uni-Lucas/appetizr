@@ -113,6 +113,11 @@ def get_dishes_reviews(imported_id):
 def edit_dish(imported_id_res, imported_id_dish, new_nombre_dish, new_descripcion, new_precio):
     # Comentario Gari:
     # Tienes añadir las siguientes lineas, para poder manejar las respuestas HTTP en Flask
+
+    # Transformamos el caracter '+' en espacios
+    new_nombre_dish = new_nombre_dish.replace('+', ' ')
+    new_descripcion = new_descripcion.replace('+', ' ')
+    
     response = import_dish(imported_id_res, imported_id_dish, new_nombre_dish, new_descripcion, new_precio)
     
     if response.status_code == 200:
@@ -180,6 +185,13 @@ def import_dish(imported_id_res, imported_id_dish, new_nombre_dish, new_descripc
 def import_restaurant(imported_id, new_nombre, new_telefono, new_categoria, new_horario, new_direccion):
     connection = get_db_connection()
     cursor = connection.cursor()
+
+    # Transformamos el caracter '+' en espacios
+    new_nombre = new_nombre.replace('+', ' ')
+    new_categoria = new_categoria.replace('+', ' ')
+    new_horario = new_horario.replace('+', ' ')
+    new_direccion = new_direccion.replace('+', ' ')
+
 
     cursor.execute(f"SELECT * FROM restaurants \
                    WHERE ( \
