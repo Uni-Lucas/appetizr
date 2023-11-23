@@ -266,6 +266,7 @@ a {
   background-color: var(--light-black);
   border-radius: 30px;
   min-width: 300px;
+  max-width: 400px;
   max-height: 400px;
   padding: 10px;
   color: var(--strong-gold);
