@@ -40,7 +40,7 @@
                   </div>
                 <% end %>
               <% end %>
-              <%= link_to ENV['EINA_EATS_WEB'] , style: "text-decoration: none" do %>
+              <%= link_to Rails.application.config.EINAEATS_LOGIN , style: "text-decoration: none" do %>
                 <div class="restaurants_header_edit_button">
                   <span class="restaurants_header_edit_button_text" style="text-align: center;">Editar en EinaEats</span>
                 </div> 
@@ -51,7 +51,7 @@
       </div>
     
       <% if locals[:restaurant].imported_id %>
-        <%= link_to ENV['EINA_EATS_WEB'] , style: "text-decoration: none" do %>
+        <%= link_to "#{Rails.application.config.EINAEATS_GO_TO_RESTAURANT}/#{locals[:restaurant].imported_id}" , style: "text-decoration: none" do %>
           <div class="restaurants_einaeats_button">
             <%= image_tag "Bolsa-einaeats" %>
             <span class="restaurant_einaeats_button_text">Pedir en EinaEats</span>

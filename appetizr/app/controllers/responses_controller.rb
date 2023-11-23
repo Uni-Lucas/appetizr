@@ -13,10 +13,10 @@ class ResponsesController < ApplicationController
   def create
     if params[:response][:ruta_img]
       nombre_imagen = subir_imagen(params.require(:response)[:ruta_img])
-    else
-      nombre_imagen = "default"
     end
+
     original_comment = get_original_comment(params[:response][:respondable_id], params[:response][:respondable_type])
+    
     if original_comment
       @response = Response.new(response_params)
       @response.ruta_img = nombre_imagen

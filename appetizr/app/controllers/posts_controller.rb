@@ -21,9 +21,9 @@ class PostsController < ApplicationController
     end
     session[:post_category] = nil
     if @post.save
-      redirect_to category_path(@post.categoria), notice: "All good"
+      redirect_to category_path(nombre: @post.categoria), notice: "All good"
     else
-      render :new
+      render :new, status: :unprocessable_entity
     end
   end
 

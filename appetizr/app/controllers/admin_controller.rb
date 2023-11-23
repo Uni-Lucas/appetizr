@@ -12,7 +12,17 @@ class AdminController < ApplicationController
     end
     
     def actualizar_datos
-        # Realizar la llamada a la API y obtener los datos
+        # Realizar la llamada a la API para obtiener todos los restaurantes
+
+        # Realizar la llamada a la API para obtener todos los platos con el id de su restaurante
+
+
+        # Para cada restaurante, realizar una llamada a nuestra api para crearlo o actualizarlo
+        #@app.route('/restaurants/<imported_id>/<new_nombre>/<new_telefono>/<new_categoria>/<new_horario>/<new_direccion>', methods=['PUT'])
+
+        # Para cada plato, realizar una llamada a nuestra api para crearlo o actualizarlo
+        #@app.route('/dishes/<imported_id_res>/<imported_id_dish>/<new_nombre_dish>/<new_descripcion>/<new_precio>', methods=['PUT'])
+
         rutaAPI = 'https://172.20.10.8/api/restaurantes'
         response = RestClient.get rutaAPI, { accept: :json }
         api_data = JSON.parse(response.body)
@@ -29,7 +39,7 @@ class AdminController < ApplicationController
                     direccion: api_restaurante['direccion'],
                     telefono: api_restaurante['telefono'],
                     # Otros atributos...
-                    id_api: api_restaurante['idrestaurante']
+                    imported_id: api_restaurante['idrestaurante']
                 )
                 restaurante.save
             end

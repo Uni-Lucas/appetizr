@@ -25,6 +25,7 @@ class RestaurantsController < ApplicationController
 
     def show
         @restaurant = Restaurant.find_by(id: params[:id])
+        session[:post_category] = @restaurant.categoria
         if !@restaurant
           redirect_to "/not_found" 
           return

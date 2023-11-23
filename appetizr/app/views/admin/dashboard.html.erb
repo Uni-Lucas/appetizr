@@ -4,39 +4,45 @@
         <div>Log out</div>
     <% end %>
 </div>
-<div class="my_account_form_container">
-  <div class="admin_user_list">
-    <% @restaurants.each do |restaurant| %>
-      <div class="admin_user_list_item">
-        <%= restaurant.nombre %>
-        <% if restaurant.id.to_s == Rails.application.config.promoted_restaurant.to_s %>
-          <div class="delete_button" style="background-color: var(--ok-color); color: var(--black);"> Promocionado </div>
-        <% else %>
-          <%= link_to "Promocionar", admin_promote_path(restaurant_id: restaurant.id),  class: "delete_button", style: "background-color: var(--strong-gold); color: var(--black);" %>
-        <% end %>
-      </div>
-    <% end %>
-  </div>
-  <div class="admin_user_list">
-      <% @users.each do |user| %>
-          <div class="admin_user_list_item">
-              <%= user.nombre %>
-              <%= link_to "Eliminar", user_path(user.nombre),  class: "delete_button", data: {turbo_method: :delete} %>
-          </div>
+<div>
+  <div class="my_account_form_container">
+    <div class="admin_user_list">
+      <% @restaurants.each do |restaurant| %>
+        <div class="admin_user_list_item">
+          <%= restaurant.nombre %>
+          <% if restaurant.id.to_s == Rails.application.config.promoted_restaurant.to_s %>
+            <div class="delete_button" style="background-color: var(--ok-color); color: var(--black);"> Promocionado </div>
+          <% else %>
+            <%= link_to "Promocionar", admin_promote_path(restaurant_id: restaurant.id),  class: "delete_button", style: "background-color: var(--strong-gold); color: var(--black);" %>
+          <% end %>
+        </div>
       <% end %>
+    </div>
+    <div class="admin_user_list">
+        <% @users.each do |user| %>
+            <div class="admin_user_list_item">
+                <%= user.nombre %>
+                <%= link_to "Eliminar", user_path(user.nombre),  class: "delete_button", data: {turbo_method: :delete} %>
+            </div>
+        <% end %>
+    </div>
+    <div class="my_account_stats_container">
+        <p class="my_account_stats_title">Estadísticas del mes</p>
+        <div>
+            <div class="my_account_stats_line"><p>Posts totales</p><span class="my_account_metrics"><%= @num_posts_last_month %></span></div>
+                <div class="my_account_stats_line"><p>Reviews totales</p><span class="my_account_metrics"><%= @num_reviews_last_month %></span></div>
+                <div class="my_account_stats_line"><p>Respuestas totales</p><span class="my_account_metrics"><%= @num_responses_last_month %></span></div>
+                <div class="my_account_stats_line"><p id="my_account_month_comments">Comentarios totales</p><span class="my_account_metrics"><%= @num_comments_last_month %></span></div>
+                <div class="my_account_stats_line"><p>Usuarios registrados</p><span class="my_account_metrics"><%= @num_users %></span></div>
+            </div>
+        </div>
+    </div>
   </div>
-  <div class="my_account_stats_container">
-      <p class="my_account_stats_title">Estadísticas del mes</p>
-      <div>
-          <div class="my_account_stats_line"><p>Posts totales</p><span class="my_account_metrics"><%= @num_posts_last_month %></span></div>
-              <div class="my_account_stats_line"><p>Reviews totales</p><span class="my_account_metrics"><%= @num_reviews_last_month %></span></div>
-              <div class="my_account_stats_line"><p>Respuestas totales</p><span class="my_account_metrics"><%= @num_responses_last_month %></span></div>
-              <div class="my_account_stats_line"><p id="my_account_month_comments">Comentarios totales</p><span class="my_account_metrics"><%= @num_comments_last_month %></span></div>
-              <div class="my_account_stats_line"><p>Usuarios registrados</p><span class="my_account_metrics"><%= @num_users %></span></div>
-          </div>
-      </div>
+  <div style="display: flex; justify-content: center; margin: 20px 0;">
+    <%= link_to admin_actualizar_datos_path, method: :get, class: "new_post_submit", style: "width: 200px, display: flex; justify-content: center;" do %>
+      <div style="font-family: var(--letra); text-decoration: none; color: var(--black); font-size: 20px;">Actualizar Datos</div>
+    <% end %>
   </div>
 </div>
 
-<div>
-</div>
+

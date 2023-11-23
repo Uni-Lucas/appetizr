@@ -25,6 +25,9 @@ module Appetizr
 
     config.promoted_restaurant = 1
     config.EINAEATS_WEB = "https://www.einaeats.com"
+    config.EINAEATS_GO_TO_RESTAURANT = "https://www.einaeats.com/platosrestaurantes"
+    config.EINAEATS_LOGIN = "https://www.einaeats.com/login"
+    config.APPETIZR_API = "https://apikoitz-c07343faff5f.herokuapp.com"
     
     # Configuration for the application, engines, and railties goes here.
     #

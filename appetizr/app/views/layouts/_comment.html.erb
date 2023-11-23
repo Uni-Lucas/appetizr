@@ -5,11 +5,7 @@
         <div class="comment_head_left_wrapper">
           <% if get_user_of_comment(comment).ruta_img_perfil.present? %>
             <div class="comment_author_img_container">
-              <% if get_comment_type(comment) == "Post" and comment.restaurant_id.present? %>
-                <%= image_tag get_restaurant_of_post(comment).ruta_img_perfil, class: "comment_author_img" %>
-              <% else %>
-                <%= image_tag get_user_of_comment(comment).ruta_img_perfil, class: "comment_author_img" %>
-              <% end %>
+              <%= image_tag get_user_of_comment(comment).ruta_img_perfil, class: "comment_author_img" %>
             </div>
           <% else %>
             <div class="comment_author_img_container">

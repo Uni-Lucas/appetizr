@@ -32,10 +32,12 @@
                     </div>
                 </div>
                 <div>
-                    <%= link_to 'https://google.com', class: "restaurants_einaeats_button" do %>
+                <% if @promoted_restaurant.imported_id.present? %>
+                    <%= link_to "#{Rails.application.config.EINAEATS_GO_TO_RESTAURANT}/#{@promoted_restaurant.imported_id}", class: "restaurants_einaeats_button" do %>
                         <%= image_tag "Bolsa-einaeats" %>
                         <span class="restaurant_einaeats_button_text">Pedir en EinaEats</span>
                     <% end %>
+                <% end %>
                 </div>
             </div>
         </div>
