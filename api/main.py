@@ -24,7 +24,7 @@ def get_db_connection():
 #---------------------------------------------------------------------------
 
 # Dado un imported_id de un restaurante, devuelve la url de la página de ese restaurante
-@app.route('/restaurants/<imported_id>', methods=['GET'])
+@app.route('/restaurants-link/<imported_id>', methods=['GET'])
 def get_restaurant_url(imported_id):
     try:
         connection = get_db_connection()
