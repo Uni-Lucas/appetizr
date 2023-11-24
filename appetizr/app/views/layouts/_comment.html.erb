@@ -9,12 +9,16 @@
             </div>
           <% else %>
             <div class="comment_author_img_container">
-              <%= image_tag "default_profile_img", class: "comment_author_img", style: "filter: brightness(90%);" %>
+              <%= image_tag "default_profile_img", class: "comment_author_img" %>
             </div>
           <% end %>
 
           <div class="comment_head_author_and_tstamp">
-            <div class="comment_author"><%= comment.autor %></div>
+            <% if get_comment_type(comment) == "Post" and comment.restaurant_id.present? %>
+              <div class="comment_author"><%= get_restaurant_of_post(comment).nombre %></div>
+            <% else %>
+              <div class="comment_author"><%= comment.autor %></div>
+            <% end %>
             <div class="comment_tstamp"><%= time_ago_in_words(comment.updated_at) %> ago </div>
           </div>
         </div>

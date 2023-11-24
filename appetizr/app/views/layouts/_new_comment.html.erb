@@ -3,10 +3,6 @@
     <h1 class="title">Escribe tu <span class="title_key_word"><%= locals[:tipo] %></span></h1>
   </div>
   <%= form_with model: locals[:comment] do |form| %>
-    <% if !locals[:user_restaurants].empty? && get_comment_type(locals[:comment]) == "Post" %>
-      <%= form.collection_select :asOwnerOf, locals[:user_restaurants], :id, :nombre, prompt: session[:username] %> 
-    <% end %>
-    
     <div class="new_post_container">
       <% if get_comment_type(locals[:comment]) == "Response" %>
         <%= form.hidden_field :respondable_id %>
@@ -26,14 +22,20 @@
           <%= image_tag "image-icon", class: "new_post_image_upload_icon" %>
           <div class="new_post_image_upload_text">Añade una imagen</div>
         </label>
+
+        <% if get_comment_type(locals[:comment]) == "Post" && !locals[:user_restaurants].empty? %>
+          <%= form.collection_select :asOwnerOf, locals[:user_restaurants], :id, :nombre, prompt: session[:username], class: "new_post_choose_author_selector" %> 
+        <% end %>
+
         <% if get_comment_type(locals[:comment]) == "Review" && locals[:comment].reviewable_type == "Restaurant" %>
           <% 5.times.each do |i| %>
             <%= link_to restaurant_rank_path(restaurant_id: locals[:comment].reviewable_id, rank: i+1), class: "new_post_image_upload_button", data: {turbo_method: :post} do %>
-              <span><%= i+1 %></span>
+              <span style="color: var(--white); font-family: var(--letra); font-size: 24px; "><%= i + 1 %></span>
               <%= image_tag "Star", class: "new_post_submit_icon" %>
             <% end %>
           <% end %>
         <% end %>
+        
         <%= form.button type: :submit, class: "new_post_submit" do %>
           <%= image_tag "send", class: "new_post_submit_icon" %>
           <div class="new_post_submit_text">Publicar</div>
@@ -41,4 +43,6 @@
       </div>
     </div>
   <% end %>
+
+  <%= session[:post_category] %>
 </div>

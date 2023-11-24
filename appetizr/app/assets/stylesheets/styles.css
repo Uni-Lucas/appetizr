@@ -13,6 +13,15 @@
     --ok-color: #119911;
 }
 
+div::-webkit-scrollbar {
+  display: none;
+}
+
+div {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
 html,body{
     height: 100%;
 }
@@ -257,6 +266,7 @@ a {
   background-color: var(--light-black);
   border-radius: 30px;
   min-width: 300px;
+  max-width: 400px;
   max-height: 400px;
   padding: 10px;
   color: var(--strong-gold);
@@ -634,6 +644,10 @@ a {
   background-color: var(--light-black);
 }
 
+.new_post_choose_author_selector {
+  border: var(--light-black) 2px solid;
+}
+
 .new_post_image_upload_button:hover {
   filter: brightness(120%);
 }
@@ -776,7 +790,6 @@ a {
 .my_account_form_text_field:focus {
     outline: none !important;
     border: 2px solid var(--strong-gold);
-    
 }
 
 .my_account_form_buttons {
@@ -1281,6 +1294,7 @@ a {
     justify-content: center;
     align-content: center;
     flex-direction: column;
+    border: none;
 }
 
 .register_button:hover {

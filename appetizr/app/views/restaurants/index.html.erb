@@ -9,10 +9,11 @@
           <% end %>
         </div>
     </div>
+    <% if !@promoted_restaurant.nil? %>
     <div class="explore_promoted_restaurant">
         <div class="explore_top_section_title">Restaurante promocionado</div>
         <div class="explore_promoted_restaurant_box">
-            <% if @promoted_restaurant.ruta_img_fondo %>
+            <% if @promoted_restaurant.ruta_img_fondo.present? %>
                 <%= image_tag @promoted_restaurant.ruta_img_fondo, class: "explore_promoted_restaurant_image" %>
             <% else %>
                 <%= image_tag "Default-restaurant-img", class: "explore_promoted_restaurant_image" %>
@@ -32,14 +33,17 @@
                     </div>
                 </div>
                 <div>
-                    <%= link_to 'https://google.com', class: "restaurants_einaeats_button" do %>
+                <% if @promoted_restaurant.imported_id.present? %>
+                    <%= link_to "#{Rails.application.config.EINAEATS_GO_TO_RESTAURANT}/#{@promoted_restaurant.imported_id}", class: "restaurants_einaeats_button" do %>
                         <%= image_tag "Bolsa-einaeats" %>
                         <span class="restaurant_einaeats_button_text">Pedir en EinaEats</span>
                     <% end %>
+                <% end %>
                 </div>
             </div>
         </div>
     </div>
+    <% end %>
     <div class="explore_lower_section">
         <div class="explore_restaurants_filters">
             <div class="explore_restaurants_filters_title">Filtrar por categoría</div>

@@ -24,7 +24,7 @@ def get_db_connection():
 #---------------------------------------------------------------------------
 
 # Dado un imported_id de un restaurante, devuelve la url de la página de ese restaurante
-@app.route('/restaurants/<imported_id>', methods=['GET'])
+@app.route('/restaurants-link/<imported_id>', methods=['GET'])
 def get_restaurant_url(imported_id):
     try:
         connection = get_db_connection()
@@ -60,8 +60,6 @@ def get_restaurant_reviews(imported_id):
     try:
         connection = get_db_connection()
         cursor = connection.cursor()
-
-       
         cursor.execute(f"SELECT * FROM reviews, restaurants \
                     WHERE ( \
                     reviewable_type='Restaurant' \
@@ -78,6 +76,7 @@ def get_restaurant_reviews(imported_id):
     except:
         return jsonify({'reviews': 'No existe el restaurante'}), 404
        
+        
 
 # Dado el imported_id de un plato, devuelve las reviews de los platos de ese restaurante
 @app.route('/reviews/dishes/<imported_id>', methods=['GET'])
@@ -88,6 +87,7 @@ def get_dishes_reviews(imported_id):
         cursor = connection.cursor()
 
        
+        
         cursor.execute(f"SELECT * FROM reviews, restaurants, dishes \
                     WHERE ( \
                     reviewable_type='Dish' \
@@ -151,6 +151,7 @@ def import_dish(imported_id_res, imported_id_dish, new_nombre_dish, new_descripc
                         )")
         dishImported = cursor.fetchone()
        
+        
         if dishImported:
             # El plato ya estaba importado, se actualiza
             cursor.execute(f"UPDATE dishes SET \
@@ -219,6 +220,7 @@ def import_restaurant(imported_id, new_nombre, new_telefono, new_categoria, new_
                         );")
         restaurantImported = cursor.fetchone()
        
+        
         if restaurantImported:
             # El restaurante ya estaba importado, se actualiza
             cursor.execute(f"UPDATE restaurants SET \
@@ -358,6 +360,7 @@ def unlink_dish(imported_id):
     except:
         return jsonify({'status': 'error'}), 500
    
+    
 
 
 

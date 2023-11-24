@@ -3,7 +3,6 @@
 </div>
 <%= render "form", restaurant: @restaurant %>
 <% if @restaurant.imported_id %>
-    <span>cagaste a malas</span>
 <% else %>
     <%= link_to restaurant_path(@restaurant.id), style: "text-decoration: none; display: flex; justify-content: center;", data: {turbo_method: :delete} do %>
         <div class="restaurants_header_edit_button" style="width: 700px; background-color: var(--delete-color);">

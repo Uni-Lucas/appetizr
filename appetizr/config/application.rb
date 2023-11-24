@@ -23,7 +23,14 @@ module Appetizr
     config.exceptions_app = self.routes
     config.action_dispatch.show_exceptions = true
 
-    config.promoted_restaurant = 1
+    config.promoted_restaurant = 41
+    config.EINAEATS_WEB = "https://www.einaeats.com"
+    config.EINAEATS_GO_TO_RESTAURANT = "https://www.einaeats.com/platosrestaurantes"
+    config.EINAEATS_LOGIN = "https://www.einaeats.com/login"
+    config.EINAEATS_GET_ALL_DISHES_FROM_RESTAURANT = "https://www.einaeats.com/api/v1/dishes"
+    config.EINAEATS_GET_ALL_RESTAURANTS = "https://www.einaeats.com/api/v1/restaurants"
+
+    config.APPETIZR_API = "https://apikoitz-c07343faff5f.herokuapp.com"
     
     # Configuration for the application, engines, and railties goes here.
     #
