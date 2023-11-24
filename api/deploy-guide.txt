@@ -1,0 +1,3 @@
+commit changes
+export env vars -> heroku config:set
+POSTGRESQL_ADDON_USER=$POSTGRESQL_ADDON_USER ...
