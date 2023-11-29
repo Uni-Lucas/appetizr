@@ -17,19 +17,19 @@
             <div>
                 <%= form.label :category, "Categoría", class: "my_account_form_label" %>
             <br>
-            <%= collection_select(:nombre, :categoria, Category.all, :nombre, :nombre, {:selected => @restaurant.categoria}) %> 
+                <%= collection_select(:nombre, :categoria, Category.all, :nombre, :nombre, {:selected => @restaurant.categoria}) %> 
             </div>
             <div>
-            <%= form.label :profile_pic, "Foto de perfil" %>
-            <%= image_tag @restaurant.profile_pic if @restaurant.profile_pic.attached? %>
-            <br>
-            <%= form.file_field :profile_pic %>
+                <%= form.label :profile_pic, "Foto de perfil" %>
+                <%= image_tag @restaurant.profile_pic if @restaurant.profile_pic.attached? %>
+                <br>
+                <%= form.file_field :profile_pic %>
             </div>
             <div>
-            <%= form.label :image, "Imagen de fondo del restaurante" %>
-            <%= image_tag(@restaurant.image, width: "300px") if @restaurant.image.attached? %>
-            <br>
-            <%= form.file_field :image %>
+                <%= form.label :image, "Imagen de fondo del restaurante" %>
+                <%= image_tag(@restaurant.image, width: "300px") if @restaurant.image.attached? %>
+                <br>
+                <%= form.file_field :image %>
             </div>
         </div>
         <div class="my_account_user_passwd" style="grid-column: 3">

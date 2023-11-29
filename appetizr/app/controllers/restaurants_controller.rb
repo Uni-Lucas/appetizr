@@ -19,7 +19,7 @@ class RestaurantsController < ApplicationController
         else
           @ratings = rats
         end
-      tops = Rank.select(:what, "AVG(valoracion) as total_valoracion").group(:what).order("total_valoracion DESC") 
+      tops = Rank.select(:what, "AVG(valoracion) as total_valoracion").group(:what).order("total_valoracion DESC").limit(5)
       @tops = tops.map{|r| Restaurant.find(r.what)}.compact
     end
 
