@@ -92,9 +92,10 @@ def get_dishes_reviews(imported_id):
                     WHERE ( \
                     reviewable_type='Dish' \
                     AND dishes.id = reviewable_id \
-                    AND dishes.imported_id='{imported_id}' \
+                    AND dishes.imported_id={imported_id} \
                         )")
         reviews_ = cursor.fetchall()
+        
         reviews = [{'autor': review[1], 'contenido': review[4], 'fecha': review[7]} for review in reviews_]
 
         cursor.close()
