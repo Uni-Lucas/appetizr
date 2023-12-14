@@ -22,6 +22,7 @@ bin/rails server
 
 ---------- RUN WITH DOCKER ----------
 
+---- Building image from code----
 docker build \
   --build-arg DB_HOST=$POSTGRESQL_ADDON_HOST \
   --build-arg DB_USER=$POSTGRESQL_ADDON_USER \
@@ -31,3 +32,7 @@ docker build \
   -t appetizr .
 
 docker run --network host -d --name appetizr appetizr
+
+---- Downloading image from DockerHub ----
+docker pull atreidesii/appetizr
+docker run --network host -d --name appetizr atreidesii/appetizr
