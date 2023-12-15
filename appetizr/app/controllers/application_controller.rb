@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     def subir_imagen(imagen)
         begin
           nombre_imagen = SecureRandom.hex(10) + File.extname(imagen.original_filename)
-          ruta = File.join("app", "assets", "images", nombre_imagen)
+          ruta = File.join("public", "images", nombre_imagen)
           File.open(ruta, "wb") do |f| 
              f.write(imagen.read)
           end

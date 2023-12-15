@@ -9,9 +9,9 @@
     <% @restaurant.dishes.each do |dish| %>
       <div class="restaurant_dish_container" onclick="window.location='<%= get_dish_path(dish) %>'" style="cursor: pointer;">
         <% if dish.ruta_img_plato.present? %>
-          <%= image_tag dish.ruta_img_plato, class: "restaurant_dish_img" %>
+          <%= image_tag "/images/"+dish.ruta_img_plato, class: "restaurant_dish_img" %>
         <% else %>
-          <%= image_tag "default-dish-img", class: "restaurant_dish_img" %>
+          <%= image_tag "/images/default-dish-img.jpg", class: "restaurant_dish_img" %>
         <% end %>
 
         <div class="restaurant_dish_content">

@@ -3,7 +3,7 @@
     <% if locals[:restaurant].ruta_img_fondo.present? %>
       <%= image_tag locals[:restaurant].ruta_img_fondo, class: "restaurants_img" %>
     <% else %>
-      <%= image_tag "Default-restaurant-img", class: "restaurants_img" %>
+      <%= image_tag "/images/Default-restaurant-img.jpg", class: "restaurants_img" %>
     <% end %>
   </div>
   <div class="restaurants_header_content">
@@ -14,7 +14,7 @@
       <div class="restaurant_rating_container">
         <% if locals[:ratings] %>
           <% locals[:ratings].floor.times do %>
-            <%= image_tag "Star", style: "width: 40px; height: 40px" %>
+            <%= image_tag "/images/Star.svg", style: "width: 40px; height: 40px" %>
           <% end %>
           <div class="restaurant_rating_text"> - <span><%= sprintf('%.1f', locals[:ratings]) %></span></div>
         <% end %>
@@ -53,7 +53,7 @@
       <% if locals[:restaurant].imported_id %>
         <%= link_to "#{Rails.application.config.EINAEATS_GO_TO_RESTAURANT}/#{locals[:restaurant].imported_id}" , style: "text-decoration: none" do %>
           <div class="restaurants_einaeats_button">
-            <%= image_tag "Bolsa-einaeats" %>
+            <%= image_tag "/images/Bolsa-einaeats.svg" %>
             <span class="restaurant_einaeats_button_text">Pedir en EinaEats</span>
           </div>
         <% end %>

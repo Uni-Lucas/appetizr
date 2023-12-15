@@ -56,16 +56,16 @@
             <% if @user.ruta_img_perfil.present? %>
                 <%= image_tag @user.ruta_img_perfil, class: "my_account_profile_img" %>
             <% else %>
-                <%= image_tag "default_profile_img", class: "my_account_profile_img" %>
+                <%= image_tag "/images/default_profile_img.jpg", class: "my_account_profile_img" %>
             <% end %>
             <label class="new_post_image_upload_button">
                 <%= form.file_field :ruta_img_perfil %>
-                <%= image_tag "image-icon", class: "new_post_image_upload_icon" %>
+                <%= image_tag "/images/image-icon.svg", class: "new_post_image_upload_icon" %>
                 <div class="new_post_image_upload_text">Modificar</div>
             </label>
         </div>
         <%= form.button type: :submit, class: "new_post_submit", style: "grid-column: span 3;" do %>
-            <%= image_tag "save", class: "new_post_submit_icon" %>
+            <%= image_tag "/images/save.png", class: "new_post_submit_icon" %>
             <div class="new_post_submit_text">Guardar</div>
         <% end %>
     </div>

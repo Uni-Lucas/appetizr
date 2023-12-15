@@ -19,7 +19,7 @@
       <div class="new_post_buttons">
         <label class="new_post_image_upload_button">
           <%= form.file_field :ruta_img %>
-          <%= image_tag "image-icon", class: "new_post_image_upload_icon" %>
+          <%= image_tag "/images/image-icon.svg", class: "new_post_image_upload_icon" %>
           <div class="new_post_image_upload_text">Añade una imagen</div>
         </label>
 
@@ -31,13 +31,13 @@
           <% 5.times.each do |i| %>
             <%= link_to restaurant_rank_path(restaurant_id: locals[:comment].reviewable_id, rank: i+1), class: "new_post_image_upload_button", data: {turbo_method: :post} do %>
               <span style="color: var(--white); font-family: var(--letra); font-size: 24px; "><%= i + 1 %></span>
-              <%= image_tag "Star", class: "new_post_submit_icon" %>
+              <%= image_tag "/images/Star.svg", class: "new_post_submit_icon" %>
             <% end %>
           <% end %>
         <% end %>
         
         <%= form.button type: :submit, class: "new_post_submit" do %>
-          <%= image_tag "send", class: "new_post_submit_icon" %>
+          <%= image_tag "/images/send.svg", class: "new_post_submit_icon" %>
           <div class="new_post_submit_text">Publicar</div>
         <% end %>
       </div>

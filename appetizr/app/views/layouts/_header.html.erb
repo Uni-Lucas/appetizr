@@ -1,12 +1,12 @@
 <header class="header">
     <div>
         <%= link_to root_path do %>
-            <%= image_tag "Appetizr-logo", class: "logo" %>
+            <%= image_tag "/images/Appetizr-logo.png", class: "logo" %>
         <% end %>
     </div>
     
     <div class="search_bar">
-    <%= image_tag "search-logo" %>
+    <%= image_tag "/images/search-logo.svg" %>
     <%= form_tag search_restaurants_path, method: :get do %>
         <%= text_field_tag :search, params[:search], placeholder: "¿Cuál es tu restaurante favorito?", class: "search_bar_field", autocomplete: "off" %>
     <% end %>

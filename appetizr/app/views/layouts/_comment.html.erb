@@ -6,22 +6,22 @@
           <% if get_comment_type(comment) == "Post" and comment.restaurant_id.present? %>
             <% if get_restaurant_of_post(comment).ruta_img_fondo.present? %>
               <div class="comment_author_img_container">
-                <%= image_tag get_restaurant_of_post(comment).ruta_img_fondo, class: "comment_author_img" %>
+                <%= image_tag "/images/"+get_restaurant_of_post(comment).ruta_img_fondo, class: "comment_author_img" %>
               </div>
             <% else %>
               <div class="comment_author_img_container">
-                <%= image_tag "Default-restaurant-img", class: "comment_author_img" %>
+                <%= image_tag "/images/Default-restaurant-img.jpg", class: "comment_author_img" %>
               </div>
             <% end %>
 
           <% else %>
             <% if get_user_of_comment(comment).ruta_img_perfil.present? %>
               <div class="comment_author_img_container">
-                <%= image_tag get_user_of_comment(comment).ruta_img_perfil, class: "comment_author_img" %>
+                <%= image_tag "/images/"+get_user_of_comment(comment).ruta_img_perfil, class: "comment_author_img" %>
               </div>
             <% else %>
               <div class="comment_author_img_container">
-                <%= image_tag "default_profile_img", class: "comment_author_img" %>
+                <%= image_tag "/images/default_profile_img.jpg", class: "comment_author_img" %>
               </div>
             <% end %>
           <% end %>
@@ -38,12 +38,12 @@
         <% if (session[:username] == comment.autor || soy_admin?) %>
             <%= link_to "Eliminar", get_delete_comment_path(comment), class: "delete_button", data: {turbo_method: :delete} %>
         <% else %>
-            <%= image_tag "Feather_more-vertical", class: "three_dots" %>
+            <%= image_tag "/images/Feather_more-vertical.svg", class: "three_dots" %>
         <% end %>
       </div>
       <div class="comment_content"><%= comment.contenido %></div>
       <% if comment.ruta_img.present? %>
-        <%= image_tag comment.ruta_img, class: "comment_image" %>
+        <%= image_tag "/images/"+comment.ruta_img, class: "comment_image" %>
       <% end %>
       <div class="comment_actions_row">
         <div class="comment_action_item">
@@ -55,7 +55,7 @@
         <% if is_not_response(comment) %>
           <div class="comment_action_item">
             <%= link_to get_response_path(comment), style: "text-decoration: none; color: black;" do %>
-              <%= image_tag "Message-square", class: "comment_action_logo" %>
+              <%= image_tag "/images/Message-square.svg", class: "comment_action_logo" %>
               <span><%= locals[:reactions][comment.id][:responses] %></span>
             <% end %>
           </div>

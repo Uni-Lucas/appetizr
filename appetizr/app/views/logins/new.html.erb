@@ -2,11 +2,11 @@
   <h1 class="log_in_title">DESCUBRE LA COMUNIDAD DE APPETIZR</h1>
   <%= form_with url: login_path, html: {style: "row-gap: 20px"} do |form| %>
     <div class="log_in_text_field_wrapper">
-      <%= image_tag "login-username", class: "log_in_text_field_icon" %>
+      <%= image_tag "/images/login-username.svg", class: "log_in_text_field_icon" %>
       <%= form.text_field :nombre, placeholder: "NOMBRE DE USUARIO", class: "log_in_text_field_field" %>
     </div>
     <div class="log_in_text_field_wrapper">
-      <%= image_tag "login-password", class: "log_in_text_field_icon" %>
+      <%= image_tag "/images/login-password.svg", class: "log_in_text_field_icon" %>
       <%= form.password_field :password, placeholder: "CONTRASEÑA", class: "log_in_text_field_field" %>
     </div>
     <div>

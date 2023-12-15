@@ -2,21 +2,21 @@
   <div>
     <li>
       <%= link_to categories_path, class: "sidenav_element" do %>
-        <%= image_tag "Categories-logo", class: "sidenav_element_icon" %>
+        <%= image_tag "/images/Categories-logo.svg", class: "sidenav_element_icon" %>
         <div class="sidenav_element_text">Categorías</div>
       <% end %>
     </li>
 
     <li>
       <%= link_to restaurants_path, class: "sidenav_element" do %>
-        <%= image_tag "Explore-logo", class: "sidenav_element_icon"%>
+        <%= image_tag "/images/Explore-logo.svg", class: "sidenav_element_icon"%>
         <div class="sidenav_element_text">Explorar</div>
       <% end %>
     </li>
 
     <li>
       <%= link_to nearme_path, class: "sidenav_element" do %>
-        <%= image_tag "Nearme-logo", class: "sidenav_element_icon" %>
+        <%= image_tag "/images/Nearme-logo.svg", class: "sidenav_element_icon" %>
         <div class="sidenav_element_text">Cerca de Mi</div>
       <% end %>
     </li>
@@ -25,7 +25,7 @@
     <% if user_has_restaurants() %> 
       <li>
         <%= link_to "/users/mis_restaurantes", id: "mis_restaurantes", class: "sidenav_element" do %>
-          <%= image_tag "my-restaurant", class: "sidenav_element_icon" %>
+          <%= image_tag "/images/my-restaurant.svg", class: "sidenav_element_icon" %>
           <div id="mis_restaurantes_text", class="sidenav_element_text">Restaurantes</div>
         <% end %>
       </li>
@@ -33,7 +33,7 @@
 
     <li>
       <%= link_to nearme_path, id: "location", class: "sidenav_element" do %>
-        <%= image_tag "Dark-Nearme-logo", class: "sidenav_element_icon" %>
+        <%= image_tag "/images/Dark-Nearme-logo.svg", class: "sidenav_element_icon" %>
         <div id="location_text", class="sidenav_element_text">Zaragoza</div>
       <% end %>
     </li>
@@ -41,14 +41,14 @@
     <% if logged_in? %>
       <li>
         <%= link_to user_path(session[:username]), id: "my_account_cont", class: "sidenav_element" do %>
-          <%= image_tag "Account-logo", id: "my_account_icon", class: "sidenav_element_icon" %>
+          <%= image_tag "/images/Account-logo.svg", id: "my_account_icon", class: "sidenav_element_icon" %>
           <div id="my_account", class="sidenav_element_text">Mi cuenta</div>
         <% end %>
       </li>
     <% else %>
       <li>
         <%= link_to '/login', method: 'get', id: "my_account_cont", class: "sidenav_element" do %>
-          <%= image_tag "Account-logo", id: "my_account_icon", class: "sidenav_element_icon" %>
+          <%= image_tag "/images/Account-logo.svg", id: "my_account_icon", class: "sidenav_element_icon" %>
           <div id="my_account", class="sidenav_element_text">Entrar</div>
         <% end %>
       </li>

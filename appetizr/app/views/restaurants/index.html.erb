@@ -14,9 +14,9 @@
         <div class="explore_top_section_title">Restaurante promocionado</div>
         <div class="explore_promoted_restaurant_box">
             <% if @promoted_restaurant.ruta_img_fondo.present? %>
-                <%= image_tag @promoted_restaurant.ruta_img_fondo, class: "explore_promoted_restaurant_image" %>
+                <%= image_tag "/images/"+@promoted_restaurant.ruta_img_fondo, class: "explore_promoted_restaurant_image" %>
             <% else %>
-                <%= image_tag "Default-restaurant-img", class: "explore_promoted_restaurant_image" %>
+                <%= image_tag "/images/Default-restaurant-img.jpg", class: "explore_promoted_restaurant_image" %>
             <% end %>
             <div class="explore_promoted_restaurant_info">
                 <div>
@@ -27,7 +27,7 @@
                     <div class="explore_promoted_restaurant_stars">
                         <% if @ratings && !@ratings.select {|r| r.what == @promoted_restaurant.id}.empty? %>
                             <% @ratings.select {|r| r.what == @promoted_restaurant.id}[0][:rest_val].floor.times do %> 
-                            <%= image_tag "Star", style: "width: 25px; height: 25px" %>
+                            <%= image_tag "/images/Star.svg", style: "width: 25px; height: 25px" %>
                         <% end %>
                         <% end %>
                     </div>
@@ -35,7 +35,7 @@
                 <div>
                 <% if @promoted_restaurant.imported_id.present? %>
                     <%= link_to "#{Rails.application.config.EINAEATS_GO_TO_RESTAURANT}/#{@promoted_restaurant.imported_id}", class: "restaurants_einaeats_button" do %>
-                        <%= image_tag "Bolsa-einaeats" %>
+                        <%= image_tag "/images/Bolsa-einaeats.svg" %>
                         <span class="restaurant_einaeats_button_text">Pedir en EinaEats</span>
                     <% end %>
                 <% end %>
@@ -74,9 +74,9 @@
                 <%= link_to restaurant_path(restaurant), style: "text-decoration: none;" do %>
                     <div class="explore_restaurants_box">
                         <% if restaurant.ruta_img_fondo %>
-                            <%= image_tag restaurant.ruta_img_fondo, class: "explore_restaurants_box_image" %>
+                            <%= image_tag "/images/"+restaurant.ruta_img_fondo, class: "explore_restaurants_box_image" %>
                         <% else %>
-                            <%= image_tag "Default-restaurant-img", class: "explore_restaurants_box_image" %>
+                            <%= image_tag "/images/Default-restaurant-img.jpg", class: "explore_restaurants_box_image" %>
                         <% end %>
                         <div style="display: flex;flex-direction: column;justify-content: center;align-items: center;height: 100%;gap: 5px;">
                             <div class="explore_restaurant_box_name"><%= restaurant.nombre %></div>
@@ -84,7 +84,7 @@
                             <div>
                                 <% if @ratings && !@ratings.select {|r| r.what == restaurant.id}.empty? %>
                                     <% @ratings.select {|r| r.what == restaurant.id}[0][:rest_val].floor.times do %> 
-                                    <%= image_tag "Star", style: "width: 25px; height: 25px" %>
+                                    <%= image_tag "/images/Star.svg", style: "width: 25px; height: 25px" %>
                                 <% end %>
                                 <% end %>
                             </div>

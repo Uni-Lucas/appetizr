@@ -12,9 +12,9 @@
       <%= link_to category_path(category) do %>
         <div class="category_box">
           <% if category.ruta_img.present? %>
-            <%= image_tag category.ruta_img, class: "category_image" %>
+            <%= image_tag "/images/"+category.ruta_img, class: "category_image" %>
           <% else %>
-            <%= image_tag "burger-category", class: "category_image" %>
+            <%= image_tag "/images/burger-category.png", class: "category_image" %>
           <% end %>
           <div class="category_name"><%= category.nombre %></div>
         </div>

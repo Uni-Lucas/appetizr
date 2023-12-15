@@ -12,7 +12,7 @@
           <% if restaurant.ruta_img_fondo.present? %>
             <%= image_tag restaurant.ruta_img_fondo, class: "category_image" %>
           <% else %>
-            <%= image_tag "Default-restaurant-img", class: "category_image" %>
+            <%= image_tag "/images/Default-restaurant-img.jpg", class: "category_image" %>
           <% end %>
           <div class="category_name"><%= restaurant.nombre %></div>
         </div>

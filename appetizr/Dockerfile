@@ -19,7 +19,8 @@ ENV PQL_USER=$DB_USER
 ENV PQL_PASSWORD=$DB_PASSWORD
 ENV PQL_PORT=$DB_PORT
 # Set production environment
-ENV RAILS_ENV="development" \
+ENV RAILS_ENV="production" \
+    SECRET_KEY_BASE="0dd007bde7e726d657a421f5c14a0ba69e2e6490c542173f41b9eae6c93186bd1981ec7da02d8b345c2260cab6cb66b9c1264bf825b49242bcb961cd2c11d4f3" \
     BUNDLE_DEPLOYMENT="1" \
     BUNDLE_PATH="/usr/local/bundle" \
     BUNDLE_WITHOUT="development" \
@@ -68,6 +69,7 @@ COPY --from=build /rails /rails
 # Run and own only the runtime files as a non-root user for security
 RUN useradd rails --create-home --shell /bin/bash && \
     chown -R rails:rails db log storage tmp
+RUN chown -R rails:rails /rails/public
 USER rails:rails
 
 # Entrypoint prepares the database.

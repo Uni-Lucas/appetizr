@@ -27,4 +27,3 @@ test:
 
 production:
   <<: *default
-  database: storage/production.sqlite3
