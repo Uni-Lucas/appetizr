@@ -30,7 +30,7 @@ Rails.application.routes.draw do
   get '/logout',  to: 'logins#destroy'
 
   resources :reactions, only: [:create, :update]
-  resources :responses, only: [:new, :create]
+  resources :responses, only: [:new, :create, :destroy]
   
   get '/nearme', to: 'nearme#index', as: 'nearme'
 

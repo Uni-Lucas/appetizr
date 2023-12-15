@@ -78,6 +78,8 @@ module ApplicationHelper
         return post_path(comment.id)
       elsif type == "Review"
         return review_path(comment.id)
+      else
+        return response_path(comment.id)
       end
     end
 
