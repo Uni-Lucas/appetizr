@@ -23,7 +23,7 @@ module Appetizr
     config.action_dispatch.show_exceptions = true
 
     config.promoted_restaurant = 41
-    config.EINAEATS_WEB = "http://localhost:8080/api/link_restaurante"
+    config.EINAEATS_WEB = "http://localhost:8080/login-integration"
     config.EINAEATS_GO_TO_RESTAURANT = "http://localhost:8080/platosrestaurante"
     config.EINAEATS_LOGIN = "http://localhost:8080/login"
     config.EINAEATS_GET_ALL_DISHES_FROM_RESTAURANT = "http://localhost:8080/api/v1/dishes"
