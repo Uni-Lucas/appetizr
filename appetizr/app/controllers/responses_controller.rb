@@ -29,6 +29,12 @@ class ResponsesController < ApplicationController
     end
   end
 
+  def destroy
+    response = Response.find(params[:id])
+    response.destroy
+    redirect_to request.referer
+  end
+
   private
 
   def get_original_comment(id, type)
