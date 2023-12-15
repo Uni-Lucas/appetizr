@@ -13,13 +13,8 @@
 <%= form_with model: @user  do |form| %>
     <div class="my_account_form_container">
         <div class="my_account_user_passwd">
-            <div style="padding-bottom: 10px;">
-                <%= form.label :nombre, "Nombre de usuario", class: "my_account_form_label" %>
-            <br>
-                <%= form.text_field :nombre, class: "my_account_form_text_field" %>
-            </div>
             <div>
-                <%= form.label :password, "Contraseña", class: "my_account_form_label" %>
+                <%= form.label :password, "Modificar contraseña", class: "my_account_form_label", style: "padding-left: 10px" %>
             <br>
                 <%= form.password_field :password, class: "my_account_form_text_field" %>
             </div>

@@ -14,5 +14,4 @@ class User < ApplicationRecord
     responses.destroy
     reactions.delete
   end
-
 end
