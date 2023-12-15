@@ -1,0 +1,14 @@
+version: '2.2'
+services:
+  appetizr:
+    image: 'atreidesii/appetizr'
+    ports:
+      - '80:3000'
+  eina_eats:
+    image: 'garicore01/eina_eats'
+    ports:
+      - '8080:3000'
+  api_eina_eats:
+    image: 'garicore01/api_eina_eats'
+    ports:
+      - '5000:5000'

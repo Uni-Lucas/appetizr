@@ -23,11 +23,11 @@ module Appetizr
     config.action_dispatch.show_exceptions = true
 
     config.promoted_restaurant = 41
-    config.EINAEATS_WEB = "https://www.einaeats.com"
-    config.EINAEATS_GO_TO_RESTAURANT = "https://www.einaeats.com/platosrestaurantes"
+    config.EINAEATS_WEB = "http://localhost:8080/api/link_restaurante"
+    config.EINAEATS_GO_TO_RESTAURANT = "http://localhost:8080/platosrestaurante"
     config.EINAEATS_LOGIN = "https://www.einaeats.com/login"
-    config.EINAEATS_GET_ALL_DISHES_FROM_RESTAURANT = "https://www.einaeats.com/api/v1/dishes"
-    config.EINAEATS_GET_ALL_RESTAURANTS = "https://www.einaeats.com/api/v1/restaurants"
+    config.EINAEATS_GET_ALL_DISHES_FROM_RESTAURANT = "http://localhost:8080/api/v1/dishes"
+    config.EINAEATS_GET_ALL_RESTAURANTS = "http://localhost:8080/api/v1/restaurants"
 
     config.APPETIZR_API = "https://apikoitz-c07343faff5f.herokuapp.com"
     
